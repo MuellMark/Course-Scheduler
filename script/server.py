@@ -10,6 +10,7 @@ def index():
 def my_link():
   print ('I got clicked!')
   webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')  # Go to example.com
+  return ("You got it")
 
 if __name__ == '__main__':
   app.run(debug=True)

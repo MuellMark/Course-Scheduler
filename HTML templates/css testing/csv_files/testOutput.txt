@@ -1,0 +1,2641 @@
+Problem:    
+Rows:       1051
+Columns:    280 (280 integer, 280 binary)
+Non-zeros:  4042
+Status:     INTEGER OPTIMAL
+Objective:  preferences = 18 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 CS11                        1             1             = 
+     2 CS21                        1             1             = 
+     3 DIS1                        1             1             = 
+     4 ORG1                        1             1             = 
+     5 PRL1                        1             1             = 
+     6 ALG1                        1             1             = 
+     7 SYS1                        1             1             = 
+     8 CAP1                        1             1             = 
+     9 ARI1                        1             1             = 
+    10 TOC1                        1             1             = 
+    11 DAT1                        1             1             = 
+    12 OPR1                        1             1             = 
+    13 NUA1                        1             1             = 
+    14 EXP1                        1             1             = 
+    15 m800col1                    1                           1 
+    16 m930col1                    1                           1 
+    17 m1100col1                   1                           1 
+    18 m200col1                    1                           1 
+    19 m330col1                    1                           1 
+    20 t830col1                    1                           1 
+    21 t1000col1                   1                           1 
+    22 t1130col1                   1                           1 
+    23 t100col1                    1                           1 
+    24 t230col1                    1                           1 
+    25 m800col2                    0                           1 
+    26 m930col2                    1                           1 
+    27 m1100col2                   1                           1 
+    28 m200col2                    1                           1 
+    29 m330col2                    0                           1 
+    30 t830col2                    0                           1 
+    31 t1000col2                   0                           1 
+    32 t1130col2                   0                           1 
+    33 t100col2                    0                           1 
+    34 t230col2                    1                           1 
+    35 Col1                       10                          10 
+    36 Col2                        4                          10 
+    37 Col1First                  96            90               
+    38 CS114HRcol1                 0             0             = 
+    39 CS114HRcol2                 0             0             = 
+    40 CS11&CS21m800
+                                   0                           1 
+    41 CS11&CS21m930
+                                   1                           1 
+    42 CS11&CS21m1100
+                                   0                           1 
+    43 CS11&CS21m200
+                                   1                           1 
+    44 CS11&CS21m330
+                                   0                           1 
+    45 CS11&CS21t830
+                                   0                           1 
+    46 CS11&CS21t1000
+                                   0                           1 
+    47 CS11&CS21t1130
+                                   0                           1 
+    48 CS11&CS21t100
+                                   0                           1 
+    49 CS11&CS21t230
+                                   0                           1 
+    50 CS11&EXP1m800
+                                   0                           1 
+    51 CS11&EXP1m930
+                                   1                           1 
+    52 CS11&EXP1m1100
+                                   0                           1 
+    53 CS11&EXP1m200
+                                   0                           1 
+    54 CS11&EXP1m330
+                                   1                           1 
+    55 CS11&EXP1t830
+                                   0                           1 
+    56 CS11&EXP1t1000
+                                   0                           1 
+    57 CS11&EXP1t1130
+                                   0                           1 
+    58 CS11&EXP1t100
+                                   0                           1 
+    59 CS11&EXP1t230
+                                   0                           1 
+    60 CS11&ORG1m800
+                                   0                           1 
+    61 CS11&ORG1m930
+                                   1                           1 
+    62 CS11&ORG1m1100
+                                   1                           1 
+    63 CS11&ORG1m200
+                                   0                           1 
+    64 CS11&ORG1m330
+                                   0                           1 
+    65 CS11&ORG1t830
+                                   0                           1 
+    66 CS11&ORG1t1000
+                                   0                           1 
+    67 CS11&ORG1t1130
+                                   0                           1 
+    68 CS11&ORG1t100
+                                   0                           1 
+    69 CS11&ORG1t230
+                                   0                           1 
+    70 CS11&ALG1m800
+                                   0                           1 
+    71 CS11&ALG1m930
+                                   1                           1 
+    72 CS11&ALG1m1100
+                                   0                           1 
+    73 CS11&ALG1m200
+                                   0                           1 
+    74 CS11&ALG1m330
+                                   0                           1 
+    75 CS11&ALG1t830
+                                   1                           1 
+    76 CS11&ALG1t1000
+                                   0                           1 
+    77 CS11&ALG1t1130
+                                   0                           1 
+    78 CS11&ALG1t100
+                                   0                           1 
+    79 CS11&ALG1t230
+                                   0                           1 
+    80 CS11m330Invalid
+                                   0             0             = 
+    81 CS214HRcol1                 0             0             = 
+    82 CS214HRcol2                 0             0             = 
+    83 CS21&EXP1m800
+                                   0                           1 
+    84 CS21&EXP1m930
+                                   0                           1 
+    85 CS21&EXP1m1100
+                                   0                           1 
+    86 CS21&EXP1m200
+                                   1                           1 
+    87 CS21&EXP1m330
+                                   1                           1 
+    88 CS21&EXP1t830
+                                   0                           1 
+    89 CS21&EXP1t1000
+                                   0                           1 
+    90 CS21&EXP1t1130
+                                   0                           1 
+    91 CS21&EXP1t100
+                                   0                           1 
+    92 CS21&EXP1t230
+                                   0                           1 
+    93 CS21&ORG1m800
+                                   0                           1 
+    94 CS21&ORG1m930
+                                   0                           1 
+    95 CS21&ORG1m1100
+                                   1                           1 
+    96 CS21&ORG1m200
+                                   1                           1 
+    97 CS21&ORG1m330
+                                   0                           1 
+    98 CS21&ORG1t830
+                                   0                           1 
+    99 CS21&ORG1t1000
+                                   0                           1 
+   100 CS21&ORG1t1130
+                                   0                           1 
+   101 CS21&ORG1t100
+                                   0                           1 
+   102 CS21&ORG1t230
+                                   0                           1 
+   103 CS21&ALG1m800
+                                   0                           1 
+   104 CS21&ALG1m930
+                                   0                           1 
+   105 CS21&ALG1m1100
+                                   0                           1 
+   106 CS21&ALG1m200
+                                   1                           1 
+   107 CS21&ALG1m330
+                                   0                           1 
+   108 CS21&ALG1t830
+                                   1                           1 
+   109 CS21&ALG1t1000
+                                   0                           1 
+   110 CS21&ALG1t1130
+                                   0                           1 
+   111 CS21&ALG1t100
+                                   0                           1 
+   112 CS21&ALG1t230
+                                   0                           1 
+   113 CS21m330Invalid
+                                   0             0             = 
+   114 DIS1&ORG1m800
+                                   0                           1 
+   115 DIS1&ORG1m930
+                                   0                           1 
+   116 DIS1&ORG1m1100
+                                   1                           1 
+   117 DIS1&ORG1m200
+                                   0                           1 
+   118 DIS1&ORG1m330
+                                   0                           1 
+   119 DIS1&ORG1t830
+                                   0                           1 
+   120 DIS1&ORG1t1000
+                                   0                           1 
+   121 DIS1&ORG1t1130
+                                   0                           1 
+   122 DIS1&ORG1t100
+                                   0                           1 
+   123 DIS1&ORG1t230
+                                   1                           1 
+   124 DIS1&PRL1m800
+                                   1                           1 
+   125 DIS1&PRL1m930
+                                   0                           1 
+   126 DIS1&PRL1m1100
+                                   0                           1 
+   127 DIS1&PRL1m200
+                                   0                           1 
+   128 DIS1&PRL1m330
+                                   0                           1 
+   129 DIS1&PRL1t830
+                                   0                           1 
+   130 DIS1&PRL1t1000
+                                   0                           1 
+   131 DIS1&PRL1t1130
+                                   0                           1 
+   132 DIS1&PRL1t100
+                                   0                           1 
+   133 DIS1&PRL1t230
+                                   1                           1 
+   134 DIS1&ARI1m800
+                                   0                           1 
+   135 DIS1&ARI1m930
+                                   0                           1 
+   136 DIS1&ARI1m1100
+                                   0                           1 
+   137 DIS1&ARI1m200
+                                   1                           1 
+   138 DIS1&ARI1m330
+                                   0                           1 
+   139 DIS1&ARI1t830
+                                   0                           1 
+   140 DIS1&ARI1t1000
+                                   0                           1 
+   141 DIS1&ARI1t1130
+                                   0                           1 
+   142 DIS1&ARI1t100
+                                   0                           1 
+   143 DIS1&ARI1t230
+                                   1                           1 
+   144 DIS1&TOC1m800
+                                   0                           1 
+   145 DIS1&TOC1m930
+                                   0                           1 
+   146 DIS1&TOC1m1100
+                                   0                           1 
+   147 DIS1&TOC1m200
+                                   0                           1 
+   148 DIS1&TOC1m330
+                                   0                           1 
+   149 DIS1&TOC1t830
+                                   0                           1 
+   150 DIS1&TOC1t1000
+                                   1                           1 
+   151 DIS1&TOC1t1130
+                                   0                           1 
+   152 DIS1&TOC1t100
+                                   0                           1 
+   153 DIS1&TOC1t230
+                                   1                           1 
+   154 DIS1&DAT1m800
+                                   0                           1 
+   155 DIS1&DAT1m930
+                                   0                           1 
+   156 DIS1&DAT1m1100
+                                   0                           1 
+   157 DIS1&DAT1m200
+                                   0                           1 
+   158 DIS1&DAT1m330
+                                   0                           1 
+   159 DIS1&DAT1t830
+                                   0                           1 
+   160 DIS1&DAT1t1000
+                                   0                           1 
+   161 DIS1&DAT1t1130
+                                   1                           1 
+   162 DIS1&DAT1t100
+                                   0                           1 
+   163 DIS1&DAT1t230
+                                   1                           1 
+   164 DIS1&OPR1m800
+                                   0                           1 
+   165 DIS1&OPR1m930
+                                   1                           1 
+   166 DIS1&OPR1m1100
+                                   0                           1 
+   167 DIS1&OPR1m200
+                                   0                           1 
+   168 DIS1&OPR1m330
+                                   0                           1 
+   169 DIS1&OPR1t830
+                                   0                           1 
+   170 DIS1&OPR1t1000
+                                   0                           1 
+   171 DIS1&OPR1t1130
+                                   0                           1 
+   172 DIS1&OPR1t100
+                                   0                           1 
+   173 DIS1&OPR1t230
+                                   1                           1 
+   174 DIS1&NUA1m800
+                                   0                           1 
+   175 DIS1&NUA1m930
+                                   0                           1 
+   176 DIS1&NUA1m1100
+                                   0                           1 
+   177 DIS1&NUA1m200
+                                   0                           1 
+   178 DIS1&NUA1m330
+                                   0                           1 
+   179 DIS1&NUA1t830
+                                   0                           1 
+   180 DIS1&NUA1t1000
+                                   0                           1 
+   181 DIS1&NUA1t1130
+                                   0                           1 
+   182 DIS1&NUA1t100
+                                   1                           1 
+   183 DIS1&NUA1t230
+                                   1                           1 
+   184 DIS1m330Invalid
+                                   0             0             = 
+   185 ORG14HRcol1                 0             0             = 
+   186 ORG14HRcol2                 0             0             = 
+   187 ORG1&PRL1m800
+                                   1                           1 
+   188 ORG1&PRL1m930
+                                   0                           1 
+   189 ORG1&PRL1m1100
+                                   1                           1 
+   190 ORG1&PRL1m200
+                                   0                           1 
+   191 ORG1&PRL1m330
+                                   0                           1 
+   192 ORG1&PRL1t830
+                                   0                           1 
+   193 ORG1&PRL1t1000
+                                   0                           1 
+   194 ORG1&PRL1t1130
+                                   0                           1 
+   195 ORG1&PRL1t100
+                                   0                           1 
+   196 ORG1&PRL1t230
+                                   0                           1 
+   197 ORG1&ARI1m800
+                                   0                           1 
+   198 ORG1&ARI1m930
+                                   0                           1 
+   199 ORG1&ARI1m1100
+                                   1                           1 
+   200 ORG1&ARI1m200
+                                   1                           1 
+   201 ORG1&ARI1m330
+                                   0                           1 
+   202 ORG1&ARI1t830
+                                   0                           1 
+   203 ORG1&ARI1t1000
+                                   0                           1 
+   204 ORG1&ARI1t1130
+                                   0                           1 
+   205 ORG1&ARI1t100
+                                   0                           1 
+   206 ORG1&ARI1t230
+                                   0                           1 
+   207 ORG1&TOC1m800
+                                   0                           1 
+   208 ORG1&TOC1m930
+                                   0                           1 
+   209 ORG1&TOC1m1100
+                                   1                           1 
+   210 ORG1&TOC1m200
+                                   0                           1 
+   211 ORG1&TOC1m330
+                                   0                           1 
+   212 ORG1&TOC1t830
+                                   0                           1 
+   213 ORG1&TOC1t1000
+                                   1                           1 
+   214 ORG1&TOC1t1130
+                                   0                           1 
+   215 ORG1&TOC1t100
+                                   0                           1 
+   216 ORG1&TOC1t230
+                                   0                           1 
+   217 ORG1&DAT1m800
+                                   0                           1 
+   218 ORG1&DAT1m930
+                                   0                           1 
+   219 ORG1&DAT1m1100
+                                   1                           1 
+   220 ORG1&DAT1m200
+                                   0                           1 
+   221 ORG1&DAT1m330
+                                   0                           1 
+   222 ORG1&DAT1t830
+                                   0                           1 
+   223 ORG1&DAT1t1000
+                                   0                           1 
+   224 ORG1&DAT1t1130
+                                   1                           1 
+   225 ORG1&DAT1t100
+                                   0                           1 
+   226 ORG1&DAT1t230
+                                   0                           1 
+   227 ORG1&OPR1m800
+                                   0                           1 
+   228 ORG1&OPR1m930
+                                   1                           1 
+   229 ORG1&OPR1m1100
+                                   1                           1 
+   230 ORG1&OPR1m200
+                                   0                           1 
+   231 ORG1&OPR1m330
+                                   0                           1 
+   232 ORG1&OPR1t830
+                                   0                           1 
+   233 ORG1&OPR1t1000
+                                   0                           1 
+   234 ORG1&OPR1t1130
+                                   0                           1 
+   235 ORG1&OPR1t100
+                                   0                           1 
+   236 ORG1&OPR1t230
+                                   0                           1 
+   237 ORG1&NUA1m800
+                                   0                           1 
+   238 ORG1&NUA1m930
+                                   0                           1 
+   239 ORG1&NUA1m1100
+                                   1                           1 
+   240 ORG1&NUA1m200
+                                   0                           1 
+   241 ORG1&NUA1m330
+                                   0                           1 
+   242 ORG1&NUA1t830
+                                   0                           1 
+   243 ORG1&NUA1t1000
+                                   0                           1 
+   244 ORG1&NUA1t1130
+                                   0                           1 
+   245 ORG1&NUA1t100
+                                   1                           1 
+   246 ORG1&NUA1t230
+                                   0                           1 
+   247 ORG1&EXP1m800
+                                   0                           1 
+   248 ORG1&EXP1m930
+                                   0                           1 
+   249 ORG1&EXP1m1100
+                                   1                           1 
+   250 ORG1&EXP1m200
+                                   0                           1 
+   251 ORG1&EXP1m330
+                                   1                           1 
+   252 ORG1&EXP1t830
+                                   0                           1 
+   253 ORG1&EXP1t1000
+                                   0                           1 
+   254 ORG1&EXP1t1130
+                                   0                           1 
+   255 ORG1&EXP1t100
+                                   0                           1 
+   256 ORG1&EXP1t230
+                                   0                           1 
+   257 ORG1&ALG1m800
+                                   0                           1 
+   258 ORG1&ALG1m930
+                                   0                           1 
+   259 ORG1&ALG1m1100
+                                   1                           1 
+   260 ORG1&ALG1m200
+                                   0                           1 
+   261 ORG1&ALG1m330
+                                   0                           1 
+   262 ORG1&ALG1t830
+                                   1                           1 
+   263 ORG1&ALG1t1000
+                                   0                           1 
+   264 ORG1&ALG1t1130
+                                   0                           1 
+   265 ORG1&ALG1t100
+                                   0                           1 
+   266 ORG1&ALG1t230
+                                   0                           1 
+   267 ORG1m330Invalid
+                                   0             0             = 
+   268 PRL1&ARI1m800
+                                   1                           1 
+   269 PRL1&ARI1m930
+                                   0                           1 
+   270 PRL1&ARI1m1100
+                                   0                           1 
+   271 PRL1&ARI1m200
+                                   1                           1 
+   272 PRL1&ARI1m330
+                                   0                           1 
+   273 PRL1&ARI1t830
+                                   0                           1 
+   274 PRL1&ARI1t1000
+                                   0                           1 
+   275 PRL1&ARI1t1130
+                                   0                           1 
+   276 PRL1&ARI1t100
+                                   0                           1 
+   277 PRL1&ARI1t230
+                                   0                           1 
+   278 PRL1&TOC1m800
+                                   1                           1 
+   279 PRL1&TOC1m930
+                                   0                           1 
+   280 PRL1&TOC1m1100
+                                   0                           1 
+   281 PRL1&TOC1m200
+                                   0                           1 
+   282 PRL1&TOC1m330
+                                   0                           1 
+   283 PRL1&TOC1t830
+                                   0                           1 
+   284 PRL1&TOC1t1000
+                                   1                           1 
+   285 PRL1&TOC1t1130
+                                   0                           1 
+   286 PRL1&TOC1t100
+                                   0                           1 
+   287 PRL1&TOC1t230
+                                   0                           1 
+   288 PRL1&DAT1m800
+                                   1                           1 
+   289 PRL1&DAT1m930
+                                   0                           1 
+   290 PRL1&DAT1m1100
+                                   0                           1 
+   291 PRL1&DAT1m200
+                                   0                           1 
+   292 PRL1&DAT1m330
+                                   0                           1 
+   293 PRL1&DAT1t830
+                                   0                           1 
+   294 PRL1&DAT1t1000
+                                   0                           1 
+   295 PRL1&DAT1t1130
+                                   1                           1 
+   296 PRL1&DAT1t100
+                                   0                           1 
+   297 PRL1&DAT1t230
+                                   0                           1 
+   298 PRL1&OPR1m800
+                                   1                           1 
+   299 PRL1&OPR1m930
+                                   1                           1 
+   300 PRL1&OPR1m1100
+                                   0                           1 
+   301 PRL1&OPR1m200
+                                   0                           1 
+   302 PRL1&OPR1m330
+                                   0                           1 
+   303 PRL1&OPR1t830
+                                   0                           1 
+   304 PRL1&OPR1t1000
+                                   0                           1 
+   305 PRL1&OPR1t1130
+                                   0                           1 
+   306 PRL1&OPR1t100
+                                   0                           1 
+   307 PRL1&OPR1t230
+                                   0                           1 
+   308 PRL1&NUA1m800
+                                   1                           1 
+   309 PRL1&NUA1m930
+                                   0                           1 
+   310 PRL1&NUA1m1100
+                                   0                           1 
+   311 PRL1&NUA1m200
+                                   0                           1 
+   312 PRL1&NUA1m330
+                                   0                           1 
+   313 PRL1&NUA1t830
+                                   0                           1 
+   314 PRL1&NUA1t1000
+                                   0                           1 
+   315 PRL1&NUA1t1130
+                                   0                           1 
+   316 PRL1&NUA1t100
+                                   1                           1 
+   317 PRL1&NUA1t230
+                                   0                           1 
+   318 PRL1m330Invalid
+                                   0             0             = 
+   319 ALG1&SYS1m800
+                                   0                           1 
+   320 ALG1&SYS1m930
+                                   0                           1 
+   321 ALG1&SYS1m1100
+                                   0                           1 
+   322 ALG1&SYS1m200
+                                   0                           1 
+   323 ALG1&SYS1m330
+                                   0                           1 
+   324 ALG1&SYS1t830
+                                   1                           1 
+   325 ALG1&SYS1t1000
+                                   0                           1 
+   326 ALG1&SYS1t1130
+                                   0                           1 
+   327 ALG1&SYS1t100
+                                   0                           1 
+   328 ALG1&SYS1t230
+                                   1                           1 
+   329 ALG1&CAP1m800
+                                   0                           1 
+   330 ALG1&CAP1m930
+                                   0                           1 
+   331 ALG1&CAP1m1100
+                                   1                           1 
+   332 ALG1&CAP1m200
+                                   0                           1 
+   333 ALG1&CAP1m330
+                                   0                           1 
+   334 ALG1&CAP1t830
+                                   1                           1 
+   335 ALG1&CAP1t1000
+                                   0                           1 
+   336 ALG1&CAP1t1130
+                                   0                           1 
+   337 ALG1&CAP1t100
+                                   0                           1 
+   338 ALG1&CAP1t230
+                                   0                           1 
+   339 ALG1&ARI1m800
+                                   0                           1 
+   340 ALG1&ARI1m930
+                                   0                           1 
+   341 ALG1&ARI1m1100
+                                   0                           1 
+   342 ALG1&ARI1m200
+                                   1                           1 
+   343 ALG1&ARI1m330
+                                   0                           1 
+   344 ALG1&ARI1t830
+                                   1                           1 
+   345 ALG1&ARI1t1000
+                                   0                           1 
+   346 ALG1&ARI1t1130
+                                   0                           1 
+   347 ALG1&ARI1t100
+                                   0                           1 
+   348 ALG1&ARI1t230
+                                   0                           1 
+   349 ALG1&TOC1m800
+                                   0                           1 
+   350 ALG1&TOC1m930
+                                   0                           1 
+   351 ALG1&TOC1m1100
+                                   0                           1 
+   352 ALG1&TOC1m200
+                                   0                           1 
+   353 ALG1&TOC1m330
+                                   0                           1 
+   354 ALG1&TOC1t830
+                                   1                           1 
+   355 ALG1&TOC1t1000
+                                   1                           1 
+   356 ALG1&TOC1t1130
+                                   0                           1 
+   357 ALG1&TOC1t100
+                                   0                           1 
+   358 ALG1&TOC1t230
+                                   0                           1 
+   359 ALG1&DAT1m800
+                                   0                           1 
+   360 ALG1&DAT1m930
+                                   0                           1 
+   361 ALG1&DAT1m1100
+                                   0                           1 
+   362 ALG1&DAT1m200
+                                   0                           1 
+   363 ALG1&DAT1m330
+                                   0                           1 
+   364 ALG1&DAT1t830
+                                   1                           1 
+   365 ALG1&DAT1t1000
+                                   0                           1 
+   366 ALG1&DAT1t1130
+                                   1                           1 
+   367 ALG1&DAT1t100
+                                   0                           1 
+   368 ALG1&DAT1t230
+                                   0                           1 
+   369 ALG1&OPR1m800
+                                   0                           1 
+   370 ALG1&OPR1m930
+                                   1                           1 
+   371 ALG1&OPR1m1100
+                                   0                           1 
+   372 ALG1&OPR1m200
+                                   0                           1 
+   373 ALG1&OPR1m330
+                                   0                           1 
+   374 ALG1&OPR1t830
+                                   1                           1 
+   375 ALG1&OPR1t1000
+                                   0                           1 
+   376 ALG1&OPR1t1130
+                                   0                           1 
+   377 ALG1&OPR1t100
+                                   0                           1 
+   378 ALG1&OPR1t230
+                                   0                           1 
+   379 ALG1&NUA1m800
+                                   0                           1 
+   380 ALG1&NUA1m930
+                                   0                           1 
+   381 ALG1&NUA1m1100
+                                   0                           1 
+   382 ALG1&NUA1m200
+                                   0                           1 
+   383 ALG1&NUA1m330
+                                   0                           1 
+   384 ALG1&NUA1t830
+                                   1                           1 
+   385 ALG1&NUA1t1000
+                                   0                           1 
+   386 ALG1&NUA1t1130
+                                   0                           1 
+   387 ALG1&NUA1t100
+                                   1                           1 
+   388 ALG1&NUA1t230
+                                   0                           1 
+   389 ALG1&EXP1m800
+                                   0                           1 
+   390 ALG1&EXP1m930
+                                   0                           1 
+   391 ALG1&EXP1m1100
+                                   0                           1 
+   392 ALG1&EXP1m200
+                                   0                           1 
+   393 ALG1&EXP1m330
+                                   1                           1 
+   394 ALG1&EXP1t830
+                                   1                           1 
+   395 ALG1&EXP1t1000
+                                   0                           1 
+   396 ALG1&EXP1t1130
+                                   0                           1 
+   397 ALG1&EXP1t100
+                                   0                           1 
+   398 ALG1&EXP1t230
+                                   0                           1 
+   399 ALG1m330Invalid
+                                   0             0             = 
+   400 SYS1&CAP1m800
+                                   0                           1 
+   401 SYS1&CAP1m930
+                                   0                           1 
+   402 SYS1&CAP1m1100
+                                   1                           1 
+   403 SYS1&CAP1m200
+                                   0                           1 
+   404 SYS1&CAP1m330
+                                   0                           1 
+   405 SYS1&CAP1t830
+                                   0                           1 
+   406 SYS1&CAP1t1000
+                                   0                           1 
+   407 SYS1&CAP1t1130
+                                   0                           1 
+   408 SYS1&CAP1t100
+                                   0                           1 
+   409 SYS1&CAP1t230
+                                   1                           1 
+   410 SYS1&ARI1m800
+                                   0                           1 
+   411 SYS1&ARI1m930
+                                   0                           1 
+   412 SYS1&ARI1m1100
+                                   0                           1 
+   413 SYS1&ARI1m200
+                                   1                           1 
+   414 SYS1&ARI1m330
+                                   0                           1 
+   415 SYS1&ARI1t830
+                                   0                           1 
+   416 SYS1&ARI1t1000
+                                   0                           1 
+   417 SYS1&ARI1t1130
+                                   0                           1 
+   418 SYS1&ARI1t100
+                                   0                           1 
+   419 SYS1&ARI1t230
+                                   1                           1 
+   420 SYS1&TOC1m800
+                                   0                           1 
+   421 SYS1&TOC1m930
+                                   0                           1 
+   422 SYS1&TOC1m1100
+                                   0                           1 
+   423 SYS1&TOC1m200
+                                   0                           1 
+   424 SYS1&TOC1m330
+                                   0                           1 
+   425 SYS1&TOC1t830
+                                   0                           1 
+   426 SYS1&TOC1t1000
+                                   1                           1 
+   427 SYS1&TOC1t1130
+                                   0                           1 
+   428 SYS1&TOC1t100
+                                   0                           1 
+   429 SYS1&TOC1t230
+                                   1                           1 
+   430 SYS1&DAT1m800
+                                   0                           1 
+   431 SYS1&DAT1m930
+                                   0                           1 
+   432 SYS1&DAT1m1100
+                                   0                           1 
+   433 SYS1&DAT1m200
+                                   0                           1 
+   434 SYS1&DAT1m330
+                                   0                           1 
+   435 SYS1&DAT1t830
+                                   0                           1 
+   436 SYS1&DAT1t1000
+                                   0                           1 
+   437 SYS1&DAT1t1130
+                                   1                           1 
+   438 SYS1&DAT1t100
+                                   0                           1 
+   439 SYS1&DAT1t230
+                                   1                           1 
+   440 SYS1&OPR1m800
+                                   0                           1 
+   441 SYS1&OPR1m930
+                                   1                           1 
+   442 SYS1&OPR1m1100
+                                   0                           1 
+   443 SYS1&OPR1m200
+                                   0                           1 
+   444 SYS1&OPR1m330
+                                   0                           1 
+   445 SYS1&OPR1t830
+                                   0                           1 
+   446 SYS1&OPR1t1000
+                                   0                           1 
+   447 SYS1&OPR1t1130
+                                   0                           1 
+   448 SYS1&OPR1t100
+                                   0                           1 
+   449 SYS1&OPR1t230
+                                   1                           1 
+   450 SYS1&NUA1m800
+                                   0                           1 
+   451 SYS1&NUA1m930
+                                   0                           1 
+   452 SYS1&NUA1m1100
+                                   0                           1 
+   453 SYS1&NUA1m200
+                                   0                           1 
+   454 SYS1&NUA1m330
+                                   0                           1 
+   455 SYS1&NUA1t830
+                                   0                           1 
+   456 SYS1&NUA1t1000
+                                   0                           1 
+   457 SYS1&NUA1t1130
+                                   0                           1 
+   458 SYS1&NUA1t100
+                                   1                           1 
+   459 SYS1&NUA1t230
+                                   1                           1 
+   460 SYS1m330Invalid
+                                   0             0             = 
+   461 CAP14HRcol1                 0             0             = 
+   462 CAP14HRcol2                 0             0             = 
+   463 CAP1&ARI1m800
+                                   0                           1 
+   464 CAP1&ARI1m930
+                                   0                           1 
+   465 CAP1&ARI1m1100
+                                   1                           1 
+   466 CAP1&ARI1m200
+                                   1                           1 
+   467 CAP1&ARI1m330
+                                   0                           1 
+   468 CAP1&ARI1t830
+                                   0                           1 
+   469 CAP1&ARI1t1000
+                                   0                           1 
+   470 CAP1&ARI1t1130
+                                   0                           1 
+   471 CAP1&ARI1t100
+                                   0                           1 
+   472 CAP1&ARI1t230
+                                   0                           1 
+   473 CAP1&TOC1m800
+                                   0                           1 
+   474 CAP1&TOC1m930
+                                   0                           1 
+   475 CAP1&TOC1m1100
+                                   1                           1 
+   476 CAP1&TOC1m200
+                                   0                           1 
+   477 CAP1&TOC1m330
+                                   0                           1 
+   478 CAP1&TOC1t830
+                                   0                           1 
+   479 CAP1&TOC1t1000
+                                   1                           1 
+   480 CAP1&TOC1t1130
+                                   0                           1 
+   481 CAP1&TOC1t100
+                                   0                           1 
+   482 CAP1&TOC1t230
+                                   0                           1 
+   483 CAP1&DAT1m800
+                                   0                           1 
+   484 CAP1&DAT1m930
+                                   0                           1 
+   485 CAP1&DAT1m1100
+                                   1                           1 
+   486 CAP1&DAT1m200
+                                   0                           1 
+   487 CAP1&DAT1m330
+                                   0                           1 
+   488 CAP1&DAT1t830
+                                   0                           1 
+   489 CAP1&DAT1t1000
+                                   0                           1 
+   490 CAP1&DAT1t1130
+                                   1                           1 
+   491 CAP1&DAT1t100
+                                   0                           1 
+   492 CAP1&DAT1t230
+                                   0                           1 
+   493 CAP1&OPR1m800
+                                   0                           1 
+   494 CAP1&OPR1m930
+                                   1                           1 
+   495 CAP1&OPR1m1100
+                                   1                           1 
+   496 CAP1&OPR1m200
+                                   0                           1 
+   497 CAP1&OPR1m330
+                                   0                           1 
+   498 CAP1&OPR1t830
+                                   0                           1 
+   499 CAP1&OPR1t1000
+                                   0                           1 
+   500 CAP1&OPR1t1130
+                                   0                           1 
+   501 CAP1&OPR1t100
+                                   0                           1 
+   502 CAP1&OPR1t230
+                                   0                           1 
+   503 CAP1&NUA1m800
+                                   0                           1 
+   504 CAP1&NUA1m930
+                                   0                           1 
+   505 CAP1&NUA1m1100
+                                   1                           1 
+   506 CAP1&NUA1m200
+                                   0                           1 
+   507 CAP1&NUA1m330
+                                   0                           1 
+   508 CAP1&NUA1t830
+                                   0                           1 
+   509 CAP1&NUA1t1000
+                                   0                           1 
+   510 CAP1&NUA1t1130
+                                   0                           1 
+   511 CAP1&NUA1t100
+                                   1                           1 
+   512 CAP1&NUA1t230
+                                   0                           1 
+   513 CAP1m330Invalid
+                                   0             0             = 
+   514 ARI1&TOC1m800
+                                   0                           1 
+   515 ARI1&TOC1m930
+                                   0                           1 
+   516 ARI1&TOC1m1100
+                                   0                           1 
+   517 ARI1&TOC1m200
+                                   1                           1 
+   518 ARI1&TOC1m330
+                                   0                           1 
+   519 ARI1&TOC1t830
+                                   0                           1 
+   520 ARI1&TOC1t1000
+                                   1                           1 
+   521 ARI1&TOC1t1130
+                                   0                           1 
+   522 ARI1&TOC1t100
+                                   0                           1 
+   523 ARI1&TOC1t230
+                                   0                           1 
+   524 ARI1&DAT1m800
+                                   0                           1 
+   525 ARI1&DAT1m930
+                                   0                           1 
+   526 ARI1&DAT1m1100
+                                   0                           1 
+   527 ARI1&DAT1m200
+                                   1                           1 
+   528 ARI1&DAT1m330
+                                   0                           1 
+   529 ARI1&DAT1t830
+                                   0                           1 
+   530 ARI1&DAT1t1000
+                                   0                           1 
+   531 ARI1&DAT1t1130
+                                   1                           1 
+   532 ARI1&DAT1t100
+                                   0                           1 
+   533 ARI1&DAT1t230
+                                   0                           1 
+   534 ARI1&OPR1m800
+                                   0                           1 
+   535 ARI1&OPR1m930
+                                   1                           1 
+   536 ARI1&OPR1m1100
+                                   0                           1 
+   537 ARI1&OPR1m200
+                                   1                           1 
+   538 ARI1&OPR1m330
+                                   0                           1 
+   539 ARI1&OPR1t830
+                                   0                           1 
+   540 ARI1&OPR1t1000
+                                   0                           1 
+   541 ARI1&OPR1t1130
+                                   0                           1 
+   542 ARI1&OPR1t100
+                                   0                           1 
+   543 ARI1&OPR1t230
+                                   0                           1 
+   544 ARI1&NUA1m800
+                                   0                           1 
+   545 ARI1&NUA1m930
+                                   0                           1 
+   546 ARI1&NUA1m1100
+                                   0                           1 
+   547 ARI1&NUA1m200
+                                   1                           1 
+   548 ARI1&NUA1m330
+                                   0                           1 
+   549 ARI1&NUA1t830
+                                   0                           1 
+   550 ARI1&NUA1t1000
+                                   0                           1 
+   551 ARI1&NUA1t1130
+                                   0                           1 
+   552 ARI1&NUA1t100
+                                   1                           1 
+   553 ARI1&NUA1t230
+                                   0                           1 
+   554 ARI1m330Invalid
+                                   0             0             = 
+   555 TOC1&DAT1m800
+                                   0                           1 
+   556 TOC1&DAT1m930
+                                   0                           1 
+   557 TOC1&DAT1m1100
+                                   0                           1 
+   558 TOC1&DAT1m200
+                                   0                           1 
+   559 TOC1&DAT1m330
+                                   0                           1 
+   560 TOC1&DAT1t830
+                                   0                           1 
+   561 TOC1&DAT1t1000
+                                   1                           1 
+   562 TOC1&DAT1t1130
+                                   1                           1 
+   563 TOC1&DAT1t100
+                                   0                           1 
+   564 TOC1&DAT1t230
+                                   0                           1 
+   565 TOC1&OPR1m800
+                                   0                           1 
+   566 TOC1&OPR1m930
+                                   1                           1 
+   567 TOC1&OPR1m1100
+                                   0                           1 
+   568 TOC1&OPR1m200
+                                   0                           1 
+   569 TOC1&OPR1m330
+                                   0                           1 
+   570 TOC1&OPR1t830
+                                   0                           1 
+   571 TOC1&OPR1t1000
+                                   1                           1 
+   572 TOC1&OPR1t1130
+                                   0                           1 
+   573 TOC1&OPR1t100
+                                   0                           1 
+   574 TOC1&OPR1t230
+                                   0                           1 
+   575 TOC1&NUA1m800
+                                   0                           1 
+   576 TOC1&NUA1m930
+                                   0                           1 
+   577 TOC1&NUA1m1100
+                                   0                           1 
+   578 TOC1&NUA1m200
+                                   0                           1 
+   579 TOC1&NUA1m330
+                                   0                           1 
+   580 TOC1&NUA1t830
+                                   0                           1 
+   581 TOC1&NUA1t1000
+                                   1                           1 
+   582 TOC1&NUA1t1130
+                                   0                           1 
+   583 TOC1&NUA1t100
+                                   1                           1 
+   584 TOC1&NUA1t230
+                                   0                           1 
+   585 TOC1m330Invalid
+                                   0             0             = 
+   586 DAT1&OPR1m800
+                                   0                           1 
+   587 DAT1&OPR1m930
+                                   1                           1 
+   588 DAT1&OPR1m1100
+                                   0                           1 
+   589 DAT1&OPR1m200
+                                   0                           1 
+   590 DAT1&OPR1m330
+                                   0                           1 
+   591 DAT1&OPR1t830
+                                   0                           1 
+   592 DAT1&OPR1t1000
+                                   0                           1 
+   593 DAT1&OPR1t1130
+                                   1                           1 
+   594 DAT1&OPR1t100
+                                   0                           1 
+   595 DAT1&OPR1t230
+                                   0                           1 
+   596 DAT1&NUA1m800
+                                   0                           1 
+   597 DAT1&NUA1m930
+                                   0                           1 
+   598 DAT1&NUA1m1100
+                                   0                           1 
+   599 DAT1&NUA1m200
+                                   0                           1 
+   600 DAT1&NUA1m330
+                                   0                           1 
+   601 DAT1&NUA1t830
+                                   0                           1 
+   602 DAT1&NUA1t1000
+                                   0                           1 
+   603 DAT1&NUA1t1130
+                                   1                           1 
+   604 DAT1&NUA1t100
+                                   1                           1 
+   605 DAT1&NUA1t230
+                                   0                           1 
+   606 DAT1m330Invalid
+                                   0             0             = 
+   607 OPR1&NUA1m800
+                                   0                           1 
+   608 OPR1&NUA1m930
+                                   1                           1 
+   609 OPR1&NUA1m1100
+                                   0                           1 
+   610 OPR1&NUA1m200
+                                   0                           1 
+   611 OPR1&NUA1m330
+                                   0                           1 
+   612 OPR1&NUA1t830
+                                   0                           1 
+   613 OPR1&NUA1t1000
+                                   0                           1 
+   614 OPR1&NUA1t1130
+                                   0                           1 
+   615 OPR1&NUA1t100
+                                   1                           1 
+   616 OPR1&NUA1t230
+                                   0                           1 
+   617 OPR1m330Invalid
+                                   0             0             = 
+   618 NUA1m330Invalid
+                                   0             0             = 
+   619 Prof_1ALG1NonPrimeTimeCol1
+                                   1                           1 
+   620 Prof_1CAP1NonPrimeTimeCol1
+                                   0                           1 
+   621 Prof_1PRL1NonPrimeTimeCol1
+                                   1                           1 
+   622 Prof_1OPR1NonPrimeTimeCol1
+                                   0                           1 
+   623 Prof_1EXP1NonPrimeTimeCol1
+                                   1                           1 
+   624 Prof_1ALG1NonPrimeTimeCol2
+                                   0                           1 
+   625 Prof_1CAP1NonPrimeTimeCol2
+                                   0                           1 
+   626 Prof_1PRL1NonPrimeTimeCol2
+                                   0                           1 
+   627 Prof_1OPR1NonPrimeTimeCol2
+                                   0                           1 
+   628 Prof_1EXP1NonPrimeTimeCol2
+                                   0                           1 
+   629 VALG1m800Col1Prof_1
+                                   0                           1 
+   630 VALG1m930Col1Prof_1
+                                   0                           1 
+   631 VALG1m1100Col1Prof_1
+                                   0                           1 
+   632 VALG1m330Col1Prof_1
+                                   0                           1 
+   633 VALG1t830Col1Prof_1
+                                   1                           1 
+   634 VALG1t1000Col1Prof_1
+                                   0                           1 
+   635 VALG1t1130Col1Prof_1
+                                   0                           1 
+   636 VALG1t100Col1Prof_1
+                                   0                           1 
+   637 VALG1t230Col1Prof_1
+                                   0                           1 
+   638 IALG1m200Col1Prof_1
+                                   0             0             = 
+   639 VCAP1m800Col1Prof_1
+                                   0                           1 
+   640 VCAP1m930Col1Prof_1
+                                   0                           1 
+   641 VCAP1m1100Col1Prof_1
+                                   0                           1 
+   642 VCAP1m330Col1Prof_1
+                                   0                           1 
+   643 VCAP1t830Col1Prof_1
+                                   0                           1 
+   644 VCAP1t1000Col1Prof_1
+                                   0                           1 
+   645 VCAP1t1130Col1Prof_1
+                                   0                           1 
+   646 VCAP1t100Col1Prof_1
+                                   0                           1 
+   647 VCAP1t230Col1Prof_1
+                                   0                           1 
+   648 ICAP1m200Col1Prof_1
+                                   0             0             = 
+   649 VPRL1m800Col1Prof_1
+                                   1                           1 
+   650 VPRL1m930Col1Prof_1
+                                   0                           1 
+   651 VPRL1m1100Col1Prof_1
+                                   0                           1 
+   652 VPRL1m330Col1Prof_1
+                                   0                           1 
+   653 VPRL1t830Col1Prof_1
+                                   0                           1 
+   654 VPRL1t1000Col1Prof_1
+                                   0                           1 
+   655 VPRL1t1130Col1Prof_1
+                                   0                           1 
+   656 VPRL1t100Col1Prof_1
+                                   0                           1 
+   657 VPRL1t230Col1Prof_1
+                                   0                           1 
+   658 IPRL1m200Col1Prof_1
+                                   0             0             = 
+   659 VOPR1m800Col1Prof_1
+                                   0                           1 
+   660 VOPR1m930Col1Prof_1
+                                   1                           1 
+   661 VOPR1m1100Col1Prof_1
+                                   0                           1 
+   662 VOPR1m330Col1Prof_1
+                                   0                           1 
+   663 VOPR1t830Col1Prof_1
+                                   0                           1 
+   664 VOPR1t1000Col1Prof_1
+                                   0                           1 
+   665 VOPR1t1130Col1Prof_1
+                                   0                           1 
+   666 VOPR1t100Col1Prof_1
+                                   0                           1 
+   667 VOPR1t230Col1Prof_1
+                                   0                           1 
+   668 IOPR1m200Col1Prof_1
+                                   0             0             = 
+   669 VEXP1m800Col1Prof_1
+                                   0                           1 
+   670 VEXP1m930Col1Prof_1
+                                   0                           1 
+   671 VEXP1m1100Col1Prof_1
+                                   0                           1 
+   672 VEXP1m330Col1Prof_1
+                                   1                           1 
+   673 VEXP1t830Col1Prof_1
+                                   0                           1 
+   674 VEXP1t1000Col1Prof_1
+                                   0                           1 
+   675 VEXP1t1130Col1Prof_1
+                                   0                           1 
+   676 VEXP1t100Col1Prof_1
+                                   0                           1 
+   677 VEXP1t230Col1Prof_1
+                                   0                           1 
+   678 IEXP1m200Col1Prof_1
+                                   0             0             = 
+   679 VALG1m800Col2Prof_1
+                                   0                           1 
+   680 VALG1m930Col2Prof_1
+                                   0                           1 
+   681 VALG1m1100Col2Prof_1
+                                   0                           1 
+   682 VALG1m330Col2Prof_1
+                                   0                           1 
+   683 VALG1t830Col2Prof_1
+                                   0                           1 
+   684 VALG1t1000Col2Prof_1
+                                   0                           1 
+   685 VALG1t1130Col2Prof_1
+                                   0                           1 
+   686 VALG1t100Col2Prof_1
+                                   0                           1 
+   687 VALG1t230Col2Prof_1
+                                   0                           1 
+   688 IALG1m200Col2Prof_1
+                                   0             0             = 
+   689 VCAP1m800Col2Prof_1
+                                   0                           1 
+   690 VCAP1m930Col2Prof_1
+                                   0                           1 
+   691 VCAP1m1100Col2Prof_1
+                                   1                           1 
+   692 VCAP1m330Col2Prof_1
+                                   0                           1 
+   693 VCAP1t830Col2Prof_1
+                                   0                           1 
+   694 VCAP1t1000Col2Prof_1
+                                   0                           1 
+   695 VCAP1t1130Col2Prof_1
+                                   0                           1 
+   696 VCAP1t100Col2Prof_1
+                                   0                           1 
+   697 VCAP1t230Col2Prof_1
+                                   0                           1 
+   698 ICAP1m200Col2Prof_1
+                                   0             0             = 
+   699 VPRL1m800Col2Prof_1
+                                   0                           1 
+   700 VPRL1m930Col2Prof_1
+                                   0                           1 
+   701 VPRL1m1100Col2Prof_1
+                                   0                           1 
+   702 VPRL1m330Col2Prof_1
+                                   0                           1 
+   703 VPRL1t830Col2Prof_1
+                                   0                           1 
+   704 VPRL1t1000Col2Prof_1
+                                   0                           1 
+   705 VPRL1t1130Col2Prof_1
+                                   0                           1 
+   706 VPRL1t100Col2Prof_1
+                                   0                           1 
+   707 VPRL1t230Col2Prof_1
+                                   0                           1 
+   708 IPRL1m200Col2Prof_1
+                                   0             0             = 
+   709 VOPR1m800Col2Prof_1
+                                   0                           1 
+   710 VOPR1m930Col2Prof_1
+                                   0                           1 
+   711 VOPR1m1100Col2Prof_1
+                                   0                           1 
+   712 VOPR1m330Col2Prof_1
+                                   0                           1 
+   713 VOPR1t830Col2Prof_1
+                                   0                           1 
+   714 VOPR1t1000Col2Prof_1
+                                   0                           1 
+   715 VOPR1t1130Col2Prof_1
+                                   0                           1 
+   716 VOPR1t100Col2Prof_1
+                                   0                           1 
+   717 VOPR1t230Col2Prof_1
+                                   0                           1 
+   718 IOPR1m200Col2Prof_1
+                                   0             0             = 
+   719 VEXP1m800Col2Prof_1
+                                   0                           1 
+   720 VEXP1m930Col2Prof_1
+                                   0                           1 
+   721 VEXP1m1100Col2Prof_1
+                                   0                           1 
+   722 VEXP1m330Col2Prof_1
+                                   0                           1 
+   723 VEXP1t830Col2Prof_1
+                                   0                           1 
+   724 VEXP1t1000Col2Prof_1
+                                   0                           1 
+   725 VEXP1t1130Col2Prof_1
+                                   0                           1 
+   726 VEXP1t100Col2Prof_1
+                                   0                           1 
+   727 VEXP1t230Col2Prof_1
+                                   0                           1 
+   728 IEXP1m200Col2Prof_1
+                                   0             0             = 
+   729 Prof_1ALG1&PRL1m800Col2
+                                   0                           1 
+   730 Prof_1ALG1&PRL1m930Col2
+                                   0                           1 
+   731 Prof_1ALG1&PRL1m1100Col2
+                                   0                           1 
+   732 Prof_1ALG1&PRL1m330Col2
+                                   0                           1 
+   733 Prof_1ALG1&PRL1t830Col2
+                                   0                           1 
+   734 Prof_1ALG1&PRL1t1000Col2
+                                   0                           1 
+   735 Prof_1ALG1&PRL1t1130Col2
+                                   0                           1 
+   736 Prof_1ALG1&PRL1t100Col2
+                                   0                           1 
+   737 Prof_1ALG1&PRL1t230Col2
+                                   0                           1 
+   738 Prof_1CAP1&PRL1m800Col2
+                                   0                           1 
+   739 Prof_1CAP1&PRL1m930Col2
+                                   0                           1 
+   740 Prof_1CAP1&PRL1m1100Col2
+                                   1                           1 
+   741 Prof_1CAP1&PRL1m330Col2
+                                   0                           1 
+   742 Prof_1CAP1&PRL1t830Col2
+                                   0                           1 
+   743 Prof_1CAP1&PRL1t1000Col2
+                                   0                           1 
+   744 Prof_1CAP1&PRL1t1130Col2
+                                   0                           1 
+   745 Prof_1CAP1&PRL1t100Col2
+                                   0                           1 
+   746 Prof_1CAP1&PRL1t230Col2
+                                   0                           1 
+   747 Prof_1CAP1&EXP1m800Col2
+                                   0                           1 
+   748 Prof_1CAP1&EXP1m930Col2
+                                   0                           1 
+   749 Prof_1CAP1&EXP1m1100Col2
+                                   1                           1 
+   750 Prof_1CAP1&EXP1m330Col2
+                                   0                           1 
+   751 Prof_1CAP1&EXP1t830Col2
+                                   0                           1 
+   752 Prof_1CAP1&EXP1t1000Col2
+                                   0                           1 
+   753 Prof_1CAP1&EXP1t1130Col2
+                                   0                           1 
+   754 Prof_1CAP1&EXP1t100Col2
+                                   0                           1 
+   755 Prof_1CAP1&EXP1t230Col2
+                                   0                           1 
+   756 Prof_1PRL1&ALG1m800Col2
+                                   0                           1 
+   757 Prof_1PRL1&ALG1m930Col2
+                                   0                           1 
+   758 Prof_1PRL1&ALG1m1100Col2
+                                   0                           1 
+   759 Prof_1PRL1&ALG1m330Col2
+                                   0                           1 
+   760 Prof_1PRL1&ALG1t830Col2
+                                   0                           1 
+   761 Prof_1PRL1&ALG1t1000Col2
+                                   0                           1 
+   762 Prof_1PRL1&ALG1t1130Col2
+                                   0                           1 
+   763 Prof_1PRL1&ALG1t100Col2
+                                   0                           1 
+   764 Prof_1PRL1&ALG1t230Col2
+                                   0                           1 
+   765 Prof_1PRL1&CAP1m800Col2
+                                   0                           1 
+   766 Prof_1PRL1&CAP1m930Col2
+                                   0                           1 
+   767 Prof_1PRL1&CAP1m1100Col2
+                                   1                           1 
+   768 Prof_1PRL1&CAP1m330Col2
+                                   0                           1 
+   769 Prof_1PRL1&CAP1t830Col2
+                                   0                           1 
+   770 Prof_1PRL1&CAP1t1000Col2
+                                   0                           1 
+   771 Prof_1PRL1&CAP1t1130Col2
+                                   0                           1 
+   772 Prof_1PRL1&CAP1t100Col2
+                                   0                           1 
+   773 Prof_1PRL1&CAP1t230Col2
+                                   0                           1 
+   774 Prof_1PRL1&EXP1m800Col2
+                                   0                           1 
+   775 Prof_1PRL1&EXP1m930Col2
+                                   0                           1 
+   776 Prof_1PRL1&EXP1m1100Col2
+                                   0                           1 
+   777 Prof_1PRL1&EXP1m330Col2
+                                   0                           1 
+   778 Prof_1PRL1&EXP1t830Col2
+                                   0                           1 
+   779 Prof_1PRL1&EXP1t1000Col2
+                                   0                           1 
+   780 Prof_1PRL1&EXP1t1130Col2
+                                   0                           1 
+   781 Prof_1PRL1&EXP1t100Col2
+                                   0                           1 
+   782 Prof_1PRL1&EXP1t230Col2
+                                   0                           1 
+   783 Prof_1OPR1&EXP1m800Col2
+                                   0                           1 
+   784 Prof_1OPR1&EXP1m930Col2
+                                   0                           1 
+   785 Prof_1OPR1&EXP1m1100Col2
+                                   0                           1 
+   786 Prof_1OPR1&EXP1m330Col2
+                                   0                           1 
+   787 Prof_1OPR1&EXP1t830Col2
+                                   0                           1 
+   788 Prof_1OPR1&EXP1t1000Col2
+                                   0                           1 
+   789 Prof_1OPR1&EXP1t1130Col2
+                                   0                           1 
+   790 Prof_1OPR1&EXP1t100Col2
+                                   0                           1 
+   791 Prof_1OPR1&EXP1t230Col2
+                                   0                           1 
+   792 VCS11m800Col1Prof_2
+                                   0                           1 
+   793 VCS11m930Col1Prof_2
+                                   0                           1 
+   794 VCS11m1100Col1Prof_2
+                                   0                           1 
+   795 VCS11m200Col1Prof_2
+                                   0                           1 
+   796 VCS11m330Col1Prof_2
+                                   0                           1 
+   797 VCS11t830Col1Prof_2
+                                   0                           1 
+   798 VCS11t1000Col1Prof_2
+                                   0                           1 
+   799 VCS11t1130Col1Prof_2
+                                   0                           1 
+   800 VCS11t100Col1Prof_2
+                                   0                           1 
+   801 VCS11t230Col1Prof_2
+                                   0                           1 
+   802 VTOC1m800Col1Prof_2
+                                   0                           1 
+   803 VTOC1m930Col1Prof_2
+                                   0                           1 
+   804 VTOC1m1100Col1Prof_2
+                                   0                           1 
+   805 VTOC1m200Col1Prof_2
+                                   0                           1 
+   806 VTOC1m330Col1Prof_2
+                                   0                           1 
+   807 VTOC1t830Col1Prof_2
+                                   0                           1 
+   808 VTOC1t1000Col1Prof_2
+                                   1                           1 
+   809 VTOC1t1130Col1Prof_2
+                                   0                           1 
+   810 VTOC1t100Col1Prof_2
+                                   0                           1 
+   811 VTOC1t230Col1Prof_2
+                                   0                           1 
+   812 VCS11m800Col2Prof_2
+                                   0                           1 
+   813 VCS11m930Col2Prof_2
+                                   1                           1 
+   814 VCS11m1100Col2Prof_2
+                                   0                           1 
+   815 VCS11m200Col2Prof_2
+                                   0                           1 
+   816 VCS11m330Col2Prof_2
+                                   0                           1 
+   817 VCS11t830Col2Prof_2
+                                   0                           1 
+   818 VCS11t1000Col2Prof_2
+                                   0                           1 
+   819 VCS11t1130Col2Prof_2
+                                   0                           1 
+   820 VCS11t100Col2Prof_2
+                                   0                           1 
+   821 VCS11t230Col2Prof_2
+                                   0                           1 
+   822 VTOC1m800Col2Prof_2
+                                   0                           1 
+   823 VTOC1m930Col2Prof_2
+                                   0                           1 
+   824 VTOC1m1100Col2Prof_2
+                                   0                           1 
+   825 VTOC1m200Col2Prof_2
+                                   0                           1 
+   826 VTOC1m330Col2Prof_2
+                                   0                           1 
+   827 VTOC1t830Col2Prof_2
+                                   0                           1 
+   828 VTOC1t1000Col2Prof_2
+                                   0                           1 
+   829 VTOC1t1130Col2Prof_2
+                                   0                           1 
+   830 VTOC1t100Col2Prof_2
+                                   0                           1 
+   831 VTOC1t230Col2Prof_2
+                                   0                           1 
+   832 Prof_2CS11&TOC1m800Col2
+                                   0                           1 
+   833 Prof_2CS11&TOC1m930Col2
+                                   1                           1 
+   834 Prof_2CS11&TOC1m1100Col2
+                                   0                           1 
+   835 Prof_2CS11&TOC1m200Col2
+                                   0                           1 
+   836 Prof_2CS11&TOC1m330Col2
+                                   0                           1 
+   837 Prof_2CS11&TOC1t830Col2
+                                   0                           1 
+   838 Prof_2CS11&TOC1t1000Col2
+                                   0                           1 
+   839 Prof_2CS11&TOC1t1130Col2
+                                   0                           1 
+   840 Prof_2CS11&TOC1t100Col2
+                                   0                           1 
+   841 Prof_2CS11&TOC1t230Col2
+                                   0                           1 
+   842 VDIS1m800Col1Prof_3
+                                   0                           1 
+   843 VDIS1m930Col1Prof_3
+                                   0                           1 
+   844 VDIS1m1100Col1Prof_3
+                                   0                           1 
+   845 VDIS1m200Col1Prof_3
+                                   0                           1 
+   846 VDIS1m330Col1Prof_3
+                                   0                           1 
+   847 VDIS1t830Col1Prof_3
+                                   0                           1 
+   848 VDIS1t1000Col1Prof_3
+                                   0                           1 
+   849 VDIS1t1130Col1Prof_3
+                                   0                           1 
+   850 VDIS1t100Col1Prof_3
+                                   0                           1 
+   851 VDIS1t230Col1Prof_3
+                                   1                           1 
+   852 VDIS1m800Col2Prof_3
+                                   0                           1 
+   853 VDIS1m930Col2Prof_3
+                                   0                           1 
+   854 VDIS1m1100Col2Prof_3
+                                   0                           1 
+   855 VDIS1m200Col2Prof_3
+                                   0                           1 
+   856 VDIS1m330Col2Prof_3
+                                   0                           1 
+   857 VDIS1t830Col2Prof_3
+                                   0                           1 
+   858 VDIS1t1000Col2Prof_3
+                                   0                           1 
+   859 VDIS1t1130Col2Prof_3
+                                   0                           1 
+   860 VDIS1t100Col2Prof_3
+                                   0                           1 
+   861 VDIS1t230Col2Prof_3
+                                   0                           1 
+   862 VNUA1m800Col1Prof_4
+                                   0                           1 
+   863 VNUA1m930Col1Prof_4
+                                   0                           1 
+   864 VNUA1m1100Col1Prof_4
+                                   0                           1 
+   865 VNUA1m200Col1Prof_4
+                                   0                           1 
+   866 VNUA1m330Col1Prof_4
+                                   0                           1 
+   867 VNUA1t830Col1Prof_4
+                                   0                           1 
+   868 VNUA1t1000Col1Prof_4
+                                   0                           1 
+   869 VNUA1t1130Col1Prof_4
+                                   0                           1 
+   870 VNUA1t100Col1Prof_4
+                                   1                           1 
+   871 VNUA1t230Col1Prof_4
+                                   0                           1 
+   872 VNUA1m800Col2Prof_4
+                                   0                           1 
+   873 VNUA1m930Col2Prof_4
+                                   0                           1 
+   874 VNUA1m1100Col2Prof_4
+                                   0                           1 
+   875 VNUA1m200Col2Prof_4
+                                   0                           1 
+   876 VNUA1m330Col2Prof_4
+                                   0                           1 
+   877 VNUA1t830Col2Prof_4
+                                   0                           1 
+   878 VNUA1t1000Col2Prof_4
+                                   0                           1 
+   879 VNUA1t1130Col2Prof_4
+                                   0                           1 
+   880 VNUA1t100Col2Prof_4
+                                   0                           1 
+   881 VNUA1t230Col2Prof_4
+                                   0                           1 
+   882 VCS21m800Col1Prof_5
+                                   0                           1 
+   883 VCS21m930Col1Prof_5
+                                   0                           1 
+   884 VCS21m1100Col1Prof_5
+                                   0                           1 
+   885 VCS21m200Col1Prof_5
+                                   0                           1 
+   886 VCS21m330Col1Prof_5
+                                   0                           1 
+   887 VCS21t830Col1Prof_5
+                                   0                           1 
+   888 VCS21t1000Col1Prof_5
+                                   0                           1 
+   889 VCS21t1130Col1Prof_5
+                                   0                           1 
+   890 VCS21t100Col1Prof_5
+                                   0                           1 
+   891 VCS21t230Col1Prof_5
+                                   0                           1 
+   892 VORG1m800Col1Prof_5
+                                   0                           1 
+   893 VORG1m930Col1Prof_5
+                                   0                           1 
+   894 VORG1m1100Col1Prof_5
+                                   1                           1 
+   895 VORG1m200Col1Prof_5
+                                   0                           1 
+   896 VORG1m330Col1Prof_5
+                                   0                           1 
+   897 VORG1t830Col1Prof_5
+                                   0                           1 
+   898 VORG1t1000Col1Prof_5
+                                   0                           1 
+   899 VORG1t1130Col1Prof_5
+                                   0                           1 
+   900 VORG1t100Col1Prof_5
+                                   0                           1 
+   901 VORG1t230Col1Prof_5
+                                   0                           1 
+   902 VDAT1m800Col1Prof_5
+                                   0                           1 
+   903 VDAT1m930Col1Prof_5
+                                   0                           1 
+   904 VDAT1m1100Col1Prof_5
+                                   0                           1 
+   905 VDAT1m200Col1Prof_5
+                                   0                           1 
+   906 VDAT1m330Col1Prof_5
+                                   0                           1 
+   907 VDAT1t830Col1Prof_5
+                                   0                           1 
+   908 VDAT1t1000Col1Prof_5
+                                   0                           1 
+   909 VDAT1t1130Col1Prof_5
+                                   1                           1 
+   910 VDAT1t100Col1Prof_5
+                                   0                           1 
+   911 VDAT1t230Col1Prof_5
+                                   0                           1 
+   912 VSYS1m800Col1Prof_5
+                                   0                           1 
+   913 VSYS1m930Col1Prof_5
+                                   0                           1 
+   914 VSYS1m1100Col1Prof_5
+                                   0                           1 
+   915 VSYS1m200Col1Prof_5
+                                   0                           1 
+   916 VSYS1m330Col1Prof_5
+                                   0                           1 
+   917 VSYS1t830Col1Prof_5
+                                   0                           1 
+   918 VSYS1t1000Col1Prof_5
+                                   0                           1 
+   919 VSYS1t1130Col1Prof_5
+                                   0                           1 
+   920 VSYS1t100Col1Prof_5
+                                   0                           1 
+   921 VSYS1t230Col1Prof_5
+                                   0                           1 
+   922 VARI1m800Col1Prof_5
+                                   0                           1 
+   923 VARI1m930Col1Prof_5
+                                   0                           1 
+   924 VARI1m1100Col1Prof_5
+                                   0                           1 
+   925 VARI1m200Col1Prof_5
+                                   1                           1 
+   926 VARI1m330Col1Prof_5
+                                   0                           1 
+   927 VARI1t830Col1Prof_5
+                                   0                           1 
+   928 VARI1t1000Col1Prof_5
+                                   0                           1 
+   929 VARI1t1130Col1Prof_5
+                                   0                           1 
+   930 VARI1t100Col1Prof_5
+                                   0                           1 
+   931 VARI1t230Col1Prof_5
+                                   0                           1 
+   932 VCS21m800Col2Prof_5
+                                   0                           1 
+   933 VCS21m930Col2Prof_5
+                                   0                           1 
+   934 VCS21m1100Col2Prof_5
+                                   0                           1 
+   935 VCS21m200Col2Prof_5
+                                   1                           1 
+   936 VCS21m330Col2Prof_5
+                                   0                           1 
+   937 VCS21t830Col2Prof_5
+                                   0                           1 
+   938 VCS21t1000Col2Prof_5
+                                   0                           1 
+   939 VCS21t1130Col2Prof_5
+                                   0                           1 
+   940 VCS21t100Col2Prof_5
+                                   0                           1 
+   941 VCS21t230Col2Prof_5
+                                   0                           1 
+   942 VORG1m800Col2Prof_5
+                                   0                           1 
+   943 VORG1m930Col2Prof_5
+                                   0                           1 
+   944 VORG1m1100Col2Prof_5
+                                   0                           1 
+   945 VORG1m200Col2Prof_5
+                                   0                           1 
+   946 VORG1m330Col2Prof_5
+                                   0                           1 
+   947 VORG1t830Col2Prof_5
+                                   0                           1 
+   948 VORG1t1000Col2Prof_5
+                                   0                           1 
+   949 VORG1t1130Col2Prof_5
+                                   0                           1 
+   950 VORG1t100Col2Prof_5
+                                   0                           1 
+   951 VORG1t230Col2Prof_5
+                                   0                           1 
+   952 VDAT1m800Col2Prof_5
+                                   0                           1 
+   953 VDAT1m930Col2Prof_5
+                                   0                           1 
+   954 VDAT1m1100Col2Prof_5
+                                   0                           1 
+   955 VDAT1m200Col2Prof_5
+                                   0                           1 
+   956 VDAT1m330Col2Prof_5
+                                   0                           1 
+   957 VDAT1t830Col2Prof_5
+                                   0                           1 
+   958 VDAT1t1000Col2Prof_5
+                                   0                           1 
+   959 VDAT1t1130Col2Prof_5
+                                   0                           1 
+   960 VDAT1t100Col2Prof_5
+                                   0                           1 
+   961 VDAT1t230Col2Prof_5
+                                   0                           1 
+   962 VSYS1m800Col2Prof_5
+                                   0                           1 
+   963 VSYS1m930Col2Prof_5
+                                   0                           1 
+   964 VSYS1m1100Col2Prof_5
+                                   0                           1 
+   965 VSYS1m200Col2Prof_5
+                                   0                           1 
+   966 VSYS1m330Col2Prof_5
+                                   0                           1 
+   967 VSYS1t830Col2Prof_5
+                                   0                           1 
+   968 VSYS1t1000Col2Prof_5
+                                   0                           1 
+   969 VSYS1t1130Col2Prof_5
+                                   0                           1 
+   970 VSYS1t100Col2Prof_5
+                                   0                           1 
+   971 VSYS1t230Col2Prof_5
+                                   1                           1 
+   972 VARI1m800Col2Prof_5
+                                   0                           1 
+   973 VARI1m930Col2Prof_5
+                                   0                           1 
+   974 VARI1m1100Col2Prof_5
+                                   0                           1 
+   975 VARI1m200Col2Prof_5
+                                   0                           1 
+   976 VARI1m330Col2Prof_5
+                                   0                           1 
+   977 VARI1t830Col2Prof_5
+                                   0                           1 
+   978 VARI1t1000Col2Prof_5
+                                   0                           1 
+   979 VARI1t1130Col2Prof_5
+                                   0                           1 
+   980 VARI1t100Col2Prof_5
+                                   0                           1 
+   981 VARI1t230Col2Prof_5
+                                   0                           1 
+   982 Prof_5CS21&DAT1m800Col2
+                                   0                           1 
+   983 Prof_5CS21&DAT1m930Col2
+                                   0                           1 
+   984 Prof_5CS21&DAT1m1100Col2
+                                   0                           1 
+   985 Prof_5CS21&DAT1m200Col2
+                                   1                           1 
+   986 Prof_5CS21&DAT1m330Col2
+                                   0                           1 
+   987 Prof_5CS21&DAT1t830Col2
+                                   0                           1 
+   988 Prof_5CS21&DAT1t1000Col2
+                                   0                           1 
+   989 Prof_5CS21&DAT1t1130Col2
+                                   0                           1 
+   990 Prof_5CS21&DAT1t100Col2
+                                   0                           1 
+   991 Prof_5CS21&DAT1t230Col2
+                                   0                           1 
+   992 Prof_5CS21&SYS1m800Col2
+                                   0                           1 
+   993 Prof_5CS21&SYS1m930Col2
+                                   0                           1 
+   994 Prof_5CS21&SYS1m1100Col2
+                                   0                           1 
+   995 Prof_5CS21&SYS1m200Col2
+                                   1                           1 
+   996 Prof_5CS21&SYS1m330Col2
+                                   0                           1 
+   997 Prof_5CS21&SYS1t830Col2
+                                   0                           1 
+   998 Prof_5CS21&SYS1t1000Col2
+                                   0                           1 
+   999 Prof_5CS21&SYS1t1130Col2
+                                   0                           1 
+  1000 Prof_5CS21&SYS1t100Col2
+                                   0                           1 
+  1001 Prof_5CS21&SYS1t230Col2
+                                   1                           1 
+  1002 Prof_5CS21&ARI1m800Col2
+                                   0                           1 
+  1003 Prof_5CS21&ARI1m930Col2
+                                   0                           1 
+  1004 Prof_5CS21&ARI1m1100Col2
+                                   0                           1 
+  1005 Prof_5CS21&ARI1m200Col2
+                                   1                           1 
+  1006 Prof_5CS21&ARI1m330Col2
+                                   0                           1 
+  1007 Prof_5CS21&ARI1t830Col2
+                                   0                           1 
+  1008 Prof_5CS21&ARI1t1000Col2
+                                   0                           1 
+  1009 Prof_5CS21&ARI1t1130Col2
+                                   0                           1 
+  1010 Prof_5CS21&ARI1t100Col2
+                                   0                           1 
+  1011 Prof_5CS21&ARI1t230Col2
+                                   0                           1 
+  1012 Prof_5ORG1&SYS1m800Col2
+                                   0                           1 
+  1013 Prof_5ORG1&SYS1m930Col2
+                                   0                           1 
+  1014 Prof_5ORG1&SYS1m1100Col2
+                                   0                           1 
+  1015 Prof_5ORG1&SYS1m200Col2
+                                   0                           1 
+  1016 Prof_5ORG1&SYS1m330Col2
+                                   0                           1 
+  1017 Prof_5ORG1&SYS1t830Col2
+                                   0                           1 
+  1018 Prof_5ORG1&SYS1t1000Col2
+                                   0                           1 
+  1019 Prof_5ORG1&SYS1t1130Col2
+                                   0                           1 
+  1020 Prof_5ORG1&SYS1t100Col2
+                                   0                           1 
+  1021 Prof_5ORG1&SYS1t230Col2
+                                   1                           1 
+  1022 Prof_5DAT1&CS21m800Col2
+                                   0                           1 
+  1023 Prof_5DAT1&CS21m930Col2
+                                   0                           1 
+  1024 Prof_5DAT1&CS21m1100Col2
+                                   0                           1 
+  1025 Prof_5DAT1&CS21m200Col2
+                                   1                           1 
+  1026 Prof_5DAT1&CS21m330Col2
+                                   0                           1 
+  1027 Prof_5DAT1&CS21t830Col2
+                                   0                           1 
+  1028 Prof_5DAT1&CS21t1000Col2
+                                   0                           1 
+  1029 Prof_5DAT1&CS21t1130Col2
+                                   0                           1 
+  1030 Prof_5DAT1&CS21t100Col2
+                                   0                           1 
+  1031 Prof_5DAT1&CS21t230Col2
+                                   0                           1 
+  1032 Prof_5SYS1&CS21m800Col2
+                                   0                           1 
+  1033 Prof_5SYS1&CS21m930Col2
+                                   0                           1 
+  1034 Prof_5SYS1&CS21m1100Col2
+                                   0                           1 
+  1035 Prof_5SYS1&CS21m200Col2
+                                   1                           1 
+  1036 Prof_5SYS1&CS21m330Col2
+                                   0                           1 
+  1037 Prof_5SYS1&CS21t830Col2
+                                   0                           1 
+  1038 Prof_5SYS1&CS21t1000Col2
+                                   0                           1 
+  1039 Prof_5SYS1&CS21t1130Col2
+                                   0                           1 
+  1040 Prof_5SYS1&CS21t100Col2
+                                   0                           1 
+  1041 Prof_5SYS1&CS21t230Col2
+                                   1                           1 
+  1042 Prof_5SYS1&ORG1m800Col2
+                                   0                           1 
+  1043 Prof_5SYS1&ORG1m930Col2
+                                   0                           1 
+  1044 Prof_5SYS1&ORG1m1100Col2
+                                   0                           1 
+  1045 Prof_5SYS1&ORG1m200Col2
+                                   0                           1 
+  1046 Prof_5SYS1&ORG1m330Col2
+                                   0                           1 
+  1047 Prof_5SYS1&ORG1t830Col2
+                                   0                           1 
+  1048 Prof_5SYS1&ORG1t1000Col2
+                                   0                           1 
+  1049 Prof_5SYS1&ORG1t1130Col2
+                                   0                           1 
+  1050 Prof_5SYS1&ORG1t100Col2
+                                   0                           1 
+  1051 Prof_5SYS1&ORG1t230Col2
+                                   1                           1 
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 CS11@m800col1
+                    *              0             0             1 
+     2 CS11@m930col1
+                    *              0             0             1 
+     3 CS11@m1100col1
+                    *              0             0             1 
+     4 CS11@m200col1
+                    *              0             0             1 
+     5 CS11@m330col1
+                    *              0             0             1 
+     6 CS11@t830col1
+                    *              0             0             1 
+     7 CS11@t1000col1
+                    *              0             0             1 
+     8 CS11@t1130col1
+                    *              0             0             1 
+     9 CS11@t100col1
+                    *              0             0             1 
+    10 CS11@t230col1
+                    *              0             0             1 
+    11 CS21@m800col1
+                    *              0             0             1 
+    12 CS21@m930col1
+                    *              0             0             1 
+    13 CS21@m1100col1
+                    *              0             0             1 
+    14 CS21@m200col1
+                    *              0             0             1 
+    15 CS21@m330col1
+                    *              0             0             1 
+    16 CS21@t830col1
+                    *              0             0             1 
+    17 CS21@t1000col1
+                    *              0             0             1 
+    18 CS21@t1130col1
+                    *              0             0             1 
+    19 CS21@t100col1
+                    *              0             0             1 
+    20 CS21@t230col1
+                    *              0             0             1 
+    21 DIS1@m800col1
+                    *              0             0             1 
+    22 DIS1@m930col1
+                    *              0             0             1 
+    23 DIS1@m1100col1
+                    *              0             0             1 
+    24 DIS1@m200col1
+                    *              0             0             1 
+    25 DIS1@m330col1
+                    *              0             0             1 
+    26 DIS1@t830col1
+                    *              0             0             1 
+    27 DIS1@t1000col1
+                    *              0             0             1 
+    28 DIS1@t1130col1
+                    *              0             0             1 
+    29 DIS1@t100col1
+                    *              0             0             1 
+    30 DIS1@t230col1
+                    *              1             0             1 
+    31 ORG1@m800col1
+                    *              0             0             1 
+    32 ORG1@m930col1
+                    *              0             0             1 
+    33 ORG1@m1100col1
+                    *              1             0             1 
+    34 ORG1@m200col1
+                    *              0             0             1 
+    35 ORG1@m330col1
+                    *              0             0             1 
+    36 ORG1@t830col1
+                    *              0             0             1 
+    37 ORG1@t1000col1
+                    *              0             0             1 
+    38 ORG1@t1130col1
+                    *              0             0             1 
+    39 ORG1@t100col1
+                    *              0             0             1 
+    40 ORG1@t230col1
+                    *              0             0             1 
+    41 PRL1@m800col1
+                    *              1             0             1 
+    42 PRL1@m930col1
+                    *              0             0             1 
+    43 PRL1@m1100col1
+                    *              0             0             1 
+    44 PRL1@m200col1
+                    *              0             0             1 
+    45 PRL1@m330col1
+                    *              0             0             1 
+    46 PRL1@t830col1
+                    *              0             0             1 
+    47 PRL1@t1000col1
+                    *              0             0             1 
+    48 PRL1@t1130col1
+                    *              0             0             1 
+    49 PRL1@t100col1
+                    *              0             0             1 
+    50 PRL1@t230col1
+                    *              0             0             1 
+    51 ALG1@m800col1
+                    *              0             0             1 
+    52 ALG1@m930col1
+                    *              0             0             1 
+    53 ALG1@m1100col1
+                    *              0             0             1 
+    54 ALG1@m200col1
+                    *              0             0             1 
+    55 ALG1@m330col1
+                    *              0             0             1 
+    56 ALG1@t830col1
+                    *              1             0             1 
+    57 ALG1@t1000col1
+                    *              0             0             1 
+    58 ALG1@t1130col1
+                    *              0             0             1 
+    59 ALG1@t100col1
+                    *              0             0             1 
+    60 ALG1@t230col1
+                    *              0             0             1 
+    61 SYS1@m800col1
+                    *              0             0             1 
+    62 SYS1@m930col1
+                    *              0             0             1 
+    63 SYS1@m1100col1
+                    *              0             0             1 
+    64 SYS1@m200col1
+                    *              0             0             1 
+    65 SYS1@m330col1
+                    *              0             0             1 
+    66 SYS1@t830col1
+                    *              0             0             1 
+    67 SYS1@t1000col1
+                    *              0             0             1 
+    68 SYS1@t1130col1
+                    *              0             0             1 
+    69 SYS1@t100col1
+                    *              0             0             1 
+    70 SYS1@t230col1
+                    *              0             0             1 
+    71 CAP1@m800col1
+                    *              0             0             1 
+    72 CAP1@m930col1
+                    *              0             0             1 
+    73 CAP1@m1100col1
+                    *              0             0             1 
+    74 CAP1@m200col1
+                    *              0             0             1 
+    75 CAP1@m330col1
+                    *              0             0             1 
+    76 CAP1@t830col1
+                    *              0             0             1 
+    77 CAP1@t1000col1
+                    *              0             0             1 
+    78 CAP1@t1130col1
+                    *              0             0             1 
+    79 CAP1@t100col1
+                    *              0             0             1 
+    80 CAP1@t230col1
+                    *              0             0             1 
+    81 ARI1@m800col1
+                    *              0             0             1 
+    82 ARI1@m930col1
+                    *              0             0             1 
+    83 ARI1@m1100col1
+                    *              0             0             1 
+    84 ARI1@m200col1
+                    *              1             0             1 
+    85 ARI1@m330col1
+                    *              0             0             1 
+    86 ARI1@t830col1
+                    *              0             0             1 
+    87 ARI1@t1000col1
+                    *              0             0             1 
+    88 ARI1@t1130col1
+                    *              0             0             1 
+    89 ARI1@t100col1
+                    *              0             0             1 
+    90 ARI1@t230col1
+                    *              0             0             1 
+    91 TOC1@m800col1
+                    *              0             0             1 
+    92 TOC1@m930col1
+                    *              0             0             1 
+    93 TOC1@m1100col1
+                    *              0             0             1 
+    94 TOC1@m200col1
+                    *              0             0             1 
+    95 TOC1@m330col1
+                    *              0             0             1 
+    96 TOC1@t830col1
+                    *              0             0             1 
+    97 TOC1@t1000col1
+                    *              1             0             1 
+    98 TOC1@t1130col1
+                    *              0             0             1 
+    99 TOC1@t100col1
+                    *              0             0             1 
+   100 TOC1@t230col1
+                    *              0             0             1 
+   101 DAT1@m800col1
+                    *              0             0             1 
+   102 DAT1@m930col1
+                    *              0             0             1 
+   103 DAT1@m1100col1
+                    *              0             0             1 
+   104 DAT1@m200col1
+                    *              0             0             1 
+   105 DAT1@m330col1
+                    *              0             0             1 
+   106 DAT1@t830col1
+                    *              0             0             1 
+   107 DAT1@t1000col1
+                    *              0             0             1 
+   108 DAT1@t1130col1
+                    *              1             0             1 
+   109 DAT1@t100col1
+                    *              0             0             1 
+   110 DAT1@t230col1
+                    *              0             0             1 
+   111 OPR1@m800col1
+                    *              0             0             1 
+   112 OPR1@m930col1
+                    *              1             0             1 
+   113 OPR1@m1100col1
+                    *              0             0             1 
+   114 OPR1@m200col1
+                    *              0             0             1 
+   115 OPR1@m330col1
+                    *              0             0             1 
+   116 OPR1@t830col1
+                    *              0             0             1 
+   117 OPR1@t1000col1
+                    *              0             0             1 
+   118 OPR1@t1130col1
+                    *              0             0             1 
+   119 OPR1@t100col1
+                    *              0             0             1 
+   120 OPR1@t230col1
+                    *              0             0             1 
+   121 NUA1@m800col1
+                    *              0             0             1 
+   122 NUA1@m930col1
+                    *              0             0             1 
+   123 NUA1@m1100col1
+                    *              0             0             1 
+   124 NUA1@m200col1
+                    *              0             0             1 
+   125 NUA1@m330col1
+                    *              0             0             1 
+   126 NUA1@t830col1
+                    *              0             0             1 
+   127 NUA1@t1000col1
+                    *              0             0             1 
+   128 NUA1@t1130col1
+                    *              0             0             1 
+   129 NUA1@t100col1
+                    *              1             0             1 
+   130 NUA1@t230col1
+                    *              0             0             1 
+   131 EXP1@m800col1
+                    *              0             0             1 
+   132 EXP1@m930col1
+                    *              0             0             1 
+   133 EXP1@m1100col1
+                    *              0             0             1 
+   134 EXP1@m200col1
+                    *              0             0             1 
+   135 EXP1@m330col1
+                    *              1             0             1 
+   136 EXP1@t830col1
+                    *              0             0             1 
+   137 EXP1@t1000col1
+                    *              0             0             1 
+   138 EXP1@t1130col1
+                    *              0             0             1 
+   139 EXP1@t100col1
+                    *              0             0             1 
+   140 EXP1@t230col1
+                    *              0             0             1 
+   141 CS11@m800col2
+                    *              0             0             1 
+   142 CS11@m930col2
+                    *              1             0             1 
+   143 CS11@m1100col2
+                    *              0             0             1 
+   144 CS11@m200col2
+                    *              0             0             1 
+   145 CS11@m330col2
+                    *              0             0             1 
+   146 CS11@t830col2
+                    *              0             0             1 
+   147 CS11@t1000col2
+                    *              0             0             1 
+   148 CS11@t1130col2
+                    *              0             0             1 
+   149 CS11@t100col2
+                    *              0             0             1 
+   150 CS11@t230col2
+                    *              0             0             1 
+   151 CS21@m800col2
+                    *              0             0             1 
+   152 CS21@m930col2
+                    *              0             0             1 
+   153 CS21@m1100col2
+                    *              0             0             1 
+   154 CS21@m200col2
+                    *              1             0             1 
+   155 CS21@m330col2
+                    *              0             0             1 
+   156 CS21@t830col2
+                    *              0             0             1 
+   157 CS21@t1000col2
+                    *              0             0             1 
+   158 CS21@t1130col2
+                    *              0             0             1 
+   159 CS21@t100col2
+                    *              0             0             1 
+   160 CS21@t230col2
+                    *              0             0             1 
+   161 DIS1@m800col2
+                    *              0             0             1 
+   162 DIS1@m930col2
+                    *              0             0             1 
+   163 DIS1@m1100col2
+                    *              0             0             1 
+   164 DIS1@m200col2
+                    *              0             0             1 
+   165 DIS1@m330col2
+                    *              0             0             1 
+   166 DIS1@t830col2
+                    *              0             0             1 
+   167 DIS1@t1000col2
+                    *              0             0             1 
+   168 DIS1@t1130col2
+                    *              0             0             1 
+   169 DIS1@t100col2
+                    *              0             0             1 
+   170 DIS1@t230col2
+                    *              0             0             1 
+   171 ORG1@m800col2
+                    *              0             0             1 
+   172 ORG1@m930col2
+                    *              0             0             1 
+   173 ORG1@m1100col2
+                    *              0             0             1 
+   174 ORG1@m200col2
+                    *              0             0             1 
+   175 ORG1@m330col2
+                    *              0             0             1 
+   176 ORG1@t830col2
+                    *              0             0             1 
+   177 ORG1@t1000col2
+                    *              0             0             1 
+   178 ORG1@t1130col2
+                    *              0             0             1 
+   179 ORG1@t100col2
+                    *              0             0             1 
+   180 ORG1@t230col2
+                    *              0             0             1 
+   181 PRL1@m800col2
+                    *              0             0             1 
+   182 PRL1@m930col2
+                    *              0             0             1 
+   183 PRL1@m1100col2
+                    *              0             0             1 
+   184 PRL1@m200col2
+                    *              0             0             1 
+   185 PRL1@m330col2
+                    *              0             0             1 
+   186 PRL1@t830col2
+                    *              0             0             1 
+   187 PRL1@t1000col2
+                    *              0             0             1 
+   188 PRL1@t1130col2
+                    *              0             0             1 
+   189 PRL1@t100col2
+                    *              0             0             1 
+   190 PRL1@t230col2
+                    *              0             0             1 
+   191 ALG1@m800col2
+                    *              0             0             1 
+   192 ALG1@m930col2
+                    *              0             0             1 
+   193 ALG1@m1100col2
+                    *              0             0             1 
+   194 ALG1@m200col2
+                    *              0             0             1 
+   195 ALG1@m330col2
+                    *              0             0             1 
+   196 ALG1@t830col2
+                    *              0             0             1 
+   197 ALG1@t1000col2
+                    *              0             0             1 
+   198 ALG1@t1130col2
+                    *              0             0             1 
+   199 ALG1@t100col2
+                    *              0             0             1 
+   200 ALG1@t230col2
+                    *              0             0             1 
+   201 SYS1@m800col2
+                    *              0             0             1 
+   202 SYS1@m930col2
+                    *              0             0             1 
+   203 SYS1@m1100col2
+                    *              0             0             1 
+   204 SYS1@m200col2
+                    *              0             0             1 
+   205 SYS1@m330col2
+                    *              0             0             1 
+   206 SYS1@t830col2
+                    *              0             0             1 
+   207 SYS1@t1000col2
+                    *              0             0             1 
+   208 SYS1@t1130col2
+                    *              0             0             1 
+   209 SYS1@t100col2
+                    *              0             0             1 
+   210 SYS1@t230col2
+                    *              1             0             1 
+   211 CAP1@m800col2
+                    *              0             0             1 
+   212 CAP1@m930col2
+                    *              0             0             1 
+   213 CAP1@m1100col2
+                    *              1             0             1 
+   214 CAP1@m200col2
+                    *              0             0             1 
+   215 CAP1@m330col2
+                    *              0             0             1 
+   216 CAP1@t830col2
+                    *              0             0             1 
+   217 CAP1@t1000col2
+                    *              0             0             1 
+   218 CAP1@t1130col2
+                    *              0             0             1 
+   219 CAP1@t100col2
+                    *              0             0             1 
+   220 CAP1@t230col2
+                    *              0             0             1 
+   221 ARI1@m800col2
+                    *              0             0             1 
+   222 ARI1@m930col2
+                    *              0             0             1 
+   223 ARI1@m1100col2
+                    *              0             0             1 
+   224 ARI1@m200col2
+                    *              0             0             1 
+   225 ARI1@m330col2
+                    *              0             0             1 
+   226 ARI1@t830col2
+                    *              0             0             1 
+   227 ARI1@t1000col2
+                    *              0             0             1 
+   228 ARI1@t1130col2
+                    *              0             0             1 
+   229 ARI1@t100col2
+                    *              0             0             1 
+   230 ARI1@t230col2
+                    *              0             0             1 
+   231 TOC1@m800col2
+                    *              0             0             1 
+   232 TOC1@m930col2
+                    *              0             0             1 
+   233 TOC1@m1100col2
+                    *              0             0             1 
+   234 TOC1@m200col2
+                    *              0             0             1 
+   235 TOC1@m330col2
+                    *              0             0             1 
+   236 TOC1@t830col2
+                    *              0             0             1 
+   237 TOC1@t1000col2
+                    *              0             0             1 
+   238 TOC1@t1130col2
+                    *              0             0             1 
+   239 TOC1@t100col2
+                    *              0             0             1 
+   240 TOC1@t230col2
+                    *              0             0             1 
+   241 DAT1@m800col2
+                    *              0             0             1 
+   242 DAT1@m930col2
+                    *              0             0             1 
+   243 DAT1@m1100col2
+                    *              0             0             1 
+   244 DAT1@m200col2
+                    *              0             0             1 
+   245 DAT1@m330col2
+                    *              0             0             1 
+   246 DAT1@t830col2
+                    *              0             0             1 
+   247 DAT1@t1000col2
+                    *              0             0             1 
+   248 DAT1@t1130col2
+                    *              0             0             1 
+   249 DAT1@t100col2
+                    *              0             0             1 
+   250 DAT1@t230col2
+                    *              0             0             1 
+   251 OPR1@m800col2
+                    *              0             0             1 
+   252 OPR1@m930col2
+                    *              0             0             1 
+   253 OPR1@m1100col2
+                    *              0             0             1 
+   254 OPR1@m200col2
+                    *              0             0             1 
+   255 OPR1@m330col2
+                    *              0             0             1 
+   256 OPR1@t830col2
+                    *              0             0             1 
+   257 OPR1@t1000col2
+                    *              0             0             1 
+   258 OPR1@t1130col2
+                    *              0             0             1 
+   259 OPR1@t100col2
+                    *              0             0             1 
+   260 OPR1@t230col2
+                    *              0             0             1 
+   261 NUA1@m800col2
+                    *              0             0             1 
+   262 NUA1@m930col2
+                    *              0             0             1 
+   263 NUA1@m1100col2
+                    *              0             0             1 
+   264 NUA1@m200col2
+                    *              0             0             1 
+   265 NUA1@m330col2
+                    *              0             0             1 
+   266 NUA1@t830col2
+                    *              0             0             1 
+   267 NUA1@t1000col2
+                    *              0             0             1 
+   268 NUA1@t1130col2
+                    *              0             0             1 
+   269 NUA1@t100col2
+                    *              0             0             1 
+   270 NUA1@t230col2
+                    *              0             0             1 
+   271 EXP1@m800col2
+                    *              0             0             1 
+   272 EXP1@m930col2
+                    *              0             0             1 
+   273 EXP1@m1100col2
+                    *              0             0             1 
+   274 EXP1@m200col2
+                    *              0             0             1 
+   275 EXP1@m330col2
+                    *              0             0             1 
+   276 EXP1@t830col2
+                    *              0             0             1 
+   277 EXP1@t1000col2
+                    *              0             0             1 
+   278 EXP1@t1130col2
+                    *              0             0             1 
+   279 EXP1@t100col2
+                    *              0             0             1 
+   280 EXP1@t230col2
+                    *              0             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

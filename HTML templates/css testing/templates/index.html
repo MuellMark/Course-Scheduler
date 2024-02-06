@@ -1,2 +1,45 @@
-<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" /><link href="./css/main.css" rel="stylesheet" /><title>Document</title></head><body><div class="v1_3"><div class="v1_7"></div><div class="v1_6"></div><span class="v1_4">Southwestern University Course Scheduler</span><span class="v1_5">Upload Course Requirements:</span><div class="v1_9"></div><span class="v1_10">Upload Faculty Requirements:</span><div class="v1_11"></div><span class="v1_29">Upload Previously Created Schedule:</span><div class="v1_30"></div><span class="v1_8">TODO: Add a brief description as to what this site is and what it does
-</span><div class="v1_12"></div><div class="v1_14"></div><span class="v1_13">FAQ</span><div class="v1_21"></div><span class="v1_22">FAQ</span><div class="v11_32"></div><span class="v11_33">Generate!</span><div class="v11_34"></div><span class="v11_35">Load</span><span class="v1_15">Github</span><span class="v1_27">Or</span><div class="v40_4"></div></div></body></html>
+<html>
+
+<head>
+<title>
+
+    Pyscript : Show Table in Browser
+    
+</title>
+
+ <!-- Pyscript -->
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <!--<link rel="stylesheet" type="text/css" href="df_style.css"/>-->
+    
+
+<!---pyodide--> 
+
+<py-env>
+    - pandas
+</py-env>
+
+</head>
+
+<body>
+    
+   <center> <b>DuMmY CSV TeSt</b></center>	
+
+  
+
+    <py-script>
+
+        import pandas as pd 
+        link_data = https://raw.githubusercontent.com/MuellMark/Course-Scheduler/tree/Colby/HTML%20templates/css testing/csv_files/csTemplateCourseRestrictions.csv
+        url = open_url(link_data)
+
+        df = pd.read_csv(url)
+        pyscript.write('data',df.to_html(classes="mystyle"))
+
+
+    </py-script>
+
+    
+</body>
+    <p id="data"></p>
+</html>
