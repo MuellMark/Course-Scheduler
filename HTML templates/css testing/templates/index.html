@@ -29,8 +29,11 @@
 
     <py-script>
 
-        import pandas as pd 
-        link_data = https://raw.githubusercontent.com/MuellMark/Course-Scheduler/tree/Colby/HTML%20templates/css testing/csv_files/csTemplateCourseRestrictions.csv
+        import pandas as pd
+        
+        from pyodide.http import open_url
+
+        link_data = "https://raw.githubusercontent.com/MuellMark/Course-Scheduler/Colby/HTML%20templates/css%20testing/dummy.csv"
         url = open_url(link_data)
 
         df = pd.read_csv(url)
