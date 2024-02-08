@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Course Information Form</title>
+</head>
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<body>
+
+<h2>Add Course Information Form</h2>
+
+<form id="courseForm">
+    <label for="courseList">Select a Course:</label>
+    <select id="courseList" name="courseList">
+        <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
+        <option value="CS11">CS11</option>
+        <option value="CS21">CS21</option>
+        <option value="DIS1">DIS1</option>
+    </select>
+
+    <br>
+    <label for="newCourse">Or Add a New Course:</label>
+    <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course">
+
+    <br>
+    <label for="abbreviation">Abbreviation:</label>
+    <input type="text" id="abbreviation" name="abbreviation" readonly>
+    
+    <br>
+    <label for="contactHours">4 Contact Hour Course:</label>
+    <input type="checkbox" id="contactHours" name="contactHours">
+
+    <br>
+    <label for="sections">Number of Sections:</label>
+    <input type="number" id="sections" name="sections" min="1">
+
+    <br>
+    <label for="unavailableTimes">Times When Course Cannot Be Taught:</label>
+    <input type="checkbox" id="monday" name="unavailableTimes" value="monday">
+    <label for="monday">Monday</label>
+    <input type="checkbox" id="tuesday" name="unavailableTimes" value="tuesday">
+    <label for="tuesday">Tuesday</label>
+    <input type="checkbox" id="wednesday" name="unavailableTimes" value="monday">
+    <label for="wednesday">Wednesday</label>
+    <input type="checkbox" id="thursday" name="unavailableTimes" value="tuesday">
+    <label for="thursday">Thursday</label>
+    <input type="checkbox" id="friday" name="unavailableTimes" value="tuesday">
+    <label for="friday">Friday</label>
+
+    <br>
+    <button> <a href="/my-link/">Click me</a></button>
+    <input type="submit" value="Submit">
+</form>
+
+<py-script>
+    # This could be where we put the python script for making the csv 
+    # If you are using vscode preview the pyscript will never load
+    print("Hello World!")
+</py-script>
+
+</body>
+</html>
