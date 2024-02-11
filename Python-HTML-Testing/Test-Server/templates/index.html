@@ -1,21 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html>
-  <head>    
-  </head>
-  <body>
-    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
+    <head>
+        <!-- Recommended meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <title>Simple Clock Demo</title>
+        <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    </head>
 
-    <script>
-        function goPython(){
-            $.ajax({
-              url: "test-script.py",
-             context: document.body
-            }).done(function() {
-             alert('finished python script');;
-            });
-        }
-    </script>
-  </body>
+    <body>
+
+        <section class="pyscript">
+            <div class="font-mono">
+                start time: <label id="output1"></label>
+            </div>
+            <!-- <div id="output2" class="font-mono"></div>
+            <div id="output3" class="font-mono"></div> -->
+
+            <script type="py" src="./main.py" async></script>
+        </section>
+    </body>
 </html>
