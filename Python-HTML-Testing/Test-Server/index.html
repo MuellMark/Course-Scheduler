@@ -2,12 +2,8 @@
 
 <html>
     <head>
-        <style>
-            table, th, td {
-              border: 1px solid black;
-              border-collapse: collapse;
-            }
-            </style>
+        <link rel="stylesheet" href="styles.css">
+
         <!-- Recommended meta tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -25,12 +21,20 @@
             <div class="font-mono">
                 start time: <label id="output1"></label>
             </div>
-            <div id="output2" class="font-mono"></div>
+            
 
-            <table style="width:100%">
+            <table style="width:70%">
                 <tr>
                     <th>Time</th>
                     <th>Column 1</th>
+                </tr>
+                <tr>
+                    <th>8:00 AM MWF</th>
+                    <th><div id="output2" class="font-mono"></div></th>
+                </tr>
+                <tr>
+                    <th>9:30 AM MWF</th>
+                    <th></th>
                 </tr>
 
             </table>
