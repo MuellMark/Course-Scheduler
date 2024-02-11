@@ -2,6 +2,12 @@
 
 <html>
     <head>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            </style>
         <!-- Recommended meta tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -9,7 +15,7 @@
         <!-- This script tag bootstraps PyScript -->
         <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
-        <title>Simple Clock Demo</title>
+        <title>PyScript Test</title>
         <link rel="icon" type="image/png" href="./assets/favicon.png" />
     </head>
 
@@ -19,8 +25,16 @@
             <div class="font-mono">
                 start time: <label id="output1"></label>
             </div>
-            <!-- <div id="output2" class="font-mono"></div>
-            <div id="output3" class="font-mono"></div> -->
+            <div id="output2" class="font-mono"></div>
+
+            <table style="width:100%">
+                <tr>
+                    <th>Time</th>
+                    <th>Column 1</th>
+                </tr>
+
+            </table>
+
 
             <script type="py" src="./main.py" async></script>
         </section>
