@@ -1,7 +1,7 @@
 from datetime import datetime
 from pyscript import display
 import asyncio
-
+# http://0.0.0.0:8000/templates/
 def now():
     fmt = "%m/%d/%Y, %H:%M:%S"
     return f"{datetime.now():{fmt}}"
