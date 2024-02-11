@@ -16,14 +16,14 @@
     </head>
 
     <body>
-
         <section class="pyscript">
             <div class="font-mono">
                 start time: <label id="output1"></label>
             </div>
             
-
+            
             <table style="width:70%">
+                
                 <tr>
                     <th>Time</th>
                     <th>Column 1</th>
