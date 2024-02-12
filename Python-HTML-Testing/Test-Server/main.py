@@ -11,9 +11,9 @@ def now():
     return f"{datetime.now():{fmt}}"
 
 def test_method():
-    return("Hello World!")
+    return("Computer Science 1")
 
-display(now(), target="output1", append=False)
+# display(now(), target="output1", append=False)
 display(test_method(), target="output2", append=False)
 
 # async def foo():
