@@ -11,7 +11,7 @@
 
         <h2>Add Course Information Form</h2>
 
-        <form id="courseForm">
+        <form id="courseForm" onsubmit ="return false">
             <!-- There should be a drop down that lists all of the CS and Math courses with an option to add a new course -->
             <label for="courseList">Select a Course:</label>
             <select id="courseList" name="courseList">
@@ -57,7 +57,7 @@
 
             <br>
             <!-- TODO submit goes no where as is -->
-            <input type="submit" value="Submit">
+            <button onClick="window.location.reload();">Refresh Page</button>
         </form>
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
         <py-script>
