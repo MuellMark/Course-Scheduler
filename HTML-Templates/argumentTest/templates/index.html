@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <head>
     <title>Add Course Information Form</title>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <script type="py" src="./main.py" async></script>
+    <py-env>
+        - paths:
+          - ./testScript.py
+    </py-env>
 </head>
-<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <body>
 
         <h2>Add Course Information Form</h2>
@@ -56,13 +61,11 @@
             <input type="submit" value="Submit">
         </form>
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
-        <py-env>
-            - paths:
-                - ./testScript.py
-        <py-env>
         <py-script>
-            testScript.py import main
-            main('arg1', 'arg2')
+            print("This executes before the script file")
+            from testScript import main
+            main("Hello","World!")
+            print("Script file done executing")
         </py-script>
 
     </body>
