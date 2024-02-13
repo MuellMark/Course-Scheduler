@@ -55,11 +55,14 @@
             <!-- TODO submit goes no where as is -->
             <input type="submit" value="Submit">
         </form>
-
+        <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
+        <py-env>
+            - paths:
+                - ./testScript.py
+        <py-env>
         <py-script>
-            # This could be where we put the python script for making the csv 
-            # If you are using vscode preview the pyscript will never load
-            print("Hello World!")
+            testScript.py import main
+            main('arg1', 'arg2')
         </py-script>
 
     </body>
