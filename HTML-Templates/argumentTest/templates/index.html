@@ -63,8 +63,10 @@
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
         <py-script>
             print("This executes before the script file")
+            newCourse = Element('newCourse').element.value
+            courseList = Element('courseList').element.value
             from testScript import main
-            main("Hello","World!")
+            main(courseList, newCourse)
             print("Script file done executing")
         </py-script>
 
