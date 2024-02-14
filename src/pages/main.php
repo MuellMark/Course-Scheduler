@@ -23,7 +23,20 @@
                 <option value="CS21">CS21</option>
                 <option value="DIS1">DIS1</option>
                 <option value="CS1">CS1</option>
+
             </select>
+            <?php 
+                    $file = fopen("csv/courses.csv", "r");
+
+                    while (($data = fgetcsv($file)) !== FALSE){
+                        echo "course " . $data[0];
+                    }
+            ?>
+            <?php 
+                    #$command = escapeshellcmd('scripts/testScript.py');
+                    #$output = shell_exec($command);
+                    #echo $output;
+            ?>
             <py-script>
 
             </py-script>
@@ -83,7 +96,7 @@
             main(courseList, newCourse, abbreviation, contactHours)
             print("Script file done executing")
             from testScript import courseList
-            courseList()
+            #courseList()
         </py-script>
 
     </body>

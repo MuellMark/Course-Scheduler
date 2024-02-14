@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 import pandas
 
@@ -16,5 +17,5 @@ def courseList():
        print(f"<option value=\"{row}\">{row}</option>")
 
 if __name__ == "__main__":
-    #courseList()
+    courseList()
     main(sys.argv[1], sys.argv[2],sys.argv[3], sys.argv[4])
