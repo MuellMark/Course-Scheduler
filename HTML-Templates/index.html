@@ -25,9 +25,9 @@
             </select>
             <label for="newCourse">
                 <py-script>
-                import pandas as pd
-                df = pd.read_csv('courses.csv')
-                column = df['courseName'] # column_name is the name of the column
+                import pandas
+                csv_file = pandas.read_csv('courses.csv')
+                column = csv_file['courseName']
                 for row in column:
                     print(row)
                 </py-script>

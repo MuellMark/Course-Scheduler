@@ -10,9 +10,10 @@ def main(arg1, arg2, arg3, arg4):
 
 def courseList():
     # Open file 
-    with open('courses.csv', 'r') as file_obj:  
-        for line in file_obj:
-            print(line)
+    with open('courses.csv', 'r') as csv_file:  
+        column = csv_file['courseName']
+        for row in column:
+            print(row)
 
 if __name__ == "__main__":
     #courseList()
