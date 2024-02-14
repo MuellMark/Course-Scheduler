@@ -3,8 +3,11 @@
     <title>Add Course Information Form</title>
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <py-env>
+        - pandas
         - paths:
           - ./testScript.py
+          - ./courses.csv
+
     </py-env>
 </head>
     <body>
@@ -20,6 +23,15 @@
                 <option value="CS21">CS21</option>
                 <option value="DIS1">DIS1</option>
             </select>
+            <label for="newCourse">
+                <py-script>
+                import pandas as pd
+                df = pd.read_csv('courses.csv')
+                column = df['courseName'] # column_name is the name of the column
+                for row in column:
+                    print(row)
+                </py-script>
+                </label>
 
             <br>
             <!-- This is the option to add a new course -->
@@ -69,6 +81,8 @@
             from testScript import main
             main(courseList, newCourse, abbreviation, contactHours)
             print("Script file done executing")
+            from testScript import courseList
+            courseList()
         </py-script>
 
     </body>
