@@ -10,10 +10,10 @@ def main(arg1, arg2, arg3, arg4):
 
 def courseList():
     # Open file 
-    csv_file = pandas.read_csv('courses.csv')
+    csv_file = pandas.read_csv('csv/courses.csv')
     column = csv_file['courseName']
     for row in column:
-       print("<option value=\""+ row + "\">" + row + "</option>")
+       print(f"<option value=\"{row}\">{row}</option>")
 
 if __name__ == "__main__":
     #courseList()

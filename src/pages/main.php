@@ -20,15 +20,9 @@
             <select id="courseList" name="courseList">
                 <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
                 <option value="CS11">CS11</option>
-                <option value="CS21">CS21
-                </option>
+                <option value="CS21">CS21</option>
                 <option value="DIS1">DIS1</option>
                 <option value="CS1">CS1</option>
-                <py-script>
-                    print("<option value=\"TEST\">TEST</option>")
-                    row = "test"
-                    print(f"<option value=\"{row}\">{row}</option>")
-                </py-script>
             </select>
             <py-script>
 
@@ -37,7 +31,7 @@
             <br>
             <!-- This is the option to add a new course -->
             <label for="newCourse">Or Add a New Course:</label>
-            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value=<py-script>Element('newCourse').element.value</py-script>>
+            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value=<?=$_REQUEST["newCourse"]?>>
 
             <br>
             <!-- the abbreviation for the course, autofilled if it's a course already in drop down -->
