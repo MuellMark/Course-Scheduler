@@ -13,7 +13,7 @@ def courseList():
     csv_file = pandas.read_csv('courses.csv')
     column = csv_file['courseName']
     for row in column:
-        print(row)
+       print("<option value=\""+ row + "\">" + row + "</option>")
 
 if __name__ == "__main__":
     #courseList()

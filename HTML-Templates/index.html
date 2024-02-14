@@ -22,16 +22,19 @@
                 <option value="CS11">CS11</option>
                 <option value="CS21">CS21</option>
                 <option value="DIS1">DIS1</option>
-            </select>
-            <label for="newCourse">
+                <option value="CS1">CS1</option>
                 <py-script>
-                import pandas
-                csv_file = pandas.read_csv('courses.csv')
-                column = csv_file['courseName']
-                for row in column:
-                    print(row)
+                    #This works
+                    print("<option value=\"TEST\">TEST</option>")
+                    #This does not so the for loop is broken right now
+                    #print("<option value=\"TEST\">" + rows + "</option>")
+                    import pandas
+                    csv_file = pandas.read_csv('/courses.csv')
+                    column = csv_file['courseName']
+                    for row in column:
+                        print("<option value=\""+ row + "\">" + row + "</option>")
                 </py-script>
-                </label>
+            </select>
 
             <br>
             <!-- This is the option to add a new course -->
