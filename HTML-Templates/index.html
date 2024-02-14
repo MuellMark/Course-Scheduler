@@ -56,16 +56,18 @@
             <label for="friday">Friday</label>
 
             <br>
-            <!-- TODO submit goes no where as is -->
-            <button onClick="window.location.reload();">Refresh Page</button>
+            <!-- TODO took away submit and just made it a refresh -->
+            <button onClick="window.location.reload();">Submit</button>
         </form>
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
         <py-script>
             print("This executes before the script file")
             newCourse = Element('newCourse').element.value
             courseList = Element('courseList').element.value
+            abbreviation = Element('abbreviation').element.value
+            contactHours = Element('contactHours').element.value
             from testScript import main
-            main(courseList, newCourse)
+            main(courseList, newCourse, abbreviation, contactHours)
             print("Script file done executing")
         </py-script>
 
