@@ -39,7 +39,8 @@
             <br>
             <!-- This is the option to add a new course -->
             <label for="newCourse">Or Add a New Course:</label>
-            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value=<?=$_REQUEST["newCourse"]?>>
+                                                                                                <!-- If empty then value = blank -->
+            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value="<?=empty($_REQUEST["newCourse"]) ? "" : $_REQUEST["newCourse"] ?>">
 
             <br>
             <!-- the abbreviation for the course, autofilled if it's a course already in drop down -->
