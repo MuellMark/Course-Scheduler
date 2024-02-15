@@ -13,6 +13,21 @@
     <body>
 
         <h2>Add Course Information Form</h2>
+        <?php
+        // Source: https://www.w3schools.com/php/php_mysql_connect.asp
+        // $servername = "localhost";
+        // $username = "username";
+        // $password = "password";
+
+        // // Create connection
+        // $conn = new mysqli($servername, $username, $password);
+
+        // // Check connection
+        // if ($conn->connect_error) {
+        // die("Connection failed: " . $conn->connect_error);
+        // }
+        // echo "Connected successfully";
+        ?> 
 
         <form id="courseForm">
             <!-- There should be a drop down that lists all of the CS and Math courses with an option to add a new course -->
