@@ -19,19 +19,14 @@
             <label for="courseList">Select a Course:</label>
             <select id="courseList" name="courseList">
                 <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
-                <option value="CS11">CS11</option>
-                <option value="CS21">CS21</option>
-                <option value="DIS1">DIS1</option>
-                <option value="CS1">CS1</option>
-
-            </select>
-            <?php 
+                <option value="test">This is fake</option>
+                <?php 
                     $file = fopen("csv/courses.csv", "r");
 
-                    while (($data = fgetcsv($file)) !== FALSE){
-                        echo "course " . $data[0];
-                    }
-            ?>
+                    while (($data = fgetcsv($file)) !== FALSE)
+                        echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
+                ?>
+            </select>
             <?php 
                     #$command = escapeshellcmd('scripts/testScript.py');
                     #$output = shell_exec($command);
