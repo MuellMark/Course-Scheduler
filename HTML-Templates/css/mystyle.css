@@ -1,0 +1,29 @@
+.header {
+    padding: 70px;
+    text-align: center;
+    background: #000000;
+    color: white;
+    font-size: 100px;
+  }
+
+  .button1 {
+    font-family: 'lustria';
+    background-color: #fcd138;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+  
