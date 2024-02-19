@@ -34,7 +34,7 @@
             <label for="courseList">Select a Course:</label>
             <select id="courseList" name="courseList">
                 <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
-                <option value="test">This is fake</option>
+                <option value="test">Choose one</option>
                 <?php 
                     $file = fopen("csv/courses.csv", "r");
 
@@ -93,7 +93,7 @@
         <a href="display.html">
             <button>To Scheduler</button>
         </a><br>
-        <a href="main.html">
+        <a href="base.php">
             <button>Back</button>
         </a>
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
