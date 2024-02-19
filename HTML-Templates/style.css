@@ -1,0 +1,110 @@
+/* Header Design and Formatting*/
+
+header {
+  overflow: hidden; /* Hide content that is not within the headers box */
+}
+
+#headerBar {
+  display: flex;
+  justify-content: space-between; /* Spread evenly between first and last element*/
+  align-items: center; /* Center vertically */
+  padding: 20px; /* Add padding for headerBar by putting space around it*/
+}
+
+/* Logo Design And Formatting */
+#logo {
+  margin-right: 20px; /* Create space to its right*/
+}
+
+#logo img {
+  max-width: 700px; /* Prevent from being over certain length */
+  max-height: 600px; /* Prevent from being over certain length*/
+  height: auto; /* Will allow to be proportional */
+  width: auto; /* Will allow to be proportional*/
+}
+
+/* Bar Design and Formatting */
+#menubar {
+  flex: 1; /* Menu bar needs to change spacing tofit, this will allow it to do so*/
+  display: flex; /* Distrubute evenly for space and alignment*/
+  justify-content: flex-end; /* Aligns menu items to the right */
+}
+
+#menubar ul {
+  display: flex; /* Distribute evenly for spave and alignment (in this case in a row)*/
+  align-items: center; /* Center vertically on the menu*/
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove padding */
+  list-style: none; /* Remove the default list style*/
+  background: none; /* Make sure there is no background*/
+}
+
+#menubar li {
+  padding: 0 10px; /* Adding padding to each item in the list (this adds padding horizontially) */
+}
+
+#menubar li a {
+  padding: 0.5em 1em; /* Adds padding for the clickable aread */
+  text-decoration: none; /* Removes the underline when you click */
+  font-weight: 600; /* Bold Link Text */
+  color: #FFF; /* Make text white */
+  background-color: #ffcb08;  /* Set background color to SU colros */
+  margin: 0 10px; /* Add margin to spave out the links */
+}
+
+#menubar li a:hover {
+  color: #000000; /* When you hover over link, but it black*/
+  background-color: #FFF; /* When you hover over, chnage the background to white*/
+}
+
+/* Header Image (SU Pic)*/
+
+#headerimage{
+  margin-top: 20px; /* Add a margin to the top of the header image to space it*/
+}
+
+#headerimage img{
+  width: 100%; /* Stretch image to the full width of the container*/
+  height: auto; /* Scale height to keep aspect ratio*/
+}
+
+/* Default CSS Styling and Formatting */
+html, body {
+  height: 100%; /* Set height to the height of the HTML page*/
+}
+
+body {
+  margin: 0; /*  Remove the margin to keep edge with page*/
+  padding: 0; /* Remove the padding to keep edge with page*/
+  background: #FFFFFF; /* Set the background color to white*/
+  font-family: 'lustria'; /* Use hte font lustria for text*/
+  font-size: 12pt; /* Keep font at 12pt*/
+}
+
+h1, h2, h3 {
+  margin: 0; /* Remove defualt margins*/
+  padding: 0; /* Remove padding*/
+  color: black; /* Set default color of headings to black*/
+}
+
+h1{
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add margin to depetrate h1 from the elements that are above it*/
+}
+p, ol, ul {
+  margin-top: 0; /* Reset the margin for paragrpahs and lists to keep consistent */
+}
+
+p {
+  line-height: 180%; /* Increase the spave between lines for paragraphs*/
+}
+
+ol, ul {
+  padding: 0; /* Remove padding for lists*/
+  list-style: none; /* Remove defaul list item look to keep same*/
+}
+
+.container {
+  margin: 0 auto; /* Center container with the main element */
+  width: 1200px; /* Fixed wdith for a container*/
+}

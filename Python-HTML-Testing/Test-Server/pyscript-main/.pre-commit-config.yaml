@@ -1,0 +1,53 @@
+# This is the configuration for pre-commit, a local framework for managing pre-commit hooks
+#   Check out the docs at: https://pre-commit.com/
+ci:
+    #skip: [eslint]
+    autoupdate_schedule: monthly
+
+default_stages: [commit]
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.5.0
+      hooks:
+          - id: check-builtin-literals
+          - id: check-case-conflict
+          - id: check-docstring-first
+          - id: check-executables-have-shebangs
+          - id: check-json
+            exclude: tsconfig\.json
+          - id: check-toml
+            exclude: bad\.toml
+          - id: check-xml
+          - id: check-yaml
+          - id: detect-private-key
+          - id: end-of-file-fixer
+            exclude: pyscript\.core/dist|\.min\.js$
+          - id: trailing-whitespace
+
+    - repo: https://github.com/psf/black
+      rev: 24.1.1
+      hooks:
+          - id: black
+            exclude: pyscript\.core/src/stdlib/pyscript/__init__\.py
+
+    - repo: https://github.com/codespell-project/codespell
+      rev: v2.2.6
+      hooks:
+          - id: codespell # See 'pyproject.toml' for args
+            exclude: \.js\.map$
+            additional_dependencies:
+                - tomli
+
+    - repo: https://github.com/hoodmane/pyscript-prettier-precommit
+      rev: "v3.0.0-alpha.6"
+      hooks:
+          - id: prettier
+            exclude: pyscript\.core/test|pyscript\.core/dist|pyscript\.core/types|pyscript.core/src/stdlib/pyscript.js|pyscript\.sw/|pyscript.core/src/3rd-party
+            args: [--tab-width, "4"]
+
+    - repo: https://github.com/pycqa/isort
+      rev: 5.13.2
+      hooks:
+          - id: isort
+            name: isort (python)
+            args: [--profile, black]

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <link href="/HTML-Templates/css/mystyle.css" rel="stylesheet" type="text/css">
+    
+    <title>Add Course Information Form</title>
+    
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    
+    <py-env>
+        - pandas
+        - paths:
+          - ./testScript.py
+          - ./courses.csv
+
+    </py-env>
+</head>
+    <body>
+
+        <header>
+            <div id="header">
+                <div id="Logo">
+                    <h1> <img src="./images/44850_SUIcon-Thick-1L_K.png"> Southwestern University Course Scheduler</h1>
+                </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="#"> Home</a>
+                    </li>
+                    <li>
+                        <a href="#"> FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#"> Create CSV</a>
+                    </li>
+                    <li>
+                        <a href="#"> Create Course Schedule</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        </header>
+
+        <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset" >
+        <h2> <center>  Add Course Information Form  </center></h2> 
+
+        <form id="courseForm" onsubmit ="return false">
+            <!-- There should be a drop down that lists all of the CS and Math courses with an option to add a new course -->
+            <label for="courseList">Select a Course:</label>
+            <select id="courseList" name="courseList">
+                <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
+                <option value="CS11">CS11</option>
+                <option value="CS21">CS21</option>
+                <option value="DIS1">DIS1</option>
+                <option value="CS1">CS1</option>
+                <py-script>
+                    #This works
+                    print("<option value=\"TEST\">TEST</option>")
+                    #This does not so the for loop is broken right now
+                    #print("<option value=\"TEST\">" + rows + "</option>")
+                    import pandas
+                    csv_file = pandas.read_csv('/courses.csv')
+                    column = csv_file['courseName']
+                    for row in column:
+                        print("<option value=\""+ row + "\">" + row + "</option>")
+                </py-script>
+            </select>
+
+            <br>
+            <!-- This is the option to add a new course -->
+            <label for="newCourse">Or Add a New Course:</label>
+            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course">
+
+            <br>
+            <!-- the abbreviation for the course, autofilled if it's a course already in drop down -->
+            <label for="abbreviation">Abbreviation:</label>
+            <input type="text" id="abbreviation" name="abbreviation">
+            
+            <br>
+            <!-- a checkbox if it's a 4 contact hour course (also autofilled) -->
+            <label for="contactHours">4 Contact Hour Course:</label>
+            <input type="checkbox" id="contactHours" name="contactHours">
+
+            <br>
+            <!-- the number of sections offered -->
+            <label for="sections">Number of Sections:</label>
+            <input type="number" id="sections" name="sections" min="1">
+
+            <br>
+            <!--When they click on one of the dates, add another line that will show times that they cannot teach-->
+            <!-- a check box for all of the times to select when the course cannot be taught -->
+            <label for="unavailableTimes">Times When Course Cannot Be Taught:</label>
+            <input type="checkbox" id="monday" name="unavailableTimes" value="monday">
+            <label for="monday">Monday</label>
+            <input type="checkbox" id="tuesday" name="unavailableTimes" value="tuesday">
+            <label for="tuesday">Tuesday</label>
+            <input type="checkbox" id="wednesday" name="unavailableTimes" value="monday">
+            <label for="wednesday">Wednesday</label>
+            <input type="checkbox" id="thursday" name="unavailableTimes" value="tuesday">
+            <label for="thursday">Thursday</label>
+            <input type="checkbox" id="friday" name="unavailableTimes" value="tuesday">
+            <label for="friday">Friday</label>
+
+            <br>
+            <!-- TODO took away submit and just made it a refresh -->
+            <button onClick="window.location.reload();">Submit</button>
+        </form>
+        <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
+        <py-script>
+            print("This executes before the script file")
+            newCourse = Element('newCourse').element.value
+            courseList = Element('courseList').element.value
+            abbreviation = Element('abbreviation').element.value
+            contactHours = Element('contactHours').element.value
+            from testScript import main
+            main(courseList, newCourse, abbreviation, contactHours)
+            print("Script file done executing")
+            from testScript import courseList
+            courseList()
+        </py-script>
+
+    </body>
+</html>
