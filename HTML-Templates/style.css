@@ -7,18 +7,23 @@ header {
 #headerBar {
   display: flex;
   justify-content: space-between; /* Spread evenly between first and last element*/
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content*/
   align-items: center; /* Center vertically */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/align-items*/
   padding: 20px; /* Add padding for headerBar by putting space around it*/
 }
 
 /* Logo Design And Formatting */
 #logo {
   margin-right: 20px; /* Create space to its right*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/margin*/
 }
 
 #logo img {
   max-width: 700px; /* Prevent from being over certain length */
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/max-width*/
   max-height: 600px; /* Prevent from being over certain length*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/max-height*/
   height: auto; /* Will allow to be proportional */
   width: auto; /* Will allow to be proportional*/
 }
@@ -26,7 +31,9 @@ header {
 /* Bar Design and Formatting */
 #menubar {
   flex: 1; /* Menu bar needs to change spacing tofit, this will allow it to do so*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/flex*/
   display: flex; /* Distrubute evenly for space and alignment*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/display*/
   justify-content: flex-end; /* Aligns menu items to the right */
 }
 
@@ -36,6 +43,7 @@ header {
   padding: 0; /* Remove padding */
   margin: 0; /* Remove padding */
   list-style: none; /* Remove the default list style*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/list-style*/
   background: none; /* Make sure there is no background*/
 }
 
@@ -46,6 +54,7 @@ header {
 #menubar li a {
   padding: 0.5em 1em; /* Adds padding for the clickable aread */
   text-decoration: none; /* Removes the underline when you click */
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration*/
   font-weight: 600; /* Bold Link Text */
   color: #FFF; /* Make text white */
   background-color: #ffcb08;  /* Set background color to SU colros */
@@ -96,7 +105,7 @@ p, ol, ul {
 }
 
 p {
-  line-height: 180%; /* Increase the spave between lines for paragraphs*/
+  line-height: 180%; /* Increase the space between lines for paragraphs*/
 }
 
 ol, ul {
