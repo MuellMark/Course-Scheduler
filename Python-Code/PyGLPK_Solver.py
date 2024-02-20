@@ -33,6 +33,7 @@ def createDict(dict,list):
         dict[item]=i
         i+=1
 
+#TODO will need to gen num columns from all combos
 # Gets the number of columns, and lists of all courses and times
 num_cols = len(contents_course_restrict)
 if(num_cols<=10):
