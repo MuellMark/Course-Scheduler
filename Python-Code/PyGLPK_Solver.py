@@ -100,7 +100,7 @@ def add_cols(all_combos):
             col_index+=1
 
 # Makes sure each given course is only offered once
-def courses_offered_cons(all_combos,row_index):
+def courses_offered_cons(all_combos):
     matrix=[]
     for course in courses:
         lp.rows.add(1)
@@ -336,7 +336,7 @@ for i in range(len(courses)): # courses of same name are duplicates
 
 #TODO: move this into generate_and_run
 add_cols(all_combos)
-courses_offered_cons(all_combos,row_index)
+courses_offered_cons(all_combos)
 add_objective_function(all_combos)
 time_overlap_cons(all_combos)
 generalColCons(all_combos)
