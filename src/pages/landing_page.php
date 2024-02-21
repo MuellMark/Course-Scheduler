@@ -8,16 +8,16 @@
       <div class="Rectangle1" style="width: 998px; height: 71px; left: 256px; top: 124px; position: absolute; background: #D9D9D9; box-shadow: 0px 4px 15.600000381469727px rgba(0, 0, 0, 0.25)"></div>
       <div class="SouthwesternUniversityCourseScheduler" style="left: 268px; top: 129px; position: absolute; color: black; font-size: 48px; font-family: Inter; font-weight: 400; word-wrap: break-word">Southwestern University Course Scheduler</div>
       <div class="UploadCourseRequirements" style="left: 124px; top: 447px; position: absolute; color: black; font-size: 36px; font-family: Inter; font-weight: 400; word-wrap: break-word">Upload Course Requirements:
-        <form action="import.php">
-          <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
-          <button type="submit">View CSV</button>
-        </form>
+      <form action="view_csv.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="csv" value="" required/>
+        <input type="submit" name="submit" value="View" />
+      </form>
       </div>
       <div class="UploadFacultyRequirements" style="left: 124px; top: 520px; position: absolute; color: black; font-size: 36px; font-family: Inter; font-weight: 400; word-wrap: break-word">Upload Faculty Requirements:
-        <form action="import.php">
-        <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
-        <button type="submit">View CSV</button>
-        </form>
+      <form action="view_csv.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="csv" value="" required/>
+        <input type="submit" name="submit" value="View" />
+      </form>
       </div>
       <div class="UploadPreviouslyCreatedSchedule" style="left: 124px; top: 663px; position: absolute; color: black; font-size: 36px; font-family: Inter; font-weight: 400; word-wrap: break-word">Upload Previously Created Schedule:</div>
       <img class="Screenshot20240203At6133" style="width: 178px; height: 47px; left: 756px; top: 663px; position: absolute" src="https://via.placeholder.com/178x47" />
