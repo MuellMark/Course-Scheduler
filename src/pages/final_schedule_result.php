@@ -46,7 +46,7 @@
 
             <script type="py" src="./scripts/main.py" async></script>
         </section>
-         <a href="index.html">
+         <a href="landing_page.php">
             <button>Back</button>
         </a>
     </body>

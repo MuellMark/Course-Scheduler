@@ -32,6 +32,7 @@
                     echo "$item, ";
                     }
                 }
+                // This line can be removed I was curious how it was stored
                 echo "<br>The file temp location is " .$file["tmp_name"];
         }
         ?>
