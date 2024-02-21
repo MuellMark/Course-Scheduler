@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <head>
+
+    <link href="/HTML-Templates/css/mystyle.css" rel="stylesheet" type="text/css">
+    
     <title>Add Course Information Form</title>
+    
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    
     <py-env>
         - pandas
         - paths:
           - ./testScript.py
           - ./courses.csv
-          - ./main.html
 
     </py-env>
 </head>
     <body>
 
-        <div class= "header">
-            <h1> <img src="./images/44850_SUIcon-Thick-1L_K.png"> Southwestern University Course Scheduler</h1>
+        <header>
+            <div id="header">
+                <div id="Logo">
+                    <h1> <img src="./images/44850_SUIcon-Thick-1L_K.png"> Southwestern University Course Scheduler</h1>
+                </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="#"> Home</a>
+                    </li>
+                    <li>
+                        <a href="#"> FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#"> Create CSV</a>
+                    </li>
+                    <li>
+                        <a href="#"> Create Course Schedule</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        
-        <!--<img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset" -->
+        </header>
 
-        <button class ="button1"> Home </button>
-        
-        <h2> <center> Add Course Information Form </center> </h2>
+        <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset" >
+        <h2> <center>  Add Course Information Form  </center></h2> 
 
-        <form id="courseForm">
+        <form id="courseForm" onsubmit ="return false">
+
             <!-- There should be a drop down that lists all of the CS and Math courses with an option to add a new course -->
             <label for="courseList">Select a Course:</label>
             <select id="courseList" name="courseList">
@@ -48,7 +70,9 @@
             <br>
             <!-- This is the option to add a new course -->
             <label for="newCourse">Or Add a New Course:</label>
+
             <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value=<py-script>Element('newCourse').element.value</py-script>>
+
 
             <br>
             <!-- the abbreviation for the course, autofilled if it's a course already in drop down -->
@@ -82,6 +106,7 @@
 
             <br>
             <!-- TODO took away submit and just made it a refresh -->
+
              <input type="submit" value="Submit"><br>
         </form>
         <a href="display.html">
@@ -90,6 +115,7 @@
         <a href="main.html">
             <button>Back</button>
         </a>
+
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
         <py-script>
             print("This executes before the script file")
