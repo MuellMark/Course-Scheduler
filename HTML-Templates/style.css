@@ -17,6 +17,8 @@ header {
 #logo {
   margin-right: 20px; /* Create space to its right*/
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/margin*/
+  flex-shrink: :0;
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink*/
 }
 
 #logo img {
@@ -56,7 +58,7 @@ header {
   text-decoration: none; /* Removes the underline when you click */
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration*/
   font-weight: 600; /* Bold Link Text */
-  color: #FFF; /* Make text white */
+  color: #000000; /* Make text white */
   background-color: #ffcb08;  /* Set background color to SU colros */
   margin: 0 10px; /* Add margin to spave out the links */
 }
@@ -116,4 +118,29 @@ ol, ul {
 .container {
   margin: 0 auto; /* Center container with the main element */
   width: 1200px; /* Fixed wdith for a container*/
+}
+
+
+/*Making Webpage Responsive*/
+
+@media (max-width: 700px){
+  #headerBar{
+
+  }
+  
+  #logo{
+
+  }
+
+  #menubar{
+
+  }
+
+  #menubar ul{
+
+  }
+
+  #menubar li a{
+
+  }
 }
