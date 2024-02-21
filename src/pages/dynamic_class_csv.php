@@ -8,9 +8,18 @@
     <h2>Dynamic Table</h2>
     <button onclick="addRow()">Add Row</button>
     <button onclick="tableToCSV()">Save as CSV</button>
+    <br><a href="final_schedule_result.php">
+            <button>Run script</button>
+    </a>
+    This doesn't actually run anything yet
+    <br><a href="landing_page.php">
+            <button>Back</button>
+    </a>
+
 
     <table id="dynamic-table">
         <tr>
+            <th>Select CourseID</th>
             <th>Class name</th>
             <th>Abbreviation</th>
             <th>4 Contact Hours</th>
@@ -30,21 +39,44 @@
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(4);
-            var cell7 = row.insertCell(4);
-            var cell8 = row.insertCell(4);
-            var cell9 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
 
-            cell1.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
-            cell2.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
-            cell3.innerHTML = "<input type='checkbox' id='contactHours' name='contactHours'>";
-            cell4.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
-            // TODO need to fix unavailable format
-            cell5.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>";
-            cell6.innerHTML = "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>";
-            cell7.innerHTML = "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>";
-            cell8.innerHTML = "<input type='checkbox' id='thursday' name='thursday' value='thursday'>";
-            cell9.innerHTML = "<input type='checkbox' id='friday' name='friday' value='friday'>";
+            /**
+             * TODO There might be an easy way to implement this into the select row
+             * so that it dynamically fills it. A way to do it is create a new 
+             * string that will be concatenated and then placed in cell1.innerHTML
+             */
+            // <label for="courseList">Select a Course:</label>
+            // <select id="courseList" name="courseList">
+            //     <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
+            //     <option value="test">Choose one</option>
+            //     <?php 
+            //         $file = fopen("csv/courses.csv", "r");
+
+            //         while (($data = fgetcsv($file)) !== FALSE)
+            //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
+            //     ?>
+            // </select>
+            cell1.innerHTML = "<select name='CourseID'>" +
+                            "<option value='empty'>Choose one</option>" +
+                            "<option value='CS11'>CS11</option>" +
+                            "<option value='CS21'>CS21</option>" +
+                            "<option value='DIS1'>DIS1</option>" +
+                          "</select>";
+            cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
+            cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
+            cell4.innerHTML = "<select name='meeting_hours'>" +
+                                "<option value='no'>No</option>" +
+                                "<option value='yes'>Yes</option>" +
+                                "</select>";
+            cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
+            // TODO these are unreadable as to what each one is
+            cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>"+
+                                "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>"+
+                                "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
+                                "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
+                                "<input type='checkbox' id='friday' name='friday' value='friday'>";
+            
         }
         // https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
         // Taken from this website but will be modified to fit our tasks
@@ -94,7 +126,7 @@
             let temp_link = document.createElement('a');
  
             // Download csv file
-            temp_link.download = "GfG.csv";
+            temp_link.download = "test.csv";
             let url = window.URL.createObjectURL(CSVFile);
             temp_link.href = url;
  
