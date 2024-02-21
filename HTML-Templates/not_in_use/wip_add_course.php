@@ -1,78 +1,61 @@
 <!DOCTYPE html>
 <head>
-
-    <link href="/HTML-Templates/css/mystyle.css" rel="stylesheet" type="text/css">
-    
     <title>Add Course Information Form</title>
-    
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    
     <py-env>
         - pandas
         - paths:
-          - ./testScript.py
-          - ./courses.csv
+          - ./scripts/testScript.py
+          - ./csv/courses.csv
 
     </py-env>
 </head>
     <body>
 
-        <header>
-            <div id="header">
-                <div id="Logo">
-                    <h1> <img src="./images/44850_SUIcon-Thick-1L_K.png"> Southwestern University Course Scheduler</h1>
-                </div>
-            <nav>
-                <ul>
-                    <li class="active">
-                        <a href="#"> Home</a>
-                    </li>
-                    <li>
-                        <a href="#"> FAQ</a>
-                    </li>
-                    <li>
-                        <a href="#"> Create CSV</a>
-                    </li>
-                    <li>
-                        <a href="#"> Create Course Schedule</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        </header>
+        <h2>Add Course Information Form</h2>
+        <?php
+        // Source: https://www.w3schools.com/php/php_mysql_connect.asp
+        // $servername = "localhost";
+        // $username = "username";
+        // $password = "password";
 
-        <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset" >
-        <h2> <center>  Add Course Information Form  </center></h2> 
+        // // Create connection
+        // $conn = new mysqli($servername, $username, $password);
 
-        <form id="courseForm" onsubmit ="return false">
+        // // Check connection
+        // if ($conn->connect_error) {
+        // die("Connection failed: " . $conn->connect_error);
+        // }
+        // echo "Connected successfully";
+        ?> 
 
+        <form id="courseForm">
             <!-- There should be a drop down that lists all of the CS and Math courses with an option to add a new course -->
             <label for="courseList">Select a Course:</label>
             <select id="courseList" name="courseList">
                 <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
-                <option value="CS11">CS11</option>
-                <option value="CS21">CS21</option>
-                <option value="DIS1">DIS1</option>
-                <option value="CS1">CS1</option>
-                <py-script>
-                    #This works
-                    print("<option value=\"TEST\">TEST</option>")
-                    #This does not so the for loop is broken right now
-                    #print("<option value=\"TEST\">" + rows + "</option>")
-                    import pandas
-                    csv_file = pandas.read_csv('/courses.csv')
-                    column = csv_file['courseName']
-                    for row in column:
-                        print("<option value=\""+ row + "\">" + row + "</option>")
-                </py-script>
+                <option value="test">Choose one</option>
+                <?php 
+                    $file = fopen("csv/courses.csv", "r");
+
+                    while (($data = fgetcsv($file)) !== FALSE)
+                        echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
+                ?>
             </select>
+            <?php 
+                    #$command = escapeshellcmd('scripts/testScript.py');
+                    #$output = shell_exec($command);
+                    #echo $output;
+            ?>
+            <py-script>
+
+            </py-script>
 
             <br>
             <!-- This is the option to add a new course -->
             <label for="newCourse">Or Add a New Course:</label>
-
-            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value=<py-script>Element('newCourse').element.value</py-script>>
-
+                                                                                                <!-- If empty then value = blank -->
+            <input type="text" id="newCourse" name="newCourse" placeholder="Enter New Course" value="<?=empty($_REQUEST["newCourse"]) ? "" : $_REQUEST["newCourse"] ?>">
 
             <br>
             <!-- the abbreviation for the course, autofilled if it's a course already in drop down -->
@@ -90,7 +73,6 @@
             <input type="number" id="sections" name="sections" min="1">
 
             <br>
-            <!--When they click on one of the dates, add another line that will show times that they cannot teach-->
             <!-- a check box for all of the times to select when the course cannot be taught -->
             <label for="unavailableTimes">Times When Course Cannot Be Taught:</label>
             <input type="checkbox" id="monday" name="unavailableTimes" value="monday">
@@ -106,16 +88,14 @@
 
             <br>
             <!-- TODO took away submit and just made it a refresh -->
-
              <input type="submit" value="Submit"><br>
         </form>
         <a href="display.html">
             <button>To Scheduler</button>
         </a><br>
-        <a href="main.html">
+        <a href="base.php">
             <button>Back</button>
         </a>
-
         <!-- py-env fetches myscript.py and loads it into the virtual filesystem -->
         <py-script>
             print("This executes before the script file")
@@ -127,7 +107,7 @@
             main(courseList, newCourse, abbreviation, contactHours)
             print("Script file done executing")
             from testScript import courseList
-            courseList()
+            #courseList()
         </py-script>
 
     </body>
