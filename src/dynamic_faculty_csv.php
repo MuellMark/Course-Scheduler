@@ -19,12 +19,9 @@
 
     <table id="dynamic-table">
         <tr>
-            <th>Select CourseID</th>
-            <th>Class name</th>
-            <th>Abbreviation</th>
-            <th>4 Contact Hours</th>
-            <th>Sections</th>
-            <th>Unavailable Times</th>
+            <th>Professor Name</th>
+            <th>Prime time</th>
+            <th>Classes</th>
         </tr>
     </table>
 
@@ -37,9 +34,6 @@
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
 
             /**
              * TODO There might be an easy way to implement this into the select row
@@ -57,25 +51,12 @@
             //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
             //     ?>
             // </select>
-            cell1.innerHTML = "<select name='CourseID'>" +
-                            "<option value='empty'>Choose one</option>" +
-                            "<option value='CS11'>CS11</option>" +
-                            "<option value='CS21'>CS21</option>" +
-                            "<option value='DIS1'>DIS1</option>" +
-                          "</select>";
-            cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
-            cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
-            cell4.innerHTML = "<select name='meeting_hours'>" +
+            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
+            cell2.innerHTML = "<select name='primetime'>" +
                                 "<option value='no'>No</option>" +
                                 "<option value='yes'>Yes</option>" +
                                 "</select>";
-            cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
-            // TODO these are unreadable as to what each one is
-            cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>"+
-                                "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>"+
-                                "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
-                                "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
-                                "<input type='checkbox' id='friday' name='friday' value='friday'>";
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
             
         }
         // https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
