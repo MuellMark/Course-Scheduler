@@ -41,6 +41,8 @@
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4);
             var cell6 = row.insertCell(5);
+            var cellDelete = row.insertCell(6);
+
 
             /**
              * TODO There might be an easy way to implement this into the select row
@@ -77,7 +79,12 @@
                                 "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
                                 "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
                                 "<input type='checkbox' id='friday' name='friday' value='friday'>";
+            cellDelete.innerHTML = '<button type="button" onclick="deleteRow(this)">Remove Row</button>';
             
+        }
+        function deleteRow(thisRow) {
+            var row = thisRow.parentNode.parentNode;
+            row.parentNode.removeChild(row);
         }
     </script>
 
