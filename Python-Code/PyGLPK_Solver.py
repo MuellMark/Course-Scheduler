@@ -402,14 +402,14 @@ def print_readable_format(contents_course_restrict):
     
 
 
-print_readable_format(contents_course_restrict)
+# print_readable_format(contents_course_restrict)
 
-print_all_filled_cols()
-print(num_cols)
-# print_all_rows_and_columns()
-print(lp.status)
-print(lp.status_s)
-print(lp.status_m)
+# print_all_filled_cols()
+# print(num_cols)
+# # print_all_rows_and_columns()
+# print(lp.status)
+# print(lp.status_s)
+# print(lp.status_m)
 
 # print_trouble_shoots()
 

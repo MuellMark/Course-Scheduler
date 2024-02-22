@@ -1,7 +1,7 @@
 import sys
 import csv # For file reading
 
-import PyGLPK_Solver 
+from PyGLPK_Solver import *
 
 #------------Helper Functions--------------------------------------------------
 
@@ -44,7 +44,8 @@ def no_csv_param():
     temp_faculty_restrict = csv.reader(faculty_restrict_file)
     contents_faculty_restrict = list(temp_faculty_restrict)
 
-    # PyGLPK_Solver.generate_and_run(contents_course_restrict,contents_faculty_restrict)
+    generate_and_run(contents_course_restrict,contents_faculty_restrict)
+    print_readable_format(contents_course_restrict)
 
     
 
