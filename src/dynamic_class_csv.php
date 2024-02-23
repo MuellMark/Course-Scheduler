@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Add Course Information Form</title>
+    <title>Create CSV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-    <body>
+<body>
+    <header>
+        <div id="headerBar">
+            <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
+            <!--Logo Placement-->
+            <div id="logo">
+                <img src="./images/Logo.png"> 
+            </div>
+            <!--Navigation Bar-->
+            <nav>
+                <div id="menubar">
+                    <ul>
+                        <li> <a href="landing_page.php"> Home</a> </li>
+                        <li> <a href="#"> FAQ</a> </li>
+                        <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
+                        <li> <a href="final_schedule_result.php"> Create Course Schedule</a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
-    <h2>Dynamic Table</h2>
+<!--Header Pic-->
+<div id="headerimage">
+<img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+</div>
+</header>
+
+    <h1>Create CSV</h1>
     <button onclick="addRow()">Add Row</button>
     <button onclick="tableToCSV()">Save as CSV</button>
     <br><a href="final_schedule_result.php">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>FAQ</title>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,18 +33,8 @@
 </div>
 </header>
 
-<h1> What Is Course Schedule? </h1>
+    <h1>FAQ</h1>
+    
 
-<script>
-function toggleMenu() {
-    var menu = document.getElementById('menubar');
-    if (menu.style.display === 'flex') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'flex';
-  }
-}
-</script>
-
-</body>
+    </body>
 </html>
