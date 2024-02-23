@@ -60,7 +60,7 @@
             //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
             //     ?>
             // </select>
-            cell1.innerHTML = "<select name='CourseID'>" +
+            cell1.innerHTML = "<select name='CourseID' id='CourseID'>" +
                             "<option value='empty'>Choose one</option>" +
                             "<option value='CS11'>CS11</option>" +
                             "<option value='CS21'>CS21</option>" +
