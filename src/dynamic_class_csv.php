@@ -68,9 +68,9 @@
                           "</select>";
             cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
             cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
-            cell4.innerHTML = "<select name='meeting_hours'>" +
-                                "<option value='no'>No</option>" +
-                                "<option value='yes'>Yes</option>" +
+            cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
+                                "<option value='FALSE'>No</option>" +
+                                "<option value='TRUE'>Yes</option>" +
                                 "</select>";
             cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
             // TODO these are unreadable as to what each one is

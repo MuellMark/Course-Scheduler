@@ -7,23 +7,40 @@ function tableToCSV() {
 
     // Get each row data
     let rows = document.getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
         let cols = rows[i].querySelectorAll('td,th');
 
         // Stores each csv row data
         let csvrow = [];
-        for (let j = 0; j < cols.length; j++) {
+        // All the IDs that are used in the form in dynamic_class_csv file
+        let IDs = ['CourseID','newCourse','meeting','sections'];
+        let weekIDs = ['monday','tuesday','wednesday','thursday','friday'];
+        j = 0;
+        while(j < IDs.length){
 
             // Get the text data of each cell
             // of a row and push it to csvrow
-            csvrow.push(cols[j].innerHTML);
+            var text = document.getElementById(IDs[j]).value;
+            if(text)
+                csvrow.push(text);
+            j++;
         }
-
+        j=0;
+        while(j < weekIDs.length){
+            var text = document.getElementById(weekIDs[j]).value;
+            // https://stackoverflow.com/questions/9887360/how-can-i-check-if-a-checkbox-is-checked
+            if (document.getElementById(weekIDs[j]).checked)
+                csvrow.push(text);
+            j++;
+        }
+        // Original script uses this to symbolize new line
+        csvrow.push("$");
         // Combine each column value with comma
         csv_data.push(csvrow.join(","));
     }
+    
 
     // Combine each row data with new line character
     csv_data = csv_data.join('\n');
