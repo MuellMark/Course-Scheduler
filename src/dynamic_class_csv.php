@@ -20,12 +20,13 @@
 
     <table id="dynamic-table">
         <tr>
-            <th>Select CourseID</th>
+            <th>Remove</th>
             <th>Class name</th>
             <th>Abbreviation</th>
             <th>4 Contact Hours</th>
             <th>Sections</th>
             <th>Unavailable Times</th>
+            <th>Select CourseID</th>
         </tr>
     </table>
 
@@ -35,13 +36,14 @@
         function addRow() {
             var table = document.getElementById("dynamic-table");
             var row = table.insertRow(table.rows.length);
-            var cell1 = row.insertCell(0);
+            var cellDelete = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4);
             var cell6 = row.insertCell(5);
-            var cellDelete = row.insertCell(6);
+            var cell1 = row.insertCell(6);
+            var cellAdd = row.insertCell(7);
 
 
             /**
@@ -79,8 +81,13 @@
                                 "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
                                 "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
                                 "<input type='checkbox' id='friday' name='friday' value='friday'>";
-            cellDelete.innerHTML = '<button type="button" onclick="deleteRow(this)">Remove Row</button>';
+            cellDelete.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
+            cellAdd.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
             
+        }
+        function addColumn(row) {
+            var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell (actions cell)
+            cell.innerHTML = "<input type='text' name='courses' placeholder='Enter Courses Taught'>"; // TODO might need an ID
         }
         function deleteRow(thisRow) {
             var row = thisRow.parentNode.parentNode;
