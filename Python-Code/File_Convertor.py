@@ -35,7 +35,15 @@ def one_csv_param(file):
 
 # Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
-    print(course_file+" "+faculty_file)
+    course_restrict_file = open(course_file,'r')
+    faculty_restrict_file = open(faculty_file,'r')
+
+    temp_course_restrict = csv.reader(course_restrict_file)
+    contents_course_restrict = list(temp_course_restrict)
+    temp_faculty_restrict = csv.reader(faculty_restrict_file)
+    contents_faculty_restrict = list(temp_faculty_restrict)
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
+
 
 #------------Main--------------------------------------------------
 
