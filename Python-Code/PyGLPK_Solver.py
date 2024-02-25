@@ -13,14 +13,14 @@ class Row_Index:
         return self.row_Index
         
 # change files here
-course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/csAndMathTemplateCourseRestrictions.csv",'r')
-faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/csAndMathTemplateFacultyRestrictions.csv",'r')
+# course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/csAndMathTemplateCourseRestrictions.csv",'r')
+# faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/csAndMathTemplateFacultyRestrictions.csv",'r')
 
-#Gets contents from the files, converts to lists to make it easier to work with
-temp_course_restrict = csv.reader(course_restrict_file)
-contents_course_restrict = list(temp_course_restrict)
-temp_faculty_restrict = csv.reader(faculty_restrict_file)
-contents_faculty_restrict = list(temp_faculty_restrict)
+# #Gets contents from the files, converts to lists to make it easier to work with
+# temp_course_restrict = csv.reader(course_restrict_file)
+# contents_course_restrict = list(temp_course_restrict)
+# temp_faculty_restrict = csv.reader(faculty_restrict_file)
+# contents_faculty_restrict = list(temp_faculty_restrict)
 
 # Stores rows and columns for matrix
 # num_cols = 0
@@ -45,23 +45,23 @@ def createDict(dict,list):
 # else:
 #     num_cols=4
 
-# Stores all courses in a list
-courses=[]
-for course in contents_course_restrict:
-    courses.append(course[0])
+# # Stores all courses in a list
+# courses=[]
+# for course in contents_course_restrict:
+#     courses.append(course[0])
 
-# All possible meetings times
+# # All possible meetings times
 times = ["m800","m930","m1100","m200","m330","t830","t1000","t1130","t100","t230"]
 
-# Makes dictionaries to call values by their respective names
-tI={}
-createDict(tI,times)
-cI={}
-createDict(cI,courses)
+# # Makes dictionaries to call values by their respective names
+# tI={}
+# createDict(tI,times)
+# cI={}
+# createDict(cI,courses)
 
-# Used for indexing 
-maxC = len(courses)
-maxT = len(times)
+# # Used for indexing 
+# maxC = len(courses)
+# maxT = len(times)
 
 # # Creates all_combos, used mostly for testing
 # all_combos=[]
@@ -340,6 +340,25 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict):
         num_cols=3
     else:
         num_cols=4
+
+    global courses
+    courses=[]
+    for course in contents_course_restrict:
+        courses.append(course[0])
+
+    global tI
+    global cI
+    global maxC
+    global maxT
+    # Makes dictionaries to call values by their respective names
+    tI={}
+    createDict(tI,times)
+    cI={}
+    createDict(cI,courses)
+
+    # Used for indexing 
+    maxC = len(courses)
+    maxT = len(times)
 
     # Creates all_combos, used mostly for testing
     global all_combos
