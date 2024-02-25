@@ -3,6 +3,12 @@ import csv # For file reading
 
 from PyGLPK_Solver import *
 
+#------------Helper Functions-----------------------------------------------
+
+def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
+    generate_and_run(contents_course_restrict,contents_faculty_restrict)
+    print_readable_format(contents_course_restrict)
+
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
@@ -16,8 +22,9 @@ def no_csv_param():
     temp_faculty_restrict = csv.reader(faculty_restrict_file)
     contents_faculty_restrict = list(temp_faculty_restrict)
 
-    generate_and_run(contents_course_restrict,contents_faculty_restrict)
-    print_readable_format(contents_course_restrict)
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
+
+    
     
 # TODO add command line support in the same way as above, 
 # may need to export to a separate method
