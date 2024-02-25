@@ -170,5 +170,29 @@
     </script>
     </script>
 
+    <!-- JavaScript used to enable hamburger menu -->
+    <script>
+
+        window.onload = function () { //When webpage opens, run this code
+            var menu = document.getElementById('menubar'); 
+            if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
+                menu.style.display = 'none'
+            }
+        };
+
+        function toggleMenu() {
+            var menu = document.getElementById('menubar');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
+            window.onresize = function () { //This will know when the window is resized
+                if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
+                    menu.style.display = 'none';
+                } else { //Else, show it
+                    menu.style.display = 'block';
+                }
+            }
+
+        }
+    </script>
+
     </body>
 </html>

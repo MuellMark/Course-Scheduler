@@ -11,6 +11,7 @@ header {
   align-items: center; /* Center vertically */
     /* https://developer.mozilla.org/en-US/docs/Web/CSS/align-items*/
   padding: 20px; /* Add padding for headerBar by putting space around it*/
+  flex-wrap: wrap;
 }
 
 /* Logo Design And Formatting */
@@ -36,7 +37,9 @@ header {
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/flex*/
   display: flex; /* Distrubute evenly for space and alignment*/
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/display*/
-  justify-content: flex-end; /* Aligns menu items to the right */
+  justify-content: center; /* Aligns menu items to the right */
+  align-items: center; /* Center the menu items vertically with the menu bar*/
+  flex-wrap: wrap;
 }
 
 #menubar ul {
@@ -47,10 +50,12 @@ header {
   list-style: none; /* Remove the default list style*/
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/list-style*/
   background: none; /* Make sure there is no background*/
+  flex-wrap: wrap;
 }
 
 #menubar li {
   padding: 0 10px; /* Adding padding to each item in the list (this adds padding horizontially) */
+  min-width: 120px;
 }
 
 #menubar li a {
@@ -60,7 +65,8 @@ header {
   font-weight: 600; /* Bold Link Text */
   color: #000000; /* Make text white */
   background-color: #ffcb08;  /* Set background color to SU colros */
-  margin: 0 10px; /* Add margin to spave out the links */
+  margin: 0 20px; /* Add margin to spave out the links */
+  white-space: nowrap;
 }
 
 #menubar li a:hover {
@@ -88,11 +94,13 @@ body {
   margin: 0; /*  Remove the margin to keep edge with page*/
   padding: 0; /* Remove the padding to keep edge with page*/
   background: #FFFFFF; /* Set the background color to white*/
-  font-family: 'lustria'; /* Use hte font lustria for text*/
-  font-size: 12pt; /* Keep font at 12pt*/
+  font-family: 'lustria', serif; /* Use hte font lustria for text, and if it cant, use serif*/
+  font-size: 1rem; /*Use the default font size on the users setting*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
 }
 
 h1, h2, h3 {
+  font-size: 1.5rem; /*Use the default font size on the users setting*/
   margin: 0; /* Remove defualt margins*/
   padding: 0; /* Remove padding*/
   color: black; /* Set default color of headings to black*/
@@ -123,44 +131,70 @@ ol, ul {
 
 /*Hamburger Menu*/
 .hamburger{
-  display: none;
-  cursor: pointer;
+  display: none; /* Hide the hamburger menu by default*/
+  cursor: pointer; /* When hovering over, chnage the cursor to a pointer*/
+  padding: 20px; /* Adding padding around the icon */
+  position: absolute; /* Position the button absoueltly with its parent*/
+  top: 15px; /* Position it so it is X amount of pxiels from the top*/
+  right: 20px; /* Position is so it is X amount of pixels from the right*/
+  z-index: 1000; /* Makes sure that the hamburger menu will stack ontop of other elements*/
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/z-index*/
+  color: white; /* Set color to white*/
+  background-color: #ffcb08;/* Set color to SU colors*/
 }
 
 /*Making Webpage Responsive*/
 
-@media (max-width: 700px){
+@media (max-width: 750px){ /* When webpage is 750px width or less*/
+
+  body{
+    font-size: 1.1rem; /*Use the default font size on the users setting*/
+  } 
+  
   #headerBar{
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Stack vertically*/
+    align-items: center; /* Center the bar horizontally*/
   }
   
   #logo img{
-    width: 100%;
-    height: auto;
-    max-width: 100px;
-    max-height: 75px;
+    margin: 0 auto; /* Center the image within the header*/
+    width: auto; /* Automatically adjust the width */
+    height: auto; /* Automatically adjust the width */
+    max-width: 500px; /* Maximum width is 500px */
+    max-height: 600px; /* Maximum height is 600px*/
   }
 
   .hamburger{
-    display: block;
+    display: block; /* When the conditions are met, make the hamburger menu visible*/
   }
 
   #menubar{
-    display: none;
-    flex-direction: column;
-    width: 100%;
+    display: flex; /* Hide menubar when hamburger menu is visible*/
   }
 
   #menubar ul{
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-start;
+    flex-direction: column; /*Stack vertically when menu is visible*/
+    width: 100%; /*Set width to 100% to cover container*/
+    background-color: #ffcb08; /*Set color to SU color*/
+    padding: 30px; /*Add padding for menu items*/
+  }
+
+  #menubar li{
+    width: 100%; /*Set width to 100% to cover container*/
   }
 
   #menubar li a{
-    width: 100%;
-    text-align: left;
+    width: 100%; /*Set width to 100% to cover container*/
+    text-align: center; /*Center text*/
+    padding: 0; /*Remove Padding*/
+    margin: 30px 10px; /*Add vertical padding*/
+    color: #000000; /*Set color to black*/
+    background-color: transparent; /*No background color*/
+  }
+
+  #menubar li a:hover{
+    background-color: #ffcb08; /*Set background color to SU color*/
+    color: #000000; /*Set text color to black*/
   }
 
 }
