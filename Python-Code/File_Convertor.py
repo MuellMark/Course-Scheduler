@@ -25,8 +25,8 @@ def set_up(contents_course_restrict):
 # Default for testing as I redistribute code, will remove once complete
 def no_csv_param():
     # Default test files
-    course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/csTemplateCourseRestrictions.csv",'r')
-    faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/csTemplateFacultyRestrictions.csv",'r')
+    course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/csTemplateCourseRestrictions.csv",'r')
+    faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/csTemplateFacultyRestrictions.csv",'r')
 
     temp_course_restrict = csv.reader(course_restrict_file)
     contents_course_restrict = list(temp_course_restrict)
