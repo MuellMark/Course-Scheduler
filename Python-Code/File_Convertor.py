@@ -1,26 +1,9 @@
-import sys
+import sys # For command line
 import csv # For file reading
 
 from PyGLPK_Solver import *
 
-#------------Helper Functions--------------------------------------------------
-
-# Creates dictionary to index items in a list
-def createDict(dict,list):
-    i=0
-    for item in list:
-        dict[item]=i
-        i+=1
-
-# TODO rename
-def set_up(contents_course_restrict):
-    print("TODO")
-
-
 #------------Functions based on number of params----------------------------
-
-#Needs command line support, should also return the 
-#The correctly generated script
 
 # Default for testing as I redistribute code, will remove once complete
 def no_csv_param():
@@ -35,14 +18,10 @@ def no_csv_param():
 
     generate_and_run(contents_course_restrict,contents_faculty_restrict)
     print_readable_format(contents_course_restrict)
-
     
+# TODO add command line support in the same way as above, 
+# may need to export to a separate method
 
-
-
-# notes for command line params:
-# Need to add in file readers
-    
 # For when there is only 1 csv file
 def one_csv_param(file):
     print(file)
@@ -53,7 +32,7 @@ def two_csv_param(course_file,faculty_file):
 
 #------------Main--------------------------------------------------
 
-# Will only run if file is called directly
+# Will only run if file is called directly TODO change no params
 if __name__=="__main__":
     num_args = len(sys.argv)
 
@@ -65,5 +44,3 @@ if __name__=="__main__":
         two_csv_param(sys.argv[1],sys.argv[2])
     else:
         print("error, too many parameters")
-
-
