@@ -14,19 +14,8 @@ def createDict(dict,list):
 
 # TODO rename
 def set_up(contents_course_restrict):
-    # Stores all courses in a list
-    courses=[]
-    for course in contents_course_restrict:
-        courses.append(course[0])
+    print("TODO")
 
-    # All possible meetings times
-    times = ["m800","m930","m1100","m200","m330","t830","t1000","t1130","t100","t230"]
-
-    # Makes dictionaries to call values by their respective names
-    tI={}
-    createDict(tI,times)
-    cI={}
-    createDict(cI,courses)
 
 #------------Functions based on number of params----------------------------
 
