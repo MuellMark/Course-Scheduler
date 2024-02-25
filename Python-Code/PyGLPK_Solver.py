@@ -63,13 +63,13 @@ createDict(cI,courses)
 maxC = len(courses)
 maxT = len(times)
 
-# Creates all_combos, used mostly for testing
-all_combos=[]
-for col in range(1,num_cols+1):
-    for row in contents_course_restrict:
-        for time in times:
-            name = row[0]+"@"+time+"Col"+str(col)
-            all_combos.append(name)
+# # Creates all_combos, used mostly for testing
+# all_combos=[]
+# for col in range(1,num_cols+1):
+#     for row in contents_course_restrict:
+#         for time in times:
+#             name = row[0]+"@"+time+"Col"+str(col)
+#             all_combos.append(name)
 
 # Initialize LP
 lp = glpk.LPX() #Creates lp
@@ -340,6 +340,15 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict):
         num_cols=3
     else:
         num_cols=4
+
+    # Creates all_combos, used mostly for testing
+    global all_combos
+    all_combos=[]
+    for col in range(1,num_cols+1):
+        for row in contents_course_restrict:
+            for time in times:
+                name = row[0]+"@"+time+"Col"+str(col)
+                all_combos.append(name)
 
     duplicates=[[0 for i in range(len(courses))] for j in range(len(courses))]
     for i in range(len(courses)): # courses of same name are duplicates
