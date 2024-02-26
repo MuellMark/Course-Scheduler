@@ -9,8 +9,29 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
     generate_and_run(contents_course_restrict,contents_faculty_restrict)
     print_readable_format(contents_course_restrict)
 
-def split_single_csv_and_run():
-    print("TODO")
+def split_single_csv_and_run(contents_all_restrict):
+    course_bool = False
+    faculty_bool = False
+
+    contents_course_restrict = []
+    contents_faculty_restrict = []
+
+    i=0
+    while i > len(contents_all_restrict):
+        if contents_all_restrict[i][1] == "c":
+            course_bool=True
+        if contents_all_restrict[i][1] == "f":
+            faculty_bool=True
+            course_bool=False
+        if course_bool:
+            contents_course_restrict.append(contents_all_restrict[i])
+        elif faculty_bool:
+            contents_faculty_restrict.append(contents_all_restrict[i])
+    
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
+
+
+
 
 #------------Functions based on number of params----------------------------
 
@@ -34,7 +55,12 @@ def no_csv_param():
 
 # For when there is only 1 csv file
 def one_csv_param(file):
-    print(file)
+    all_restrict_file = open(file,'r')
+
+    temp_all_restrict = csv.reader(all_restrict_file)
+    contents_all_restrict = list(temp_all_restrict)
+
+    split_single_csv_and_run(contents_all_restrict)
 
 # Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
