@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Create CSV</title>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <header>
         <div id="headerBar">
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png"> 
+                <img src="./images/Logo.png">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -21,27 +23,28 @@
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
-                        <li> <a href="final_schedule_result.php"> Create Course Schedule</a> </li>
+                        <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-<!--Header Pic-->
-<div id="headerimage">
-<img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
-</div>
-</header>
+        <!--Header Pic-->
+        <div id="headerimage">
+            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+        </div>
+    </header>
 
     <h1>Create CSV</h1>
-    <button onclick="addRow()">Add Row</button>
-    <button onclick="tableToCSV()">Save as CSV</button>
+    <button class ="button-style" onclick="addRow()">Add Row</button>
+    <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
+    <button class ="button-style" onclick="deleteLastRow()">Delete Last Row</button>
+    <button class ="button-style" onclick="clearTable()">Clear Table</button>
     <br><a href="final_schedule_result.php">
-            <button>Run script</button>
+        <button>Run script</button>
     </a>
     This doesn't actually run anything yet
     <br><a href="landing_page.php">
-            <button>Back</button>
     </a>
 
 
@@ -61,7 +64,10 @@
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
         function addRow() {
             var table = document.getElementById("dynamic-table");
-            var row = table.insertRow(table.rows.length);
+            var rowCount = table.rows.length;
+
+            if(rowCount < 21){
+            var row = table.insertRow(rowCount);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
@@ -78,95 +84,126 @@
             // <select id="courseList" name="courseList">
             //     <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
             //     <option value="test">Choose one</option>
-            //     <?php 
+            //     <?php
             //         $file = fopen("csv/courses.csv", "r");
-
+            
             //         while (($data = fgetcsv($file)) !== FALSE)
             //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-            //     ?>
+            //      ?>
             // </select>
             cell1.innerHTML = "<select name='CourseID'>" +
-                            "<option value='empty'>Choose one</option>" +
-                            "<option value='CS11'>CS11</option>" +
-                            "<option value='CS21'>CS21</option>" +
-                            "<option value='DIS1'>DIS1</option>" +
-                          "</select>";
+                "<option value='empty'>Choose one</option>" +
+                "<option value='CS11'>CS11</option>" +
+                "<option value='CS21'>CS21</option>" +
+                "<option value='DIS1'>DIS1</option>" +
+                "</select>";
             cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
             cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
             cell4.innerHTML = "<select name='meeting_hours'>" +
-                                "<option value='no'>No</option>" +
-                                "<option value='yes'>Yes</option>" +
-                                "</select>";
+                "<option value='no'>No</option>" +
+                "<option value='yes'>Yes</option>" +
+                "</select>";
             cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
             // TODO these are unreadable as to what each one is
-            cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>"+
-                                "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>"+
-                                "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
-                                "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
-                                "<input type='checkbox' id='friday' name='friday' value='friday'>";
-            
+            cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
+                "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
+                "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
+                "<input type='checkbox' id='thursday' name='thursday' value='thursday'>" +
+                "<input type='checkbox' id='friday' name='friday' value='friday'>";
+
         }
+        else{
+        alert("Cannot add more than 20 rows")
+    }
+    
+    }
+
+
+        function deleteLastRow() {
+            var table = document.getElementById("dynamic-table");
+            var rowCount = table.rows.length;
+
+            //Need to be more than 1 row to delte
+            if (rowCount > 2) {
+                table.deleteRow(rowCount - 1);
+            }
+            else {
+                alert("Error: There must be at least one row")
+            }
+        }
+
+        function clearTable() {
+            var table = document.getElementById("dynamic-table");
+
+            //Need to be more than 1 row to delte
+            while(table.rows.length >1){
+                table.deleteRow(1);
+            }
+        }
+
+
         // https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
         // Taken from this website but will be modified to fit our tasks
         function tableToCSV() {
- 
+
             // Variable to store the final csv data
             let csv_data = [];
- 
+
             // Get each row data
             let rows = document.getElementsByTagName('tr');
             for (let i = 0; i < rows.length; i++) {
- 
+
                 // Get each column data
                 let cols = rows[i].querySelectorAll('td,th');
- 
+
                 // Stores each csv row data
                 let csvrow = [];
                 for (let j = 0; j < cols.length; j++) {
- 
+
                     // Get the text data of each cell
                     // of a row and push it to csvrow
                     csvrow.push(cols[j].innerHTML);
                 }
- 
+
                 // Combine each column value with comma
                 csv_data.push(csvrow.join(","));
             }
- 
+
             // Combine each row data with new line character
             csv_data = csv_data.join('\n');
- 
+
             // Call this function to download csv file  
             downloadCSVFile(csv_data);
- 
+
         }
- 
+
         function downloadCSVFile(csv_data) {
- 
+
             // Create CSV file object and feed
             // our csv_data into it
             CSVFile = new Blob([csv_data], {
                 type: "text/csv"
             });
- 
+
             // Create to temporary link to initiate
             // download process
             let temp_link = document.createElement('a');
- 
+
             // Download csv file
             temp_link.download = "test.csv";
             let url = window.URL.createObjectURL(CSVFile);
             temp_link.href = url;
- 
+
             // This link should not be displayed
             temp_link.style.display = "none";
             document.body.appendChild(temp_link);
- 
+
             // Automatically click the link to
             // trigger download
             temp_link.click();
             document.body.removeChild(temp_link);
         }
+
     </script>
     </script>
 
@@ -174,7 +211,7 @@
     <script>
 
         window.onload = function () { //When webpage opens, run this code
-            var menu = document.getElementById('menubar'); 
+            var menu = document.getElementById('menubar');
             if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
                 menu.style.display = 'none'
             }
@@ -194,5 +231,6 @@
         }
     </script>
 
-    </body>
+</body>
+
 </html>

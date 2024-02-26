@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Home</title> <!-- Title Of Page -->
+    <title>About/HowTo</title> <!-- Title Of Page -->
     <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings to make webpage responsive -->
@@ -35,7 +35,9 @@
         </div>
     </header>
 
-    <h1> What Is Course Schedule? </h1>
+    <h1> Documentation </h1>
+
+    <h1> HowTos </h1>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>

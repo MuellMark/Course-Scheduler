@@ -130,6 +130,7 @@ ol, ul {
 
 
 /*Hamburger Menu*/
+
 .hamburger{
   display: none; /* Hide the hamburger menu by default*/
   cursor: pointer; /* When hovering over, chnage the cursor to a pointer*/
@@ -141,6 +142,34 @@ ol, ul {
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/z-index*/
   color: white; /* Set color to white*/
   background-color: #ffcb08;/* Set color to SU colors*/
+}
+
+/*Button Design*/
+
+.button-style{
+  padding: 1em 1em ;
+  text-decoration: none;
+  font-weight: 600;
+  color: #000000;
+  background-color: #ffcb08;
+  border: none;
+  cursor: pointer;
+  margin: 0 20px;
+  white-space: nowrap;
+}
+
+.button-style:hover{
+  color: #000000;
+  background-color: #FFF;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  gap: 20px;
 }
 
 /*Making Webpage Responsive*/
