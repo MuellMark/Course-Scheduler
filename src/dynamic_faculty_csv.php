@@ -33,17 +33,16 @@
             var table = document.getElementById("dynamic-table");
             var row = table.insertRow(table.rows.length);
             var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-
             cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
+            var cell2 = row.insertCell(1);
             cell2.innerHTML = "<select name='primetime'>" +
                                 "<option value='no'>No</option>" +
                                 "<option value='yes'>Yes</option>" +
                                 "</select>";
+            var cell3 = row.insertCell(2);
             cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
+            var cell4 = row.insertCell(3);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
         }
 
