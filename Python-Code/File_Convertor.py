@@ -9,6 +9,9 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
     generate_and_run(contents_course_restrict,contents_faculty_restrict)
     print_readable_format(contents_course_restrict)
 
+def split_single_csv_and_run():
+    print("TODO")
+
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
