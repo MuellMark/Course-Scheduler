@@ -17,17 +17,18 @@ def split_single_csv_and_run(contents_all_restrict):
     contents_faculty_restrict = []
 
     i=0
-    while i > len(contents_all_restrict):
-        if contents_all_restrict[i][1] == "c":
-            course_bool=True
-        if contents_all_restrict[i][1] == "f":
-            faculty_bool=True
-            course_bool=False
+    while i < len(contents_all_restrict):
+        if len(contents_all_restrict[i])>0:
+            if contents_all_restrict[i][1] == "c":
+                course_bool=True
+            if contents_all_restrict[i][1] == "f":
+                faculty_bool=True
+                course_bool=False
         if course_bool:
             contents_course_restrict.append(contents_all_restrict[i])
         elif faculty_bool:
             contents_faculty_restrict.append(contents_all_restrict[i])
-    
+        i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
 
 
