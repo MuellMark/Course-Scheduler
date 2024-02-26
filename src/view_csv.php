@@ -36,6 +36,31 @@
                 echo "<br>The file temp location is " .$file["tmp_name"];
         }
         ?>
+
+    <?php
+    // Source: https://www.php.net/manual/en/function.oci-connect.php
+    // Connects to the XE service (i.e. database) on the "localhost" machine
+    $conn = oci_connect('csullivan', 'Coursescheduler123!');
+    if (!$conn) {
+        $e = oci_error();
+        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    }
+
+    $stid = oci_parse($conn, 'SELECT * FROM course');
+    oci_execute($stid);
+
+    echo "<table border='1'>\n";
+    while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+        echo "<tr>\n";
+        foreach ($row as $item) {
+            echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+        }
+        echo "</tr>\n";
+    }
+    echo "</table>\n";
+
+    ?>
+
             <a href="landing_page.php">
             <button>Back</button>
             </a><br>
