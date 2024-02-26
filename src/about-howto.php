@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Create Course Scheduler </title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>About/HowTo</title> <!-- Title Of Page -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings to make webpage responsive -->
 </head>
+
 <body>
     <header>
         <div id="headerBar">
-            <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
+            <div class="hamburger" onclick="toggleMenu()"> &#9776;</div> <!-- Hamburger menu that starts toggleMenu when it is clicked -->
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png"> 
+                <img src="./images/Logo.png">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -27,44 +29,15 @@
             </nav>
         </div>
 
-<!--Header Pic-->
-<div id="headerimage">
-<img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
-</div>
-</header>
+        <!--Header Pic-->
+        <div id="headerimage">
+            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+        </div>
+    </header>
 
-    <body>
-        <h1>
-            Course Scheduler
-        </h1>
-        <section class="pyscript">
-            
+    <h1> Documentation </h1>
 
-            <!-- <div class="font-mono">
-                start time: <label id="output1"></label>
-            </div> -->
-            
-            
-            <table style="width:70%">
-                
-                <tr>
-                    <th>Time</th>
-                    <th>Column 1</th>
-                </tr>
-                <tr>
-                    <th>8:00 AM MWF</th>
-                    <th><div id="output2" class="font-mono"></div></th>
-                </tr>
-                <tr>
-                    <th>9:30 AM MWF</th>
-                    <th></th>
-                </tr>
-
-            </table>
-            
-            <script type="py" src="./scripts/main.py" async></script>
-        </section>
-    
+    <h1> HowTos </h1>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
@@ -90,5 +63,6 @@
         }
     </script>
 
-    </body>
+</body>
+
 </html>

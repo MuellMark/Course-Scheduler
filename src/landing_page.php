@@ -23,7 +23,7 @@
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
-                        <li> <a href="final_schedule_result.php"> Create Course Schedule</a> </li>
+                        <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
             </nav>

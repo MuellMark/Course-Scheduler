@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script type="text/javascript" src="createCSV.js"></script>
     <title>Create CSV</title>
@@ -7,13 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <header>
         <div id="headerBar">
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png"> 
+                <img src="./images/Logo.png">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -22,27 +24,27 @@
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
-                        <li> <a href="final_schedule_result.php"> Create Course Schedule</a> </li>
+                        <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-<!--Header Pic-->
-<div id="headerimage">
-<img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
-</div>
-</header>
+        <!--Header Pic-->
+        <div id="headerimage">
+            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+        </div>
+    </header>
 
     <h1>Create CSV</h1>
-    <button onclick="addRow()">Add Row</button>
-    <button onclick="tableToCSV()">Save as CSV</button>
+    <button class ="button-style" onclick="addRow()">Add Row</button>
+    <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
+    <button class ="button-style" onclick="clearTable()">Clear Table</button>
     <br><a href="final_schedule_result.php">
-            <button>Run script</button>
+        <button>Run script</button>
     </a>
     This doesn't actually run anything yet
     <br><a href="landing_page.php">
-            <button>Back</button>
     </a>
 
 
@@ -63,6 +65,8 @@
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
         function addRow() {
             var table = document.getElementById("dynamic-table");
+            var rowCount = table.rows.length;
+            if(rowCount < 21){
             var row = table.insertRow(table.rows.length);
             // Remove 	Class name 	Abbreviation 	4 Contact Hours 	Sections 	Unavailable Times 	Select CourseID
             var cellRemove = row.insertCell(0);
@@ -104,13 +108,27 @@
             // <select id="courseList" name="courseList">
             //     <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
             //     <option value="test">Choose one</option>
-            //     <?php 
+            //     <?php
             //         $file = fopen("csv/courses.csv", "r");
-
+            
             //         while (($data = fgetcsv($file)) !== FALSE)
             //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-            //     ?>
+            //      ?>
             // </select>
+        }
+        else{
+        alert("Cannot add more than 20 rows")
+    }
+    
+    }
+        function clearTable() {
+            var table = document.getElementById("dynamic-table");
+
+            //Need to be more than 1 row to delte
+            while(table.rows.length >1){
+                table.deleteRow(1);
+            }
+        }
             
         }
         function addColumn(row) {
@@ -121,13 +139,14 @@
             var row = thisRow.parentNode.parentNode;
             row.parentNode.removeChild(row);
         }
+
     </script>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
 
         window.onload = function () { //When webpage opens, run this code
-            var menu = document.getElementById('menubar'); 
+            var menu = document.getElementById('menubar');
             if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
                 menu.style.display = 'none'
             }
@@ -147,5 +166,6 @@
         }
     </script>
 
-    </body>
+</body>
+
 </html>
