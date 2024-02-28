@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="createCSV.js"></script>
+    <script type="text/javascript" src="scripts/createCSV.js"></script>
     <title>Create CSV</title>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">

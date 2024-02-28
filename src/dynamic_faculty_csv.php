@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Add Course Information Form</title>
-    <script type="text/javascript" src="createCSV.js"></script>
+    <script type="text/javascript" src="scripts/createCSV.js"></script>
 </head>
 <body>
 
