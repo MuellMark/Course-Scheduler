@@ -140,7 +140,6 @@
 
     <!-- JavaScript used to put data into database -->
     <script>
-        // Initialize Firebase with your project config
         var firebaseConfig = {
             apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
             authDomain: "course-scheduler-b4f7e.firebaseapp.com",
@@ -154,8 +153,6 @@
 
         firebase.initializeApp(firebaseConfig);
         var database = firebase.database();
-
-        // Your existing JavaScript functions
 
         function addToDB() {
             // Function to handle form submission and send data to Firebase
@@ -172,6 +169,8 @@
                     var abbreviation = cells[2].querySelector("input").value;
                     var contactHours = cells[3].querySelector("select").value;
                     var sections = cells[4].querySelector("input").value;
+                    // TODO grab extra courses 
+                    //var course = cells[5].querySelector("input").value;
                     // TODO need to fix checkbox
                     // var unavailableTimes: {
                     //     monday = cells[5].querySelector("input[name='monday']").checked,
