@@ -4,6 +4,7 @@
 <head>
     <title>Create CSV</title>
     <script type="text/javascript" src="scripts/createCSV.js"></script>
+    <script type="text/javascript" src="scripts/faculty_script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
@@ -38,14 +39,14 @@
     </header>
 
     <h1>Create CSV</h1>
+    <h2>Course Table</h2>
     <button class ="button-style" onclick="addRow()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable()">Clear Table</button>
-    <br><button onclick="addToDB()">Add to Firebase</button>
-    This doesn't actually run anything yet
+    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
     <br><a href="landing_page.php"></a>
 
-    <table id="dynamic-table">
+    <table id="course-table">
         <tr>
             <th>Remove row</th>
             <th>Class name</th>
@@ -61,7 +62,7 @@
     addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
         function addRow() {
-            var table = document.getElementById("dynamic-table");
+            var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
             if(rowCount < 21){
@@ -119,7 +120,7 @@
     
     }
         function clearTable() {
-            var table = document.getElementById("dynamic-table");
+            var table = document.getElementById("course-table");
 
             //Need to be more than 1 row to delte
             while(table.rows.length >1){
@@ -159,7 +160,7 @@
 
         function addToDB() {
             // Function to handle form submission and send data to Firebase
-            var table = document.getElementById("dynamic-table");
+            var table = document.getElementById("course-table");
             var rows = table.getElementsByTagName("tr");
 
             // Skip first title row
@@ -221,6 +222,50 @@
 
             }
         </script>
+
+</body>
+<body>
+    <br>
+    <h2>Faculty Table</h2>
+    <button class ="button-style" onclick="addRow()">Add Row</button>
+    <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
+    <button class ="button-style" onclick="clearTable()">Clear Table</button>
+    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
+
+    <table id="faculty-table">
+        <tr>
+            <th>Professor Name</th>
+            <th>Prime time</th>
+            <th>Classes</th>
+        </tr>
+    </table>
+
+    <script>
+        addRow(); // Start with one empty row
+        // addCourse(); // This does not work currently
+        // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
+        function addRow() {
+            var table = document.getElementById("faculty-table");
+            var row = table.insertRow(table.rows.length);
+            var cell1 = row.insertCell(0);
+            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
+            var cell2 = row.insertCell(1);
+            cell2.innerHTML = "<select name='primetime'>" +
+                                "<option value='no'>No</option>" +
+                                "<option value='yes'>Yes</option>" +
+                                "</select>";
+            var cell3 = row.insertCell(2);
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
+            // https://www.w3schools.com/jsref/prop_node_parentnode.asp
+            var cell4 = row.insertCell(3);
+            cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
+        }
+
+        function addColumn(row) {
+            var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell (actions cell)
+            cell.innerHTML = "<input type='text' name='courses' placeholder='Enter Courses Taught'>"; // TODO might need an ID
+        }
+    </script>
 
 </body>
 
