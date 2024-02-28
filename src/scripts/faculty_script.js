@@ -1,17 +1,17 @@
 // https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
 // Taken from this website but will be modified to fit our tasks
-function tableToCSV() {
+function tableToCSVFac() {
 
     // Variable to store the final csv data
     let csv_data = [];
 
     // Get each row data
     let rows = document.getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
 
         // Get each column data\
         // TODO need to get prime time boolean working
-        let cols = rows[i].querySelectorAll('[name="CourseID"]:not([value="empty"],[type="number"],[type="text"]:not([value=""]),input[type="checkbox"]:checked');
+        let cols = rows[i].querySelectorAll('input[name="facultyName"],input[name="courses"],[name="primetime"]');
 
         // Stores each csv row data
         let csvrow = [];
@@ -47,7 +47,7 @@ function downloadCSVFile(csv_data) {
     let temp_link = document.createElement('a');
 
     // Download csv file
-    temp_link.download = "test.csv";
+    temp_link.download = "faculty.csv";
     let url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 

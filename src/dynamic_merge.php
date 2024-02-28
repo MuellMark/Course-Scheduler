@@ -228,7 +228,7 @@
     <br>
     <h2>Faculty Table</h2>
     <button class ="button-style" onclick="addRowFac()">Add Row</button>
-    <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
+    <button class ="button-style" onclick="tableToCSVFac()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable()">Clear Table</button>
     <button class ="button-style" onclick="addToDBFac()">Add to Firebase</button>
 
