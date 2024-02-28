@@ -264,10 +264,6 @@
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
         }
 
-        function addColumn(row) {
-            var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell (actions cell)
-            cell.innerHTML = "<input type='text' name='courses' placeholder='Enter Courses Taught'>"; // TODO might need an ID
-        }
         function addToDBFac() {
             // Function to handle form submission and send data to Firebase
             var table = document.getElementById("faculty-table");
@@ -281,7 +277,16 @@
                 if (facName !== '') {
                     //var facName = cells[1].querySelector("input").value;
                     var primeTime = cells[2].querySelector("select").value;
-                    var classes = cells[3].querySelector("input").value;
+                    //var classes = cells[3].querySelector("input").value;
+                    var classes = rows[i].querySelectorAll('[name="courses"]');
+                    // Stores each csv row data
+                    let classList = [];
+                    for (let j = 0; j < classes.length; j++) {
+
+                        // Get the text data of each cell
+                        // of a row and push it to csvrow
+                        classList.push(classes[j].value);
+        }
                     // TODO extra course inputs
 
                     // Push data to Firebase and map data to Firebase using CourseID as key
@@ -290,7 +295,7 @@
                     database.ref('temp_faculty/' + facName).set({
                         faculty_name: facName,
                         prime_time: primeTime,
-                        classes: classes,
+                        classes: classList,
                     });   
                     // TODO remove this make a better message       
                     alert("Yippee it worked!");
