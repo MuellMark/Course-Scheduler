@@ -282,6 +282,7 @@
                     //var facName = cells[1].querySelector("input").value;
                     var primeTime = cells[2].querySelector("select").value;
                     var classes = cells[3].querySelector("input").value;
+                    // TODO extra course inputs
 
                     // Push data to Firebase and map data to Firebase using CourseID as key
                     // https://firebase.google.com/docs/database/web/read-and-write
