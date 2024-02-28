@@ -10,7 +10,6 @@ function tableToCSV() {
     for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
-        //var test = document.querySelectorAll('input[value][type="checkbox"]:not([value=""])');
         let cols = rows[i].querySelectorAll('input[type="select"]:not([value="empty"]),input[type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"]');
 
         // Stores each csv row data
