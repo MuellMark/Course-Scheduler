@@ -41,9 +41,7 @@
     <button class ="button-style" onclick="addRow()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable()">Clear Table</button>
-    <br><button onclick="addToDB()">Add to Firebase</button>
-    This doesn't actually run anything yet
-    <br><a href="landing_page.php"></a>
+    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
 
     <table id="dynamic-table">
         <tr>
@@ -191,10 +189,10 @@
                         //unavailableTimes: unavailableTimes
                     });   
                     // TODO remove this make a better message       
-                    alert("Yippee it worked!");
+                    //alert("Yippee it worked!");
                 }
-                else
-                    alert("Please select a course from the dropdown");
+                //else
+                    //alert("Please select a course from the dropdown");
             }
         }
         </script>
