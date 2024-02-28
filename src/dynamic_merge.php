@@ -141,7 +141,6 @@
 
     <!-- JavaScript used to put data into database -->
     <script>
-        // Initialize Firebase with your project config
         var firebaseConfig = {
             apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
             authDomain: "course-scheduler-b4f7e.firebaseapp.com",
@@ -155,8 +154,6 @@
 
         firebase.initializeApp(firebaseConfig);
         var database = firebase.database();
-
-        // Your existing JavaScript functions
 
         function addToDB() {
             // Function to handle form submission and send data to Firebase
@@ -224,16 +221,20 @@
         </script>
 
 </body>
+
+<!-- Faculty dynamic table -->
+
 <body>
     <br>
     <h2>Faculty Table</h2>
-    <button class ="button-style" onclick="addRow()">Add Row</button>
+    <button class ="button-style" onclick="addRowFac()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable()">Clear Table</button>
-    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
+    <button class ="button-style" onclick="addToDBFac()">Add to Firebase</button>
 
     <table id="faculty-table">
         <tr>
+            <th>Remove</th>
             <th>Professor Name</th>
             <th>Prime time</th>
             <th>Classes</th>
@@ -241,29 +242,61 @@
     </table>
 
     <script>
-        addRow(); // Start with one empty row
+        addRowFac(); // Start with one empty row
         // addCourse(); // This does not work currently
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
-        function addRow() {
+        function addRowFac() {
             var table = document.getElementById("faculty-table");
             var row = table.insertRow(table.rows.length);
-            var cell1 = row.insertCell(0);
+            var cellRemove = row.insertCell(0);
+            cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
+            var cell1 = row.insertCell(1);
             cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
-            var cell2 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
             cell2.innerHTML = "<select name='primetime'>" +
                                 "<option value='no'>No</option>" +
                                 "<option value='yes'>Yes</option>" +
                                 "</select>";
-            var cell3 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
             cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
-            var cell4 = row.insertCell(3);
+            var cell4 = row.insertCell(4);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
         }
 
         function addColumn(row) {
             var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell (actions cell)
             cell.innerHTML = "<input type='text' name='courses' placeholder='Enter Courses Taught'>"; // TODO might need an ID
+        }
+        function addToDBFac() {
+            // Function to handle form submission and send data to Firebase
+            var table = document.getElementById("faculty-table");
+            var rows = table.getElementsByTagName("tr");
+
+            // Skip first title row
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                var facName = cells[1].querySelector("input").value;
+
+                if (facName !== '') {
+                    //var facName = cells[1].querySelector("input").value;
+                    var primeTime = cells[2].querySelector("select").value;
+                    var classes = cells[3].querySelector("input").value;
+
+                    // Push data to Firebase and map data to Firebase using CourseID as key
+                    // https://firebase.google.com/docs/database/web/read-and-write
+                    // TODO rename path
+                    database.ref('temp_faculty/' + facName).set({
+                        faculty_name: facName,
+                        prime_time: primeTime,
+                        classes: classes,
+                    });   
+                    // TODO remove this make a better message       
+                    alert("Yippee it worked!");
+                }
+                else
+                    alert("Please select a course from the dropdown!");
+            }
         }
     </script>
 
