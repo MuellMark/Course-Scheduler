@@ -203,7 +203,7 @@
     </script>
 </body>
 
-<!-- Collection of JS scripts used to manipulate both dynamic forms -->
+<!---------------------------- Collection of JS scripts used to manipulate both dynamic forms ---------------------------->
 <script>
     /**
      * Clears all rows from the HTML table, except the header title row.
@@ -234,7 +234,7 @@
     }
 </script>
 
-<!-- JavaScript used to put data into database -->
+<!---------------------------- JavaScript used to put data into database ---------------------------->
 <script>
     var firebaseConfig = {
         apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
@@ -333,7 +333,7 @@
     }
 </script>
 
-<!-- JavaScript used to enable hamburger menu -->
+<!---------------------------- JavaScript used to enable hamburger menu ---------------------------->
 <script>
     window.onload = function () { //When webpage opens, run this code
         var menu = document.getElementById('menubar');
