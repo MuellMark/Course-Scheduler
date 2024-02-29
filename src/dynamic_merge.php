@@ -39,6 +39,9 @@
     </header>
 
     <h1>Create CSV</h1>
+
+<!---------------------------- Course dynamic table ---------------------------->
+
     <h2>Course Table</h2>
     <button class ="button-style" onclick="addRow()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
@@ -59,33 +62,49 @@
     </table>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script>
-    addRow(); // Start with one empty row
+        addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
+        
+        /**
+         * Adds a new row to the course table.
+         */
         function addRow() {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
             if(rowCount < 21){
-                // Remove 	Class name 	Abbreviation 	4 Contact Hours 	Sections 	Unavailable Times 	Select CourseID
+                // Remove
                 var cellRemove = row.insertCell(0);
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
+
+                // Class name
                 var cell2 = row.insertCell(1);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
+                
+                // Abbreviation
                 var cell3 = row.insertCell(2);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
+                
+                // 4 Contact Hours
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
                                     "<option value='FALSE'>No</option>" +
                                     "<option value='TRUE'>Yes</option>" +
                                     "</select>";
+
+                // Sections
                 var cell5 = row.insertCell(4);
                 cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
+
+                // Unavailable Times
                 var cell6 = row.insertCell(5);
                 cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>"+
                                     "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>"+
                                     "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
                                     "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
                                     "<input type='checkbox' id='friday' name='friday' value='friday'>";
+                
+                // CourseID
                 var cell7 = row.insertCell(6);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                                 "<option value='empty'>Choose one</option>" +
@@ -93,14 +112,19 @@
                                 "<option value='CS21'>CS21</option>" +
                                 "<option value='DIS1'>DIS1</option>" +
                             "</select>";
+
+                // Add button            
                 var cellAdd = row.insertCell(7);
                 cellAdd.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
-                // TODO Need to implement a remove course column button
-                
                 /**
                  * TODO There might be an easy way to implement this into the select row
                  * so that it dynamically fills it. A way to do it is create a new 
                  * string that will be concatenated and then placed in cell1.innerHTML
+                 * 
+                 * Update:
+                 * I am going to leave this here but I don't think we will need to
+                 * implement it like this as we can easily grab the info from firebase 
+                 * and set the value attribute
                  */
                 // <label for="courseList">Select a Course:</label>
                 // <select id="courseList" name="courseList">
@@ -114,24 +138,34 @@
                 //      ?>
                 // </select>
             }
-        else{
-        alert("Cannot add more than 20 rows")
-    }
+            else{
+                alert("Cannot add more than 20 rows")
+            }
     
     }
+        /**
+         * Clears all rows from the HTML table, except the header title row.
+         */
         function clearTable() {
             var table = document.getElementById("course-table");
 
-            //Need to be more than 1 row to delte
-            while(table.rows.length >1){
+            // Need to be more than 1 row to delete
+            while(table.rows.length > 1){
                 table.deleteRow(1);
             }
         }
-            
+        /**
+         * Adds a new column with an input field to the specified row.
+         * @param row - The row to which the column should be added.
+         */
         function addColumn(row) {
-            var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell (actions cell)
+            var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
             cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>"; // TODO might need an ID
         }
+        /**
+         * Deletes specified individual row.
+         * @param thisRow - The row to be deleted.
+         */
         function deleteRow(thisRow) {
             var row = thisRow.parentNode.parentNode;
             row.parentNode.removeChild(row);
@@ -155,6 +189,9 @@
         firebase.initializeApp(firebaseConfig);
         var database = firebase.database();
 
+        /**
+         * Function to handle course form submission and send data to Firebase.
+         */
         function addToDB() {
             // Function to handle form submission and send data to Firebase
             var table = document.getElementById("course-table");
@@ -170,20 +207,11 @@
                     var abbreviation = cells[2].querySelector("input").value;
                     var contactHours = cells[3].querySelector("select").value;
                     var sections = cells[4].querySelector("input").value;
-                    // TODO need to fix checkbox
-                    // var unavailableTimes: {
-                    //     monday = cells[5].querySelector("input[name='monday']").checked,
-                    //     tuesday = cells[5].querySelector("input[name='tuesday']").checked,
-                    //     wednesday = cells[5].querySelector("input[name='wednesday']").checked,
-                    //     thursday = cells[5].querySelector("input[name='thursday']").checked,
-                    //     friday = cells[5].querySelector("input[name='friday']").checked
-                    // };
-                    var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked');
+                    var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
                     // Stores each csv row data
                     let unavailableTimesList = [];
                     for (let j = 0; j < unavailableTimes.length; j++) {
-                        // Get the text data of each cell
-                        // of a row and push it to csvrow
+                        // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
                         unavailableTimesList.push(unavailableTimes[j].value)
                     }
                     // Push data to Firebase and map data to Firebase using CourseID as key
@@ -196,7 +224,7 @@
                         sections: sections,
                         unavailableTimes: unavailableTimesList
                     });   
-                    // TODO remove this make a better message       
+                    // TODO remove this or make a better message       
                     alert("Yippee it worked!");
                 }
                 else
@@ -229,7 +257,7 @@
 
 </body>
 
-<!-- Faculty dynamic table -->
+<!---------------------------- Faculty dynamic table ---------------------------->
 
 <body>
     <br>
@@ -252,25 +280,42 @@
         addRowFac(); // Start with one empty row
         // addCourse(); // This does not work currently
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
+
+        /**
+         * Adds a new row to the faculty table.
+         */
         function addRowFac() {
             var table = document.getElementById("faculty-table");
             var row = table.insertRow(table.rows.length);
+
+            // Remove
             var cellRemove = row.insertCell(0);
             cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
+
+            // Professor Name
             var cell1 = row.insertCell(1);
             cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
+            
+            // Prime time
             var cell2 = row.insertCell(2);
             cell2.innerHTML = "<select name='primetime'>" +
                                 "<option value='no'>No</option>" +
                                 "<option value='yes'>Yes</option>" +
                                 "</select>";
+
+            // Classes                  
             var cell3 = row.insertCell(3);
             cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
+
+            // Add extra courses
             var cell4 = row.insertCell(4);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
         }
 
+        /**
+         * Function to handle faculty form submission and send data to Firebase.
+         */
         function addToDBFac() {
             // Function to handle form submission and send data to Firebase
             var table = document.getElementById("faculty-table");
@@ -281,20 +326,16 @@
                 var cells = rows[i].getElementsByTagName("td");
                 var facName = cells[1].querySelector("input").value;
 
+                // Faculty name is the key
                 if (facName !== '') {
-                    //var facName = cells[1].querySelector("input").value;
                     var primeTime = cells[2].querySelector("select").value;
-                    //var classes = cells[3].querySelector("input").value;
-                    var classes = rows[i].querySelectorAll('[name="courses"]');
-                    // Stores each csv row data
+                    // Stores each provided course given by user
                     let classList = [];
+                    var classes = rows[i].querySelectorAll('[name="courses"]');
                     for (let j = 0; j < classes.length; j++) {
-
-                        // Get the text data of each cell
-                        // of a row and push it to csvrow
+                        // Get the text data of each cell from the additional courses and push it to classList
                         classList.push(classes[j].value);
-        }
-                    // TODO extra course inputs
+                    }
 
                     // Push data to Firebase and map data to Firebase using CourseID as key
                     // https://firebase.google.com/docs/database/web/read-and-write
@@ -304,7 +345,7 @@
                         prime_time: primeTime,
                         classes: classList,
                     });   
-                    // TODO remove this make a better message       
+                    // TODO remove this or make a better message       
                     alert("Yippee it worked!");
                 }
                 else
