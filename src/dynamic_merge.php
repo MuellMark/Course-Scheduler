@@ -227,45 +227,6 @@
             var cell4 = row.insertCell(4);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
         }
-        /**
-         * Function to handle faculty form submission and send data to Firebase.
-         */
-        function addToDBFac() {
-            // Function to handle form submission and send data to Firebase
-            var table = document.getElementById("faculty-table");
-            var rows = table.getElementsByTagName("tr");
-
-            // Skip first title row
-            for (var i = 1; i < rows.length; i++) {
-                var cells = rows[i].getElementsByTagName("td");
-                var facName = cells[1].querySelector("input").value;
-
-                // Faculty name is the key
-                if (facName !== '') {
-                    var primeTime = cells[2].querySelector("select").value;
-                    // Stores each provided course given by user
-                    let classList = [];
-                    var classes = rows[i].querySelectorAll('[name="courses"]');
-                    for (let j = 0; j < classes.length; j++) {
-                        // Get the text data of each cell from the additional courses and push it to classList
-                        classList.push(classes[j].value);
-                    }
-
-                    // Push data to Firebase and map data to Firebase using CourseID as key
-                    // https://firebase.google.com/docs/database/web/read-and-write
-                    // TODO rename path
-                    database.ref('temp_faculty/' + facName).set({
-                        faculty_name: facName,
-                        prime_time: primeTime,
-                        classes: classList,
-                    });   
-                    // TODO remove this or make a better message       
-                    alert("Yippee it worked!");
-                }
-                else
-                    alert("Please select a course from the dropdown!");
-            }
-        }
     </script>
 </body>
 
@@ -325,6 +286,45 @@
             }
             else
                 alert("Please select a course from the dropdown");
+        }
+    }
+    /**
+     * Function to handle faculty form submission and send data to Firebase.
+     */
+    function addToDBFac() {
+        // Function to handle form submission and send data to Firebase
+        var table = document.getElementById("faculty-table");
+        var rows = table.getElementsByTagName("tr");
+
+        // Skip first title row
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var facName = cells[1].querySelector("input").value;
+
+            // Faculty name is the key
+            if (facName !== '') {
+                var primeTime = cells[2].querySelector("select").value;
+                // Stores each provided course given by user
+                let classList = [];
+                var classes = rows[i].querySelectorAll('[name="courses"]');
+                for (let j = 0; j < classes.length; j++) {
+                    // Get the text data of each cell from the additional courses and push it to classList
+                    classList.push(classes[j].value);
+                }
+
+                // Push data to Firebase and map data to Firebase using CourseID as key
+                // https://firebase.google.com/docs/database/web/read-and-write
+                // TODO rename path
+                database.ref('temp_faculty/' + facName).set({
+                    faculty_name: facName,
+                    prime_time: primeTime,
+                    classes: classList,
+                });   
+                // TODO remove this or make a better message       
+                alert("Yippee it worked!");
+            }
+            else
+                alert("Please select a course from the dropdown!");
         }
     }
 </script>
