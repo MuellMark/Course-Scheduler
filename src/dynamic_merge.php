@@ -178,7 +178,14 @@
                     //     thursday = cells[5].querySelector("input[name='thursday']").checked,
                     //     friday = cells[5].querySelector("input[name='friday']").checked
                     // };
-
+                    var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked');
+                    // Stores each csv row data
+                    let unavailableTimesList = [];
+                    for (let j = 0; j < unavailableTimes.length; j++) {
+                        // Get the text data of each cell
+                        // of a row and push it to csvrow
+                        unavailableTimesList.push(unavailableTimes[j].value)
+                    }
                     // Push data to Firebase and map data to Firebase using CourseID as key
                     // https://firebase.google.com/docs/database/web/read-and-write
                     // TODO rename path
@@ -187,7 +194,7 @@
                         abbreviation: abbreviation,
                         contact_hours: contactHours,
                         sections: sections,
-                        //unavailableTimes: unavailableTimes
+                        unavailableTimes: unavailableTimesList
                     });   
                     // TODO remove this make a better message       
                     alert("Yippee it worked!");
