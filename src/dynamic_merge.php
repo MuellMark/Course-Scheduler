@@ -141,8 +141,7 @@
             else{
                 alert("Cannot add more than 20 rows")
             }
-    
-    }
+        }
         /**
          * Clears all rows from the HTML table, except the header title row.
          */
@@ -170,91 +169,7 @@
             var row = thisRow.parentNode.parentNode;
             row.parentNode.removeChild(row);
         }
-
     </script>
-
-    <!-- JavaScript used to put data into database -->
-    <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
-            authDomain: "course-scheduler-b4f7e.firebaseapp.com",
-            databaseURL: "https://course-scheduler-b4f7e-default-rtdb.firebaseio.com",
-            projectId: "course-scheduler-b4f7e",
-            storageBucket: "course-scheduler-b4f7e.appspot.com",
-            messagingSenderId: "334389325155",
-            appId: "1:334389325155:web:8f42d91a5bd7e9120fb756",
-            measurementId: "G-1S979YX5DB"
-        };
-
-        firebase.initializeApp(firebaseConfig);
-        var database = firebase.database();
-
-        /**
-         * Function to handle course form submission and send data to Firebase.
-         */
-        function addToDB() {
-            // Function to handle form submission and send data to Firebase
-            var table = document.getElementById("course-table");
-            var rows = table.getElementsByTagName("tr");
-
-            // Skip first title row
-            for (var i = 1; i < rows.length; i++) {
-                var cells = rows[i].getElementsByTagName("td");
-                var courseID = cells[6].querySelector("select").value;
-
-                if (courseID !== 'empty') {
-                    var className = cells[1].querySelector("input").value;
-                    var abbreviation = cells[2].querySelector("input").value;
-                    var contactHours = cells[3].querySelector("select").value;
-                    var sections = cells[4].querySelector("input").value;
-                    var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
-                    // Stores each csv row data
-                    let unavailableTimesList = [];
-                    for (let j = 0; j < unavailableTimes.length; j++) {
-                        // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
-                        unavailableTimesList.push(unavailableTimes[j].value)
-                    }
-                    // Push data to Firebase and map data to Firebase using CourseID as key
-                    // https://firebase.google.com/docs/database/web/read-and-write
-                    // TODO rename path
-                    database.ref('temp_courses/' + courseID).set({
-                        class_name: className,
-                        abbreviation: abbreviation,
-                        contact_hours: contactHours,
-                        sections: sections,
-                        unavailableTimes: unavailableTimesList
-                    });   
-                    // TODO remove this or make a better message       
-                    alert("Yippee it worked!");
-                }
-                else
-                    alert("Please select a course from the dropdown");
-            }
-        }
-        </script>
-        <!-- JavaScript used to enable hamburger menu -->
-        <script>
-            window.onload = function () { //When webpage opens, run this code
-                var menu = document.getElementById('menubar');
-                if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
-                    menu.style.display = 'none'
-                }
-            };
-
-            function toggleMenu() {
-                var menu = document.getElementById('menubar');
-                menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
-                window.onresize = function () { //This will know when the window is resized
-                    if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
-                        menu.style.display = 'none';
-                    } else { //Else, show it
-                        menu.style.display = 'block';
-                    }
-                }
-
-            }
-        </script>
-
 </body>
 
 <!---------------------------- Faculty dynamic table ---------------------------->
@@ -312,7 +227,6 @@
             var cell4 = row.insertCell(4);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
         }
-
         /**
          * Function to handle faculty form submission and send data to Firebase.
          */
@@ -353,7 +267,88 @@
             }
         }
     </script>
-
 </body>
 
+<!-- JavaScript used to put data into database -->
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
+        authDomain: "course-scheduler-b4f7e.firebaseapp.com",
+        databaseURL: "https://course-scheduler-b4f7e-default-rtdb.firebaseio.com",
+        projectId: "course-scheduler-b4f7e",
+        storageBucket: "course-scheduler-b4f7e.appspot.com",
+        messagingSenderId: "334389325155",
+        appId: "1:334389325155:web:8f42d91a5bd7e9120fb756",
+        measurementId: "G-1S979YX5DB"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+
+    /**
+     * Function to handle course form submission and send data to Firebase.
+     */
+    function addToDB() {
+        // Function to handle form submission and send data to Firebase
+        var table = document.getElementById("course-table");
+        var rows = table.getElementsByTagName("tr");
+
+        // Skip first title row
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var courseID = cells[6].querySelector("select").value;
+
+            if (courseID !== 'empty') {
+                var className = cells[1].querySelector("input").value;
+                var abbreviation = cells[2].querySelector("input").value;
+                var contactHours = cells[3].querySelector("select").value;
+                var sections = cells[4].querySelector("input").value;
+                var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
+                // Stores each csv row data
+                let unavailableTimesList = [];
+                for (let j = 0; j < unavailableTimes.length; j++) {
+                    // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
+                    unavailableTimesList.push(unavailableTimes[j].value)
+                }
+                // Push data to Firebase and map data to Firebase using CourseID as key
+                // https://firebase.google.com/docs/database/web/read-and-write
+                // TODO rename path
+                database.ref('temp_courses/' + courseID).set({
+                    class_name: className,
+                    abbreviation: abbreviation,
+                    contact_hours: contactHours,
+                    sections: sections,
+                    unavailableTimes: unavailableTimesList
+                });   
+                // TODO remove this or make a better message       
+                alert("Yippee it worked!");
+            }
+            else
+                alert("Please select a course from the dropdown");
+        }
+    }
+</script>
+
+<!-- JavaScript used to enable hamburger menu -->
+<script>
+    window.onload = function () { //When webpage opens, run this code
+        var menu = document.getElementById('menubar');
+        if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
+            menu.style.display = 'none'
+        }
+    };
+
+    function toggleMenu() {
+        var menu = document.getElementById('menubar');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
+        window.onresize = function () { //This will know when the window is resized
+            if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
+                menu.style.display = 'none';
+            } else { //Else, show it
+                menu.style.display = 'block';
+            }
+        }
+
+    }
+</script>
 </html>
