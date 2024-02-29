@@ -142,33 +142,6 @@
                 alert("Cannot add more than 20 rows")
             }
         }
-        /**
-         * Clears all rows from the HTML table, except the header title row.
-         */
-        function clearTable() {
-            var table = document.getElementById("course-table");
-
-            // Need to be more than 1 row to delete
-            while(table.rows.length > 1){
-                table.deleteRow(1);
-            }
-        }
-        /**
-         * Adds a new column with an input field to the specified row.
-         * @param row - The row to which the column should be added.
-         */
-        function addColumn(row) {
-            var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
-            cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>"; // TODO might need an ID
-        }
-        /**
-         * Deletes specified individual row.
-         * @param thisRow - The row to be deleted.
-         */
-        function deleteRow(thisRow) {
-            var row = thisRow.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-        }
     </script>
 </body>
 
@@ -229,6 +202,37 @@
         }
     </script>
 </body>
+
+<!-- Collection of JS scripts used to manipulate both dynamic forms -->
+<script>
+    /**
+     * Clears all rows from the HTML table, except the header title row.
+     */
+    function clearTable() {
+        var table = document.getElementById("course-table");
+
+        // Need to be more than 1 row to delete
+        while(table.rows.length > 1){
+            table.deleteRow(1);
+        }
+    }
+    /**
+     * Adds a new column with an input field to the specified row.
+     * @param row - The row to which the column should be added.
+     */
+    function addColumn(row) {
+        var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
+        cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>"; // TODO might need an ID
+    }
+    /**
+     * Deletes specified individual row.
+     * @param thisRow - The row to be deleted.
+     */
+    function deleteRow(thisRow) {
+        var row = thisRow.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
 
 <!-- JavaScript used to put data into database -->
 <script>
