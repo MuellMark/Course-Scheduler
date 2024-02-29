@@ -45,7 +45,7 @@
     <h2>Course Table</h2>
     <button class ="button-style" onclick="addRow()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
-    <button class ="button-style" onclick="clearTable()">Clear Table</button>
+    <button class ="button-style" onclick="clearTable('course-table')">Clear Table</button>
     <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
     <br><a href="landing_page.php"></a>
 
@@ -60,7 +60,6 @@
             <th>Select CourseID</th>
         </tr>
     </table>
-    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
@@ -152,7 +151,7 @@
     <h2>Faculty Table</h2>
     <button class ="button-style" onclick="addRowFac()">Add Row</button>
     <button class ="button-style" onclick="tableToCSVFac()">Save as CSV</button>
-    <button class ="button-style" onclick="clearTable()">Clear Table</button>
+    <button class ="button-style" onclick="clearTable('faculty-table')">Clear Table</button>
     <button class ="button-style" onclick="addToDBFac()">Add to Firebase</button>
 
     <table id="faculty-table">
@@ -208,8 +207,8 @@
     /**
      * Clears all rows from the HTML table, except the header title row.
      */
-    function clearTable() {
-        var table = document.getElementById("course-table");
+    function clearTable(table) {
+        var table = document.getElementById(table);
 
         // Need to be more than 1 row to delete
         while(table.rows.length > 1){
@@ -235,6 +234,7 @@
 </script>
 
 <!---------------------------- JavaScript used to put data into database ---------------------------->
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 <script>
     var firebaseConfig = {
         apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
@@ -268,12 +268,20 @@
                 var abbreviation = cells[2].querySelector("input").value;
                 var contactHours = cells[3].querySelector("select").value;
                 var sections = cells[4].querySelector("input").value;
+
+                // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
                 var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
-                // Stores each csv row data
                 let unavailableTimesList = [];
                 for (let j = 0; j < unavailableTimes.length; j++) {
-                    // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
                     unavailableTimesList.push(unavailableTimes[j].value)
+                }
+
+                // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
+                var courses = rows[i].querySelectorAll('[name="courses"]');
+                let coursesList = [];
+                for (let k = 0; k < courses.length; k++) {
+                    // Get the text data of each cell from the additional courses and push it to classList
+                    coursesList.push(courses[k].value);
                 }
                 // Push data to Firebase and map data to Firebase using CourseID as key
                 // https://firebase.google.com/docs/database/web/read-and-write
@@ -283,7 +291,8 @@
                     abbreviation: abbreviation,
                     contact_hours: contactHours,
                     sections: sections,
-                    unavailableTimes: unavailableTimesList
+                    unavailableTimes: unavailableTimesList,
+                    extraCourses: coursesList
                 });   
                 // TODO remove this or make a better message       
                 alert("Yippee it worked!");
@@ -292,6 +301,7 @@
                 alert("Please select a course from the dropdown");
         }
     }
+
     /**
      * Function to handle faculty form submission and send data to Firebase.
      */
@@ -322,7 +332,7 @@
                 database.ref('temp_faculty/' + facName).set({
                     faculty_name: facName,
                     prime_time: primeTime,
-                    classes: classList,
+                    classes: classList
                 });   
                 // TODO remove this or make a better message       
                 alert("Yippee it worked!");
