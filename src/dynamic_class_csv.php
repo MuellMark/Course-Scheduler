@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="createCSV.js"></script>
     <title>Create CSV</title>
+    <script type="text/javascript" src="scripts/createCSV.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,12 +41,7 @@
     <button class ="button-style" onclick="addRow()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable()">Clear Table</button>
-    <br><a href="final_schedule_result.php">
-        <button class = "button-style">Run script</button>
-    </a>
-    <br><a href="landing_page.php">
-    </a>
-
+    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
 
     <table id="dynamic-table">
         <tr>
@@ -58,9 +54,9 @@
             <th>Select CourseID</th>
         </tr>
     </table>
-
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script>
-        addRow(); // Start with one empty row
+    addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
         function addRow() {
             var table = document.getElementById("dynamic-table");
@@ -140,29 +136,88 @@
 
     </script>
 
-    <!-- JavaScript used to enable hamburger menu -->
+    <!-- JavaScript used to put data into database -->
     <script>
-
-        window.onload = function () { //When webpage opens, run this code
-            var menu = document.getElementById('menubar');
-            if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
-                menu.style.display = 'none'
-            }
+        var firebaseConfig = {
+            apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
+            authDomain: "course-scheduler-b4f7e.firebaseapp.com",
+            databaseURL: "https://course-scheduler-b4f7e-default-rtdb.firebaseio.com",
+            projectId: "course-scheduler-b4f7e",
+            storageBucket: "course-scheduler-b4f7e.appspot.com",
+            messagingSenderId: "334389325155",
+            appId: "1:334389325155:web:8f42d91a5bd7e9120fb756",
+            measurementId: "G-1S979YX5DB"
         };
 
-        function toggleMenu() {
-            var menu = document.getElementById('menubar');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
-            window.onresize = function () { //This will know when the window is resized
-                if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
-                    menu.style.display = 'none';
-                } else { //Else, show it
-                    menu.style.display = 'block';
-                }
-            }
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
 
+        function addToDB() {
+            // Function to handle form submission and send data to Firebase
+            var table = document.getElementById("dynamic-table");
+            var rows = table.getElementsByTagName("tr");
+
+            // Skip first title row
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                var courseID = cells[6].querySelector("select").value;
+
+                if (courseID !== 'empty') {
+                    var className = cells[1].querySelector("input").value;
+                    var abbreviation = cells[2].querySelector("input").value;
+                    var contactHours = cells[3].querySelector("select").value;
+                    var sections = cells[4].querySelector("input").value;
+                    // TODO grab extra courses 
+                    //var course = cells[5].querySelector("input").value;
+                    // TODO need to fix checkbox
+                    // var unavailableTimes: {
+                    //     monday = cells[5].querySelector("input[name='monday']").checked,
+                    //     tuesday = cells[5].querySelector("input[name='tuesday']").checked,
+                    //     wednesday = cells[5].querySelector("input[name='wednesday']").checked,
+                    //     thursday = cells[5].querySelector("input[name='thursday']").checked,
+                    //     friday = cells[5].querySelector("input[name='friday']").checked
+                    // };
+
+                    // Push data to Firebase and map data to Firebase using CourseID as key
+                    // https://firebase.google.com/docs/database/web/read-and-write
+                    // TODO rename path
+                    database.ref('temp_courses/' + courseID).set({
+                        class_name: className,
+                        abbreviation: abbreviation,
+                        contact_hours: contactHours,
+                        sections: sections,
+                        //unavailableTimes: unavailableTimes
+                    });   
+                    // TODO remove this make a better message       
+                    //alert("Yippee it worked!");
+                }
+                //else
+                    //alert("Please select a course from the dropdown");
+            }
         }
-    </script>
+        </script>
+        <!-- JavaScript used to enable hamburger menu -->
+        <script>
+            window.onload = function () { //When webpage opens, run this code
+                var menu = document.getElementById('menubar');
+                if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
+                    menu.style.display = 'none'
+                }
+            };
+
+            function toggleMenu() {
+                var menu = document.getElementById('menubar');
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
+                window.onresize = function () { //This will know when the window is resized
+                    if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
+                        menu.style.display = 'none';
+                    } else { //Else, show it
+                        menu.style.display = 'block';
+                    }
+                }
+
+            }
+        </script>
 
 </body>
 
