@@ -7,11 +7,10 @@ function tableToCSV() {
 
     // Get each row data
     let rows = document.getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
 
-        // Get each column data\
-        // TODO need to get prime time boolean working
-        let cols = rows[i].querySelectorAll('[name="CourseID"]:not([value="empty"],[type="number"],[type="text"]:not([value=""]),input[type="checkbox"]:checked');
+        // Get each column data
+        let cols = rows[i].querySelectorAll('input[type="select"]:not([value="empty"]),input[type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"]');
 
         // Stores each csv row data
         let csvrow = [];
@@ -47,7 +46,7 @@ function downloadCSVFile(csv_data) {
     let temp_link = document.createElement('a');
 
     // Download csv file
-    temp_link.download = "test.csv";
+    temp_link.download = "course.csv";
     let url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
