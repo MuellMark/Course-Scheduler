@@ -41,9 +41,8 @@
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable()">Clear Table</button>
     <br><a href="final_schedule_result.php">
-        <button>Run script</button>
+        <button class = "button-style">Run script</button>
     </a>
-    This doesn't actually run anything yet
     <br><a href="landing_page.php">
     </a>
 
