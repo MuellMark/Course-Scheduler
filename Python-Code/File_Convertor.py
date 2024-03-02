@@ -5,20 +5,26 @@ from PyGLPK_Solver import *
 
 #------------Helper Functions-----------------------------------------------
 
+# Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
     generate_and_run(contents_course_restrict,contents_faculty_restrict)
     print_readable_format(contents_course_restrict)
 
+# Method specifically for single file CSVs. It splits the CSV into 2 
+# separate lists and then calls PyGLPK_solver
 def split_single_csv_and_run(contents_all_restrict):
+    # Boolean values to denote whento parse different aspects
     course_bool = False
     faculty_bool = False
 
+    # Stores the courses
     contents_course_restrict = []
     contents_faculty_restrict = []
 
+    # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
-        if len(contents_all_restrict[i])>0:
+        if len(contents_all_restrict[i])>1:
             if contents_all_restrict[i][1] == "c":
                 course_bool=True
             if contents_all_restrict[i][1] == "f":
@@ -30,9 +36,6 @@ def split_single_csv_and_run(contents_all_restrict):
             contents_faculty_restrict.append(contents_all_restrict[i])
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
-
-
-
 
 #------------Functions based on number of params----------------------------
 
@@ -48,11 +51,6 @@ def no_csv_param():
     contents_faculty_restrict = list(temp_faculty_restrict)
 
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
-
-    
-    
-# TODO add command line support in the same way as above, 
-# may need to export to a separate method
 
 # For when there is only 1 csv file
 def one_csv_param(file):
@@ -73,7 +71,6 @@ def two_csv_param(course_file,faculty_file):
     temp_faculty_restrict = csv.reader(faculty_restrict_file)
     contents_faculty_restrict = list(temp_faculty_restrict)
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
-
 
 #------------Main--------------------------------------------------
 
