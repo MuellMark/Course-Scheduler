@@ -25,7 +25,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
+                        <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
                         <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@
 
 <!---------------------------- Course dynamic table ---------------------------->
 
-    <h2>Course Table</h2>
+    <h4>Course Table</h4>
     <button class ="button-style" onclick="addRow()">Add Row</button>
     <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable('course-table')">Clear Table</button>
@@ -114,7 +114,7 @@
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
-                cellAdd.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
+                cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
                 /**
                  * TODO There might be an easy way to implement this into the select row
                  * so that it dynamically fills it. A way to do it is create a new 
@@ -148,7 +148,7 @@
 
 <body>
     <br>
-    <h2>Faculty Table</h2>
+    <h4>Faculty Table</h4>
     <button class ="button-style" onclick="addRowFac()">Add Row</button>
     <button class ="button-style" onclick="tableToCSVFac()">Save as CSV</button>
     <button class ="button-style" onclick="clearTable('faculty-table')">Clear Table</button>

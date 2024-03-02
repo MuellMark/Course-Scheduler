@@ -99,7 +99,7 @@ body {
     /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4{
   font-size: 1.5rem; /*Use the default font size on the users setting*/
   margin: 0; /* Remove defualt margins*/
   padding: 0; /* Remove padding*/
@@ -109,6 +109,10 @@ h1, h2, h3 {
 h1{
   text-align: center; /* Center the text */
   margin-top: 20px; /* Add margin to depetrate h1 from the elements that are above it*/
+}
+
+h4{
+  padding: 20px; /* Add margin to depetrate h1 from the elements that are above it*/
 }
 p, ol, ul {
   margin-top: 0; /* Reset the margin for paragrpahs and lists to keep consistent */
