@@ -7,6 +7,7 @@ from PyGLPK_Solver import *
 
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
+    print(contents_course_restrict)
     generate_and_run(contents_course_restrict,contents_faculty_restrict)
     print_readable_format(contents_course_restrict)
 
@@ -24,14 +25,15 @@ def split_single_csv_and_run(contents_all_restrict):
     # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
-        if len(contents_all_restrict[i])>1:
-            if contents_all_restrict[i][1] == "c":
+
+        if len(contents_all_restrict[i])==1:
+            if contents_all_restrict[i][0] == "<course_restrict>":
                 course_bool=True
-            if contents_all_restrict[i][1] == "f":
+            if contents_all_restrict[i][0] == "<faculty_restrict>":
                 faculty_bool=True
                 course_bool=False
         if course_bool:
-            contents_course_restrict.append(contents_all_restrict[i])
+            contents_course_restrict.append(contents_all_restrict[i])      
         elif faculty_bool:
             contents_faculty_restrict.append(contents_all_restrict[i])
         i+=1
