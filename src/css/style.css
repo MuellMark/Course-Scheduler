@@ -1,0 +1,507 @@
+/* Header Design and Formatting*/
+header {
+  overflow: hidden;
+  /* Hide content that is not within the headers box */
+}
+
+#headerBar {
+  display: flex;
+  justify-content: space-between;
+  /* Spread evenly between first and last element*/
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content*/
+  align-items: center;
+  /* Center vertically */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/align-items*/
+  padding: 20px;
+  /* Add padding for headerBar by putting space around it*/
+  flex-wrap: wrap;
+  /*Allow items to wrap line by line*/
+}
+
+/* Logo Design And Formatting */
+#logo {
+  margin-right: 20px;
+  /* Create space to its right*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/margin*/
+  flex-shrink: 0;
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink*/
+}
+
+#logo img {
+  max-width: 700px;
+  /* Prevent from being over certain length */
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/max-width*/
+  max-height: 600px;
+  /* Prevent from being over certain length*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/max-height*/
+  height: auto;
+  /* Will allow to be proportional */
+  width: auto;
+  /* Will allow to be proportional*/
+}
+
+/* Bar Design and Formatting */
+#menubar {
+  flex: 1;
+  /* Menu bar needs to change spacing to fit, this will allow it to do so*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/flex*/
+  display: flex;
+  /* Distribute evenly for space and alignment*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/display*/
+  justify-content: center;
+  /* Aligns menu items to the right */
+  align-items: center;
+  /* Center the menu items vertically with the menu bar*/
+  flex-wrap: wrap;
+  /*Allow items to wrap line by line*/
+}
+
+#menubar ul {
+  display: flex;
+  /* Distribute evenly for space and alignment (in this case in a row)*/
+  align-items: center;
+  /* Center vertically on the menu*/
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove padding */
+  list-style: none;
+  /* Remove the default list style*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/list-style*/
+  background: none;
+  /* Make sure there is no background*/
+  flex-wrap: wrap;
+  /*Allow items to wrap line by line*/
+}
+
+#menubar li {
+  padding: 0 10px;
+  /* Adding padding to each item in the list (this adds padding horizontally)*/
+  min-width: 120px;
+  /*Every item in list is at least 120px*/
+}
+
+#menubar li a {
+  padding: 0.5em 1em;
+  /* Adds padding for the clickable area*/
+  text-decoration: none;
+  /* Removes the underline when you click */
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration*/
+  font-weight: 600;
+  /* Bold Link Text */
+  color: #000000;
+  /* Make text white */
+  background-color: #ffcb08;
+  /* Set background color to SU colors */
+  margin: 0 20px;
+  /* Add margin to space out the links */
+  white-space: nowrap;
+  /*Do not want text to wrap*/
+}
+
+#menubar li a:hover {
+  color: #000000;
+  /* When you hover over link, but it black*/
+  background-color: #FFF;
+  /* When you hover over, change the background to white*/
+}
+
+/* Header Image (SU Pic)*/
+#headerImage {
+  margin-top: 0px;
+  /* Add a margin to the top of the header image to space it*/
+}
+
+#headerImage img {
+  width: 100%;
+  /* Stretch image to the full width of the container*/
+  height: auto;
+  /* Scale height to keep aspect ratio*/
+}
+
+/* Default CSS Styling and Formatting */
+html,
+body {
+  height: 100%;
+  /* Set height to the height of the HTML page*/
+}
+
+body {
+  margin: 0;
+  /*  Remove the margin to keep edge with page*/
+  padding: 0;
+  /* Remove the padding to keep edge with page*/
+  background: #FFFFFF;
+  /* Set the background color to white*/
+  font-family: 'lustria', serif;
+  /* Use hte font lustria for text, and if it cant, use serif*/
+  font-size: 1rem;
+  /*Use the default font size on the users setting*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 1.5rem;
+  /*Use the default font size on the users setting*/
+  margin: 0;
+  /* Remove default margins*/
+  padding: 0;
+  /* Remove padding*/
+  color: black;
+  /* Set default color of headings to black*/
+}
+
+h1 {
+  text-align: center;
+  /* Center the text */
+  margin-top: 20px;
+  /* Add margin to separate h1 from the elements that are above it*/
+  padding: 15px;
+  /*Add padding around text*/
+  border-bottom: 5px solid #ccc;
+  /*Add grey bar below text*/
+}
+
+h4 {
+  padding: 20px;
+  /*Add padding around text*/
+  margin-top: 5px;
+  /* Add margin to separate h1 from the elements that are above it*/
+}
+
+p,
+ol,
+ul {
+  margin-top: 0;
+  /* Reset the margin for paragraphs and lists to keep consistent */
+}
+
+p {
+  line-height: 180%;
+  /* Increase the space between lines for paragraphs*/
+}
+
+ol,
+ul {
+  padding: 0;
+  /* Remove padding for lists*/
+  list-style: none;
+  /* Remove default list item look to keep same*/
+}
+
+.container {
+  margin: 0 auto;
+  /* Center container with the main element */
+  width: 1200px;
+  /* Fixed width for a container*/
+}
+
+/*Hamburger Menu*/
+.hamburger {
+  display: none;
+  /* Hide the hamburger menu by default*/
+  cursor: pointer;
+  /* When hovering over, change the cursor to a pointer*/
+  padding: 20px;
+  /* Adding padding around the icon */
+  position: absolute;
+  /* Position the button absolutely with its parent*/
+  top: 15px;
+  /* Position it so it is X amount of pixels from the top*/
+  right: 20px;
+  /* Position is so it is X amount of pixels from the right*/
+  z-index: 1000;
+  /* Makes sure that the hamburger menu will stack on top of other elements*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/z-index*/
+  color: white;
+  /* Set color to white*/
+  background-color: #ffcb08;
+  /* Set color to SU colors*/
+}
+
+/*Button Design*/
+.button-style {
+  padding: 1em 1em;
+  /*Make button bigger*/
+  text-decoration: none;
+  /*Do not have default text decorations*/
+  font-weight: 600;
+  /*Set font weight*/
+  color: #000000;
+  /*Set color to black*/
+  background-color: #ffcb08;
+  /*Set color to SU color*/
+  border: none;
+  /*Remove border around text*/
+  cursor: pointer;
+  /*When hovering, make cursor a pointer*/
+  margin: 0 20px;
+  /*Add horizontal spacing*/
+  white-space: nowrap;
+  /*Do not wrap text*/
+  margin-top: 30px;
+  /*Add margin top*/
+}
+
+.button-style:hover {
+  color: #000000;
+  /*Set color to black*/
+  background-color: #FFF;
+  /*Set background color to white*/
+}
+
+.button-container {
+  display: flex;
+  /*Use flex to setup button container*/
+  justify-content: center;
+  /*Center the button*/
+  text-align: center;
+  /*Center the text within the button*/
+  flex-wrap: wrap;
+  /*Allow buttons to wrap around*/
+  margin: 20px 0;
+  /*Add vertical margin*/
+  gap: 20px;
+  /*Add a gap between each button when they wrap*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/gap*/
+}
+
+/*FAQ Design*/
+  /*Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs*/
+#faq-section {
+  max-width: 800px;
+  /*Set the maximum width of the entire section*/
+  margin: auto;
+  /*Center the section*/
+  padding: 20px;
+  /*Add padding around the section*/
+  font-family: 'lustria', serif;
+  /* Use hte font lustria for text, and if it cant, use serif*/
+}
+
+#faq-section h1 {
+  text-align: center;
+  /*Center the heading text to the rest of the section*/
+  margin-bottom: 30px;
+  /*Add bottom margin to add spacing*/
+  margin-top: 0;
+  padding: 15px;
+}
+
+.faw-container {
+  border-top: 2px solid #ccc;
+  /*Add a grey line to the top of the text*/
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  /*Add bottom margin to give spacing*/
+  border-bottom: 2px solid #ccc;
+  /*Add grey line to bottom of text*/
+  padding-bottom: 20px;
+  /*Add padding around text*/
+  padding-left: 20px;
+  /*Add padding around text*/
+  padding-right: 20px;
+  /*Add padding around text*/
+}
+
+.question {
+  background-color: white;
+  /*Set background color to white*/
+  color: black;
+  /*Set text color black*/
+  cursor: pointer;
+  /*When hovering, set cursor to a pointer*/
+  padding: 10px;
+  /*Add padding around text*/
+  width: 100%;
+  /*Set the text to fill the entire container*/
+  border: none;
+  /*Remove default border*/
+  text-align: left;
+  /*Align the question to the left of the container*/
+  outline: none;
+  /*This will keep the a flat design and remove the default outline*/
+  font-size: 16px;
+  /*Set font size*/
+  transition: background-color 0.3s ease;
+  /*Animate background color change*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/transition*/
+  position: relative;
+  /*Align text with other text*/
+}
+
+.question:hover {
+  background-color: rgb(211, 211, 211);
+  /*Set the background color when hovering*/
+}
+
+.question:before {
+  content: '+';
+  /*Add a + before question*/
+  position: center;
+  /*Center it to the text*/
+  padding-right: 10px;
+  /*Add padding to the right of text so it is not over it*/
+  color: black;
+  /*Set color to black*/
+  font-size: 24px;
+  /*Set font size*/
+}
+
+.question.active::before {
+  content: '-';
+  /*When question is opened, change + to a -*/
+  color: black;
+  /*Set color to black*/
+  font-size: 24px;
+  /*Set font size*/
+}
+
+.question .text {
+  display: block;
+  /*Make sure that the answer is within the question container*/
+  padding-right: 40px;
+  /*Add padding to the right so there is no overlap*/
+}
+
+.answer {
+  padding: 10px;
+  /*Add padding to text*/
+  display: none;
+  /*Do not show answer until it is clicked*/
+  border-top: none;
+  /*Remove the border top as well ot keep even*/
+  overflow: hidden;
+  /*If the text overflows, then hide it*/
+}
+
+.answer p {
+  padding: 10px 0;
+  /*Add vertical padding to the section*/
+  background-color: white;
+  /*Set background color to white*/
+  margin-bottom: 0;
+  /*Remove the margin of a paragraph to remove extra space*/
+}
+
+/*DropDown Menu*/
+.dropdown .faq .opened {
+  background-color: white;
+  /*Set background color to white*/
+  color: black;
+  /*Set text color to black*/
+  cursor: pointer;
+  /*When hovering, change cursor to pointer*/
+  padding: 20px;
+  /*Add padding*/
+  width: 100%;
+  /*Set width to 100% to fill container*/
+  border: none;
+  /*Remove border*/
+  text-align: left;
+  /*Align the text to the left of the container*/
+  outline: none;
+  /*Remove outline to keep flat*/
+  font-size: 15px;
+  /*Set font size to*/
+  transition: 0.4s;
+  /*Transition time*/
+}
+
+.dropdown .faq p {
+  display: none;
+  /*Hide until clicked*/
+  background-color: white;
+  /*Set background color to white*/
+  transition: 0.2s;
+  /*Transition time*/
+}
+
+.dropdown .faq .active+p {
+  display: block;
+  /*Show paragraph when the FAQ item is clicked*/
+}
+
+/*Making Webpage Responsive*/
+@media (max-width: 750px) {
+  /* When webpage is 750px width or less*/
+
+  body {
+    font-size: 1.1rem;
+    /*Use the default font size on the users setting*/
+  }
+
+  #headerBar {
+    flex-direction: column;
+    /* Stack vertically*/
+    align-items: center;
+    /* Center the bar horizontally*/
+  }
+
+  #logo img {
+    margin: 0 auto;
+    /* Center the image within the header*/
+    width: auto;
+    /* Automatically adjust the width */
+    height: auto;
+    /* Automatically adjust the width */
+    max-width: 500px;
+    /* Maximum width is 500px */
+    max-height: 600px;
+    /* Maximum height is 600px*/
+  }
+
+  .hamburger {
+    display: block;
+    /* When the conditions are met, make the hamburger menu visible*/
+  }
+
+  #menubar {
+    display: flex;
+    /* Hide menubar when hamburger menu is visible*/
+  }
+
+  #menubar ul {
+    flex-direction: column;
+    /*Stack vertically when menu is visible*/
+    width: 100%;
+    /*Set width to 100% to cover container*/
+    background-color: #ffcb08;
+    /*Set color to SU color*/
+    padding: 30px;
+    /*Add padding for menu items*/
+  }
+
+  #menubar li {
+    width: 100%;
+    /*Set width to 100% to cover container*/
+  }
+
+  #menubar li a {
+    width: 100%;
+    /*Set width to 100% to cover container*/
+    text-align: center;
+    /*Center text*/
+    padding: 0;
+    /*Remove Padding*/
+    margin: 30px 10px;
+    /*Add vertical padding*/
+    color: #000000;
+    /*Set color to black*/
+    background-color: transparent;
+    /*No background color*/
+  }
+
+  #menubar li a:hover {
+    background-color: #ffcb08;
+    /*Set background color to SU color*/
+    color: #000000;
+    /*Set text color to black*/
+  }
+
+}
