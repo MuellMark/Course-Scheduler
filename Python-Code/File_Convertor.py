@@ -7,12 +7,12 @@ from PyGLPK_Solver import *
 
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
-    print(contents_course_restrict)
     generate_and_run(contents_course_restrict,contents_faculty_restrict)
     print_readable_format(contents_course_restrict)
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
+#TODO, add in functinoality for forced columns
 def split_single_csv_and_run(contents_all_restrict):
     # Boolean values to denote whento parse different aspects
     course_bool = False
@@ -32,10 +32,11 @@ def split_single_csv_and_run(contents_all_restrict):
             if contents_all_restrict[i][0] == "<faculty_restrict>":
                 faculty_bool=True
                 course_bool=False
-        if course_bool:
-            contents_course_restrict.append(contents_all_restrict[i])      
-        elif faculty_bool:
-            contents_faculty_restrict.append(contents_all_restrict[i])
+        if len(contents_all_restrict[i])>1: # Only adds rows with more than one value in it
+            if course_bool:
+                contents_course_restrict.append(contents_all_restrict[i])      
+            elif faculty_bool:
+                contents_faculty_restrict.append(contents_all_restrict[i])
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
 
