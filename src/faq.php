@@ -29,7 +29,7 @@
         </div>
 
         <!--Header Pic-->
-        <div id="headerimage">
+        <div id="headerImage">
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
@@ -38,7 +38,7 @@
         <h1>FAQ</h1>
         <div class="faq-container">
             <div class="faq-item">
-                <button class="question"> Question 1 </button>
+                <button class="question"> What Is Course Scheduler? </button>
                 <div class="answer">
                     <p>
                         Answer to question 1.
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <button class="question"> Question 2 </button>
+                <button class="question"> How To Use Course Scheduler </button>
                 <div class="answer">
                     <p>
                         Answer to question 2.
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <button class="question"> Question 3 </button>
+                <button class="question"> Who To Contanct? </button>
                 <div class="answer">
                     <p>
                         Answer to question 3.

@@ -30,7 +30,7 @@
         </div>
 
         <!--Header Pic-->
-        <div id="headerimage">
+        <div id="headerImage">
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
