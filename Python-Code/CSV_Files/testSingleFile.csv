@@ -1,3 +1,6 @@
+<forced_courses>
+ALG1,m800
+
 <course_restrict>
 CS11,TRUE,CS21,EXP1,ORG1,ALG1,m330,$
 CS21,TRUE,CS11,EXP1,ORG1,ALG1,m330,$

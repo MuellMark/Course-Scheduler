@@ -281,7 +281,7 @@ def faculty_restrictions(all_combos,contents,duplicates):
 #------------Generate Method----------------------------
 
 # Called from File_convertor to generate the schedule
-def generate_and_run(contents_course_restrict,contents_faculty_restrict):
+def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses):
 
     # Stores the number of columns needed
     global num_cols
