@@ -35,7 +35,7 @@
     </header>
 
     <section id="faq-section">
-        <h1>FAQ</h1>
+        <h1><span>FAQ</span></h1>
         <div class="faq-container">
             <div class="faq-item">
                 <button class="question"> What Is Course Scheduler? </button>
@@ -104,5 +104,8 @@
     </script>
 
 </body>
+<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+</a>
 
 </html>
