@@ -458,5 +458,12 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
             if not val=="$":
                 file_contents+=(val+",")
         file_contents+=("$\n")
+
     file_contents+="<faculty_restrictions>\n"
+    for line in contents_faculty_restrict:
+        for val in line:
+            if not val=="$":
+                file_contents+=(val+",")
+        file_contents+=("$\n")
+
     export_file.write(file_contents)
