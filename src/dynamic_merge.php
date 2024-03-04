@@ -47,7 +47,36 @@
     <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
     <button class="button-style" onclick="clearTable('course-table')">Clear Table</button>
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
+    <button class="button-style" onclick="addColumn(this.parentNode.parentNode)"> Add Column </button>
     <br><a href="landing_page.php"></a>
+
+    <br>
+
+    <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 5px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .add-btn, .remove-btn {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    </style>
 
     <table id="course-table">
         <tr>
@@ -113,8 +142,8 @@
                     "</select>";
 
                 // Add button            
-                var cellAdd = row.insertCell(7);
-                cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
+                //var cellAdd = row.insertCell(7);
+                //cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
                 /**
                  * TODO There might be an easy way to implement this into the select row
                  * so that it dynamically fills it. A way to do it is create a new 
@@ -153,7 +182,8 @@
     <button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>
     <button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>
     <button class="button-style" onclick="addToDBFac()">Add to Firebase</button>
-
+    <br>
+    <br>
     <table id="faculty-table">
         <tr>
             <th>Remove</th>
