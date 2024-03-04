@@ -442,4 +442,6 @@ def print_readable_format(contents_course_restrict):
     for pair in sortedPairings:
         print(pair)
 
-def export_csv(contents_course_restrict,contents_faculty_restrict,export_file):
+def export_csv(contents_course_restrict,contents_faculty_restrict,export_file_name):
+    export_file = open(export_file_name,'w')
+    export_file.write("aaa")

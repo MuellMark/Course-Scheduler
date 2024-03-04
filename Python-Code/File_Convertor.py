@@ -57,6 +57,7 @@ def no_csv_param():
     contents_faculty_restrict = list(temp_faculty_restrict)
 
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
+    export_csv(contents_course_restrict,contents_faculty_restrict,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
 
 # For when there is only 1 csv file
 def one_csv_param(file):
