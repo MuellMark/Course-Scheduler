@@ -282,8 +282,24 @@ def force_courses_constraints(all_combos,forced_courses):
     matrix=[]
 
     # Should just need to refactor this so it's only looping thru columns
-    # since the course and time indexes are given
+    # since the course and time indexes are given, also need to loop thru forced_columns
     
+    for pairing in forced_courses:
+        course= pairing[0]
+        time= pairing[1]
+
+        lp.rows.add(1)
+        lp.rows[row_index.getRowIndex()].name = course+" forced at "+time
+        lp.rows[row_index.getRowIndex()].bounds = 1
+        row_index.add()
+
+        # initialize an array to store values for a given row
+        temp_matrix = [0]*len(all_combos)
+        for col in range(num_cols):
+                temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
+        matrix+=(temp_matrix)
+
+
     for course in courses:
         lp.rows.add(1)
         lp.rows[row_index.getRowIndex()].name = course
