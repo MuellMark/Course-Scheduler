@@ -446,7 +446,11 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
     export_file = open(export_file_name,'w')
     file_contents=""
     if len(forced_courses)>0:
-        export_file.write("<forced_courses>")
+        file_contents+=("<forced_courses>\n")
+        for pairing in forced_courses:
+            file_contents+=(pairing[0]+","+pairing[1]+"\n")
+
+        
     
     file_contents+="<course_restrict>\n"
     file_contents+="<faculty_restrictions>\n"
