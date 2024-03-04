@@ -279,7 +279,26 @@ def faculty_restrictions(all_combos,contents,duplicates):
     lp.matrix+=matrix
 
 def force_courses_constraints(all_combos,forced_courses):
-    print(forced_courses)
+    matrix=[]
+
+    # Should just need to refactor this so it's only looping thru columns
+    # since the course and time indexes are given
+    
+    for course in courses:
+        lp.rows.add(1)
+        lp.rows[row_index.getRowIndex()].name = course
+        lp.rows[row_index.getRowIndex()].bounds = 1
+        row_index.add()
+        
+        # initialize an array to store values for a given row
+        temp_matrix = [0]*len(all_combos)
+        for time in times:
+            for col in range(num_cols):
+                temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
+        matrix+=(temp_matrix)
+
+
+    lp.matrix =matrix
 
 #------------Generate Method----------------------------
 
