@@ -5,13 +5,15 @@
     <title>About/HowTo</title> <!-- Title Of Page -->
     <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings to make webpage responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport settings to make webpage responsive -->
 </head>
 
 <body>
     <header>
         <div id="headerBar">
-            <div class="hamburger" onclick="toggleMenu()"> &#9776;</div> <!-- Hamburger menu that starts toggleMenu when it is clicked -->
+            <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
+            <!-- Hamburger menu that starts toggleMenu when it is clicked -->
             <!--Logo Placement-->
             <div id="logo">
                 <img src="./images/Logo.png">
@@ -22,7 +24,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
+                        <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
                         <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
@@ -30,20 +32,20 @@
         </div>
 
         <!--Header Pic-->
-        <div id="headerimage">
+        <div id="headerImage">
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
 
-    <h1> Documentation </h1>
+    <h1> <span>Documentation </span></h1>
 
-    <h1> HowTos </h1>
+    <h1> <span>HowTos </span></h1>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
 
         window.onload = function () { //When webpage opens, run this code
-            var menu = document.getElementById('menubar'); 
+            var menu = document.getElementById('menubar');
             if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
                 menu.style.display = 'none'
             }
@@ -64,5 +66,8 @@
     </script>
 
 </body>
+<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+</a>
 
 </html>

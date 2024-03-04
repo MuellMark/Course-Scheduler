@@ -20,7 +20,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
+                        <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
                         <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
@@ -28,7 +28,7 @@
         </div>
 
 <!--Header Pic-->
-<div id="headerimage">
+<div id="headerImage">
 <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
 </div>
 </header>

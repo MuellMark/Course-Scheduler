@@ -25,7 +25,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_class_csv.php"> Create CSV</a> </li>
+                        <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
                         <li> <a href="about-howto.php"> About/HowTo</a> </li>
                     </ul>
                 </div>
@@ -33,20 +33,20 @@
         </div>
 
         <!--Header Pic-->
-        <div id="headerimage">
+        <div id="headerImage">
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
 
-    <h1>Create CSV</h1>
+    <h1><span>Create CSV</span></h1>
 
-<!---------------------------- Course dynamic table ---------------------------->
+    <!---------------------------- Course dynamic table ---------------------------->
 
-    <h2>Course Table</h2>
-    <button class ="button-style" onclick="addRow()">Add Row</button>
-    <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
-    <button class ="button-style" onclick="clearTable('course-table')">Clear Table</button>
-    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
+    <h4><span>Course Table</span></h4>
+    <button class="button-style" onclick="addRow()">Add Row</button>
+    <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
+    <button class="button-style" onclick="clearTable('course-table')">Clear Table</button>
+    <button class="button-style" onclick="addToDB()">Add to Firebase</button>
     <br><a href="landing_page.php"></a>
 
     <table id="course-table">
@@ -63,7 +63,7 @@
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
-        
+
         /**
          * Adds a new row to the course table.
          */
@@ -71,7 +71,7 @@
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
-            if(rowCount < 21){
+            if (rowCount < 21) {
                 // Remove
                 var cellRemove = row.insertCell(0);
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
@@ -79,17 +79,17 @@
                 // Class name
                 var cell2 = row.insertCell(1);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
-                
+
                 // Abbreviation
                 var cell3 = row.insertCell(2);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
-                
+
                 // 4 Contact Hours
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
-                                    "<option value='FALSE'>No</option>" +
-                                    "<option value='TRUE'>Yes</option>" +
-                                    "</select>";
+                    "<option value='FALSE'>No</option>" +
+                    "<option value='TRUE'>Yes</option>" +
+                    "</select>";
 
                 // Sections
                 var cell5 = row.insertCell(4);
@@ -97,24 +97,24 @@
 
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>"+
-                                    "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>"+
-                                    "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
-                                    "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
-                                    "<input type='checkbox' id='friday' name='friday' value='friday'>";
-                
+                cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
+                    "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
+                    "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
+                    "<input type='checkbox' id='thursday' name='thursday' value='thursday'>" +
+                    "<input type='checkbox' id='friday' name='friday' value='friday'>";
+
                 // CourseID
                 var cell7 = row.insertCell(6);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                                "<option value='empty'>Choose one</option>" +
-                                "<option value='CS11'>CS11</option>" +
-                                "<option value='CS21'>CS21</option>" +
-                                "<option value='DIS1'>DIS1</option>" +
-                            "</select>";
+                    "<option value='empty'>Choose one</option>" +
+                    "<option value='CS11'>CS11</option>" +
+                    "<option value='CS21'>CS21</option>" +
+                    "<option value='DIS1'>DIS1</option>" +
+                    "</select>";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
-                cellAdd.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
+                cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
                 /**
                  * TODO There might be an easy way to implement this into the select row
                  * so that it dynamically fills it. A way to do it is create a new 
@@ -134,10 +134,10 @@
                 
                 //         while (($data = fgetcsv($file)) !== FALSE)
                 //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-                //      ?>
+                //        ?>
                 // </select>
             }
-            else{
+            else {
                 alert("Cannot add more than 20 rows")
             }
         }
@@ -148,11 +148,11 @@
 
 <body>
     <br>
-    <h2>Faculty Table</h2>
-    <button class ="button-style" onclick="addRowFac()">Add Row</button>
-    <button class ="button-style" onclick="tableToCSVFac()">Save as CSV</button>
-    <button class ="button-style" onclick="clearTable('faculty-table')">Clear Table</button>
-    <button class ="button-style" onclick="addToDBFac()">Add to Firebase</button>
+    <h4><span>Faculty Table</span></h4>
+    <button class="button-style" onclick="addRowFac()">Add Row</button>
+    <button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>
+    <button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>
+    <button class="button-style" onclick="addToDBFac()">Add to Firebase</button>
 
     <table id="faculty-table">
         <tr>
@@ -182,13 +182,13 @@
             // Professor Name
             var cell1 = row.insertCell(1);
             cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
-            
+
             // Prime time
             var cell2 = row.insertCell(2);
             cell2.innerHTML = "<select name='primetime'>" +
-                                "<option value='no'>No</option>" +
-                                "<option value='yes'>Yes</option>" +
-                                "</select>";
+                "<option value='no'>No</option>" +
+                "<option value='yes'>Yes</option>" +
+                "</select>";
 
             // Classes                  
             var cell3 = row.insertCell(3);
@@ -211,7 +211,7 @@
         var table = document.getElementById(table);
 
         // Need to be more than 1 row to delete
-        while(table.rows.length > 1){
+        while (table.rows.length > 1) {
             table.deleteRow(1);
         }
     }
@@ -293,7 +293,7 @@
                     sections: sections,
                     unavailableTimes: unavailableTimesList,
                     extraCourses: coursesList
-                });   
+                });
                 // TODO remove this or make a better message       
                 alert("Yippee it worked!");
             }
@@ -333,7 +333,7 @@
                     faculty_name: facName,
                     prime_time: primeTime,
                     classes: classList
-                });   
+                });
                 // TODO remove this or make a better message       
                 alert("Yippee it worked!");
             }
@@ -365,4 +365,8 @@
 
     }
 </script>
+<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+</a>
+
 </html>
