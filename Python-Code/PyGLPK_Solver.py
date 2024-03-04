@@ -288,17 +288,18 @@ def force_courses_constraints(all_combos,forced_courses):
         course= pairing[0]
         time= pairing[1]
 
-        # lp.rows.add(1)
-        # lp.rows[row_index.getRowIndex()].name = course+" forced at "+time
-        # lp.rows[row_index.getRowIndex()].bounds = 1
-        # row_index.add()
+        lp.rows.add(1)
+        lp.rows[row_index.getRowIndex()].name = course+"forced@"+time
+        lp.rows[row_index.getRowIndex()].bounds = 0
+        row_index.add()
 
         # initialize an array to store values for a given row
         temp_matrix = [0]*len(all_combos)
         for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
+                print(all_combos[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]])
         matrix+=(temp_matrix)
-
+    lp.matrix+=matrix
 
     # for course in courses:
     #     lp.rows.add(1)
@@ -313,9 +314,9 @@ def force_courses_constraints(all_combos,forced_courses):
     #             temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
     #     matrix+=(temp_matrix)
 
-
-    # lp.matrix =matrix
-    print(matrix)
+    
+    
+    # print(matrix)
 
 #------------Generate Method----------------------------
 
@@ -379,8 +380,10 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
     faculty_restrictions(all_combos,contents_faculty_restrict,duplicates)
+
     if len(forced_courses)>0:
         force_courses_constraints(all_combos,forced_courses)
+    
     
     lp.simplex()
 
@@ -397,6 +400,7 @@ def print_all_rows_and_columns():
 
     for r in lp.rows:
         print('%s = %g' % (r.name, r.primal))
+    # print(all_combos[(maxT*maxC*1)+(cI["CS21"]*maxT)+tI["m330"]])
 
 def print_all_filled_cols():
     print("objective value = " + str(lp.obj.value))

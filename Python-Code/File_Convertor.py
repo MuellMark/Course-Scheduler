@@ -8,6 +8,7 @@ from PyGLPK_Solver import *
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
     generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
+    # print_all_rows_and_columns()
     print_readable_format(contents_course_restrict)
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
