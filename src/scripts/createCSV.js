@@ -10,7 +10,7 @@ function tableToCSV() {
     for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
-        let cols = rows[i].querySelectorAll('input[type="select"]:not([value="empty"]),input[type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"]');
+        let cols = rows[i].querySelectorAll('input[type="select"]:not([value="empty"]),input[type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
 
         // Stores each csv row data
         let csvrow = [];
@@ -20,7 +20,7 @@ function tableToCSV() {
             // of a row and push it to csvrow
             csvrow.push(cols[j].value);
         }
-
+        csv_data.push('$');
         // Combine each column value with comma
         csv_data.push(csvrow.join(","));
     }
