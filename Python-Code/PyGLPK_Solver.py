@@ -278,6 +278,7 @@ def faculty_restrictions(all_combos,contents,duplicates):
                             #loop columns, add from there
     lp.matrix+=matrix
 
+#TODO FIX THIS
 def force_courses_constraints(all_combos,forced_courses):
     matrix=[]
 
@@ -381,8 +382,9 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     same_course_cons(all_combos,duplicates)
     faculty_restrictions(all_combos,contents_faculty_restrict,duplicates)
 
-    if len(forced_courses)>0:
-        force_courses_constraints(all_combos,forced_courses)
+    # TODO uncomment out when testing for forcing resumes
+    # if len(forced_courses)>0:
+    #     force_courses_constraints(all_combos,forced_courses)
     
     
     lp.simplex()
