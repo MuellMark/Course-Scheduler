@@ -10,7 +10,7 @@ function tableToCSV() {
     for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
-        let cols = rows[i].querySelectorAll('input[type="select"]:not([value="empty"]),input[type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
+        let cols = rows[i].querySelectorAll('input[name="newCourse"][type="select"]:not([value="empty"]),input[name="sections"][type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
 
         // Stores each csv row data
         let csvrow = [];
@@ -18,15 +18,16 @@ function tableToCSV() {
 
             // Get the text data of each cell
             // of a row and push it to csvrow
-            csvrow.push(cols[j].value);
+            //if(cols[j].value != '')
+                csvrow.push(cols[j].value);
         }
-        csv_data.push('$');
+        //csv_data.push('$');
         // Combine each column value with comma
         csv_data.push(csvrow.join(","));
     }
 
     // Combine each row data with new line character
-    csv_data = csv_data.join('\n');
+    csv_data = csv_data.join(',$\n');
 
     // Call this function to download csv file  
     downloadCSVFile(csv_data);
