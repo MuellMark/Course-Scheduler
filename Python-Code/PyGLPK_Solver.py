@@ -442,6 +442,12 @@ def print_readable_format(contents_course_restrict):
     for pair in sortedPairings:
         print(pair)
 
-def export_csv(contents_course_restrict,contents_faculty_restrict,export_file_name):
+def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     export_file = open(export_file_name,'w')
-    export_file.write("aaa")
+    file_contents=""
+    if len(forced_courses)>0:
+        export_file.write("<forced_courses>")
+    
+    file_contents+="<course_restrict>\n"
+    file_contents+="<faculty_restrictions>\n"
+    export_file.write(file_contents)
