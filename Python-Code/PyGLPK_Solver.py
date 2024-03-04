@@ -288,10 +288,10 @@ def force_courses_constraints(all_combos,forced_courses):
         course= pairing[0]
         time= pairing[1]
 
-        lp.rows.add(1)
-        lp.rows[row_index.getRowIndex()].name = course+" forced at "+time
-        lp.rows[row_index.getRowIndex()].bounds = 1
-        row_index.add()
+        # lp.rows.add(1)
+        # lp.rows[row_index.getRowIndex()].name = course+" forced at "+time
+        # lp.rows[row_index.getRowIndex()].bounds = 1
+        # row_index.add()
 
         # initialize an array to store values for a given row
         temp_matrix = [0]*len(all_combos)
@@ -300,21 +300,22 @@ def force_courses_constraints(all_combos,forced_courses):
         matrix+=(temp_matrix)
 
 
-    for course in courses:
-        lp.rows.add(1)
-        lp.rows[row_index.getRowIndex()].name = course
-        lp.rows[row_index.getRowIndex()].bounds = 1
-        row_index.add()
+    # for course in courses:
+    #     lp.rows.add(1)
+    #     lp.rows[row_index.getRowIndex()].name = course
+    #     lp.rows[row_index.getRowIndex()].bounds = 1
+    #     row_index.add()
         
-        # initialize an array to store values for a given row
-        temp_matrix = [0]*len(all_combos)
-        for time in times:
-            for col in range(num_cols):
-                temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
-        matrix+=(temp_matrix)
+    #     # initialize an array to store values for a given row
+    #     temp_matrix = [0]*len(all_combos)
+    #     for time in times:
+    #         for col in range(num_cols):
+    #             temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
+    #     matrix+=(temp_matrix)
 
 
-    lp.matrix =matrix
+    # lp.matrix =matrix
+    print(matrix)
 
 #------------Generate Method----------------------------
 
