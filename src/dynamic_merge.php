@@ -58,6 +58,13 @@
         border-collapse: collapse;
         width: 100%;
     }
+    
+    /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
+    @media screen and (max-width: 300px) {
+    table {
+        width: 25%;}
+    }
+    */
 
     th, td {
         border: 1px solid #ddd;
@@ -69,19 +76,12 @@
         background-color: #f2f2f2;
     }
 
-    .add-btn, .remove-btn {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 8px 12px;
-        cursor: pointer;
-    }
     </style>
 
     <table id="course-table">
         <tr>
             <th>Remove row</th>
-            <th>Add row</th>
+            <!--<th>Add row</th> -->
             <th>Class name</th>
             <th>Abbreviation</th>
             <th>4 Contact Hours</th>
@@ -90,6 +90,10 @@
             <th>Select CourseID</th>
         </tr>
     </table>
+
+    <br>
+    <button class="button" onclick="addRow()">Add Row</button>
+
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
@@ -107,30 +111,30 @@
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
 
                 //add
-                var cellAdd = row.insertCell(1);
-                cellAdd.innerHTML = '<button type="button" onclick="addRow()">+</button>';
+                //var cellAdd = row.insertCell(1);
+                //cellAdd.innerHTML = '<button type="button" onclick="addRow()">+</button>';
 
                 // Class name
-                var cell2 = row.insertCell(2);
+                var cell2 = row.insertCell(1);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
 
                 // Abbreviation
-                var cell3 = row.insertCell(3);
+                var cell3 = row.insertCell(2);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
 
                 // 4 Contact Hours
-                var cell4 = row.insertCell(4);
+                var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
                     "<option value='FALSE'>No</option>" +
                     "<option value='TRUE'>Yes</option>" +
                     "</select>";
 
                 // Sections
-                var cell5 = row.insertCell(5);
+                var cell5 = row.insertCell(4);
                 cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
 
                 // Unavailable Times
-                var cell6 = row.insertCell(6);
+                var cell6 = row.insertCell(5);
                 cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
                     "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
                     "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
@@ -138,7 +142,7 @@
                     "<input type='checkbox' id='friday' name='friday' value='friday'>";
 
                 // CourseID
-                var cell7 = row.insertCell(7);
+                var cell7 = row.insertCell(6);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
                     "<option value='CS11'>CS11</option>" +
