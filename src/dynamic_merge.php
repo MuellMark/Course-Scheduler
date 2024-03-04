@@ -81,6 +81,7 @@
     <table id="course-table">
         <tr>
             <th>Remove row</th>
+            <th>Add row</th>
             <th>Class name</th>
             <th>Abbreviation</th>
             <th>4 Contact Hours</th>
@@ -105,27 +106,31 @@
                 var cellRemove = row.insertCell(0);
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
 
+                //add
+                var cellAdd = row.insertCell(1);
+                cellAdd.innerHTML = '<button type="button" onclick="addRow()">+</button>';
+
                 // Class name
-                var cell2 = row.insertCell(1);
+                var cell2 = row.insertCell(2);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
 
                 // Abbreviation
-                var cell3 = row.insertCell(2);
+                var cell3 = row.insertCell(3);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
 
                 // 4 Contact Hours
-                var cell4 = row.insertCell(3);
+                var cell4 = row.insertCell(4);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
                     "<option value='FALSE'>No</option>" +
                     "<option value='TRUE'>Yes</option>" +
                     "</select>";
 
                 // Sections
-                var cell5 = row.insertCell(4);
+                var cell5 = row.insertCell(5);
                 cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
 
                 // Unavailable Times
-                var cell6 = row.insertCell(5);
+                var cell6 = row.insertCell(6);
                 cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
                     "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
                     "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
@@ -133,7 +138,7 @@
                     "<input type='checkbox' id='friday' name='friday' value='friday'>";
 
                 // CourseID
-                var cell7 = row.insertCell(6);
+                var cell7 = row.insertCell(7);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
                     "<option value='CS11'>CS11</option>" +
@@ -142,7 +147,7 @@
                     "</select>";
 
                 // Add button            
-                //var cellAdd = row.insertCell(7);
+                //var cellAdd = row.insertCell(8);
                 //cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
                 /**
                  * TODO There might be an easy way to implement this into the select row
