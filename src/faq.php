@@ -62,6 +62,14 @@
                 </div>
             </div>
 
+            <div class="faq-item">
+                <button class="question"> What Is Firebase? </button>
+                <div class="answer">
+                    <p>
+                        Answer to question 4.
+                    </p>
+                </div>
+            </div>
         </div>
         </div>
         </div>
