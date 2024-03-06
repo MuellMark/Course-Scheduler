@@ -5,6 +5,10 @@ function tableToCSV() {
     // Variable to store the final csv data
     let csv_data = [];
 
+    // Used to tell if it is the first row of each table
+    let firstCSVRow = new Boolean(true);
+    let firstFacRow = new Boolean(true);
+
     // Get each row data
     let rows = document.getElementsByTagName('tr');
     for (let i = 1; i < rows.length; i++) {
@@ -14,8 +18,23 @@ function tableToCSV() {
 
         // Stores each csv row data
         let csvrow = [];
+        if(cols.length > 0){
+            if(cols[0].id == "newCourse" && (firstCSVRow))
+            {
+                firstCSVRow = false;
+                csv_data.push("<course-table>");
+            }
+            if(cols[0].id == "facultyName" && (firstFacRow))
+            {
+                firstFacRow = false;
+                csv_data.push("<faculty-table>");
+            }
+        }
         for (let j = 0; j < cols.length; j++) {
-
+            // if(cols[j].id == "newCourse")
+            //     csvrow.push("<course-table>");
+            // if(cols[j].id == "facultyName")
+            //     csvrow.push("<faculty-table>");
             // Get the text data of each cell
             // of a row and push it to csvrow
             //if(cols[j].value != '')
@@ -23,11 +42,13 @@ function tableToCSV() {
         }
         //csv_data.push('$');
         // Combine each column value with comma
+        if(cols.length > 0)
+            csvrow.push("$");
         csv_data.push(csvrow.join(","));
     }
 
     // Combine each row data with new line character
-    csv_data = csv_data.join(',$\n');
+    csv_data = csv_data.join('\n');
 
     // Call this function to download csv file  
     downloadCSVFile(csv_data);
