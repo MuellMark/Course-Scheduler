@@ -23,7 +23,7 @@
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
-                        <li> <a href="about-howto.php"> About/HowTo</a> </li>
+                        <li> <a href="about-howto.php"> How To Guides</a> </li>
                 </div>
             </nav>
         </div>
@@ -62,6 +62,14 @@
                 </div>
             </div>
 
+            <div class="faq-item">
+                <button class="question"> What Is Firebase? </button>
+                <div class="answer">
+                    <p>
+                        Answer to question 4.
+                    </p>
+                </div>
+            </div>
         </div>
         </div>
         </div>
