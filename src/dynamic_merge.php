@@ -26,7 +26,7 @@
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
-                        <li> <a href="about-howto.php"> About/HowTo</a> </li>
+                        <li> <a href="about-howto.php"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -54,28 +54,28 @@
 
     <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
     <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    
-    /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
     @media screen and (max-width: 300px) {
     table {
         width: 25%;}
     }
     */
 
-    th, td {
-        border: 1px solid #ddd;
-        padding: 5px;
-        text-align: left;
-    }
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: left;
+        }
 
-    th {
-        background-color: #f2f2f2;
-    }
-
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 
     <table id="course-table">
@@ -172,7 +172,7 @@
                 
                 //         while (($data = fgetcsv($file)) !== FALSE)
                 //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-                //        ?>
+                //          ?>
                 // </select>
             }
             else {
@@ -268,7 +268,45 @@
      */
     function deleteRow(thisRow) {
         var row = thisRow.parentNode.parentNode;
-        row.parentNode.removeChild(row);
+        var table = row.parentNode;
+        var rowCount = table.rows.length;
+
+        //Check if the table has more than 2 rows 
+        if (rowCount > 2) {
+            table.removeChild(row);
+        }
+        else {
+            alert("At least one row is required.")
+        }
+
+    }
+
+    /**
+     * Check if all required fields are filled in table
+     * @param tableId - Get ID of table
+     * @returns boolena - Ture if all required fields are filled
+     */
+    function checkIfFilled(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.getElementsByTagName("tr");
+        //Start from row 1, and not the the header row
+        for (var i = 1; i < rows.length; i++) {
+            var inputs = rows[i].querySelectorAll("input[type='text'], input[type='number'], select");
+            for (var j = 0; j < inputs.length; j++) {
+                var input = inputs[j];
+                //Check if Select Course ID is filled
+                //Check if select is not selected
+                if ((input.tagName === "SELECT" && input.value === "empty")
+                    //Check if empty
+                    || (input.type === "text" && input.value.trim() === "")
+                    //Check if the number inputs are empty
+                    || (input.type === "number" && input.value.trim() === "")) {
+                    return false;
+                }
+            }
+        }
+        //All fields are filled
+        return true;
     }
 </script>
 
@@ -293,6 +331,11 @@
      * Function to handle course form submission and send data to Firebase.
      */
     function addToDB() {
+
+        if (!checkIfFilled("course-table")) {
+            alert("Please fill in all fields before adding to Firebase.");
+            return false;
+        }
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("course-table");
         var rows = table.getElementsByTagName("tr");
@@ -345,6 +388,10 @@
      * Function to handle faculty form submission and send data to Firebase.
      */
     function addToDBFac() {
+        if (!checkIfFilled("faculty-table")) {
+            alert("Please fill in all fields before adding to Firebase.");
+            return false;
+        }
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("faculty-table");
         var rows = table.getElementsByTagName("tr");
