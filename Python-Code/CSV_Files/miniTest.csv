@@ -1,6 +1,7 @@
 <course_restrict>
 CS11,TRUE,$
 DIS1,TRUE,$
-<faculty_restrictions>
+
+<faculty_restrict>
 Prof_1,FALSE,CS11,m800,m930,m1100,$
 Prof_2,FALSE,DIS1,m800,m930,m1100,$
