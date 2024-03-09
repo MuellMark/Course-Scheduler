@@ -183,7 +183,7 @@ def two_course_conflict_cons(all_combos,contents,duplicates):
                         lp.rows[row_index.getRowIndex()].bounds = 0
                         row_index.add()
                         for time in times:
-                            if time==otherCI:
+                            if time==row[otherCI]:
                                 temp_matrix[(maxT*maxC*col)+(cI[row[0]]*maxT)+tI[time]] = 1
                         matrix+=temp_matrix
 
@@ -377,10 +377,11 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     add_objective_function(all_combos)
     time_overlap_cons(all_combos)
     generalColCons(all_combos)
+    faculty_restrictions(all_combos,contents_faculty_restrict,duplicates)
     four_contact_hour_cons(all_combos,contents_course_restrict)
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
-    faculty_restrictions(all_combos,contents_faculty_restrict,duplicates)
+    
 
     # TODO uncomment out when testing for forcing resumes
     # if len(forced_courses)>0:
@@ -450,8 +451,6 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
         for pairing in forced_courses:
             file_contents+=(pairing[0]+","+pairing[1]+"\n")
 
-        
-    
     file_contents+="<course_restrict>\n"
     for line in contents_course_restrict:
         for val in line:
