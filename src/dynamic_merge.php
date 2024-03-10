@@ -43,9 +43,9 @@
     <!---------------------------- Course dynamic table ---------------------------->
 
     <h4><span>Course Table</span></h4>
-    <button class="button-style" onclick="addRow()">Add Row</button>
+    <!--<button class="button-style" onclick="addRow()">Add Row</button> -->
     <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
-    <button class="button-style" onclick="clearTable('course-table')">Clear Table</button>
+    <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
     <button class="button-style" onclick="addColumn(this.parentNode.parentNode)"> Add Column </button>
     <br><a href="landing_page.php"></a>
@@ -70,7 +70,8 @@
         td {
             border: 1px solid #ddd;
             padding: 5px;
-            text-align: left;
+            text-align: center;
+            align-items:center;
         }
 
         th {
@@ -92,7 +93,8 @@
     </table>
 
     <br>
-    <button class="button" onclick="addRow()">Add Row</button>
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px">Clear Table</button>
 
     <script>
         addRow(); // Start with one empty row
@@ -151,7 +153,7 @@
                     "</select>";
 
                 // Add button            
-                //var cellAdd = row.insertCell(8);
+                //var cellAdd = row.insertCell(7);
                 //cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
                 /**
                  * TODO There might be an easy way to implement this into the select row
@@ -244,13 +246,13 @@
 <!---------------------------- Collection of JS scripts used to manipulate both dynamic forms ---------------------------->
 <script>
     /**
-     * Clears all rows from the HTML table, except the header title row.
+     * Clears all rows from the HTML table, except the header title row and first row.
      */
     function clearTable(table) {
         var table = document.getElementById(table);
 
         // Need to be more than 1 row to delete
-        while (table.rows.length > 1) {
+        while (table.rows.length > 2) {
             table.deleteRow(1);
         }
     }
