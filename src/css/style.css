@@ -225,6 +225,7 @@ ul {
   /* Center container with the main element */
   width: 1200px;
   /* Fixed width for a container*/
+  padding-top: 10px;
 }
 
 .description {
