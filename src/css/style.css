@@ -294,6 +294,27 @@ ul {
   /*Add margin top*/
 }
 
+.button-style2 {
+  padding: 1em 3em;
+  /*Make button bigger*/
+  text-decoration: none;
+  /*Do not have default text decorations*/
+  font-weight: 600;
+  /*Set font weight*/
+  color: #000000;
+  /*Set color to black*/
+  background-color: #ffcb08;
+  /*Set color to SU color*/
+  border: none;
+  /*Remove border around text*/
+  cursor: pointer;
+  /*When hovering, make cursor a pointer*/
+  white-space: nowrap;
+  /*Do not wrap text*/
+  margin-top: 20px;
+  font-family: 'lustria', serif;
+}
+
 .button-style:hover {
   color: #000000;
   /*Set color to black*/
