@@ -100,6 +100,7 @@ def generalColCons(all_combos):
             for time in times:
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
         matrix+=temp_matrix
+        print(len(matrix))
     lp.matrix+=matrix
 
     # Idea should be that columns fill up before moving onto the next one,
@@ -245,6 +246,7 @@ def faculty_restrictions(all_combos,contents,duplicates):
                     for time in nonPrimeTimes:
                         temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
             matrix+=temp_matrix
+            print(len(matrix))
         
         if len(invalid_times)>0:
             for time in invalid_times:
@@ -257,6 +259,7 @@ def faculty_restrictions(all_combos,contents,duplicates):
                     for course in courses_taught:
                         temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] =1
                 matrix+=temp_matrix
+                print(len(matrix))
 
         # 1 because if only one course, no overlap
         if len(courses_taught)>1:
@@ -275,8 +278,11 @@ def faculty_restrictions(all_combos,contents,duplicates):
                                 temp_matrix[(maxT*maxC*col)+(cI[course1]*maxT)+tI[time]] = 1
                                 temp_matrix[(maxT*maxC*col)+(cI[course2]*maxT)+tI[time]] = 1
                             matrix+=temp_matrix
+                            print(len(matrix))
                             #loop columns, add from there
+    # print(lp.matrix)
     lp.matrix+=matrix
+    # print(lp.matrix)
 
 #TODO FIX THIS
 def force_courses_constraints(all_combos,forced_courses):
@@ -374,13 +380,21 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     # Calling all of the constraints
     add_cols(all_combos)
     courses_offered_cons(all_combos)
+    # print(len(lp.matrix))
     add_objective_function(all_combos)
+    # print(len(lp.matrix))
     time_overlap_cons(all_combos)
+    # print(len(lp.matrix))
     generalColCons(all_combos)
+    # print(len(lp.matrix))
     faculty_restrictions(all_combos,contents_faculty_restrict,duplicates)
+    # print(len(lp.matrix))
     four_contact_hour_cons(all_combos,contents_course_restrict)
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
+    print(lp.matrix)
+    print(len(lp.cols))
+    print(len(lp.rows))
     
 
     # TODO uncomment out when testing for forcing resumes
