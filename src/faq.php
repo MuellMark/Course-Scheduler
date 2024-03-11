@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <button class="question"> Who To Contanct? </button>
+                <button class="question"> Who To Contact? </button>
                 <div class="answer">
                     <p>
                         Answer to question 3.
