@@ -270,6 +270,13 @@ ul {
   /* Set color to SU colors*/
 }
 
+/*Table Scroll Bar*/
+/*https://www.educba.com/scrollbar-in-html-table/*/
+.divScroll {
+  overflow-x: scroll;
+  width: 1500px;
+}
+
 /*Button Design*/
 .button-style {
   padding: 1em 1em;
