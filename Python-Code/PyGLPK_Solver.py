@@ -412,9 +412,10 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
 
 def print_all_rows_and_columns():
     print("objective value = " + str(lp.obj.value))
+    print("Cols:")
     for c in lp.cols:
         print('%s = %g' % (c.name, c.primal))
-
+    print("Rows:")
     for r in lp.rows:
         print('%s = %g' % (r.name, r.primal))
     # print(all_combos[(maxT*maxC*1)+(cI["CS21"]*maxT)+tI["m330"]])
