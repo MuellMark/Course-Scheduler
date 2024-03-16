@@ -38,28 +38,49 @@
             Course Scheduler
         </h1>
         <section class="pyscript">
-            
+        <br>
 
             <!-- <div class="font-mono">
                 start time: <label id="output1"></label>
             </div> -->
             
             
-            <table style="width:70%">
-                
+        <style>
+            table {
+                table-layout: fixed;
+                border-collapse: collapse;
+                width: 70%;
+                /* to center table */
+                margin-left: auto; 
+                margin-right: auto;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 5px;
+                text-align: center;
+                align-items:center;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+
+            <table>
                 <tr>
                     <th>Time</th>
-                    <th>Column 1</th>
+                    <th>Course</th>
                 </tr>
                 <tr>
-                    <th>8:00 AM MWF</th>
-                    <th><div id="output2" class="font-mono"></div></th>
+                    <td>8:00 AM MWF</td>
+                    <td><div id="output2" class="font-mono"></div></td>
                 </tr>
                 <tr>
-                    <th>9:30 AM MWF</th>
-                    <th></th>
+                    <td>9:30 AM MWF</td>
+                    <td></td>
                 </tr>
-
             </table>
             
             <script type="py" src="./scripts/main.py" async></script>

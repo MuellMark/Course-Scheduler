@@ -98,6 +98,7 @@
         }
     </script>
 </body>
+
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
     <img src="./images/github.png" alt="Link to Github" id="github-icon">
 </a>

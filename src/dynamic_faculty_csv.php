@@ -5,17 +5,35 @@
     <script type="text/javascript" src="scripts/faculty_script.js"></script>
 </head>
 <body>
+    
+    <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
+    <!-- table styling -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            align-items: center;
+        }
 
-    <h2>Dynamic Table</h2>
-    <button onclick="addRow()">Add Row</button>
-    <button onclick="tableToCSV()">Save as CSV</button>
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: center;
+            align-items:center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <h1>Dynamic Table</h1>
     <br><a href="final_schedule_result.php">
         <button>Run script</button>
     </a>
     This doesn't actually run anything yet
-    <br><a href="landing_page.php">
-        <button>Back</button>
-    </a>
+    <br>
 
     <table id="dynamic-table">
         <tr>
@@ -24,6 +42,13 @@
             <th>Classes</th>
         </tr>
     </table>
+
+    <br>
+    <a href="landing_page.php">
+        <button>Return Home</button>
+    </a>
+    <button onclick="addRow()">Add Row</button>
+    <button onclick="tableToCSV()">Save as CSV</button>
 
     <script>
         addRow(); // Start with one empty row
@@ -44,6 +69,7 @@
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
             var cell4 = row.insertCell(3);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
+            cell4.style.border = "none";
         }
 
         function addColumn(row) {

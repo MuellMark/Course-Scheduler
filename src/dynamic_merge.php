@@ -461,6 +461,15 @@
 
     }
 </script>
+
+<style>
+    #githublink {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+    }
+</style>
+
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
     <img src="./images/github.png" alt="Link to Github" id="github-icon">
 </a>
