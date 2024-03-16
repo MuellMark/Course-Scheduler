@@ -348,7 +348,8 @@ ul {
 /*FAQ Design*/
 /*Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs*/
 #faq-section {
-  max-width: 800px;
+  max-width: 750px;
+  width: 750px;
   /*Set the maximum width of the entire section*/
   margin: auto;
   /*Center the section*/

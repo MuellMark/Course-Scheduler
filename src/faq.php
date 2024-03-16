@@ -73,6 +73,7 @@
         </div>
         </div>
         </div>
+
     </section>
 
     <div id="faqPicture">
@@ -82,8 +83,7 @@
     <style>
         #faqPicture img {
             float: right;
-            width: 450px;
-            height: 900;
+            width: 500px;
             margin-top: 45px;
             margin-right: 100px
         }

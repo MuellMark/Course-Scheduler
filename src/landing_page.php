@@ -48,7 +48,7 @@
             doing
             it automatically. 
             -->
-            Join us in revolutionizing course schheduling. Empower your department with our intuitive, efficient, and user-friendly solution. Let's simplify scheduling together!
+            Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient, and user-friendly solution. Let's simplify scheduling together!
         </h2>
         <br>
         
