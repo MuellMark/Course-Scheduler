@@ -71,7 +71,7 @@
 
     <div id="examplePicture">
         <!-- Placeholder photo until real schedule result picture made -->
-        <img src="https://content.presentermedia.com/files/clipart/00002000/2285/under_construction_pc_800_wht.jpg" alt="Picture of possible result output">
+        <img src="file:///C:/Users/katen/Downloads/Screenshot%202024-03-17%20085447.png" alt="Picture of possible result output">
     </div>
 
     <!-- JavaScript used to enable hamburger menu -->

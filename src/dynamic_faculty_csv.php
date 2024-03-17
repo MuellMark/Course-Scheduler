@@ -21,6 +21,8 @@
             padding: 5px;
             text-align: center;
             align-items:center;
+            margin-left: auto; 
+            margin-right: auto;
         }
 
         th {
@@ -45,10 +47,10 @@
 
     <br>
     <a href="landing_page.php">
-        <button>Return Home</button>
+        <button style="background-color: #ffcb08; font-family: 'lustria', serif">Return Home </button>
     </a>
-    <button onclick="addRow()">Add Row</button>
-    <button onclick="tableToCSV()">Save as CSV</button>
+    <button class="button" onclick="addRow()" style="background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button onclick="tableToCSV()" style="background-color: #ffcb08; font-family: 'lustria', serif">Save as CSV</button>
 
     <script>
         addRow(); // Start with one empty row
