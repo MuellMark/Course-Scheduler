@@ -71,9 +71,7 @@
 
     <div id="examplePicture">
         <!-- Placeholder photo until real schedule result picture made -->
-        <img src="./images/Screenshot%202024-03-17%20085447.png" alt="Picture of possible result output">
-    </div>
-
+        <img src="./images/exampleOutput.png" alt="Picture of possible result output">
     <!-- JavaScript used to enable hamburger menu -->
     <script>
 
