@@ -214,7 +214,7 @@ def two_course_conflict_cons(all_combos,contents,duplicates):
                                 temp_matrix[(maxT*maxC*col)+(cI[row[0]]*maxT)+tI[time]] = 1
                         matrix+=temp_matrix
 
-    lp.matrix+=matrix               
+    global_matrix.append(matrix)               
 
 
 # The sections of a given course cannot be held at the same time as one another
