@@ -66,7 +66,10 @@ def courses_offered_cons(all_combos):
             for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
         matrix+=(temp_matrix)
-    lp.matrix =matrix
+    # print(matrix)
+    # print(lp.matrix)
+    lp.matrix+=matrix
+    # print(lp.matrix)
 
 # Makes sure each time/ column paring only has 1 course offered          
 def time_overlap_cons(all_combos):
@@ -83,7 +86,10 @@ def time_overlap_cons(all_combos):
             for course in courses:
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
             matrix+=temp_matrix
+    # print(matrix)
+    # print(lp.matrix)
     lp.matrix+=matrix
+    # print(lp.matrix)
 
 #TODO 
 # Each column can only have 10 different courses and a certain amount of any
@@ -101,7 +107,10 @@ def generalColCons(all_combos):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
         matrix+=temp_matrix
         # print(len(matrix))
+    # print(matrix)
+    # print(lp.matrix)
     lp.matrix+=matrix
+    # print(lp.matrix)
 
     # Idea should be that columns fill up before moving onto the next one,
     # I think these need to be reworked, aside from the current issue
@@ -154,8 +163,12 @@ def four_contact_hour_cons(all_combos,contents):
                     if(time[0]=='t'): 
                         temp_matrix[(maxT*maxC*col)+(cI[row[0]]*maxT)+tI[time]] = 1
                 matrix+=temp_matrix
-                print(temp_matrix)
+                # print(temp_matrix)
+    # print("Before")
+    # print(lp.matrix)
     lp.matrix+=matrix
+    # print("After")
+    # print(lp.matrix)
 
 # Contains much of the course constraints: takes into account invalid times and
 # when 2 courses can't be taught at the same time
@@ -281,6 +294,7 @@ def faculty_restrictions(all_combos,contents,duplicates):
                             matrix+=temp_matrix
                             # print(len(matrix))
                             #loop columns, add from there
+    # print(matrix)
     # print(lp.matrix)
     lp.matrix+=matrix
     # print(lp.matrix)
