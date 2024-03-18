@@ -94,8 +94,9 @@
     </div>
 
     <br>
-    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px">Add Row</button>
-    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px">Clear Table</button>
+    
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
 
     <script>
         addRow(); // Start with one empty row
@@ -208,8 +209,11 @@
     </table>
     </div>
 
-    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; margin-top: 20px">Add Row</button>
-    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; margin-top: 20px">Clear Table</button>
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
+    <br>
+    <br>
+
 
     <script>
         addRowFac(); // Start with one empty row
@@ -461,6 +465,15 @@
 
     }
 </script>
+
+<style>
+    #githublink {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+    }
+</style>
+
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
     <img src="./images/github.png" alt="Link to Github" id="github-icon">
 </a>
