@@ -244,7 +244,7 @@
 
             // Classes                  
             var cell3 = row.insertCell(3);
-            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
             // Add extra courses
