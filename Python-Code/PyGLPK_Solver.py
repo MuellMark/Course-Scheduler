@@ -80,7 +80,7 @@ def courses_offered_cons(all_combos):
         matrix+=(temp_matrix)
     # print(matrix)
     # print(lp.matrix)
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
     # print(lp.matrix)
 
 # Makes sure each time/ column paring only has 1 course offered          
@@ -100,7 +100,7 @@ def time_overlap_cons(all_combos):
             matrix+=temp_matrix
     # print(matrix)
     # print(lp.matrix)
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
     # print(lp.matrix)
 
 #TODO 
@@ -121,7 +121,7 @@ def generalColCons(all_combos):
         # print(len(matrix))
     # print(matrix)
     # print(lp.matrix)
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
     # print(lp.matrix)
 
     # Idea should be that columns fill up before moving onto the next one,
@@ -140,7 +140,7 @@ def generalColCons(all_combos):
     #                 if(col==0):
     #                     temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
     #         col1Matrix+=temp_matrix
-    #     lp.matrix+=matrix
+    #     global_matrix.append(matrix)
 
     # # comment this out to see if that fixes it 
     # if(num_cols>2):
@@ -156,7 +156,7 @@ def generalColCons(all_combos):
     #                 if(col==1):
     #                     temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
     #         col1Matrix+=temp_matrix
-    #     lp.matrix+=matrix
+    #     global_matrix.append(matrix)
 
 # Forces 4 hour courses to be held on MWF
 def four_contact_hour_cons(all_combos,contents):
@@ -178,7 +178,7 @@ def four_contact_hour_cons(all_combos,contents):
                 # print(temp_matrix)
     # print("Before")
     # print(lp.matrix)
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
     # print("After")
     # print(lp.matrix)
 
@@ -308,7 +308,7 @@ def faculty_restrictions(all_combos,contents,duplicates):
                             #loop columns, add from there
     # print(matrix)
     # print(lp.matrix)
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
     # print(lp.matrix)
 
 #TODO FIX THIS
@@ -333,7 +333,7 @@ def force_courses_constraints(all_combos,forced_courses):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
                 # print(all_combos[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]])
         matrix+=(temp_matrix)
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
 
     # for course in courses:
     #     lp.rows.add(1)
