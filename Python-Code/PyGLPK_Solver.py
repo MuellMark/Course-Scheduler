@@ -13,6 +13,16 @@ class Row_Index:
     def getRowIndex(self):
         return self.row_Index
     
+class Global_Matrix:
+    def __init__(self):
+        self.matrix = []
+
+    def append(self,temp_matrix):
+        self.matrix+=temp_matrix
+    
+    def get_Global_Matrix(self):
+        return self.get_Global_Matrix
+    
 row_index = Row_Index(0) # Init rowIndex
 
 # Creates dictionary to index items in a list
