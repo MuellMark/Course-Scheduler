@@ -47,6 +47,7 @@
     <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
     <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
+    <button class="button-style" onclick="grabData()">grabData</button>
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -105,7 +106,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow() {
+        function addRow(newCourse = '') {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -120,7 +121,7 @@
 
                 // Class name
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
+                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = " + newCourse +">";
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
@@ -329,6 +330,7 @@
 <!---------------------------- JavaScript used to put data into database ---------------------------->
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 <script>
+    //import { getDatabase, ref, get } from "firebase/database";
     var firebaseConfig = {
         apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
         authDomain: "course-scheduler-b4f7e.firebaseapp.com",
@@ -442,6 +444,21 @@
             else
                 alert("Please select a course from the dropdown!");
         }
+    }
+    // TODO header
+    // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
+    function grabData(menuSelect = 'CS11') {
+        var ref = firebase.database().ref("temp_courses/" + menuSelect);
+        ref.on("value", function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var childData = childSnapshot.val();
+                var id=childData.id;
+                addRow(childData);
+                //console.log(childData);
+            });
+        });
+        //addRow("courseData.name");
+
     }
 </script>
 
