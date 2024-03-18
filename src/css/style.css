@@ -294,6 +294,13 @@ ul {
   /* Set color to SU colors*/
 }
 
+/*Table Scroll Bar*/
+/*https://www.educba.com/scrollbar-in-html-table/*/
+.divScroll {
+  overflow-x: scroll;
+  width: 1500px;
+}
+
 /*Button Design*/
 .button-style {
   padding: 1em 1em;
@@ -316,6 +323,27 @@ ul {
   /*Do not wrap text*/
   margin-top: 30px;
   /*Add margin top*/
+}
+
+.button-style2 {
+  padding: 1em 3em;
+  /*Make button bigger*/
+  text-decoration: none;
+  /*Do not have default text decorations*/
+  font-weight: 600;
+  /*Set font weight*/
+  color: #000000;
+  /*Set color to black*/
+  background-color: #ffcb08;
+  /*Set color to SU color*/
+  border: none;
+  /*Remove border around text*/
+  cursor: pointer;
+  /*When hovering, make cursor a pointer*/
+  white-space: nowrap;
+  /*Do not wrap text*/
+  margin-top: 20px;
+  font-family: 'lustria', serif;
 }
 
 .button-style:hover {
@@ -344,7 +372,8 @@ ul {
 /*FAQ Design*/
 /*Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs*/
 #faq-section {
-  max-width: 800px;
+  max-width: 750px;
+  width: 750px;
   /*Set the maximum width of the entire section*/
   margin: auto;
   /*Center the section*/

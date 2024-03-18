@@ -47,7 +47,6 @@
     <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
     <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
-    <button class="button-style" onclick="addColumn(this.parentNode.parentNode)"> Add Column </button>
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -79,6 +78,7 @@
         }
     </style>
 
+    <div class="divScroll">
     <table id="course-table">
         <tr>
             <th>Remove row</th>
@@ -91,10 +91,12 @@
             <th>Select CourseID</th>
         </tr>
     </table>
+    </div>
 
     <br>
-    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px">Add Row</button>
-    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px">Clear Table</button>
+    
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
 
     <script>
         addRow(); // Start with one empty row
@@ -153,8 +155,9 @@
                     "</select>";
 
                 // Add button            
-                //var cellAdd = row.insertCell(7);
-                //cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
+                var cellAdd = row.insertCell(7);
+                cellAdd.innerHTML = "<button button onclick='addColumn(this.parentNode.parentNode)'>Add Conflicting Course </button>";
+                cellAdd.style.border = "none";
                 /**
                  * TODO There might be an easy way to implement this into the select row
                  * so that it dynamically fills it. A way to do it is create a new 
@@ -189,12 +192,13 @@
 <body>
     <br>
     <h4><span>Faculty Table</span></h4>
-    <button class="button-style" onclick="addRowFac()">Add Row</button>
+    <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
     <button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>
-    <button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>
+    <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDBFac()">Add to Firebase</button>
     <br>
     <br>
+    <div class="divScroll">
     <table id="faculty-table">
         <tr>
             <th>Remove</th>
@@ -203,6 +207,13 @@
             <th>Classes</th>
         </tr>
     </table>
+    </div>
+
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
+    <br>
+    <br>
+
 
     <script>
         addRowFac(); // Start with one empty row
@@ -238,7 +249,8 @@
 
             // Add extra courses
             var cell4 = row.insertCell(4);
-            cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
+            cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
+            cell4.style.border = "none";
         }
     </script>
 </body>
@@ -453,6 +465,15 @@
 
     }
 </script>
+
+<style>
+    #githublink {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+    }
+</style>
+
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
     <img src="./images/github.png" alt="Link to Github" id="github-icon">
 </a>
