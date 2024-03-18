@@ -277,7 +277,7 @@
      */
     function addColumn(row) {
         var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
-        cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>"; // TODO might need an ID
+        cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>";
     }
     /**
      * Deletes specified individual row.
