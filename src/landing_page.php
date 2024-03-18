@@ -71,7 +71,7 @@
 
     <div id="examplePicture">
         <!-- Placeholder photo until real schedule result picture made -->
-        <img src="file:///C:/Users/katen/Downloads/Screenshot%202024-03-17%20085447.png" alt="Picture of possible result output">
+        <img src="./images/exampleOutput.png" alt="Picture of possible result output">
     </div>
 
     <!-- JavaScript used to enable hamburger menu -->
