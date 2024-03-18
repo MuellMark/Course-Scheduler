@@ -193,9 +193,9 @@
     <br>
     <h4><span>Faculty Table</span></h4>
     <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
-    <button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>
+    <!--<button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>-->
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
-    <button class="button-style" onclick="addToDBFac()">Add to Firebase</button>
+    <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
     <br>
     <div class="divScroll">
@@ -243,6 +243,8 @@
                 "</select>";
 
             // Classes                  
+            // TODO check if course exist in database and or in course table above
+            // TODO could make value uppercase to simplify the check
             var cell3 = row.insertCell(3);
             cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
