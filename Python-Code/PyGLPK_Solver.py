@@ -21,9 +21,11 @@ class Global_Matrix:
         self.matrix+=temp_matrix
     
     def get_Global_Matrix(self):
-        return self.get_Global_Matrix
+        return self.matrix
     
 row_index = Row_Index(0) # Init rowIndex
+
+global_matrix = Global_Matrix() #Init global matrix
 
 # Creates dictionary to index items in a list
 def createDict(dict,list):
@@ -235,7 +237,7 @@ def same_course_cons(all_combos,duplicates):
                             temp_matrix[(maxT*maxC*col)+(cI[course2]*maxT)+tI[time]] = 1
                         matrix+=temp_matrix
                         #loop columns, add from there
-    lp.matrix+=matrix
+    global_matrix.append(matrix)
 
 # Contains all of the faculty restrictions, including non-prime time hours,
 # time restrictions and course overall restrictions
@@ -350,11 +352,16 @@ def force_courses_constraints(all_combos,forced_courses):
     
     # print(matrix)
 
+# Adds the global matrix to the lp matrix
+def add_to_LP_matrix():
+    print(lp.matrix)
+    lp.matrix+=global_matrix.get_Global_Matrix()
+    print(lp.matrix)
+
 #------------Generate Method----------------------------
 
 # Called from File_convertor to generate the schedule
 def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses):
-
     # Stores the number of columns needed
     global num_cols
     num_cols = len(contents_course_restrict)
@@ -378,6 +385,9 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     global cI
     global maxC
     global maxT
+    # global global_matrix
+
+    # Global_Matrix=
     # Makes dictionaries to call values by their respective names
     tI={}
     createDict(tI,times)
@@ -417,6 +427,8 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     four_contact_hour_cons(all_combos,contents_course_restrict)
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
+
+    add_to_LP_matrix()
     # print(lp.matrix)
     # print(len(lp.cols))
     # print(len(lp.rows))
