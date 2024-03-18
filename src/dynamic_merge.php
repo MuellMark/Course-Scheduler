@@ -447,12 +447,14 @@
     }
     // TODO header
     // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
+    // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
     function grabData(menuSelect = 'CS11') {
         var ref = firebase.database().ref("temp_courses/" + menuSelect);
         ref.on("value", function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 var childData = childSnapshot.val();
                 var id=childData.id;
+                addRow(id);
                 addRow(childData);
                 //console.log(childData);
             });
