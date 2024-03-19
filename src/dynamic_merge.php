@@ -365,8 +365,11 @@
         for (var i = 1; i < rows.length; i++) {
             var cells = rows[i].getElementsByTagName("td");
             var courseID = cells[6].querySelector("select").value;
+            // User selected new course
+            if(courseID == 'new')
+                courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
-            if (courseID !== 'empty') {
+            if (courseID !== 'empty' && courseID !== 'new') {
                 var className = cells[1].querySelector("input").value;
                 var abbreviation = cells[2].querySelector("input").value;
                 var contactHours = cells[3].querySelector("select").value;
