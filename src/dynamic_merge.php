@@ -107,7 +107,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow(newCourse = '') {
+        function addRow(fullName = '', abbrName = '', meeting_hours = false) {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -122,17 +122,21 @@
 
                 // Class name
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = " + newCourse +">";
+                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = " + fullName +">";
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
 
                 // 4 Contact Hours
+                var selected = '';
+                // If 4 contact hour is selected in DB
+                if(meeting_hours)
+                    selected = 'selected';
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
                     "<option value='FALSE'>No</option>" +
-                    "<option value='TRUE'>Yes</option>" +
+                    "<option value='TRUE'" +  selected +  ">Yes</option>" +
                     "</select>";
 
                 // Sections
