@@ -49,6 +49,12 @@
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
     <button class="button-style" onclick="getDBKeys()">getDBKeys</button>
     <button class="button-style" onclick="addRowFromKey()">addRowFromKey</button>
+    <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
+    <!-- TODO create a function that grabs the necessary values based on selected-->
+    <select name='addCourseRow' id='addCourseRow' onchange="addRow(this.value);">
+        <option value='empty'>Choose one</option>
+        <option value='new'>New course</option>
+    </select>
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -153,6 +159,7 @@
 
                 // CourseID
                 var cell7 = row.insertCell(6);
+                //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
                     "<option value='new'>New course</option>" +
@@ -187,6 +194,13 @@
             else {
                 alert("Cannot add more than 20 rows")
             }
+        }
+
+        function getText() {
+            var course = document.getElementById("addCourseRow");
+            var value = course.value;
+            var text = course.options[course.selectedIndex].text;
+            return text;
         }
     </script>
 </body>
@@ -484,16 +498,25 @@
                     dbKeys.push(key);
                 }
             });
-            }
-            // TODO adds duplicate values
-            //dbKeys.forEach((element) => addRow(element));
+            } 
+            //dbKeys.forEach((element) => addRow(element)); // Used for debugging
+
+            // Caution: I know this is inefficient but there needs
+            // to be two loops because if not they will overlap
             const dropdown = document.getElementById('CourseID');
             // Loop through the array and create option elements from keys
             for (let i = 0; i < dbKeys.length; i++) {
                 const option = document.createElement('option');
                 option.text = dbKeys[i];
                 dropdown.add(option);
-    }
+            }   
+
+            const courseAdd = document.getElementById('addCourseRow');
+            for (let i = 0; i < dbKeys.length; i++) {
+                const option = document.createElement('option');
+                option.text = dbKeys[i];
+                courseAdd.add(option);
+        }
         })
     }
 
