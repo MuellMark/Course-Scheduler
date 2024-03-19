@@ -473,9 +473,12 @@
             const data = snapshot.val();
             if (data) {
             Object.keys(data).forEach((key) => {
-                dbKeys.push(key);
+                if (!(key in dbKeys)) {
+                    dbKeys.push(key);
+                }
             });
             }
+            // TODO adds duplicate values
             //dbKeys.forEach((element) => addRow(element));
             const dropdown = document.getElementById('CourseID');
             // Loop through the array and create option elements from keys
