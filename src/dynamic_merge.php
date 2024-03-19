@@ -159,7 +159,9 @@
 
                 // CourseID
                 var cell7 = row.insertCell(6);
+                // This includes the add funcitionality from the drop down above
                 //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
+
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
                     "<option value='new'>New course</option>" +
@@ -194,6 +196,10 @@
             else {
                 alert("Cannot add more than 20 rows")
             }
+            // Fill course select
+            //getDBKeys(this.parentNode.parentNode);
+            // Reset select after click
+            document.getElementById("addCourseRow").options[0].selected = 'selected';
         }
 
         function getText() {
@@ -468,24 +474,8 @@
     // TODO header
     // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
     // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
-    // function grabData(menuSelect = 'CS11') {
-    //     var ref = firebase.database().ref("temp_courses/" + menuSelect);
-    //     ref.on("value", function(snapshot) {
-    //         snapshot.forEach(function(childSnapshot) {
-    //             var childData = childSnapshot.val();
-    //             var id=childData.id;
-    //             addRow(id);
-    //             addRow(childData);
-    //             //console.log(childData);
-    //         });
-    //     });
-    //     //addRow("courseData.name");
-
-    // }
-    // Used to keep track of current database keys
-    // I don't know why but it has to be right here - Colby
-    let dbKeys = [];
     function getDBKeys() {
+        let dbKeys = [];
         const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
         var ref = firebase.database().ref('temp_courses');
 
