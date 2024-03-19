@@ -47,7 +47,8 @@
     <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
     <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
-    <button class="button-style" onclick="grabData()">grabData</button>
+    <button class="button-style" onclick="getDBKeys()">getDBKeys</button>
+    <button class="button-style" onclick="addRowFromKey()">addRowFromKey</button>
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -150,9 +151,7 @@
                 var cell7 = row.insertCell(6);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
-                    "<option value='CS11'>CS11</option>" +
-                    "<option value='CS21'>CS21</option>" +
-                    "<option value='DIS1'>DIS1</option>" +
+                    "<option value='new'>New course</option>" +
                     "</select>";
 
                 // Add button            
@@ -448,20 +447,62 @@
     // TODO header
     // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
     // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
-    function grabData(menuSelect = 'CS11') {
-        var ref = firebase.database().ref("temp_courses/" + menuSelect);
-        ref.on("value", function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
-                var childData = childSnapshot.val();
-                var id=childData.id;
-                addRow(id);
-                addRow(childData);
-                //console.log(childData);
-            });
-        });
-        //addRow("courseData.name");
+    // function grabData(menuSelect = 'CS11') {
+    //     var ref = firebase.database().ref("temp_courses/" + menuSelect);
+    //     ref.on("value", function(snapshot) {
+    //         snapshot.forEach(function(childSnapshot) {
+    //             var childData = childSnapshot.val();
+    //             var id=childData.id;
+    //             addRow(id);
+    //             addRow(childData);
+    //             //console.log(childData);
+    //         });
+    //     });
+    //     //addRow("courseData.name");
 
+    // }
+    // Used to keep track of current database keys
+    // I don't know why but it has to be right here - Colby
+    let dbKeys = [];
+    function getDBKeys() {
+        const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
+        var ref = firebase.database().ref('temp_courses');
+
+        ref.once('value')
+        .then((snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+            Object.keys(data).forEach((key) => {
+                dbKeys.push(key);
+            });
+            }
+            //dbKeys.forEach((element) => addRow(element));
+            const dropdown = document.getElementById('CourseID');
+            // Loop through the array and create option elements from keys
+            for (let i = 0; i < dbKeys.length; i++) {
+                const option = document.createElement('option');
+                option.text = dbKeys[i];
+                dropdown.add(option);
     }
+        })
+    }
+
+    function addRowFromKey(key = 'CS11') {
+      const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
+      var ref = firebase.database().ref("temp_courses/" + key);
+
+      ref.once('value')
+        .then((snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            Object.keys(data).forEach((key) => {
+                addRow(data[key]);
+            });
+          }
+        })
+    }
+    // On window start fill key array
+    window.onload = getDBKeys();
 </script>
 
 <!---------------------------- JavaScript used to enable hamburger menu ---------------------------->
