@@ -5,23 +5,45 @@ function tableToCSV() {
     // Variable to store the final csv data
     let csv_data = [];
 
+    // Used to tell if it is the first row of each table
+    let firstCSVRow = new Boolean(true);
+    let firstFacRow = new Boolean(true);
+
     // Get each row data
     let rows = document.getElementsByTagName('tr');
     for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
-        let cols = rows[i].querySelectorAll('input[type="select"]:not([value="empty"]),input[type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"]');
+        let cols = rows[i].querySelectorAll('input[name="newCourse"][type="select"]:not([value="empty"]),input[name="sections"][type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
 
         // Stores each csv row data
         let csvrow = [];
+        if(cols.length > 0){
+            if(cols[0].id == "newCourse" && (firstCSVRow))
+            {
+                firstCSVRow = false;
+                csv_data.push("<course-table>");
+            }
+            if(cols[0].id == "facultyName" && (firstFacRow))
+            {
+                firstFacRow = false;
+                csv_data.push("<faculty-table>");
+            }
+        }
         for (let j = 0; j < cols.length; j++) {
-
+            // if(cols[j].id == "newCourse")
+            //     csvrow.push("<course-table>");
+            // if(cols[j].id == "facultyName")
+            //     csvrow.push("<faculty-table>");
             // Get the text data of each cell
             // of a row and push it to csvrow
-            csvrow.push(cols[j].value);
+            if(cols[j].id != 'newCourse')
+                csvrow.push(cols[j].value);
         }
-
+        //csv_data.push('$');
         // Combine each column value with comma
+        if(cols.length > 0)
+            csvrow.push("$");
         csv_data.push(csvrow.join(","));
     }
 

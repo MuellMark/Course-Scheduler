@@ -26,7 +26,7 @@
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
-                        <li> <a href="about-howto.php"> About/HowTo</a> </li>
+                        <li> <a href="about-howto.php"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -38,20 +38,51 @@
         </div>
     </header>
 
-    <h1>Create CSV</h1>
+    <h1><span>Create CSV</span></h1>
 
-<!---------------------------- Course dynamic table ---------------------------->
+    <!---------------------------- Course dynamic table ---------------------------->
 
-    <h4>Course Table</h4>
-    <button class ="button-style" onclick="addRow()">Add Row</button>
-    <button class ="button-style" onclick="tableToCSV()">Save as CSV</button>
-    <button class ="button-style" onclick="clearTable('course-table')">Clear Table</button>
-    <button class ="button-style" onclick="addToDB()">Add to Firebase</button>
+    <h4><span>Course Table</span></h4>
+    <!--<button class="button-style" onclick="addRow()">Add Row</button> -->
+    <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
+    <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
+    <button class="button-style" onclick="addToDB()">Add to Firebase</button>
     <br><a href="landing_page.php"></a>
 
+    <br>
+
+    <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
+    @media screen and (max-width: 300px) {
+    table {
+        width: 25%;}
+    }
+    */
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: center;
+            align-items:center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <div class="divScroll">
     <table id="course-table">
         <tr>
             <th>Remove row</th>
+            <!--<th>Add row</th> -->
             <th>Class name</th>
             <th>Abbreviation</th>
             <th>4 Contact Hours</th>
@@ -60,10 +91,17 @@
             <th>Select CourseID</th>
         </tr>
     </table>
+    </div>
+
+    <br>
+    
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
+
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
-        
+
         /**
          * Adds a new row to the course table.
          */
@@ -71,25 +109,29 @@
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
-            if(rowCount < 21){
+            if (rowCount < 21) {
                 // Remove
                 var cellRemove = row.insertCell(0);
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
 
+                //add
+                //var cellAdd = row.insertCell(1);
+                //cellAdd.innerHTML = '<button type="button" onclick="addRow()">+</button>';
+
                 // Class name
                 var cell2 = row.insertCell(1);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
-                
+
                 // Abbreviation
                 var cell3 = row.insertCell(2);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
-                
+
                 // 4 Contact Hours
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
-                                    "<option value='FALSE'>No</option>" +
-                                    "<option value='TRUE'>Yes</option>" +
-                                    "</select>";
+                    "<option value='FALSE'>No</option>" +
+                    "<option value='TRUE'>Yes</option>" +
+                    "</select>";
 
                 // Sections
                 var cell5 = row.insertCell(4);
@@ -97,24 +139,25 @@
 
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>"+
-                                    "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>"+
-                                    "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>"+
-                                    "<input type='checkbox' id='thursday' name='thursday' value='thursday'>"+
-                                    "<input type='checkbox' id='friday' name='friday' value='friday'>";
-                
+                cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
+                    "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
+                    "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
+                    "<input type='checkbox' id='thursday' name='thursday' value='thursday'>" +
+                    "<input type='checkbox' id='friday' name='friday' value='friday'>";
+
                 // CourseID
                 var cell7 = row.insertCell(6);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                                "<option value='empty'>Choose one</option>" +
-                                "<option value='CS11'>CS11</option>" +
-                                "<option value='CS21'>CS21</option>" +
-                                "<option value='DIS1'>DIS1</option>" +
-                            "</select>";
+                    "<option value='empty'>Choose one</option>" +
+                    "<option value='CS11'>CS11</option>" +
+                    "<option value='CS21'>CS21</option>" +
+                    "<option value='DIS1'>DIS1</option>" +
+                    "</select>";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
-                cellAdd.innerHTML = "<button class ='button-style' button onclick='addColumn(this.parentNode.parentNode)'>Add Column </button>";
+                cellAdd.innerHTML = "<button button onclick='addColumn(this.parentNode.parentNode)'>Add Conflicting Course </button>";
+                cellAdd.style.border = "none";
                 /**
                  * TODO There might be an easy way to implement this into the select row
                  * so that it dynamically fills it. A way to do it is create a new 
@@ -134,10 +177,10 @@
                 
                 //         while (($data = fgetcsv($file)) !== FALSE)
                 //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-                //      ?>
+                //          ?>
                 // </select>
             }
-            else{
+            else {
                 alert("Cannot add more than 20 rows")
             }
         }
@@ -148,12 +191,14 @@
 
 <body>
     <br>
-    <h4>Faculty Table</h4>
-    <button class ="button-style" onclick="addRowFac()">Add Row</button>
-    <button class ="button-style" onclick="tableToCSVFac()">Save as CSV</button>
-    <button class ="button-style" onclick="clearTable('faculty-table')">Clear Table</button>
-    <button class ="button-style" onclick="addToDBFac()">Add to Firebase</button>
-
+    <h4><span>Faculty Table</span></h4>
+    <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
+    <button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>
+    <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
+    <button class="button-style" onclick="addToDBFac()">Add to Firebase</button>
+    <br>
+    <br>
+    <div class="divScroll">
     <table id="faculty-table">
         <tr>
             <th>Remove</th>
@@ -162,6 +207,10 @@
             <th>Classes</th>
         </tr>
     </table>
+    </div>
+
+    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
+    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
 
     <script>
         addRowFac(); // Start with one empty row
@@ -182,13 +231,13 @@
             // Professor Name
             var cell1 = row.insertCell(1);
             cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
-            
+
             // Prime time
             var cell2 = row.insertCell(2);
             cell2.innerHTML = "<select name='primetime'>" +
-                                "<option value='no'>No</option>" +
-                                "<option value='yes'>Yes</option>" +
-                                "</select>";
+                "<option value='no'>No</option>" +
+                "<option value='yes'>Yes</option>" +
+                "</select>";
 
             // Classes                  
             var cell3 = row.insertCell(3);
@@ -197,7 +246,8 @@
 
             // Add extra courses
             var cell4 = row.insertCell(4);
-            cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Column</button>";
+            cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
+            cell4.style.border = "none";
         }
     </script>
 </body>
@@ -205,13 +255,13 @@
 <!---------------------------- Collection of JS scripts used to manipulate both dynamic forms ---------------------------->
 <script>
     /**
-     * Clears all rows from the HTML table, except the header title row.
+     * Clears all rows from the HTML table, except the header title row and first row.
      */
     function clearTable(table) {
         var table = document.getElementById(table);
 
         // Need to be more than 1 row to delete
-        while(table.rows.length > 1){
+        while (table.rows.length > 2) {
             table.deleteRow(1);
         }
     }
@@ -229,7 +279,45 @@
      */
     function deleteRow(thisRow) {
         var row = thisRow.parentNode.parentNode;
-        row.parentNode.removeChild(row);
+        var table = row.parentNode;
+        var rowCount = table.rows.length;
+
+        //Check if the table has more than 2 rows 
+        if (rowCount > 2) {
+            table.removeChild(row);
+        }
+        else {
+            alert("At least one row is required.")
+        }
+
+    }
+
+    /**
+     * Check if all required fields are filled in table
+     * @param tableId - Get ID of table
+     * @returns boolena - Ture if all required fields are filled
+     */
+    function checkIfFilled(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.getElementsByTagName("tr");
+        //Start from row 1, and not the the header row
+        for (var i = 1; i < rows.length; i++) {
+            var inputs = rows[i].querySelectorAll("input[type='text'], input[type='number'], select");
+            for (var j = 0; j < inputs.length; j++) {
+                var input = inputs[j];
+                //Check if Select Course ID is filled
+                //Check if select is not selected
+                if ((input.tagName === "SELECT" && input.value === "empty")
+                    //Check if empty
+                    || (input.type === "text" && input.value.trim() === "")
+                    //Check if the number inputs are empty
+                    || (input.type === "number" && input.value.trim() === "")) {
+                    return false;
+                }
+            }
+        }
+        //All fields are filled
+        return true;
     }
 </script>
 
@@ -254,6 +342,11 @@
      * Function to handle course form submission and send data to Firebase.
      */
     function addToDB() {
+
+        if (!checkIfFilled("course-table")) {
+            alert("Please fill in all fields before adding to Firebase.");
+            return false;
+        }
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("course-table");
         var rows = table.getElementsByTagName("tr");
@@ -293,7 +386,7 @@
                     sections: sections,
                     unavailableTimes: unavailableTimesList,
                     extraCourses: coursesList
-                });   
+                });
                 // TODO remove this or make a better message       
                 alert("Yippee it worked!");
             }
@@ -306,6 +399,10 @@
      * Function to handle faculty form submission and send data to Firebase.
      */
     function addToDBFac() {
+        if (!checkIfFilled("faculty-table")) {
+            alert("Please fill in all fields before adding to Firebase.");
+            return false;
+        }
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("faculty-table");
         var rows = table.getElementsByTagName("tr");
@@ -333,7 +430,7 @@
                     faculty_name: facName,
                     prime_time: primeTime,
                     classes: classList
-                });   
+                });
                 // TODO remove this or make a better message       
                 alert("Yippee it worked!");
             }
@@ -365,4 +462,17 @@
 
     }
 </script>
+
+<style>
+    #githublink {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+    }
+</style>
+
+<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+</a>
+
 </html>
