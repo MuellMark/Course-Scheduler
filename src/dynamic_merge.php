@@ -47,6 +47,13 @@
     <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
     <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
+    <button class="button-style" onclick="getDBKeys()">getDBKeys</button>
+    <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
+    <!-- TODO create a function that grabs the necessary values based on selected-->
+    <select name='addCourseRow' id='addCourseRow' onchange="addRowFromKey(this.value);">
+        <option value=''>Add new course</option>
+        <option value=''>New course</option>
+    </select>
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -105,7 +112,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow() {
+        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE") {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -120,17 +127,21 @@
 
                 // Class name
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course'>";
+                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName +"\">";
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
-                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
+                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' value = " + abbrName +">";
 
                 // 4 Contact Hours
+                var selected = '';
+                // If 4 contact hour is selected in DB
+                if(meeting_hours !== "FALSE")
+                    selected = 'selected';
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
                     "<option value='FALSE'>No</option>" +
-                    "<option value='TRUE'>Yes</option>" +
+                    "<option value='TRUE'" +  selected +  ">Yes</option>" +
                     "</select>";
 
                 // Sections
@@ -138,51 +149,41 @@
                 cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
 
                 // Unavailable Times
+                // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
-                    "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
-                    "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
-                    "<input type='checkbox' id='thursday' name='thursday' value='thursday'>" +
-                    "<input type='checkbox' id='friday' name='friday' value='friday'>";
+                cell6.innerHTML = "<div><input type='checkbox' id='m800' name='m800' value='m800'>" +
+                    "<input type='checkbox' id='m930' name='m930' value='m930'>" +
+                    "<input type='checkbox' id='m1100' name='m1100' value='m1100'>" +
+                    "<input type='checkbox' id='m200' name='m200' value='m200'>" +
+                    "<input type='checkbox' id='m330' name='m330' value='m330'></div><div>" +
+                    "<input type='checkbox' id='t830' name='t830' value='t830'>" +
+                    "<input type='checkbox' id='t1000' name='t1000' value='t1000'>" +
+                    "<input type='checkbox' id='t1130' name='t1130' value='t1130'>" +
+                    "<input type='checkbox' id='t100' name='t100' value='t100'>" +
+                    "<input type='checkbox' id='t230' name='t230' value='t230'></div>";
 
                 // CourseID
                 var cell7 = row.insertCell(6);
+                // This includes the add funcitionality from the drop down above
+                //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
+
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
-                    "<option value='CS11'>CS11</option>" +
-                    "<option value='CS21'>CS21</option>" +
-                    "<option value='DIS1'>DIS1</option>" +
+                    "<option value='new'>New course</option>" +
                     "</select>";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
                 cellAdd.innerHTML = "<button button onclick='addColumn(this.parentNode.parentNode)'>Add Conflicting Course </button>";
                 cellAdd.style.border = "none";
-                /**
-                 * TODO There might be an easy way to implement this into the select row
-                 * so that it dynamically fills it. A way to do it is create a new 
-                 * string that will be concatenated and then placed in cell1.innerHTML
-                 * 
-                 * Update:
-                 * I am going to leave this here but I don't think we will need to
-                 * implement it like this as we can easily grab the info from firebase 
-                 * and set the value attribute
-                 */
-                // <label for="courseList">Select a Course:</label>
-                // <select id="courseList" name="courseList">
-                //     <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
-                //     <option value="test">Choose one</option>
-                //     <?php
-                //         $file = fopen("csv/courses.csv", "r");
-                
-                //         while (($data = fgetcsv($file)) !== FALSE)
-                //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-                //          ?>
-                // </select>
             }
             else {
                 alert("Cannot add more than 20 rows")
             }
+            // Fill course select
+            //getDBKeys(this.parentNode.parentNode);
+            // Reset select after click
+            document.getElementById("addCourseRow").options[0].selected = 'selected';
         }
     </script>
 </body>
@@ -193,9 +194,9 @@
     <br>
     <h4><span>Faculty Table</span></h4>
     <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
-    <button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>
+    <!--<button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>-->
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
-    <button class="button-style" onclick="addToDBFac()">Add to Firebase</button>
+    <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
     <br>
     <div class="divScroll">
@@ -243,8 +244,10 @@
                 "</select>";
 
             // Classes                  
+            // TODO check if course exist in database and or in course table above
+            // TODO could make value uppercase to simplify the check
             var cell3 = row.insertCell(3);
-            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Enter Courses Taught'>";
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
             // Add extra courses
@@ -274,7 +277,7 @@
      */
     function addColumn(row) {
         var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
-        cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>"; // TODO might need an ID
+        cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>";
     }
     /**
      * Deletes specified individual row.
@@ -327,6 +330,7 @@
 <!---------------------------- JavaScript used to put data into database ---------------------------->
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 <script>
+    //import { getDatabase, ref, get } from "firebase/database";
     var firebaseConfig = {
         apiKey: "AIzaSyAj2EMSoi-M8Z7SF52P23A98jPTf6r2Zpk",
         authDomain: "course-scheduler-b4f7e.firebaseapp.com",
@@ -358,8 +362,11 @@
         for (var i = 1; i < rows.length; i++) {
             var cells = rows[i].getElementsByTagName("td");
             var courseID = cells[6].querySelector("select").value;
+            // User selected new course
+            if(courseID == 'new')
+                courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
-            if (courseID !== 'empty') {
+            if (courseID !== 'empty' && courseID !== 'new') {
                 var className = cells[1].querySelector("input").value;
                 var abbreviation = cells[2].querySelector("input").value;
                 var contactHours = cells[3].querySelector("select").value;
@@ -381,7 +388,6 @@
                 }
                 // Push data to Firebase and map data to Firebase using CourseID as key
                 // https://firebase.google.com/docs/database/web/read-and-write
-                // TODO rename path
                 database.ref('temp_courses/' + courseID).set({
                     class_name: className,
                     abbreviation: abbreviation,
@@ -428,7 +434,6 @@
 
                 // Push data to Firebase and map data to Firebase using CourseID as key
                 // https://firebase.google.com/docs/database/web/read-and-write
-                // TODO rename path
                 database.ref('temp_faculty/' + facName).set({
                     faculty_name: facName,
                     prime_time: primeTime,
@@ -441,6 +446,81 @@
                 alert("Please select a course from the dropdown!");
         }
     }
+    /*
+        Description:
+        This function retrieves courseID values from the Firebase Database and 
+        populates a dropdown list with these keys. 
+        These values populate two different dropdown lists ('CourseID' and 'addCourseRow').
+
+        Dependencies:
+        - Firebase Database reference
+        - HTML elements: 'course-table', 'CourseID', and 'addCourseRow'
+    */
+    // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
+    // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
+    function getDBKeys() {
+        let dbKeys = [];
+        const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
+        var ref = firebase.database().ref('temp_courses');
+
+        ref.once('value')
+        .then((snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+            Object.keys(data).forEach((key) => {
+                if (!(key in dbKeys)) {
+                    dbKeys.push(key);
+                }
+            });
+            } 
+            //dbKeys.forEach((element) => addRow(element)); // Used for debugging
+
+            // Caution: I know this is inefficient but there needs
+            // to be two loops because if not they will overwrite each other - Colby
+            // TODO if we decide to get rid of one drop down then please remove it here as well
+            const dropdown = document.getElementById('CourseID');
+            // Loop through the array and create option elements from keys
+            for (let i = 0; i < dbKeys.length; i++) {
+                const option = document.createElement('option');
+                option.text = dbKeys[i];
+                dropdown.add(option);
+            }   
+
+            const courseAdd = document.getElementById('addCourseRow');
+            for (let i = 0; i < dbKeys.length; i++) {
+                const option = document.createElement('option');
+                option.text = dbKeys[i];
+                courseAdd.add(option);
+        }
+        })
+    }
+
+
+    /*
+    Description:
+    This function retrieves data from a Firebase Database using 
+    the provided courseID key and then adds a row to the table 
+    using the selected data.
+
+    Parameters:
+    - courseID: The courseID key passed from the add course drop down.
+    */
+    function addRowFromKey(courseID) {
+        // Reference to the Firebase database path
+        var ref = firebase.database().ref("temp_courses/" + courseID);
+        ref.once('value')
+            .then(function(snapshot) {
+            var courseData = snapshot.val();
+            if (courseData) {
+                var courseAbbr = courseData.abbreviation;
+                var courseName = courseData.class_name;
+                var meeting_hours = courseData.contact_hours;
+                addRow(courseName, courseAbbr,meeting_hours);
+                }
+            })
+    }
+    // On window start fill key array
+    window.onload = getDBKeys();
 </script>
 
 <!---------------------------- JavaScript used to enable hamburger menu ---------------------------->

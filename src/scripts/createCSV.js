@@ -37,7 +37,7 @@ function tableToCSV() {
             //     csvrow.push("<faculty-table>");
             // Get the text data of each cell
             // of a row and push it to csvrow
-            //if(cols[j].value != '')
+            if(cols[j].id != 'newCourse')
                 csvrow.push(cols[j].value);
         }
         //csv_data.push('$');
