@@ -490,8 +490,10 @@ def print_readable_format(contents_course_restrict):
         for time in times:
             for pair in pairings:
                 if col_string in pair and time in pair:
-                    sortedPairings.append(pair)
-    
+                    if pair not in sortedPairings: # Not sure why there a duplicates 
+                        sortedPairings.append(pair)
+    # print(pairings)
+    # print(sortedPairings)
     for pair in sortedPairings:
         print(pair)
 
