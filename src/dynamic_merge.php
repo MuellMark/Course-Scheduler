@@ -51,9 +51,9 @@
     <button class="button-style" onclick="addRowFromKey()">addRowFromKey</button>
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <!-- TODO create a function that grabs the necessary values based on selected-->
-    <select name='addCourseRow' id='addCourseRow' onchange="addRow(this.value);">
-        <option value='empty'>Choose one</option>
-        <option value='new'>New course</option>
+    <select name='addCourseRow' id='addCourseRow' onchange="addRow('',this.value);">
+        <option value=''>Add new course</option>
+        <option value=''>New course</option>
     </select>
     <br><a href="landing_page.php"></a>
 
@@ -132,7 +132,7 @@
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
-                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation'>";
+                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' value = " + abbrName +">";
 
                 // 4 Contact Hours
                 var selected = '';
