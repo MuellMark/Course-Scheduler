@@ -48,10 +48,9 @@
     <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
     <button class="button-style" onclick="addToDB()">Add to Firebase</button>
     <button class="button-style" onclick="getDBKeys()">getDBKeys</button>
-    <button class="button-style" onclick="addRowFromKey()">addRowFromKey</button>
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <!-- TODO create a function that grabs the necessary values based on selected-->
-    <select name='addCourseRow' id='addCourseRow' onchange="addRow('',this.value);">
+    <select name='addCourseRow' id='addCourseRow' onchange="addRowFromKey(this.value);">
         <option value=''>Add new course</option>
         <option value=''>New course</option>
     </select>
@@ -150,6 +149,7 @@
                 cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
 
                 // Unavailable Times
+                // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
                 cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
                     "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
@@ -200,13 +200,6 @@
             //getDBKeys(this.parentNode.parentNode);
             // Reset select after click
             document.getElementById("addCourseRow").options[0].selected = 'selected';
-        }
-
-        function getText() {
-            var course = document.getElementById("addCourseRow");
-            var value = course.value;
-            var text = course.options[course.selectedIndex].text;
-            return text;
         }
     </script>
 </body>
@@ -510,19 +503,19 @@
         })
     }
 
-    function addRowFromKey(key = 'CS11') {
-      const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
-      var ref = firebase.database().ref("temp_courses/" + key);
-
-      ref.once('value')
-        .then((snapshot) => {
-          const data = snapshot.val();
-          if (data) {
-            Object.keys(data).forEach((key) => {
-                addRow(data[key]);
-            });
-          }
-        })
+    function addRowFromKey(key) {
+        const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
+        var ref = firebase.database().ref("temp_courses/" + key);
+        ref.once('value')
+            .then(function(snapshot) {
+            var courseData = snapshot.val();
+            if (courseData) {
+                var courseAbbr = courseData.abbreviation;
+                var courseName = courseData.class_name;
+                var meeting_hours = courseData.contact_hours;
+                addRow(courseName, courseAbbr,meeting_hours);
+                }
+            })
     }
     // On window start fill key array
     window.onload = getDBKeys();
