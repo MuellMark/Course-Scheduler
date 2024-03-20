@@ -112,7 +112,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow(fullName = '', abbrName = '', meeting_hours = false) {
+        function addRow(fullName = '', abbrName = '', meeting_hours = "FALSE") {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -136,7 +136,7 @@
                 // 4 Contact Hours
                 var selected = '';
                 // If 4 contact hour is selected in DB
-                if(meeting_hours)
+                if(meeting_hours !== "FALSE")
                     selected = 'selected';
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
