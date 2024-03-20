@@ -10,6 +10,8 @@
 </head>
 
 <body>
+<!-- https://github.com/CoderZ90/confetti/blob/main/confetti.js -->
+<script src="scripts/confetti.js"></script>
     <header>
         <div id="headerBar">
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
@@ -74,6 +76,23 @@
         <img src="./images/exampleOutput.png" alt="Picture of possible result output">
     <!-- JavaScript used to enable hamburger menu -->
     <script>
+                const start = () => {
+            setTimeout(function() {
+                confetti.start()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+
+        //  for stopping the confetti 
+
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        // after this here we are calling both the function so it works
+        start();
+        stop();
+
 
         window.onload = function () { //When webpage opens, run this code
             var menu = document.getElementById('menubar');
@@ -94,6 +113,11 @@
             }
 
         }
+        function playSound() {
+            const audio = new Audio('confetti.mp3'); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
+            audio.play();
+        }
+        window.onload = playSound;
     </script>
 </body>
 
