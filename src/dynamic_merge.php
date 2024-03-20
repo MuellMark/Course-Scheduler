@@ -171,27 +171,6 @@
                 var cellAdd = row.insertCell(7);
                 cellAdd.innerHTML = "<button button onclick='addColumn(this.parentNode.parentNode)'>Add Conflicting Course </button>";
                 cellAdd.style.border = "none";
-                /**
-                 * TODO There might be an easy way to implement this into the select row
-                 * so that it dynamically fills it. A way to do it is create a new 
-                 * string that will be concatenated and then placed in cell1.innerHTML
-                 * 
-                 * Update:
-                 * I am going to leave this here but I don't think we will need to
-                 * implement it like this as we can easily grab the info from firebase 
-                 * and set the value attribute
-                 */
-                // <label for="courseList">Select a Course:</label>
-                // <select id="courseList" name="courseList">
-                //     <!-- TODO implement a way to dynamically populate dropdown menu from previous responses -->
-                //     <option value="test">Choose one</option>
-                //     <?php
-                //         $file = fopen("csv/courses.csv", "r");
-                
-                //         while (($data = fgetcsv($file)) !== FALSE)
-                //             echo "<option value=\"" .$data[1]. "\">" .$data[1]. "</option>"
-                //          ?>
-                // </select>
             }
             else {
                 alert("Cannot add more than 20 rows")
@@ -404,7 +383,6 @@
                 }
                 // Push data to Firebase and map data to Firebase using CourseID as key
                 // https://firebase.google.com/docs/database/web/read-and-write
-                // TODO rename path
                 database.ref('temp_courses/' + courseID).set({
                     class_name: className,
                     abbreviation: abbreviation,
@@ -451,7 +429,6 @@
 
                 // Push data to Firebase and map data to Firebase using CourseID as key
                 // https://firebase.google.com/docs/database/web/read-and-write
-                // TODO rename path
                 database.ref('temp_faculty/' + facName).set({
                     faculty_name: facName,
                     prime_time: primeTime,
@@ -464,7 +441,16 @@
                 alert("Please select a course from the dropdown!");
         }
     }
-    // TODO header
+    /*
+        Description:
+        This function retrieves courseID values from the Firebase Database and 
+        populates a dropdown list with these keys. 
+        These values populate two different dropdown lists ('CourseID' and 'addCourseRow').
+
+        Dependencies:
+        - Firebase Database reference
+        - HTML elements: 'course-table', 'CourseID', and 'addCourseRow'
+    */
     // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
     // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
     function getDBKeys() {
@@ -485,7 +471,8 @@
             //dbKeys.forEach((element) => addRow(element)); // Used for debugging
 
             // Caution: I know this is inefficient but there needs
-            // to be two loops because if not they will overlap
+            // to be two loops because if not they will overwrite each other - Colby
+            // TODO if we decide to get rid of one drop down then please remove it here as well
             const dropdown = document.getElementById('CourseID');
             // Loop through the array and create option elements from keys
             for (let i = 0; i < dbKeys.length; i++) {
@@ -503,9 +490,19 @@
         })
     }
 
-    function addRowFromKey(key) {
-        const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
-        var ref = firebase.database().ref("temp_courses/" + key);
+
+    /*
+    Description:
+    This function retrieves data from a Firebase Database using 
+    the provided courseID key and then adds a row to the table 
+    using the selected data.
+
+    Parameters:
+    - courseID: The courseID key passed from the add course drop down.
+    */
+    function addRowFromKey(courseID) {
+        // Reference to the Firebase database path
+        var ref = firebase.database().ref("temp_courses/" + courseID);
         ref.once('value')
             .then(function(snapshot) {
             var courseData = snapshot.val();
