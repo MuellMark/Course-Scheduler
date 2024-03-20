@@ -168,11 +168,11 @@
                 //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
 
                 
-                getDBKeys(cell7);
-                // cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                //     "<option value='empty'>Choose one</option>" +
-                //     "<option value='new'>New course</option>" +
-                //     "</select>";
+                //getDBKeys(cell7);
+                cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
+                    "<option value='empty'>Choose one</option>" +
+                    "<option value='new'>New course</option>" +
+                    "</select>";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
@@ -475,19 +475,6 @@
                 }
             });
             } 
-            // if(true){
-                // cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                //             "<option value='empty'>Choose one</option>" +
-                //             "<option value='new'>New course</option>";
-                // for(let i = 0; i < dbKeys.length; i++) {
-                //     //option.text = dbKeys[i];
-                //     option = "test";
-                //     cell7.innerHTML = cell7.innerHTML + "<option value=\'" + option + "\'>" + option + "</option>";
-                // }
-
-                // cell7.innerHTML = cell7.innerHTML + "</select>";
-            // }
-            // else {
                 //dbKeys.forEach((element) => addRow(element)); // Used for debugging
 
                 // Caution: I know this is inefficient but there needs
@@ -506,7 +493,6 @@
                     const option = document.createElement('option');
                     option.text = dbKeys[i];
                     courseAdd.add(option);
-                // } 
             }
         })
     }
