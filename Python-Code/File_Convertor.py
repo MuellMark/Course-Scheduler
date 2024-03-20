@@ -6,9 +6,11 @@ from PyGLPK_Solver import *
 #------------Helper Functions-----------------------------------------------
 
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
-def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict):
-    generate_and_run(contents_course_restrict,contents_faculty_restrict)
+def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
+    generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
+    print_all_rows_and_columns()
     print_readable_format(contents_course_restrict)
+    export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
@@ -19,14 +21,16 @@ def split_single_csv_and_run(contents_all_restrict):
     faculty_bool = False
 
     # Stores the courses
+    forced_courses=[]
     contents_course_restrict = []
     contents_faculty_restrict = []
 
     # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
-
-        if len(contents_all_restrict[i])==1:
+        if len(contents_all_restrict[i])==2:
+            forced_courses.append(contents_all_restrict[i])
+        elif len(contents_all_restrict[i])==1:
             if contents_all_restrict[i][0] == "<course_restrict>":
                 course_bool=True
             if contents_all_restrict[i][0] == "<faculty_restrict>":
@@ -38,7 +42,7 @@ def split_single_csv_and_run(contents_all_restrict):
             elif faculty_bool:
                 contents_faculty_restrict.append(contents_all_restrict[i])
         i+=1
-    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
 #------------Functions based on number of params----------------------------
 
@@ -53,7 +57,8 @@ def no_csv_param():
     temp_faculty_restrict = csv.reader(faculty_restrict_file)
     contents_faculty_restrict = list(temp_faculty_restrict)
 
-    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
+    
 
 # For when there is only 1 csv file
 def one_csv_param(file):
@@ -73,7 +78,7 @@ def two_csv_param(course_file,faculty_file):
     contents_course_restrict = list(temp_course_restrict)
     temp_faculty_restrict = csv.reader(faculty_restrict_file)
     contents_faculty_restrict = list(temp_faculty_restrict)
-    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict)
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
 
 #------------Main--------------------------------------------------
 
