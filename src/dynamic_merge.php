@@ -112,7 +112,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow(fullName = '', abbrName = '', meeting_hours = "FALSE") {
+        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE") {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -127,7 +127,7 @@
 
                 // Class name
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = " + fullName +">";
+                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName +"\">";
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
@@ -151,11 +151,16 @@
                 // Unavailable Times
                 // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<input type='checkbox' id='monday' name='monday' value='monday'>" +
-                    "<input type='checkbox' id='tuesday' name='tuesday' value='tuesday'>" +
-                    "<input type='checkbox' id='wednesday' name='wednesday' value='wednesday'>" +
-                    "<input type='checkbox' id='thursday' name='thursday' value='thursday'>" +
-                    "<input type='checkbox' id='friday' name='friday' value='friday'>";
+                cell6.innerHTML = "<div><input type='checkbox' id='m800' name='m800' value='m800'>" +
+                    "<input type='checkbox' id='m930' name='m930' value='m930'>" +
+                    "<input type='checkbox' id='m1100' name='m1100' value='m1100'>" +
+                    "<input type='checkbox' id='m200' name='m200' value='m200'>" +
+                    "<input type='checkbox' id='m330' name='m330' value='m330'></div><div>" +
+                    "<input type='checkbox' id='t830' name='t830' value='t830'>" +
+                    "<input type='checkbox' id='t1000' name='t1000' value='t1000'>" +
+                    "<input type='checkbox' id='t1130' name='t1130' value='t1130'>" +
+                    "<input type='checkbox' id='t100' name='t100' value='t100'>" +
+                    "<input type='checkbox' id='t230' name='t230' value='t230'></div>";
 
                 // CourseID
                 var cell7 = row.insertCell(6);

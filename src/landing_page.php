@@ -113,6 +113,11 @@
             }
 
         }
+        function playSound() {
+            const audio = new Audio('confetti.mp3'); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
+            audio.play();
+        }
+        window.onload = playSound;
     </script>
 </body>
 
