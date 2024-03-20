@@ -167,10 +167,12 @@
                 // This includes the add funcitionality from the drop down above
                 //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
 
-                cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                    "<option value='empty'>Choose one</option>" +
-                    "<option value='new'>New course</option>" +
-                    "</select>";
+                
+                getDBKeys(cell7);
+                // cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
+                //     "<option value='empty'>Choose one</option>" +
+                //     "<option value='new'>New course</option>" +
+                //     "</select>";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
@@ -458,7 +460,7 @@
     */
     // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
     // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
-    function getDBKeys() {
+    function getDBKeys(cell7) {
         let dbKeys = [];
         const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
         var ref = firebase.database().ref('temp_courses');
@@ -473,25 +475,39 @@
                 }
             });
             } 
-            //dbKeys.forEach((element) => addRow(element)); // Used for debugging
+            // if(true){
+                // cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
+                //             "<option value='empty'>Choose one</option>" +
+                //             "<option value='new'>New course</option>";
+                // for(let i = 0; i < dbKeys.length; i++) {
+                //     //option.text = dbKeys[i];
+                //     option = "test";
+                //     cell7.innerHTML = cell7.innerHTML + "<option value=\'" + option + "\'>" + option + "</option>";
+                // }
 
-            // Caution: I know this is inefficient but there needs
-            // to be two loops because if not they will overwrite each other - Colby
-            // TODO if we decide to get rid of one drop down then please remove it here as well
-            const dropdown = document.getElementById('CourseID');
-            // Loop through the array and create option elements from keys
-            for (let i = 0; i < dbKeys.length; i++) {
-                const option = document.createElement('option');
-                option.text = dbKeys[i];
-                dropdown.add(option);
-            }   
+                // cell7.innerHTML = cell7.innerHTML + "</select>";
+            // }
+            // else {
+                //dbKeys.forEach((element) => addRow(element)); // Used for debugging
 
-            const courseAdd = document.getElementById('addCourseRow');
-            for (let i = 0; i < dbKeys.length; i++) {
-                const option = document.createElement('option');
-                option.text = dbKeys[i];
-                courseAdd.add(option);
-        }
+                // Caution: I know this is inefficient but there needs
+                // to be two loops because if not they will overwrite each other - Colby
+                // TODO if we decide to get rid of one drop down then please remove it here as well
+                const dropdown = document.getElementById('CourseID');
+                // Loop through the array and create option elements from keys
+                for (let i = 0; i < dbKeys.length; i++) {
+                    const option = document.createElement('option');
+                    option.text = dbKeys[i];
+                    dropdown.add(option);
+                }   
+
+                const courseAdd = document.getElementById('addCourseRow');
+                for (let i = 0; i < dbKeys.length; i++) {
+                    const option = document.createElement('option');
+                    option.text = dbKeys[i];
+                    courseAdd.add(option);
+                // } 
+            }
         })
     }
 
