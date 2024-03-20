@@ -151,16 +151,16 @@
                 // Unavailable Times
                 // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<input type='checkbox' id='m800' name='m800' value='m800'>" +
+                cell6.innerHTML = "<div><input type='checkbox' id='m800' name='m800' value='m800'>" +
                     "<input type='checkbox' id='m930' name='m930' value='m930'>" +
                     "<input type='checkbox' id='m1100' name='m1100' value='m1100'>" +
                     "<input type='checkbox' id='m200' name='m200' value='m200'>" +
-                    "<input type='checkbox' id='m330' name='m330' value='m330'>" +
+                    "<input type='checkbox' id='m330' name='m330' value='m330'></div><div>" +
                     "<input type='checkbox' id='t830' name='t830' value='t830'>" +
                     "<input type='checkbox' id='t1000' name='t1000' value='t1000'>" +
                     "<input type='checkbox' id='t1130' name='t1130' value='t1130'>" +
                     "<input type='checkbox' id='t100' name='t100' value='t100'>" +
-                    "<input type='checkbox' id='t230' name='t230' value='t230'>";
+                    "<input type='checkbox' id='t230' name='t230' value='t230'></div>";
 
                 // CourseID
                 var cell7 = row.insertCell(6);
