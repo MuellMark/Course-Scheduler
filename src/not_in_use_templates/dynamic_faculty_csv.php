@@ -21,8 +21,6 @@
             padding: 5px;
             text-align: center;
             align-items:center;
-            margin-left: auto; 
-            margin-right: auto;
         }
 
         th {
