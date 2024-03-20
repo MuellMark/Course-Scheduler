@@ -53,10 +53,12 @@
             Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient, and user-friendly solution. Let's simplify scheduling together!
         </h2>
         <br>
-        
+        <br>
+        <div style="text-align: center;">
         <a href="dynamic_merge.php">
             <button class="button-style2"> Get Started </button>
         </a>
+        </div>
         </div>
     </div>
 
