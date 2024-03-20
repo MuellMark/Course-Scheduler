@@ -112,7 +112,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow(fullName = '', abbrName = '', meeting_hours = "FALSE") {
+        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE") {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -127,7 +127,7 @@
 
                 // Class name
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = " + fullName +">";
+                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName +"\">";
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
