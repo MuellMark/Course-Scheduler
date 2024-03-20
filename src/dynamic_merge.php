@@ -147,6 +147,12 @@
 
                 // CourseID
                 var cell7 = row.insertCell(6);
+              
+                // This includes the add funcitionality from the drop down above
+                //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
+
+                
+                //getDBKeys(cell7);
                 cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
                     "<option value='empty'>Choose one</option>" +
                     "<option value='CS11'>CS11</option>" +
@@ -438,6 +444,81 @@
                 alert("Please select a course from the dropdown!");
         }
     }
+    /*
+        Description:
+        This function retrieves courseID values from the Firebase Database and 
+        populates a dropdown list with these keys. 
+        These values populate two different dropdown lists ('CourseID' and 'addCourseRow').
+
+        Dependencies:
+        - Firebase Database reference
+        - HTML elements: 'course-table', 'CourseID', and 'addCourseRow'
+    */
+    // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
+    // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
+    function getDBKeys(cell7) {
+        let dbKeys = [];
+        const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];
+        var ref = firebase.database().ref('temp_courses');
+
+        ref.once('value')
+        .then((snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+            Object.keys(data).forEach((key) => {
+                if (!(key in dbKeys)) {
+                    dbKeys.push(key);
+                }
+            });
+            } 
+                //dbKeys.forEach((element) => addRow(element)); // Used for debugging
+
+                // Caution: I know this is inefficient but there needs
+                // to be two loops because if not they will overwrite each other - Colby
+                // TODO if we decide to get rid of one drop down then please remove it here as well
+                const dropdown = document.getElementById('CourseID');
+                // Loop through the array and create option elements from keys
+                for (let i = 0; i < dbKeys.length; i++) {
+                    const option = document.createElement('option');
+                    option.text = dbKeys[i];
+                    dropdown.add(option);
+                }   
+
+                const courseAdd = document.getElementById('addCourseRow');
+                for (let i = 0; i < dbKeys.length; i++) {
+                    const option = document.createElement('option');
+                    option.text = dbKeys[i];
+                    courseAdd.add(option);
+            }
+        })
+    }
+
+
+    /*
+    Description:
+    This function retrieves data from a Firebase Database using 
+    the provided courseID key and then adds a row to the table 
+    using the selected data.
+
+    Parameters:
+    - courseID: The courseID key passed from the add course drop down.
+    */
+    function addRowFromKey(courseID) {
+        // Reference to the Firebase database path
+        var ref = firebase.database().ref("temp_courses/" + courseID);
+        ref.once('value')
+            .then(function(snapshot) {
+            var courseData = snapshot.val();
+            if (courseData) {
+                var courseAbbr = courseData.abbreviation;
+                var courseName = courseData.class_name;
+                var meeting_hours = courseData.contact_hours;
+                addRow(courseName, courseAbbr,meeting_hours);
+                }
+            })
+    }
+    // On window start fill key array
+    window.onload = getDBKeys();
 </script>
 
 <!---------------------------- JavaScript used to enable hamburger menu ---------------------------->
