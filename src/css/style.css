@@ -39,7 +39,31 @@ header {
   width: auto;
   /* Will allow to be proportional*/
 }
+/* pdfFormat*/
+iframe{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 600px;
+}
+.docs-container{
+  display:flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+.docs-section, .howTo-section{
+  flex: 1;
+  padding: 0 10px;
+  text-align: center;
+}
 
+.pdf-iframe{
+  width: 100%;
+  height: 500px;
+  margin-top: 20px;
+  border: none;
+}
 /* Bar Design and Formatting */
 #menubar {
   flex: 1;
@@ -119,6 +143,18 @@ header {
   /* Scale height to keep aspect ratio*/
 }
 
+/* GitHub Icon */
+#github-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: auto;
+  z-index: 10;
+  border: 4px solid #ccc;
+  padding: 5px;
+}
+
 /* Default CSS Styling and Formatting */
 html,
 body {
@@ -155,14 +191,23 @@ h4 {
 }
 
 h1 {
+  font-size: 2rem;
+  font-weight: bold;
   text-align: center;
   /* Center the text */
-  margin-top: 20px;
+  margin-top: 0;
   /* Add margin to separate h1 from the elements that are above it*/
-  padding: 15px;
+  padding: 15px 15px 0px 15px;
   /*Add padding around text*/
+
+
+}
+
+h1 span {
   border-bottom: 5px solid #ccc;
   /*Add grey bar below text*/
+  padding-bottom: 10px;
+  /*Add padding*/
 }
 
 h4 {
@@ -170,6 +215,13 @@ h4 {
   /*Add padding around text*/
   margin-top: 5px;
   /* Add margin to separate h1 from the elements that are above it*/
+}
+
+h4 span {
+  border-bottom: 5px solid #ccc;
+  /*Add grey bar below text*/
+  padding-bottom: 10px;
+  /*Add padding*/
 }
 
 p,
@@ -197,6 +249,26 @@ ul {
   /* Center container with the main element */
   width: 1200px;
   /* Fixed width for a container*/
+  padding-top: 10px;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 50px;
+  margin-bottom: 50px;
 }
 
 /*Hamburger Menu*/
@@ -220,6 +292,13 @@ ul {
   /* Set color to white*/
   background-color: #ffcb08;
   /* Set color to SU colors*/
+}
+
+/*Table Scroll Bar*/
+/*https://www.educba.com/scrollbar-in-html-table/*/
+.divScroll {
+  overflow-x: scroll;
+  width: 1500px;
 }
 
 /*Button Design*/
@@ -246,6 +325,27 @@ ul {
   /*Add margin top*/
 }
 
+.button-style2 {
+  padding: 1em 3em;
+  /*Make button bigger*/
+  text-decoration: none;
+  /*Do not have default text decorations*/
+  font-weight: 600;
+  /*Set font weight*/
+  color: #000000;
+  /*Set color to black*/
+  background-color: #ffcb08;
+  /*Set color to SU color*/
+  border: none;
+  /*Remove border around text*/
+  cursor: pointer;
+  /*When hovering, make cursor a pointer*/
+  white-space: nowrap;
+  /*Do not wrap text*/
+  margin-top: 20px;
+  font-family: 'lustria', serif;
+}
+
 .button-style:hover {
   color: #000000;
   /*Set color to black*/
@@ -270,9 +370,10 @@ ul {
 }
 
 /*FAQ Design*/
-  /*Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs*/
+/*Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs*/
 #faq-section {
-  max-width: 800px;
+  max-width: 750px;
+  width: 750px;
   /*Set the maximum width of the entire section*/
   margin: auto;
   /*Center the section*/
