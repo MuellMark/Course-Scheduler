@@ -83,6 +83,15 @@
         th {
             background-color: #f2f2f2;
         }
+        /* Feel free to remove this or change this */
+        label {
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            font-family: 'Comic Sans MS';
+        }
     </style>
 
     <div class="divScroll">
@@ -151,16 +160,17 @@
                 // Unavailable Times
                 // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<div><input type='checkbox' id='m800' name='m800' value='m800'>" +
-                    "<input type='checkbox' id='m930' name='m930' value='m930'>" +
-                    "<input type='checkbox' id='m1100' name='m1100' value='m1100'>" +
-                    "<input type='checkbox' id='m200' name='m200' value='m200'>" +
-                    "<input type='checkbox' id='m330' name='m330' value='m330'></div><div>" +
-                    "<input type='checkbox' id='t830' name='t830' value='t830'>" +
-                    "<input type='checkbox' id='t1000' name='t1000' value='t1000'>" +
-                    "<input type='checkbox' id='t1130' name='t1130' value='t1130'>" +
-                    "<input type='checkbox' id='t100' name='t100' value='t100'>" +
-                    "<input type='checkbox' id='t230' name='t230' value='t230'></div>";
+                // <label for=\"m930\"></label>
+                cell6.innerHTML = "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
+                    "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
+                    "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
+                    "<label for='m200'><input type='checkbox' id='m200' name='m200' value='200'>2:00</label>" +
+                    "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
+                    "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
+                    "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
+                    "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
+                    "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
+                    "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
 
                 // CourseID
                 var cell7 = row.insertCell(6);
