@@ -316,7 +316,6 @@ def force_courses_constraints(all_combos,forced_courses):
         temp_matrix = [0]*len(all_combos)
         for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
-                # print(all_combos[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]])
         matrix+=(temp_matrix)
     global_matrix.append(matrix)
 
@@ -339,9 +338,7 @@ def force_courses_constraints(all_combos,forced_courses):
 
 # Adds the global matrix to the lp matrix
 def add_to_LP_matrix():
-    print(lp.matrix)
     lp.matrix+=global_matrix.get_Global_Matrix()
-    print(lp.matrix)
 
 #------------Generate Method----------------------------
 
