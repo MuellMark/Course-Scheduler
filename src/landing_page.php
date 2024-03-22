@@ -39,7 +39,8 @@
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
-    <div style="float: left; margin-left: 200px; margin-top: 50px; width: 600px">   
+
+    <div style="float: left; margin-left: 100px; margin-top: 50px; width: 600px">   
         <h1 style="font-size: 50px"> <span> Scheduling made simple. </span> </h1>
         <div class="description" style="text-align: left">
             <!--Imagine a streamlined and effective approach to university course scheduling that takes into account the
@@ -63,19 +64,20 @@
     </div>
 
     <style>
-        #examplePicture img {
+        #examplePicture img{
             float: right;
-            width: 350px;
-            height: 700;
+            width: 650px;
+            height: auto;
             border: 1px solid black;
-            margin-top: 45px;
-            margin-right: 200px
+            margin-top: 75px;
+            margin-right: 100px
         }
     </style>
 
     <div id="examplePicture">
-        <!-- Placeholder photo until real schedule result picture made -->
         <img src="./images/exampleOutput.png" alt="Picture of possible result output">
+    </div>
+
     <!-- JavaScript used to enable hamburger menu -->
     <script>
                 const start = () => {
