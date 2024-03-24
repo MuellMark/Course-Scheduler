@@ -12,7 +12,8 @@ class Row_Index:
 
     def getRowIndex(self):
         return self.row_Index
-    
+
+# Stores the matrix as it is built to then be added to lp.matrix  
 class Global_Matrix:
     def __init__(self):
         self.matrix = []
@@ -78,10 +79,8 @@ def courses_offered_cons(all_combos):
             for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
         matrix+=(temp_matrix)
-    # print(matrix)
-    # print(lp.matrix)
+
     global_matrix.append(matrix)
-    # print(lp.matrix)
 
 # Makes sure each time/ column paring only has 1 course offered          
 def time_overlap_cons(all_combos):
@@ -98,10 +97,7 @@ def time_overlap_cons(all_combos):
             for course in courses:
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
             matrix+=temp_matrix
-    # print(matrix)
-    # print(lp.matrix)
     global_matrix.append(matrix)
-    # print(lp.matrix)
 
 #TODO 
 # Each column can only have 10 different courses and a certain amount of any
@@ -118,11 +114,8 @@ def generalColCons(all_combos):
             for time in times:
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
         matrix+=temp_matrix
-        # print(len(matrix))
-    # print(matrix)
-    # print(lp.matrix)
+
     global_matrix.append(matrix)
-    # print(lp.matrix)
 
     # Idea should be that columns fill up before moving onto the next one,
     # I think these need to be reworked, aside from the current issue
@@ -175,12 +168,9 @@ def four_contact_hour_cons(all_combos,contents):
                     if(time[0]=='t'): 
                         temp_matrix[(maxT*maxC*col)+(cI[row[0]]*maxT)+tI[time]] = 1
                 matrix+=temp_matrix
-                # print(temp_matrix)
-    # print("Before")
-    # print(lp.matrix)
+
     global_matrix.append(matrix)
-    # print("After")
-    # print(lp.matrix)
+
 
 # Contains much of the course constraints: takes into account invalid times and
 # when 2 courses can't be taught at the same time
@@ -272,7 +262,6 @@ def faculty_restrictions(all_combos,contents,duplicates):
                     for time in nonPrimeTimes:
                         temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] = 1
             matrix+=temp_matrix
-            # print(len(matrix))
         
         if len(invalid_times)>0:
             for time in invalid_times:
@@ -285,7 +274,6 @@ def faculty_restrictions(all_combos,contents,duplicates):
                     for course in courses_taught:
                         temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]] =1
                 matrix+=temp_matrix
-                # print(len(matrix))
 
         # 1 because if only one course, no overlap
         if len(courses_taught)>1:
@@ -304,12 +292,9 @@ def faculty_restrictions(all_combos,contents,duplicates):
                                 temp_matrix[(maxT*maxC*col)+(cI[course1]*maxT)+tI[time]] = 1
                                 temp_matrix[(maxT*maxC*col)+(cI[course2]*maxT)+tI[time]] = 1
                             matrix+=temp_matrix
-                            # print(len(matrix))
-                            #loop columns, add from there
-    # print(matrix)
-    # print(lp.matrix)
+
     global_matrix.append(matrix)
-    # print(lp.matrix)
+
 
 #TODO FIX THIS
 def force_courses_constraints(all_combos,forced_courses):
@@ -331,7 +316,6 @@ def force_courses_constraints(all_combos,forced_courses):
         temp_matrix = [0]*len(all_combos)
         for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
-                # print(all_combos[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]])
         matrix+=(temp_matrix)
     global_matrix.append(matrix)
 
@@ -354,9 +338,7 @@ def force_courses_constraints(all_combos,forced_courses):
 
 # Adds the global matrix to the lp matrix
 def add_to_LP_matrix():
-    print(lp.matrix)
     lp.matrix+=global_matrix.get_Global_Matrix()
-    print(lp.matrix)
 
 #------------Generate Method----------------------------
 
@@ -415,15 +397,10 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     # Calling all of the constraints
     add_cols(all_combos)
     courses_offered_cons(all_combos)
-    # print(len(lp.matrix))
     add_objective_function(all_combos)
-    # print(len(lp.matrix))
     time_overlap_cons(all_combos)
-    # print(len(lp.matrix))
     generalColCons(all_combos)
-    # print(len(lp.matrix))
     faculty_restrictions(all_combos,contents_faculty_restrict,duplicates)
-    # print(len(lp.matrix))
     four_contact_hour_cons(all_combos,contents_course_restrict)
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
@@ -437,7 +414,6 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     # TODO uncomment out when testing for forcing resumes
     # if len(forced_courses)>0:
     #     force_courses_constraints(all_combos,forced_courses)
-    
     
     lp.simplex()
 
@@ -455,7 +431,6 @@ def print_all_rows_and_columns():
     print("Rows:")
     for r in lp.rows:
         print('%s = %g' % (r.name, r.primal))
-    # print(all_combos[(maxT*maxC*1)+(cI["CS21"]*maxT)+tI["m330"]])
 
 def print_all_filled_cols():
     print("objective value = " + str(lp.obj.value))
