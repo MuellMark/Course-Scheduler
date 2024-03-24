@@ -145,14 +145,23 @@ iframe{
 
 /* GitHub Icon */
 #github-icon {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
   width: 30px;
   height: auto;
-  z-index: 10;
   padding: 5px;
+  right: 10px;
+  bottom: 10px;
+  float: right;
 }
+
+/* to keep icon at bottom of page
+#github-icon-container {
+  position: fixed;
+  float: right;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
+}
+*/
 
 /* Default CSS Styling and Formatting */
 html,
@@ -343,6 +352,14 @@ ul {
   /*Do not wrap text*/
   margin-top: 20px;
   font-family: 'lustria', serif;
+}
+
+.button-style3 {
+  padding: 0.25em 0.25em;
+  float: left; 
+  margin-left: 15px; 
+  background-color: #e8e8e8; 
+  font-family: 'lustria', serif
 }
 
 .button-style:hover {
@@ -604,13 +621,10 @@ ul {
     /*Set text color to black*/
   }
 
-  #examplePicture img{
-    float: right;
-    width: 650px;
-    height: auto;
-    border: 1px solid black;
-    margin-top: 75px;
-    margin-right: 100px
+  .checkbox-group label {
+    font-family: 'lustria', serif;
+    font-size: 14px; /* Change the font size to your desired size */
+    /* You can add more font properties here as needed */
 }
 
 }
