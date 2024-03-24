@@ -24,7 +24,7 @@
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
-                </div>
+                    </ul>
             </nav>
         </div>
 
@@ -33,59 +33,65 @@
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
+    <section id="main-content">
+        <div id="faq-section">
+            <h1> FAQ </h1>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="question"> What Is Course Scheduler? </button>
+                    <div class="answer">
+                        <p>
+                            The Course Scheduler is a useful tool designed to generate course schedules based on various
+                            faculty and course restrictions specified by users. In addition, faculty members will be
+                            given the option to alter already generated schedules to check for feasibility.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="question"> How To Use Course Scheduler </button>
+                    <div class="answer">
+                        <p>
+                            Answer to question 2.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="question"> Who To Contact? </button>
+                    <div class="answer">
+                        <p>
+                            Answer to question 3.
+                        </p>
+                    </div>
+                </div>
 
-    <section id="faq-section" style="margin-left: 100px; float: left">
-        <h1><span>FAQ</span></h1>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="question"> What Is Course Scheduler? </button>
-                <div class="answer">
-                    <p>
-                        The Course Scheduler is a useful tool designed to generate course schedules based on various faculty and course restrictions specified by users. In addition, faculty members will be given the option to alter already generated schedules to check for feasibility. 
-                    </p>
+                <div class="faq-item">
+                    <button class="question"> What Is Firebase? </button>
+                    <div class="answer">
+                        <p>
+                            The Firebase Realtime Database is a cloud, NOSQL database. It doesn't require an application
+                            server to connect-- it is directly accessed through a web browser or mobile device.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="faq-item">
-                <button class="question"> How To Use Course Scheduler </button>
-                <div class="answer">
-                    <p>
-                        Answer to question 2.
-                    </p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="question"> Who To Contact? </button>
-                <div class="answer">
-                    <p>
-                        Answer to question 3.
-                    </p>
-                </div>
-            </div>
+        </div>
 
-            <div class="faq-item">
-                <button class="question"> What Is Firebase? </button>
-                <div class="answer">
-                    <p>
-                        The Firebase Realtime Database is a cloud, NOSQL database. It doesn't require an application server to connect-- it is directly accessed through a web browser or mobile device. 
-                    </p>
-                </div>
-            </div>
+        <div id="faqPicture">
+            <img src="https://img.freepik.com/premium-vector/tiny-cartoon-business-people-standing-around-huge-question-mark-male-female-persons-asking-help-answers-flat-vector-illustration-communication-solution-concept-banner-website-design_74855-25331.jpg"
+                alt="FAQ picture">
         </div>
-        </div>
-        </div>
+
 
     </section>
 
-    <div id="faqPicture">
-        <img src="https://img.freepik.com/premium-vector/tiny-cartoon-business-people-standing-around-huge-question-mark-male-female-persons-asking-help-answers-flat-vector-illustration-communication-solution-concept-banner-website-design_74855-25331.jpg" alt="FAQ picture">
-    </div>
-
     <style>
         #faqPicture img {
-            float: right;
+            position: fixed;
+            top: 50%;
+            right: 100px;
             width: 500px;
-            margin-top: 45px;
-            margin-right: 100px
+            margin-top: -250px;
+            z-index: 1;
         }
     </style>
 
