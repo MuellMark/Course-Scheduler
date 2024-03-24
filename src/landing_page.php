@@ -10,8 +10,8 @@
 </head>
 
 <body>
-<!-- https://github.com/CoderZ90/confetti/blob/main/confetti.js -->
-<script src="scripts/confetti.js"></script>
+    <!-- https://github.com/CoderZ90/confetti/blob/main/confetti.js -->
+    <script src="scripts/confetti.js"></script>
     <header>
         <div id="headerBar">
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
@@ -39,49 +39,30 @@
             <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
         </div>
     </header>
-
-    <div style="float: left; margin-left: 100px; margin-top: 50px; width: 600px">   
-        <h1 style="font-size: 50px"> <span> Scheduling made simple. </span> </h1>
-        <div class="description" style="text-align: left">
-            <!--Imagine a streamlined and effective approach to university course scheduling that takes into account the
-            complex
-            puzzles of instructor availability, classroom setup, and student requirements. This web-based scheduler
-            makes
-            course planning at Southwestern University less complicated and helps maximize your time and resources by
-            doing
-            it automatically. 
-            -->
-            Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient, and user-friendly solution. Let's simplify scheduling together!
-        </h2>
-        <br>
-        <br>
-        <div style="text-align: center;">
-        <a href="dynamic_merge.php">
-            <button class="button-style2"> Get Started </button>
-        </a>
-        </div>
+    <div class="content-wrapper">
+    <div class="container">
+        <div class="info-box"> <!-- New div wrapper with class info-box -->
+            <h5> <span> Scheduling Made Simple. </span> </h5>
+            <div class="description" style="text-align: left">
+                Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient, 
+                and user-friendly solution. Let's simplify scheduling together!
+            </div>
+            <div style="text-align: center;">
+                <a href="dynamic_merge.php">
+                    <button class="button-style2"> Get Started </button>
+                </a>
+            </div>
+        </div> <!-- End of info-box div -->
+        <div id="examplePicture" class="image-container">
+            <img src="./images/exampleOutput.png" alt="Picture of possible result output">
         </div>
     </div>
-
-    <style>
-        #examplePicture img{
-            float: right;
-            width: 650px;
-            height: auto;
-            border: 1px solid black;
-            margin-top: 75px;
-            margin-right: 100px
-        }
-    </style>
-
-    <div id="examplePicture">
-        <img src="./images/exampleOutput.png" alt="Picture of possible result output">
-    </div>
+</div>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
-                const start = () => {
-            setTimeout(function() {
+        const start = () => {
+            setTimeout(function () {
                 confetti.start()
             }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
@@ -89,7 +70,7 @@
         //  for stopping the confetti 
 
         const stop = () => {
-            setTimeout(function() {
+            setTimeout(function () {
                 confetti.stop()
             }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
@@ -125,10 +106,5 @@
     </script>
 </body>
 </div>
-
-<div id="github-icon-container">
-<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="./images/github.png" alt="Link to Github" id="github-icon">
-</a>
 
 </html>

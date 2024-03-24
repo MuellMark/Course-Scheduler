@@ -1,3 +1,97 @@
+/*Global Styles*/
+
+/* Default CSS Styling and Formatting */
+html,
+body {
+  height: 100%;
+  /*Utilize 100% of page*/
+  margin: 0;
+  /*  Remove the margin to keep edge with page*/
+  padding: 0;
+  /* Remove the padding to keep edge with page*/
+  background: #FFFFFF;
+  /* Set the background color to white*/
+  font-family: 'Arial', sans-serif;
+  /* Use hte font lustria for text, and if it cant, use serif*/
+  font-size: 1rem;
+  /*Use the default font size on the users setting*/
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
+}
+
+/* Text Styling and Formating */
+h1,h2,h3,h4,h5{
+  font-size: 1.5rem;
+  /*Use the default font size on the users setting*/
+  margin: 0;
+  /* Remove default margins*/
+  padding: 0;
+  /* Remove padding*/
+  color: black;
+  /* Set default color of headings to black*/
+}
+
+h1 {
+  font-size: 2rem;
+  /*Set font size relative to user*/
+  text-align: center;
+  /* Center the text */
+  margin-top: 0;
+  /* Add margin to separate h1 from the elements that are above it*/
+  padding: 15px 15px 0px 15px;
+  /*Add padding around text*/
+}
+
+h1 span {
+  border-bottom: 5px solid #ccc;
+  /*Add grey bar below text*/
+  padding-bottom: 10px;
+  /*Add padding*/
+}
+
+h4 {
+  padding: 20px;
+  /*Add padding around text*/
+  margin-top: 5px;
+  /* Add margin to separate h1 from the elements that are above it*/
+}
+
+h4 span {
+  border-bottom: 5px solid #ccc;
+  /*Add grey bar below text*/
+  padding-bottom: 10px;
+  /*Add padding*/
+}
+
+h5{
+  font-size: 2rem;
+  /*Use the default font size from user*/
+  text-align: center;
+  /* Center the text */
+  margin-top: 0;
+  /* Add margin to separate h1 from the elements that are above it*/
+  padding-bottom: 2em;
+  /*Add padding around text*/
+  margin-bottom: 15px;
+  /*Add a margin below the text*/
+}
+
+p,ol,ul {
+  margin-top: 0;
+  /* Reset the margin for paragraphs and lists to keep consistent */
+}
+
+p {
+  line-height: 180%;
+  /* Increase the space between lines for paragraphs*/
+}
+
+ol,ul {
+  padding: 0;
+  /* Remove padding for lists*/
+  list-style: none;
+  /* Remove default list item look to keep same*/
+}
+
 /* Header Design and Formatting*/
 header {
   overflow: hidden;
@@ -17,6 +111,20 @@ header {
   flex-wrap: wrap;
   /*Allow items to wrap line by line*/
 }
+
+/* Header Image (SU Pic)*/
+#headerImage {
+  margin-top: 0px;
+  /* Add a margin to the top of the header image to space it*/
+}
+
+#headerImage img {
+  width: 100%;
+  /* Stretch image to the full width of the container*/
+  height: auto;
+  /* Scale height to keep aspect ratio*/
+}
+
 
 /* Logo Design And Formatting */
 #logo {
@@ -39,32 +147,8 @@ header {
   width: auto;
   /* Will allow to be proportional*/
 }
-/* pdfFormat*/
-iframe{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  height: 600px;
-}
-.docs-container{
-  display:flex;
-  justify-content: space-around;
-  padding: 20px;
-}
-.docs-section, .howTo-section{
-  flex: 1;
-  padding: 0 10px;
-  text-align: center;
-}
 
-.pdf-iframe{
-  width: 100%;
-  height: 500px;
-  margin-top: 20px;
-  border: none;
-}
-/* Bar Design and Formatting */
+/* Navigation and Menu Styles */
 #menubar {
   flex: 1;
   /* Menu bar needs to change spacing to fit, this will allow it to do so*/
@@ -111,10 +195,10 @@ iframe{
   text-decoration: none;
   /* Removes the underline when you click */
   /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration*/
-  font-weight: 600;
-  /* Bold Link Text */
+  font-weight: 60px;
+  /*Set font weight to add variation*/
   color: #000000;
-  /* Make text white */
+  /* Make text black*/
   background-color: #ffcb08;
   /* Set background color to SU colors */
   margin: 0 20px;
@@ -130,153 +214,62 @@ iframe{
   /* When you hover over, change the background to white*/
 }
 
-/* Header Image (SU Pic)*/
-#headerImage {
-  margin-top: 0px;
-  /* Add a margin to the top of the header image to space it*/
-}
-
-#headerImage img {
-  width: 100%;
-  /* Stretch image to the full width of the container*/
-  height: auto;
-  /* Scale height to keep aspect ratio*/
-}
-
 /* GitHub Icon */
 #github-icon {
   width: 30px;
+  /*Set width to 30px*/
   height: auto;
+  /*Automatically set heigh to make sure aspect ratio is maintined*/
   padding: 5px;
+  /*Add padding around the icon*/
   right: 10px;
+  /*Position 10px to the right*/
   bottom: 10px;
+  /*Position 10px from the bottom*/
   float: right;
+  /*FLoat in the bottom right of container*/
 }
 
-/* to keep icon at bottom of page
-#github-icon-container {
-  position: fixed;
-  float: right;
-  bottom: 10px;
-  right: 10px;
-  z-index: 10;
-}
-*/
-
-/* Default CSS Styling and Formatting */
-html,
-body {
-  height: 100%;
-  /* Set height to the height of the HTML page*/
-}
-
-body {
-  margin: 0;
-  /*  Remove the margin to keep edge with page*/
-  padding: 0;
-  /* Remove the padding to keep edge with page*/
-  background: #FFFFFF;
-  /* Set the background color to white*/
-  font-family: 'lustria', serif;
-  /* Use hte font lustria for text, and if it cant, use serif*/
-  font-size: 1rem;
-  /*Use the default font size on the users setting*/
-  /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-size: 1.5rem;
-  /*Use the default font size on the users setting*/
-  margin: 0;
-  /* Remove default margins*/
-  padding: 0;
-  /* Remove padding*/
-  color: black;
-  /* Set default color of headings to black*/
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: bold;
+/*Homepage Styling and Formating*/
+.info-box{
   text-align: center;
-  /* Center the text */
-  margin-top: 0;
-  /* Add margin to separate h1 from the elements that are above it*/
-  padding: 15px 15px 0px 15px;
-  /*Add padding around text*/
-
-
-}
-
-h1 span {
-  border-bottom: 5px solid #ccc;
-  /*Add grey bar below text*/
-  padding-bottom: 10px;
-  /*Add padding*/
-}
-
-h4 {
-  padding: 20px;
-  /*Add padding around text*/
-  margin-top: 5px;
-  /* Add margin to separate h1 from the elements that are above it*/
-}
-
-h4 span {
-  border-bottom: 5px solid #ccc;
-  /*Add grey bar below text*/
-  padding-bottom: 10px;
-  /*Add padding*/
-}
-
-p,
-ol,
-ul {
-  margin-top: 0;
-  /* Reset the margin for paragraphs and lists to keep consistent */
-}
-
-p {
-  line-height: 180%;
-  /* Increase the space between lines for paragraphs*/
-}
-
-ol,
-ul {
-  padding: 0;
-  /* Remove padding for lists*/
-  list-style: none;
-  /* Remove default list item look to keep same*/
-}
-
-.container {
+  /*Center text horizontally*/
+  max-width: 600px;
+  /*Maximum width of the container*/
   margin: 0 auto;
-  /* Center container with the main element */
-  width: 1200px;
-  /* Fixed width for a container*/
-  padding-top: 10px;
+  /*Center the container horizontally*/
 }
 
 .description {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  /*Set font size relative to user*/
   margin: 0 auto;
+  /*Center text horizontally*/
   max-width: 600px;
-  padding: 20px;
+  /*Maximum width of the container*/
+  padding: 0 15px;
+  /*Add padding around text*/
   text-align: center;
+  /*Align in center*/
   margin-top: 20px;
+  /*Add margin to the top of 20px*/
 }
 
 .center-content {
   display: flex;
+  /*Allow content to be flexible and not static*/
   flex-direction: column;
+  /*Stack on top of eachother*/
   align-items: center;
+  /*Align items in the center, but horizontally*/
   justify-content: center;
+  /*All items in the center, but vertically*/
   text-align: center;
+  /*Center the text based off the previous centers*/
   padding-top: 50px;
+  /*Add padding to the top of container*/
   margin-bottom: 50px;
+  /*Add space to the bottom of the container*/
 }
 
 /*Hamburger Menu*/
@@ -306,7 +299,9 @@ ul {
 /*https://www.educba.com/scrollbar-in-html-table/*/
 .divScroll {
   overflow-x: scroll;
-  width: 1500px;
+  /*Allow webpage to scroll with the table*/
+  width: auto;
+  /*The maximum size of the table/container is determined by user*/
 }
 
 /*Button Design*/
@@ -351,15 +346,33 @@ ul {
   white-space: nowrap;
   /*Do not wrap text*/
   margin-top: 20px;
-  font-family: 'lustria', serif;
+  /*Add space above button*/
+  font-size: 1.1rem;
+  /*Use the default font size on the users setting*/
+  outline: none;
+  /*Do not add an outline around button*/
+  font-family: 'Arial', sans-serif;
+  /*Same font family as before to keep consistent*/
+  transition: background-color 0.2s ease-in-out;
+  /*Add transition for the background color of button*/
+}
+
+.button-style2:hover {
+  background-color: #FFFFFF;
+  /*When hovering over button, change color to white*/
 }
 
 .button-style3 {
   padding: 0.25em 0.25em;
+  /*Add padding around button*/
   float: left; 
+  /*Align button to the left*/
   margin-left: 15px; 
+  /*Add space to left of button*/
   background-color: #e8e8e8; 
-  font-family: 'lustria', serif
+  /*Make background color lighter grey*/
+  font-family: 'Arial', sans-serif;
+  /*Same font style as before*/
 }
 
 .button-style:hover {
@@ -389,13 +402,12 @@ ul {
 /*Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs*/
 #faq-section {
   max-width: 750px;
-  width: 750px;
   /*Set the maximum width of the entire section*/
   margin: auto;
   /*Center the section*/
   padding: 20px;
   /*Add padding around the section*/
-  font-family: 'lustria', serif;
+  font-family: 'Arial', sans-serif;
   /* Use hte font lustria for text, and if it cant, use serif*/
 }
 
@@ -405,7 +417,9 @@ ul {
   margin-bottom: 30px;
   /*Add bottom margin to add spacing*/
   margin-top: 0;
+  /*Do not add space above section*/
   padding: 15px;
+  /*Add space around section*/
 }
 
 .faw-container {
@@ -506,6 +520,74 @@ ul {
   /*Remove the margin of a paragraph to remove extra space*/
 }
 
+#main-content {
+  display: flex;
+  /*Utilize flex instead of a static one*/
+  justify-content: space-between;
+  /*When there are multiple items, space them evenly*/
+  align-items: flex-start;
+  /*Align items from the first object*/
+  padding: 20px;
+  /*Add padding around*/
+}
+
+#faq-section {
+  flex: 1;
+  /*Fill entire space avaliable*/
+  padding-right: 20px;
+  /*Add padding to right to seperate and not overlap*/
+}
+
+#faqPicture {
+  flex: 1;
+  /*Fill entire space avaliable*/
+  text-align: right;
+  /*Align text to the right*/
+  padding-left: 20px;
+  /*Add padding to the left*/
+}
+
+#faqPicture img {
+  position: absolute;
+  /*Do not move the picture other than with the container*/
+  top: 100%;
+  /*Makes sure there is no space*/
+  right: 100px;
+  /*Push 100px from right to make sure it is not touching edge of page*/
+  width: 500px;
+  /*Set width of image*/
+  z-index: 1;
+  /*Makes sure that the image does not overlap other stuff*/
+  transform: translateY(30%);
+  /*Makes sure that the image is below the header image*/
+}
+
+.content-wrapper{
+  max-width: 1200px;
+  /*Max width container can be*/
+  margin: 1em auto;
+  /*Center the wrapper and have padding on each side that is even*/
+  padding: 6em;
+  /*Add more padding*/
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /*When displaying, stack*/
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+
 /*DropDown Menu*/
 .dropdown .faq .opened {
   background-color: white;
@@ -544,8 +626,67 @@ ul {
   /*Show paragraph when the FAQ item is clicked*/
 }
 
+/*Example Image Home Page*/
+#examplePicture img{
+  max-width: 100%;
+  height: auto;
+  margin-top: 1em;
+}
+
+.image-container{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.text-container{
+  flex: 1;
+  padding: 1em;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img{
+  width: 100%;
+  height: auto;
+}
+
+/* pdfFormat*/
+iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 600px;
+}
+
+.docs-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.docs-section,
+.howTo-section {
+  flex: 1;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 500px;
+  margin-top: 20px;
+  border: none;
+}
 /*Making Webpage Responsive*/
 @media (max-width: 750px) {
+ 
   /* When webpage is 750px width or less*/
 
   body {
@@ -622,9 +763,36 @@ ul {
   }
 
   .checkbox-group label {
-    font-family: 'lustria', serif;
+    font-family: 'Arial', sans-serif;
     font-size: 14px; /* Change the font size to your desired size */
     /* You can add more font properties here as needed */
 }
 
+  #github-icon {
+    right: 30px;
+    bottom: 10px;
+  }
+
+  .content-container {
+    padding-bottom: 70px;
+  }
+
+  #faqPicture{
+    display: none;
+  }
+
+  #examplePicture img{
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+}
+
+.container{
+  flex-direction: column;
+}
 }
