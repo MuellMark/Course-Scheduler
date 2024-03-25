@@ -330,7 +330,7 @@
         var rowCount = table.rows.length;
 
         //Check if the table has more than 2 rows 
-        if (rowCount > 2) {
+        if (rowCount > 3) {
             table.removeChild(row);
         }
         else {
