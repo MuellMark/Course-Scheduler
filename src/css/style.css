@@ -362,6 +362,11 @@ header {
   /*When hovering over button, change color to white*/
 }
 
+.button-style3:hover {
+  background-color: #FFFFFF;
+  /*When hovering over button, change color to white*/
+}
+
 .button-style3 {
   padding: 0.25em 0.25em;
   /*Add padding around button*/
@@ -373,6 +378,26 @@ header {
   /*Make background color lighter grey*/
   font-family: 'Arial', sans-serif;
   /*Same font style as before*/
+}
+
+.button-style4 {
+  padding: 0.25em 0.25em;
+  /*Add padding around button*/
+  float: left; 
+  /*Align button to the left*/
+  margin-left: 15px; 
+  /*Add space to left of button*/
+  background-color: #ffcb08; 
+  /*Make background color yellow*/
+  font-family: 'Arial', sans-serif;
+  /*Same font style as before*/
+}
+
+.button-style4:hover {
+  color: #000000;
+  /*Set color to black*/
+  background-color: #FFF;
+  /*Set background color to white*/
 }
 
 .button-style:hover {
