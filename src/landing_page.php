@@ -26,9 +26,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <!-- Just taking it out of the navigation on the home screen and replacing with get started button
                         <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
-                        -->
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
                     </ul>
                 </div>
