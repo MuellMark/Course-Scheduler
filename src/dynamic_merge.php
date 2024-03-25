@@ -63,6 +63,7 @@
             width: 100%;
         }
 
+        /*
         table#faculty-table {
             table-layout: fixed ;
             width: 100% ;
@@ -72,6 +73,7 @@
         table#faculty-table td {
             width: 20% ;
         }
+        */
 
         /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
     @media screen and (max-width: 300px) {
@@ -114,7 +116,7 @@
                     <option value=''>New Course</option>
                 </select>
 
-                <button class="button-style3" onclick="tableToCSV()" style="background-color: #ffcb08">Save as CSV</button>
+                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
         
             </th>
         </tr>
@@ -236,14 +238,15 @@
             <th style="background-color: #ffffff"; colspan="4">
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
-                <button class="button-style3" onclick="tableToCSV()" style="background-color: #ffcb08">Save as CSV</button>
+                <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
+                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
             </th>
         </tr>
         <tr>
-            <th></th>
-            <th>Professor Name</th>
-            <th>Prime time</th>
-            <th>Classes</th>
+            <th style="width: 25px"></th>
+            <th style="width: 500px">Professor Name</th>
+            <th style="width: 200px">Prime time</th>
+            <th style="width: 500px">Classes</th>
         </tr>
     </table>
     </div>
@@ -269,7 +272,7 @@
 
             // Professor Name
             var cell1 = row.insertCell(1);
-            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
+            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' style='width: 350px' placeholder='Enter Faculty Name'>";
 
             // Prime time
             var cell2 = row.insertCell(2);
@@ -282,13 +285,14 @@
             // TODO check if course exist in database and or in course table above
             // TODO could make value uppercase to simplify the check
             var cell3 = row.insertCell(3);
-            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Course Abbreviation Taught'>";
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
             // Add extra courses
             var cell4 = row.insertCell(4);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
             cell4.style.border = "none";
+            cell4.style.width = "150px";
         }
     </script>
 </body>
