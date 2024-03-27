@@ -43,10 +43,8 @@
     <!---------------------------- Course dynamic table ---------------------------->
 
     <h4><span>Course Table</span></h4>
-    <!--<button class="button-style" onclick="addRow()">Add Row</button> -->
-    <button class="button-style" onclick="tableToCSV()">Save as CSV</button>
-    <!--<button class="button-style" onclick="clearTable('course-table')">Clear Table</button>-->
-    <button class="button-style" onclick="addToDB()">Add to Firebase</button>
+    <!--<button class="button-style" onclick="tableToCSV()">Save as CSV</button>-->
+    <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <!-- TODO create a function that grabs the necessary values based on selected-->
@@ -64,6 +62,18 @@
             border-collapse: collapse;
             width: 100%;
         }
+
+        /*
+        table#faculty-table {
+            table-layout: fixed ;
+            width: 100% ;
+            border-collapse: collapse;
+        }
+
+        table#faculty-table td {
+            width: 20% ;
+        }
+        */
 
         /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
     @media screen and (max-width: 300px) {
@@ -83,12 +93,35 @@
         th {
             background-color: #f2f2f2;
         }
+        /* Feel free to remove this or change this */
+        label {
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            font-family: 'Comic Sans MS';
+        }
     </style>
 
     <div class="divScroll">
     <table id="course-table">
         <tr>
-            <th>Remove row</th>
+            <th style="background-color: #ffffff"; colspan="7">
+                <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
+                <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
+
+                <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'lustria', serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
+                    <option value=''>Add New Course</option>
+                    <option value=''>New Course</option>
+                </select>
+
+                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
+        
+            </th>
+        </tr>
+        <tr>
+            <th></th>
             <!--<th>Add row</th> -->
             <th>Class name</th>
             <th>Abbreviation</th>
@@ -102,9 +135,6 @@
 
     <br>
     
-    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
-    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
-
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
@@ -151,16 +181,18 @@
                 // Unavailable Times
                 // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
-                cell6.innerHTML = "<div><input type='checkbox' id='m800' name='m800' value='m800'>" +
-                    "<input type='checkbox' id='m930' name='m930' value='m930'>" +
-                    "<input type='checkbox' id='m1100' name='m1100' value='m1100'>" +
-                    "<input type='checkbox' id='m200' name='m200' value='m200'>" +
-                    "<input type='checkbox' id='m330' name='m330' value='m330'></div><div>" +
-                    "<input type='checkbox' id='t830' name='t830' value='t830'>" +
-                    "<input type='checkbox' id='t1000' name='t1000' value='t1000'>" +
-                    "<input type='checkbox' id='t1130' name='t1130' value='t1130'>" +
-                    "<input type='checkbox' id='t100' name='t100' value='t100'>" +
-                    "<input type='checkbox' id='t230' name='t230' value='t230'></div>";
+                // <label for=\"m930\"></label>
+                cell6.innerHTML = 
+                    "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
+                    "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
+                    "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
+                    "<label for='m200'><input type='checkbox' id='m200' name='m200' value='m200'>2:00</label>" +
+                    "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
+                    "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
+                    "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
+                    "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
+                    "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
+                    "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
 
                 // CourseID
                 var cell7 = row.insertCell(6);
@@ -200,23 +232,27 @@
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
     <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
-    <br>
     <div class="divScroll">
     <table id="faculty-table">
+    <tr>
+            <th style="background-color: #ffffff"; colspan="4">
+                <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
+                <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
+                <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
+                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
+            </th>
+        </tr>
         <tr>
-            <th>Remove</th>
-            <th>Professor Name</th>
-            <th>Prime time</th>
-            <th>Classes</th>
+            <th style="width: 25px"></th>
+            <th style="width: 500px">Professor Name</th>
+            <th style="width: 200px">Prime time</th>
+            <th style="width: 500px">Classes</th>
         </tr>
     </table>
     </div>
 
-    <button class="button" onclick="addRow()" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Add Row</button>
-    <button class="button" onclick="clearTable('course-table')" style="float: right; margin-right: 15px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Clear Table</button>
     <br>
     <br>
-
 
     <script>
         addRowFac(); // Start with one empty row
@@ -236,7 +272,7 @@
 
             // Professor Name
             var cell1 = row.insertCell(1);
-            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' placeholder='Enter Faculty Name'>";
+            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' style='width: 350px' placeholder='Enter Faculty Name'>";
 
             // Prime time
             var cell2 = row.insertCell(2);
@@ -249,16 +285,19 @@
             // TODO check if course exist in database and or in course table above
             // TODO could make value uppercase to simplify the check
             var cell3 = row.insertCell(3);
-            cell3.innerHTML = "<input type='text' id='courses' name='courses' placeholder='Course Abbreviation Taught'>";
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
             // Add extra courses
             var cell4 = row.insertCell(4);
             cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
             cell4.style.border = "none";
+            cell4.style.width = "150px";
         }
     </script>
 </body>
+
+
 
 <!---------------------------- Collection of JS scripts used to manipulate both dynamic forms ---------------------------->
 <script>
@@ -268,9 +307,9 @@
     function clearTable(table) {
         var table = document.getElementById(table);
 
-        // Need to be more than 1 row to delete
-        while (table.rows.length > 2) {
-            table.deleteRow(1);
+        // Need to be more than 3 row to delete (so that header rows aren't removed)
+        while (table.rows.length > 3) {
+            table.deleteRow(2);
         }
     }
     /**
@@ -291,7 +330,7 @@
         var rowCount = table.rows.length;
 
         //Check if the table has more than 2 rows 
-        if (rowCount > 2) {
+        if (rowCount > 3) {
             table.removeChild(row);
         }
         else {
@@ -556,8 +595,11 @@
     }
 </style>
 
+<div id="github-icon">
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
     <img src="./images/github.png" alt="Link to Github" id="github-icon">
 </a>
+</div>
+
 
 </html>
