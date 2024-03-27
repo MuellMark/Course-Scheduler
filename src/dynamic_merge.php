@@ -48,10 +48,6 @@
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <!-- TODO create a function that grabs the necessary values based on selected-->
-    <select name='addCourseRow' id='addCourseRow' onchange="addRowFromKey(this.value);">
-        <option value=''>Add new course</option>
-        <option value=''>New course</option>
-    </select>
     <br><a href="landing_page.php"></a>
 
     <br>
