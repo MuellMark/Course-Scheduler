@@ -101,7 +101,6 @@
     </style>
 
     <div class="divScroll">
-    <table id="course-table">
         <tr>
             <th style="background-color: #ffffff"; colspan="7">
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
@@ -117,6 +116,7 @@
         
             </th>
         </tr>
+        <table id="course-table">
         <tr>
             <th></th>
             <!--<th>Add row</th> -->
@@ -231,7 +231,6 @@
     <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
     <div class="divScroll2">
-    <table id="faculty-table">
     <tr>
             <th style="background-color: #ffffff"; colspan="4">
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
@@ -240,6 +239,7 @@
                 <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
             </th>
         </tr>
+        <table id="faculty-table">
         <tr>
             <th style="width: 25px"></th>
             <th style="width: 500px">Professor Name</th>
@@ -357,7 +357,7 @@
                     || (input.type === "text" && input.value.trim() === "")
                     //Check if the number inputs are empty
                     || (input.type === "number" && input.value.trim() === "")) {
-                    return true;
+                    return false;
                 }
             }
         }
@@ -396,13 +396,11 @@
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("course-table");
         var rows = table.getElementsByTagName("tr");
-        var courseID = cells[6].querySelector("input").value;
-        addRow(courseID);
         // Skip first title row
         // for (var i = 1; i < rows.length; i++) {
         //     var cells = rows[i].getElementsByTagName("td");
         //     var courseID = cells[6].querySelector("input").value;
-            // User selected new course
+        //     User selected new course
         //     if(courseID == '')
         //         courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
