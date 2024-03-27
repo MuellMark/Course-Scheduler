@@ -117,17 +117,17 @@
             </th>
         </tr>
         <table id="course-table">
-        <tr>
-            <th></th>
-            <!--<th>Add row</th> -->
-            <th>Class name</th>
-            <th>Abbreviation</th>
-            <th>4 Contact Hours</th>
-            <th>Sections</th>
-            <th>Unavailable Times</th>
-            <th>Select CourseID</th>
-        </tr>
-    </table>
+            <tr>
+                <th></th>
+                <!--<th>Add row</th> -->
+                <th>Class name</th>
+                <th>Abbreviation</th>
+                <th>4 Contact Hours</th>
+                <th>Sections</th>
+                <th>Unavailable Times</th>
+                <th>Select CourseID</th>
+            </tr>
+        </table>
     </div>
 
     <br>
@@ -357,7 +357,7 @@
                     || (input.type === "text" && input.value.trim() === "")
                     //Check if the number inputs are empty
                     || (input.type === "number" && input.value.trim() === "")) {
-                    return false;
+                    return true;
                 }
             }
         }
@@ -397,49 +397,49 @@
         var table = document.getElementById("course-table");
         var rows = table.getElementsByTagName("tr");
         // Skip first title row
-        // for (var i = 1; i < rows.length; i++) {
-        //     var cells = rows[i].getElementsByTagName("td");
-        //     var courseID = cells[6].querySelector("input").value;
-        //     User selected new course
-        //     if(courseID == '')
-        //         courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var courseID = cells[6].querySelector("input").value;
+            // User selected new course
+            if(courseID == '')
+                courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
-        //     if (courseID !== '' && courseID !== 'new') {
-        //         var className = cells[1].querySelector("input").value;
-        //         var abbreviation = cells[2].querySelector("input").value;
-        //         var contactHours = cells[3].querySelector("select").value;
-        //         var sections = cells[4].querySelector("input").value;
+            if (courseID !== '' && courseID !== 'new') {
+                var className = cells[1].querySelector("input").value;
+                var abbreviation = cells[2].querySelector("input").value;
+                var contactHours = cells[3].querySelector("select").value;
+                var sections = cells[4].querySelector("input").value;
 
-        //         // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
-        //         var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
-        //         let unavailableTimesList = [];
-        //         for (let j = 0; j < unavailableTimes.length; j++) {
-        //             unavailableTimesList.push(unavailableTimes[j].value)
-        //         }
+                // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
+                var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
+                let unavailableTimesList = [];
+                for (let j = 0; j < unavailableTimes.length; j++) {
+                    unavailableTimesList.push(unavailableTimes[j].value)
+                }
 
-        //         // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
-        //         var courses = rows[i].querySelectorAll('[name="courses"]');
-        //         let coursesList = [];
-        //         for (let k = 0; k < courses.length; k++) {
-        //             // Get the text data of each cell from the additional courses and push it to classList
-        //             coursesList.push(courses[k].value);
-        //         }
-        //         // Push data to Firebase and map data to Firebase using CourseID as key
-        //         // https://firebase.google.com/docs/database/web/read-and-write
-        //         database.ref('temp_courses/' + courseID).set({
-        //             class_name: className,
-        //             abbreviation: abbreviation,
-        //             contact_hours: contactHours,
-        //             sections: sections,
-        //             unavailableTimes: unavailableTimesList,
-        //             extraCourses: coursesList
-        //         });
-        //         // TODO remove this or make a better message       
-        //         alert("Yippee it worked!");
-        //     }
-        //     else
-        //         alert("Please select a course from the dropdown");
-        // }
+                // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
+                var courses = rows[i].querySelectorAll('[name="courses"]');
+                let coursesList = [];
+                for (let k = 0; k < courses.length; k++) {
+                    // Get the text data of each cell from the additional courses and push it to classList
+                    coursesList.push(courses[k].value);
+                }
+                // Push data to Firebase and map data to Firebase using CourseID as key
+                // https://firebase.google.com/docs/database/web/read-and-write
+                database.ref('temp_courses/' + courseID).set({
+                    class_name: className,
+                    abbreviation: abbreviation,
+                    contact_hours: contactHours,
+                    sections: sections,
+                    unavailableTimes: unavailableTimesList,
+                    extraCourses: coursesList
+                });
+                // TODO remove this or make a better message       
+                alert("Yippee it worked!");
+            }
+            else
+                alert("Please select a course from the dropdown");
+        }
     }
 
     /**
