@@ -233,7 +233,7 @@
     <div class="divScroll2">
     <tr>
             <th style="background-color: #ffffff"; colspan="4">
-                <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
+                <button class="button-style3" onclick="clearTable('faculty-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDBFac()">Add to Firebase</button>
                 <button class="button-style3" onclick="addRowFac()">Add Row</button>
                 <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
@@ -306,7 +306,8 @@
         var table = document.getElementById(table);
 
         // Need to be more than 3 row to delete (so that header rows aren't removed)
-        while (table.rows.length > 3) {
+        // I changed it to 0 to fix another issue but if need be we can revert it back to 3 - Colby
+        while (table.rows.length > 0) {
             table.deleteRow(2);
         }
     }
