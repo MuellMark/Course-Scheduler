@@ -495,3 +495,36 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
         file_contents+=("$\n")
 
     export_file.write(file_contents)
+
+def export_csv_website(contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
+    export_file = open(export_file_name,'w')
+    file_contents=""
+
+    pairings=[]
+    count_courses_simplex=0
+    for c in lp.cols:
+        if c.primal ==1:
+            count_courses_simplex+=1
+            pairings.append(c.name)
+
+    sortedPairings = []
+    output = []
+    for num in range(num_cols):
+        col_string = "Col"+str(num+1)
+        for time in times:
+            for pair in pairings:
+                if col_string in pair and time in pair:
+                    if pair not in sortedPairings: # Not sure why there a duplicates 
+                        temp=str(num+1)+","+time+","+pair[:3]
+                        for fac in contents_faculty_restrict:
+                            if pair[:4] in fac:
+                                temp+=","+fac[0]
+
+                        sortedPairings.append(pair)
+                        output.append(temp)
+    # print(pairings)
+    # print(sortedPairings)
+    for pair in output:
+        file_contents+=pair+"\n"
+        
+    export_file.write(file_contents)
