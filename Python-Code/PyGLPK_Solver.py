@@ -495,3 +495,36 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
         file_contents+=("$\n")
 
     export_file.write(file_contents)
+
+def export_csv_website(contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
+    export_file = open(export_file_name,'w')
+    file_contents=""
+
+    count_courses_actual = len(contents_course_restrict)
+    pairings=[]
+    count_courses_simplex=0
+    for c in lp.cols:
+        if c.primal ==1:
+            count_courses_simplex+=1
+            pairings.append(c.name)
+    if count_courses_simplex != count_courses_actual:
+        print("Error with the simplex, only "+str(count_courses_simplex)+
+              " courses were accounted for when "+str(count_courses_actual)+
+              " courses should have been added")
+    else:
+        print("Success, all "+str(count_courses_actual)+" courses paired!")
+    
+    sortedPairings = []
+    for num in range(num_cols):
+        col_string = "Col"+str(num+1)
+        for time in times:
+            for pair in pairings:
+                if col_string in pair and time in pair:
+                    if pair not in sortedPairings: # Not sure why there a duplicates 
+                        sortedPairings.append(pair)
+    # print(pairings)
+    # print(sortedPairings)
+    for pair in sortedPairings:
+        file_contents+=pair+"\n"
+        
+    export_file.write(file_contents)
