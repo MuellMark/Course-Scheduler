@@ -25,7 +25,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
+                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
                     </ul>
                 </div>
