@@ -106,6 +106,7 @@
             <th style="background-color: #ffffff"; colspan="7">
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
+                <button class="button-style3" onclick="addRow()">Add Row</button>
 
                 <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'lustria', serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
                     <option value=''>Add New Course</option>
@@ -197,10 +198,11 @@
 
                 
                 //getDBKeys(cell7);
-                cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                    "<option value='empty'>Choose one</option>" +
-                    "<option value='new'>New course</option>" +
-                    "</select>";
+                // cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
+                //     "<option value='empty'>Choose one</option>" +
+                //     "<option value='new'>New course</option>" +
+                //     "</select>";
+                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' style='width: 200px'>";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
@@ -228,13 +230,13 @@
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
     <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
-    <div class="divScroll">
+    <div class="divScroll2">
     <table id="faculty-table">
     <tr>
             <th style="background-color: #ffffff"; colspan="4">
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
-                <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
-                <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
+                <button class="button-style3" onclick="addToDBFac()">Add to Firebase</button>
+                <button class="button-style3" onclick="addRowFac()">Add Row</button>
                 <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
             </th>
         </tr>
@@ -355,7 +357,7 @@
                     || (input.type === "text" && input.value.trim() === "")
                     //Check if the number inputs are empty
                     || (input.type === "number" && input.value.trim() === "")) {
-                    return false;
+                    return true;
                 }
             }
         }
@@ -394,51 +396,52 @@
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("course-table");
         var rows = table.getElementsByTagName("tr");
-
+        var courseID = cells[6].querySelector("input").value;
+        addRow(courseID);
         // Skip first title row
-        for (var i = 1; i < rows.length; i++) {
-            var cells = rows[i].getElementsByTagName("td");
-            var courseID = cells[6].querySelector("select").value;
+        // for (var i = 1; i < rows.length; i++) {
+        //     var cells = rows[i].getElementsByTagName("td");
+        //     var courseID = cells[6].querySelector("input").value;
             // User selected new course
-            if(courseID == 'new')
-                courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
+        //     if(courseID == '')
+        //         courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
-            if (courseID !== 'empty' && courseID !== 'new') {
-                var className = cells[1].querySelector("input").value;
-                var abbreviation = cells[2].querySelector("input").value;
-                var contactHours = cells[3].querySelector("select").value;
-                var sections = cells[4].querySelector("input").value;
+        //     if (courseID !== '' && courseID !== 'new') {
+        //         var className = cells[1].querySelector("input").value;
+        //         var abbreviation = cells[2].querySelector("input").value;
+        //         var contactHours = cells[3].querySelector("select").value;
+        //         var sections = cells[4].querySelector("input").value;
 
-                // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
-                var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
-                let unavailableTimesList = [];
-                for (let j = 0; j < unavailableTimes.length; j++) {
-                    unavailableTimesList.push(unavailableTimes[j].value)
-                }
+        //         // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
+        //         var unavailableTimes = rows[i].querySelectorAll('[type="checkbox"]:checked'); // Select all weekday checkbox that are selected
+        //         let unavailableTimesList = [];
+        //         for (let j = 0; j < unavailableTimes.length; j++) {
+        //             unavailableTimesList.push(unavailableTimes[j].value)
+        //         }
 
-                // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
-                var courses = rows[i].querySelectorAll('[name="courses"]');
-                let coursesList = [];
-                for (let k = 0; k < courses.length; k++) {
-                    // Get the text data of each cell from the additional courses and push it to classList
-                    coursesList.push(courses[k].value);
-                }
-                // Push data to Firebase and map data to Firebase using CourseID as key
-                // https://firebase.google.com/docs/database/web/read-and-write
-                database.ref('temp_courses/' + courseID).set({
-                    class_name: className,
-                    abbreviation: abbreviation,
-                    contact_hours: contactHours,
-                    sections: sections,
-                    unavailableTimes: unavailableTimesList,
-                    extraCourses: coursesList
-                });
-                // TODO remove this or make a better message       
-                alert("Yippee it worked!");
-            }
-            else
-                alert("Please select a course from the dropdown");
-        }
+        //         // Get the text data of each cell from weekday checkbox and push it to unavailableTimesList
+        //         var courses = rows[i].querySelectorAll('[name="courses"]');
+        //         let coursesList = [];
+        //         for (let k = 0; k < courses.length; k++) {
+        //             // Get the text data of each cell from the additional courses and push it to classList
+        //             coursesList.push(courses[k].value);
+        //         }
+        //         // Push data to Firebase and map data to Firebase using CourseID as key
+        //         // https://firebase.google.com/docs/database/web/read-and-write
+        //         database.ref('temp_courses/' + courseID).set({
+        //             class_name: className,
+        //             abbreviation: abbreviation,
+        //             contact_hours: contactHours,
+        //             sections: sections,
+        //             unavailableTimes: unavailableTimesList,
+        //             extraCourses: coursesList
+        //         });
+        //         // TODO remove this or make a better message       
+        //         alert("Yippee it worked!");
+        //     }
+        //     else
+        //         alert("Please select a course from the dropdown");
+        // }
     }
 
     /**
@@ -515,13 +518,13 @@
                 // Caution: I know this is inefficient but there needs
                 // to be two loops because if not they will overwrite each other - Colby
                 // TODO if we decide to get rid of one drop down then please remove it here as well
-                const dropdown = document.getElementById('CourseID');
-                // Loop through the array and create option elements from keys
-                for (let i = 0; i < dbKeys.length; i++) {
-                    const option = document.createElement('option');
-                    option.text = dbKeys[i];
-                    dropdown.add(option);
-                }   
+                // const dropdown = document.getElementById('CourseID');
+                // // Loop through the array and create option elements from keys
+                // for (let i = 0; i < dbKeys.length; i++) {
+                //     const option = document.createElement('option');
+                //     option.text = dbKeys[i];
+                //     dropdown.add(option);
+                // }   
 
                 const courseAdd = document.getElementById('addCourseRow');
                 for (let i = 0; i < dbKeys.length; i++) {
