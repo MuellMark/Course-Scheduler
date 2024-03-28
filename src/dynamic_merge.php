@@ -176,7 +176,6 @@
                 cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
 
                 // Unavailable Times
-                // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
                 // <label for=\"m930\"></label>
                 cell6.innerHTML = 
@@ -513,18 +512,6 @@
             });
             } 
                 //dbKeys.forEach((element) => addRow(element)); // Used for debugging
-
-                // Caution: I know this is inefficient but there needs
-                // to be two loops because if not they will overwrite each other - Colby
-                // TODO if we decide to get rid of one drop down then please remove it here as well
-                // const dropdown = document.getElementById('CourseID');
-                // // Loop through the array and create option elements from keys
-                // for (let i = 0; i < dbKeys.length; i++) {
-                //     const option = document.createElement('option');
-                //     option.text = dbKeys[i];
-                //     dropdown.add(option);
-                // }   
-
                 const courseAdd = document.getElementById('addCourseRow');
                 for (let i = 0; i < dbKeys.length; i++) {
                     const option = document.createElement('option');
