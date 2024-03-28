@@ -202,7 +202,7 @@
                 //     "<option value='empty'>Choose one</option>" +
                 //     "<option value='new'>New course</option>" +
                 //     "</select>";
-                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' style='width: 200px'>";
+                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' value = " + abbrName +">";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
