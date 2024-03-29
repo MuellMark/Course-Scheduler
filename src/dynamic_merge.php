@@ -139,7 +139,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE") {
+        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE", sections = '') {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -173,7 +173,7 @@
 
                 // Sections
                 var cell5 = row.insertCell(4);
-                cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
+                cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'value = " + sections +">";
 
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
@@ -201,7 +201,7 @@
                 //     "<option value='empty'>Choose one</option>" +
                 //     "<option value='new'>New course</option>" +
                 //     "</select>";
-                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' value = " + abbrName +">";
+                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' value = " + abbrName + sections + ">";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
@@ -541,7 +541,8 @@
                 var courseAbbr = courseData.abbreviation;
                 var courseName = courseData.class_name;
                 var meeting_hours = courseData.contact_hours;
-                addRow(courseName, courseAbbr,meeting_hours);
+                var sections = courseData.sections;
+                addRow(courseName, courseAbbr,meeting_hours,sections);
                 }
             })
     }
