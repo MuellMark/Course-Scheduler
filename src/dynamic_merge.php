@@ -234,8 +234,8 @@
             <th style="background-color: #ffffff"; colspan="4">
                 <button class="button-style3" onclick="clearTable('faculty-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDBFac()">Add to Firebase</button>
-                <button class="button-style3" onclick="addRowFac()">Add Row</button>
-                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
+                <!-- <button class="button-style3" onclick="addRowFac()">Add Row</button>
+                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button> -->
             </th>
         </tr>
         <table id="faculty-table">
