@@ -406,7 +406,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
 
-    add_to_LP_matrix()
+    
     # print(lp.matrix)
     # print(len(lp.cols))
     # print(len(lp.rows))
@@ -417,6 +417,8 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     if len(forced_courses)>0:
         force_courses_constraints(all_combos,forced_courses)
     
+    add_to_LP_matrix()
+
     lp.simplex()
 
     #  Add a check here to see if a solution is feasible before checking integer
