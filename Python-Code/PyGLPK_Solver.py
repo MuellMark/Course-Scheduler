@@ -309,7 +309,7 @@ def force_courses_constraints(all_combos,forced_courses):
 
         lp.rows.add(1)
         lp.rows[row_index.getRowIndex()].name = course+"forced@"+time
-        lp.rows[row_index.getRowIndex()].bounds = 0
+        lp.rows[row_index.getRowIndex()].bounds = 1
         row_index.add()
 
         # initialize an array to store values for a given row
@@ -317,6 +317,7 @@ def force_courses_constraints(all_combos,forced_courses):
         for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
         matrix+=(temp_matrix)
+        print(matrix)
     global_matrix.append(matrix)
 
     # for course in courses:
@@ -412,6 +413,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     
 
     # TODO uncomment out when testing for forcing resumes
+    print(forced_courses)
     if len(forced_courses)>0:
         force_courses_constraints(all_combos,forced_courses)
     
@@ -419,7 +421,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
 
     #  Add a check here to see if a solution is feasible before checking integer
 
-    lp.integer() # Force it to be intger
+    # lp.integer() # Force it to be intger
 
 #------------Print Methods----------------------------
 
