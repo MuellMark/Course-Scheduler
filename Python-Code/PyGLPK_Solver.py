@@ -412,8 +412,8 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     
 
     # TODO uncomment out when testing for forcing resumes
-    # if len(forced_courses)>0:
-    #     force_courses_constraints(all_combos,forced_courses)
+    if len(forced_courses)>0:
+        force_courses_constraints(all_combos,forced_courses)
     
     lp.simplex()
 
