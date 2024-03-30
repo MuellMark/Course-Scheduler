@@ -19,7 +19,8 @@ function tableToCSV() {
         // Stores each csv row data
         let csvrow = [];
         if(cols.length > 0){
-            if(cols[0].id == "newCourse" && (firstCSVRow))
+            //if(cols[0].id == "newCourse" && (firstCSVRow))
+            if(firstCSVRow)
             {
                 firstCSVRow = false;
                 csv_data.push("<course-table>");
