@@ -192,15 +192,6 @@
 
                 // CourseID
                 var cell7 = row.insertCell(6);
-                // This includes the add funcitionality from the drop down above
-                //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
-
-                
-                //getDBKeys(cell7);
-                // cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                //     "<option value='empty'>Choose one</option>" +
-                //     "<option value='new'>New course</option>" +
-                //     "</select>";
                 cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' value = " + abbrName + sections + ">";
 
                 // Add button            
