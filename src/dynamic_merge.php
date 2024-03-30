@@ -328,7 +328,8 @@
         var rowCount = table.rows.length;
 
         //Check if the table has more than 2 rows 
-        if (rowCount > 3) {
+        // I also changed it to 1 to fix another issue but if need be we can revert it back to 3 - Colby
+        if (rowCount > 1) {
             table.removeChild(row);
         }
         else {
