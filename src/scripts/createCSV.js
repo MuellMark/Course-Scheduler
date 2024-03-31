@@ -2,6 +2,12 @@
 // Taken from this website but will be modified to fit our tasks
 function tableToCSV() {
 
+    /*error check to make sure course table is filled before saving, not working right now*/
+    if (!checkIfFilled("course-table")) {
+        alert("Please fill in all fields before saving CSV file.");
+        return false;
+    }
+
     // Variable to store the final csv data
     let csv_data = [];
 
@@ -19,7 +25,8 @@ function tableToCSV() {
         // Stores each csv row data
         let csvrow = [];
         if(cols.length > 0){
-            if(cols[0].id == "newCourse" && (firstCSVRow))
+            //if(cols[0].id == "newCourse" && (firstCSVRow))
+            if(firstCSVRow)
             {
                 firstCSVRow = false;
                 csv_data.push("<course-table>");
@@ -81,3 +88,4 @@ function downloadCSVFile(csv_data) {
     temp_link.click();
     document.body.removeChild(temp_link);
 }
+
