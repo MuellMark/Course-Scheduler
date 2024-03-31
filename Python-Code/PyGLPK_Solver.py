@@ -250,7 +250,6 @@ def faculty_restrictions(all_combos,contents,duplicates):
                 invalid_times.append(row[row_trav])
             row_trav+=1
         
-        #TODO double check this
         if row[1] == "TRUE":
             lp.rows.add(1)
             temp_matrix = [0]*len(all_combos)
@@ -296,20 +295,17 @@ def faculty_restrictions(all_combos,contents,duplicates):
     global_matrix.append(matrix)
 
 
-#TODO FIX THIS
+# Forces courses to be a certain time if specified
 def force_courses_constraints(all_combos,forced_courses):
     matrix=[]
 
-    # Should just need to refactor this so it's only looping thru columns
-    # since the course and time indexes are given, also need to loop thru forced_columns
-    
     for pairing in forced_courses:
         course= pairing[0]
         time= pairing[1]
 
         lp.rows.add(1)
         lp.rows[row_index.getRowIndex()].name = course+"forced@"+time
-        lp.rows[row_index.getRowIndex()].bounds = 0
+        lp.rows[row_index.getRowIndex()].bounds = 1
         row_index.add()
 
         # initialize an array to store values for a given row
@@ -318,23 +314,6 @@ def force_courses_constraints(all_combos,forced_courses):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
         matrix+=(temp_matrix)
     global_matrix.append(matrix)
-
-    # for course in courses:
-    #     lp.rows.add(1)
-    #     lp.rows[row_index.getRowIndex()].name = course
-    #     lp.rows[row_index.getRowIndex()].bounds = 1
-    #     row_index.add()
-        
-    #     # initialize an array to store values for a given row
-    #     temp_matrix = [0]*len(all_combos)
-    #     for time in times:
-    #         for col in range(num_cols):
-    #             temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
-    #     matrix+=(temp_matrix)
-
-    
-    
-    # print(matrix)
 
 # Adds the global matrix to the lp matrix
 def add_to_LP_matrix():
@@ -367,9 +346,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     global cI
     global maxC
     global maxT
-    # global global_matrix
 
-    # Global_Matrix=
     # Makes dictionaries to call values by their respective names
     tI={}
     createDict(tI,times)
@@ -405,21 +382,21 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     two_course_conflict_cons(all_combos,contents_course_restrict,duplicates)
     same_course_cons(all_combos,duplicates)
 
-    add_to_LP_matrix()
-    # print(lp.matrix)
-    # print(len(lp.cols))
-    # print(len(lp.rows))
+    if len(forced_courses)>0:
+        force_courses_constraints(all_combos,forced_courses)
     
+    add_to_LP_matrix() # Adds all of global matrix into lp.matrix
 
-    # TODO uncomment out when testing for forcing resumes
-    # if len(forced_courses)>0:
-    #     force_courses_constraints(all_combos,forced_courses)
-    
-    lp.simplex()
+    lp.simplex() # Calls simplex method
 
-    #  Add a check here to see if a solution is feasible before checking integer
+    # try block to check for feasibilty
+    success= True
+    try:
+        lp.integer() # Force it to be intger
+    except:
+        success=False
+    return success
 
-    lp.integer() # Force it to be intger
 
 #------------Print Methods----------------------------
 
@@ -467,11 +444,11 @@ def print_readable_format(contents_course_restrict):
                 if col_string in pair and time in pair:
                     if pair not in sortedPairings: # Not sure why there a duplicates 
                         sortedPairings.append(pair)
-    # print(pairings)
-    # print(sortedPairings)
+
     for pair in sortedPairings:
         print(pair)
 
+# Export method for the user to put it back into the site, NOT for displaying
 def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     export_file = open(export_file_name,'w')
     file_contents=""
@@ -495,3 +472,39 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
         file_contents+=("$\n")
 
     export_file.write(file_contents)
+
+# Exports the file for the website to intercept and displays the schedule
+def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
+    export_file = open(export_file_name,'w')
+    file_contents=""
+    if success: # Only print if a successful schedule was made
+
+        pairings=[]
+        count_courses_simplex=0
+        for c in lp.cols:
+            if c.primal ==1:
+                count_courses_simplex+=1
+                pairings.append(c.name)
+
+        sortedPairings = []
+        output = []
+        for num in range(num_cols):
+            col_string = "Col"+str(num+1)
+            for time in times:
+                for pair in pairings:
+                    if col_string in pair and time in pair:
+                        if pair not in sortedPairings: # Not sure why there a duplicates 
+                            temp=str(num+1)+","+time+","+pair[:3]
+                            for fac in contents_faculty_restrict:
+                                if pair[:4] in fac:
+                                    temp+=","+fac[0]
+
+                            sortedPairings.append(pair)
+                            output.append(temp)
+
+        for pair in output:
+            file_contents+=pair+"\n"
+            
+        export_file.write(file_contents)
+    else:
+        export_file.write("infeasible")

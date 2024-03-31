@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>About/HowTo</title> <!-- Title Of Page -->
+    <title>CSV Create Options</title> <!-- Title Of Page -->
     <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
+                        <li> <a href="dynamic_merge.php"> Create Schedule</a> </li>
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
                     </ul>
                 </div>
@@ -37,20 +37,26 @@
         </div>
     </header>
 
-    <div class="docs-container">
-        <div class="docs-section">
-            <h1> <span>Documentation </span></h1>
+    <br>
+    <div>
+        <h1 style="margin-top: 75px"><span>Create CSV</span></h1>
+        <br>
+        <br>
+        <br>
+        <p style="margin-left: auto; margin-right: auto; max-width: 700px"> The first step in course scheduling is creating a CSV file. This is where all of the course and faculty restrictions are specified. Users may either create a new CSV file or import an existing one. </p>
+   
+   
+    </div>
 
-            <iframe src="./docs/placeHolder.pdf" class="pdf-iframe"></iframe>
+    <br>
 
-</div>
-            <div class="howTo-section">
-
-            <h1> <span>HowTos </span></h1>
-
-            <iframe src="./docs/placeHolder.pdf" class="pdf-iframe"></iframe>
-</div>
-</div>
+    <!-- Container for buttons -->
+    <div class="container2">
+        <div class="info-box">
+        <button class="button-style2" onclick="window.location.href='dynamic_merge.php'" style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
+        <button class="button-style2" onclick="window.location.href='csv_option.php'" style="height:50px; width:250px">Import A CSV</button>
+        </div>
+    </div>
 
             <!-- JavaScript used to enable hamburger menu -->
             <script>
@@ -77,11 +83,5 @@
             </script>
 
 </body>
-
-<div id="github-icon-container">
-<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="./images/github.png" alt="Link to Github" id="github-icon">
-</a>
-</div>
 
 </html>

@@ -53,7 +53,9 @@ h4 {
   /*Add padding around text*/
   margin-top: 5px;
   /* Add margin to separate h1 from the elements that are above it*/
+  font-size: 35px;
 }
+
 
 h4 span {
   border-bottom: 5px solid #ccc;
@@ -374,6 +376,8 @@ header {
   /*Align button to the left*/
   margin-left: 15px; 
   /*Add space to left of button*/
+  margin-bottom: 10px;
+  /*Add space below button*/
   background-color: #e8e8e8; 
   /*Make background color lighter grey*/
   font-family: 'Arial', sans-serif;
@@ -387,6 +391,8 @@ header {
   /*Align button to the left*/
   margin-left: 15px; 
   /*Add space to left of button*/
+  margin-bottom: 10px;
+  /*Add space below button*/
   background-color: #ffcb08; 
   /*Make background color yellow*/
   font-family: 'Arial', sans-serif;
@@ -612,6 +618,12 @@ header {
   padding: 2em;
 }
 
+.container2 {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
 
 /*DropDown Menu*/
 .dropdown .faq .opened {
@@ -820,4 +832,11 @@ iframe {
 .container{
   flex-direction: column;
 }
+
+.scrollable-cell {
+  overflow-x: scroll;
+  /*add scrollbar when content goes over width*/
+  max-width: 100px;
+}
+
 }

@@ -25,7 +25,7 @@
                     <ul>
                         <li> <a href="landing_page.php"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_merge.php"> Create CSV</a> </li>
+                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
                     </ul>
                 </div>
@@ -48,8 +48,6 @@
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <br><a href="landing_page.php"></a>
-
-    <br>
 
     <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
     <style>
@@ -97,16 +95,17 @@
             cursor: pointer;
             font-family: 'Comic Sans MS';
         }
+
     </style>
 
     <div class="divScroll">
         <tr>
-            <th style="background-color: #ffffff"; colspan="7">
+            <th style="background-color: #ffffff"; colspan="7";>
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
                 <button class="button-style3" onclick="addRow()">Add Row</button>
 
-                <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'lustria', serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
+                <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'Arial', sans-serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
                     <option value=''>Add New Course</option>
                     <option value=''>New Course</option>
                 </select>
@@ -173,6 +172,7 @@
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
                 // <label for=\"m930\"></label>
+                cell6.className = "scrollable-cell";
                 cell6.innerHTML = 
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
                     "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
@@ -214,7 +214,7 @@
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
     <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
-    <div class="divScroll2">
+    <div class="divScroll">
     <tr>
             <th style="background-color: #ffffff"; colspan="4">
                 <button class="button-style3" onclick="clearTable('faculty-table')">Clear Table</button>
@@ -226,9 +226,10 @@
         <table id="faculty-table">
         <tr>
             <th style="width: 25px"></th>
-            <th style="width: 500px">Professor Name</th>
-            <th style="width: 200px">Prime time</th>
-            <th style="width: 500px">Classes</th>
+            <th style="width: 350px">Professor Name</th>
+            <th style="width: 100px">Prime time</th>
+            <th style="width: 300px">Classes</th>
+            <th style="width: 300px">Unavailable Times</th>
         </tr>
     </table>
     </div>
@@ -254,7 +255,7 @@
 
             // Professor Name
             var cell1 = row.insertCell(1);
-            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' style='width: 350px' placeholder='Enter Faculty Name'>";
+            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' style='width: 300px' placeholder='Enter Faculty Name'>";
 
             // Prime time
             var cell2 = row.insertCell(2);
@@ -271,11 +272,26 @@
             cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
-            // Add extra courses
+            //unavailable times
             var cell4 = row.insertCell(4);
-            cell4.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
-            cell4.style.border = "none";
-            cell4.style.width = "150px";
+                var unavailableTimesContent = 
+                    "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
+                    "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
+                    "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
+                    "<label for='m200'><input type='checkbox' id='m200' name='m200' value='m200'>2:00</label>" +
+                    "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
+                    "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
+                    "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
+                    "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
+                    "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
+                    "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
+                cell4.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
+
+            // Add extra courses
+            var cell5 = row.insertCell(5);
+            cell5.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
+            cell5.style.border = "none";
+            cell5.style.width = "150px";
         }
     </script>
 </body>

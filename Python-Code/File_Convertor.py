@@ -7,14 +7,17 @@ from PyGLPK_Solver import *
 
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
-    generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
-    # print_all_rows_and_columns()
-    print_readable_format(contents_course_restrict)
-    export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
+    # Success tracks whether or not the schedule is feasible
+    success = generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
+    if success:
+        print_all_rows_and_columns()
+        print_readable_format(contents_course_restrict)
+    else:
+        print("infeasible")
+    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
-#TODO, add in functinoality for forced columns
 def split_single_csv_and_run(contents_all_restrict):
     # Boolean values to denote whento parse different aspects
     course_bool = False
