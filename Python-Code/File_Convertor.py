@@ -47,6 +47,9 @@ def split_single_csv_and_run(contents_all_restrict):
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
+def expand_sections_from_site(contents_all_restrict):
+    print("todo")
+
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
