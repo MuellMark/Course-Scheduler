@@ -48,10 +48,6 @@
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <!-- TODO create a function that grabs the necessary values based on selected-->
-    <select name='addCourseRow' id='addCourseRow' onchange="addRowFromKey(this.value);">
-        <option value=''>Add new course</option>
-        <option value=''>New course</option>
-    </select>
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -105,11 +101,11 @@
     </style>
 
     <div class="divScroll">
-    <table id="course-table">
         <tr>
             <th style="background-color: #ffffff"; colspan="7">
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
+                <button class="button-style3" onclick="addRow()">Add Row</button>
 
                 <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'lustria', serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
                     <option value=''>Add New Course</option>
@@ -120,17 +116,18 @@
         
             </th>
         </tr>
-        <tr>
-            <th></th>
-            <!--<th>Add row</th> -->
-            <th>Class name</th>
-            <th>Abbreviation</th>
-            <th>4 Contact Hours</th>
-            <th>Sections</th>
-            <th>Unavailable Times</th>
-            <th>Select CourseID</th>
-        </tr>
-    </table>
+        <table id="course-table">
+            <tr>
+                <th></th>
+                <!--<th>Add row</th> -->
+                <th>Class name</th>
+                <th>Abbreviation</th>
+                <th>4 Contact Hours</th>
+                <th>Sections</th>
+                <th>Unavailable Times</th>
+                <th>Select CourseID</th>
+            </tr>
+        </table>
     </div>
 
     <br>
@@ -142,7 +139,7 @@
         /**
          * Adds a new row to the course table.
          */
-        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE") {
+        function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE", sections = '') {
             var table = document.getElementById("course-table");
             var rowCount = table.rows.length;
             var row = table.insertRow(table.rows.length);
@@ -176,10 +173,9 @@
 
                 // Sections
                 var cell5 = row.insertCell(4);
-                cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'>";
+                cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'value = " + sections +">";
 
                 // Unavailable Times
-                // TODO need to fix this and make it match the script
                 var cell6 = row.insertCell(5);
                 // <label for=\"m930\"></label>
                 cell6.innerHTML = 
@@ -196,15 +192,7 @@
 
                 // CourseID
                 var cell7 = row.insertCell(6);
-                // This includes the add funcitionality from the drop down above
-                //cell7.innerHTML = "<select name='CourseID' id='CourseID' onchange=\"addRow(this.value);\">" +
-
-                
-                //getDBKeys(cell7);
-                cell7.innerHTML = "<select name='CourseID' id='CourseID'>" +
-                    "<option value='empty'>Choose one</option>" +
-                    "<option value='new'>New course</option>" +
-                    "</select>";
+                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' value = " + abbrName + sections + ">";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
@@ -232,16 +220,16 @@
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
     <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
-    <div class="divScroll">
-    <table id="faculty-table">
+    <div class="divScroll2">
     <tr>
             <th style="background-color: #ffffff"; colspan="4">
-                <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
-                <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
-                <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
-                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
+                <button class="button-style3" onclick="clearTable('faculty-table')">Clear Table</button>
+                <button class="button-style3" onclick="addToDBFac()">Add to Firebase</button>
+                <!-- <button class="button-style3" onclick="addRowFac()">Add Row</button>
+                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button> -->
             </th>
         </tr>
+        <table id="faculty-table">
         <tr>
             <th style="width: 25px"></th>
             <th style="width: 500px">Professor Name</th>
@@ -308,7 +296,8 @@
         var table = document.getElementById(table);
 
         // Need to be more than 3 row to delete (so that header rows aren't removed)
-        while (table.rows.length > 3) {
+        // I changed it to 0 to fix another issue but if need be we can revert it back to 3 - Colby
+        while (table.rows.length > 0) {
             table.deleteRow(2);
         }
     }
@@ -330,7 +319,8 @@
         var rowCount = table.rows.length;
 
         //Check if the table has more than 2 rows 
-        if (rowCount > 3) {
+        // I also changed it to 1 to fix another issue but if need be we can revert it back to 3 - Colby
+        if (rowCount > 1) {
             table.removeChild(row);
         }
         else {
@@ -359,7 +349,7 @@
                     || (input.type === "text" && input.value.trim() === "")
                     //Check if the number inputs are empty
                     || (input.type === "number" && input.value.trim() === "")) {
-                    return false;
+                    return true;
                 }
             }
         }
@@ -398,16 +388,15 @@
         // Function to handle form submission and send data to Firebase
         var table = document.getElementById("course-table");
         var rows = table.getElementsByTagName("tr");
-
         // Skip first title row
         for (var i = 1; i < rows.length; i++) {
             var cells = rows[i].getElementsByTagName("td");
-            var courseID = cells[6].querySelector("select").value;
+            var courseID = cells[6].querySelector("input").value;
             // User selected new course
-            if(courseID == 'new')
+            if(courseID == '')
                 courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
-            if (courseID !== 'empty' && courseID !== 'new') {
+            if (courseID !== '' && courseID !== 'new') {
                 var className = cells[1].querySelector("input").value;
                 var abbreviation = cells[2].querySelector("input").value;
                 var contactHours = cells[3].querySelector("select").value;
@@ -515,18 +504,6 @@
             });
             } 
                 //dbKeys.forEach((element) => addRow(element)); // Used for debugging
-
-                // Caution: I know this is inefficient but there needs
-                // to be two loops because if not they will overwrite each other - Colby
-                // TODO if we decide to get rid of one drop down then please remove it here as well
-                const dropdown = document.getElementById('CourseID');
-                // Loop through the array and create option elements from keys
-                for (let i = 0; i < dbKeys.length; i++) {
-                    const option = document.createElement('option');
-                    option.text = dbKeys[i];
-                    dropdown.add(option);
-                }   
-
                 const courseAdd = document.getElementById('addCourseRow');
                 for (let i = 0; i < dbKeys.length; i++) {
                     const option = document.createElement('option');
@@ -556,7 +533,8 @@
                 var courseAbbr = courseData.abbreviation;
                 var courseName = courseData.class_name;
                 var meeting_hours = courseData.contact_hours;
-                addRow(courseName, courseAbbr,meeting_hours);
+                var sections = courseData.sections;
+                addRow(courseName, courseAbbr,meeting_hours,sections);
                 }
             })
     }
