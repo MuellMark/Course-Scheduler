@@ -40,7 +40,7 @@
     <div class="content-wrapper">
     <div class="container">
         <div class="info-box"> <!-- New div wrapper with class info-box -->
-            <h5> <span> Scheduling Made Simple. </span> </h5>
+        <h4> <span> Scheduling Made Simple. </span> </h4>
             <div class="description" style="text-align: left">
                 Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient, 
                 and user-friendly solution. Let's simplify scheduling together!
@@ -52,10 +52,10 @@
             </div>
         </div> <!-- End of info-box div -->
         <div id="examplePicture" class="image-container">
-            <img src="./images/exampleOutput.png" alt="Picture of possible result output">
+            <img src="./images/exampleOutput2.png" alt="Picture of possible result output">
         </div>
     </div>
-</div>
+    </div>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
