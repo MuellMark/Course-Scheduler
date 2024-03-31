@@ -421,9 +421,13 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
 
     # try:
     lp.simplex()
-    lp.integer() # Force it to be intger
-    # except:
-    #     print("bwoken!!!")
+
+    success= True
+    try:
+        lp.integer() # Force it to be intger
+    except:
+        success=False
+    return success
     #  Add a check here to see if a solution is feasible before checking integer
 
     
