@@ -50,10 +50,16 @@ def split_single_csv_and_run(contents_all_restrict):
 def expand_sections_from_site(contents_all_restrict):
     course_dict={}
 
-
+    add_to_dict = False
+    
     for line in contents_all_restrict:
-        if len(line)>2:
-            course_dict[line[0]]=line[2]
+        if len(line)>0:
+            if "<course" in line[0]:
+                add_to_dict=True
+            if"<faculty" in line[0]:
+                add_to_dict=False
+            if len(line)>2 and add_to_dict:
+                course_dict[line[0]]=line[2]
     print(course_dict)
     split_single_csv_and_run(contents_all_restrict)
 
