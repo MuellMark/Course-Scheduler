@@ -50,8 +50,6 @@
     <!-- TODO create a function that grabs the necessary values based on selected-->
     <br><a href="landing_page.php"></a>
 
-    <br>
-
     <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
     <style>
         table {
@@ -179,7 +177,8 @@
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
                 // <label for=\"m930\"></label>
-                var unavailableTimesContent = 
+                cell6.className = "scrollable-cell";
+                cell6.innerHTML = 
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
                     "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
                     "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
@@ -190,8 +189,6 @@
                     "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
                     "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
                     "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
-                cell6.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
-
 
                 // CourseID
                 var cell7 = row.insertCell(6);
@@ -223,7 +220,7 @@
     <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
     <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
     <br>
-    <div class="divScroll2">
+    <div class="divScroll">
     <tr>
             <th style="background-color: #ffffff"; colspan="4">
                 <button class="button-style3" onclick="clearTable('faculty-table')">Clear Table</button>

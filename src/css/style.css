@@ -618,6 +618,12 @@ header {
   padding: 2em;
 }
 
+.container2 {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
 
 /*DropDown Menu*/
 .dropdown .faq .opened {
@@ -828,9 +834,9 @@ iframe {
 }
 
 .scrollable-cell {
-  overflow-x: auto;
+  overflow-x: scroll;
   /*add scrollbar when content goes over width*/
-  max-width: 50px;
+  max-width: 100px;
 }
 
 }
