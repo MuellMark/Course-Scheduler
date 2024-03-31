@@ -104,6 +104,11 @@
                 <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
                 <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
                 <button class="button-style3" onclick="addRow()">Add Row</button>
+                <h1>Upload CSV File</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="csv_file" accept=".csv"><br><br>
+                    <input type="submit" value="Upload">
+                </form>
 
                 <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'Arial', sans-serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
                     <option value=''>Add New Course</option>

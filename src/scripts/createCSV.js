@@ -89,3 +89,27 @@ function downloadCSVFile(csv_data) {
     document.body.removeChild(temp_link);
 }
 
+function generateCSV() {
+    const csvData = "Name,Email\nJohn Doe,johndoe@example.com\nJane Smith,janesmith@example.com";
+
+    // https://www.w3schools.com/xml/xml_http.asp
+    const xhr = new XMLHttpRequest();
+
+    // Define the Python CGI script URL
+    const url = 'display.py';
+
+    // Set up the request
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // Define the callback function
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Display the response from Python script
+            document.getElementById('csv-container').innerHTML = xhr.responseText;
+        }
+    };
+
+    // Send the POST request with CSV data
+    xhr.send(`csv_data=${encodeURIComponent(csvData)}`);
+}
