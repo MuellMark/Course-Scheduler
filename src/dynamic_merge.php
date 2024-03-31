@@ -47,7 +47,6 @@
     <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
-    <!-- TODO create a function that grabs the necessary values based on selected-->
     <br><a href="landing_page.php"></a>
 
     <br>
@@ -148,10 +147,6 @@
                 var cellRemove = row.insertCell(0);
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
 
-                //add
-                //var cellAdd = row.insertCell(1);
-                //cellAdd.innerHTML = '<button type="button" onclick="addRow()">+</button>';
-
                 // Class name
                 var cell2 = row.insertCell(1);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName +"\">";
@@ -203,7 +198,6 @@
                 alert("Cannot add more than 20 rows")
             }
             // Fill course select
-            //getDBKeys(this.parentNode.parentNode);
             // Reset select after click
             document.getElementById("addCourseRow").options[0].selected = 'selected';
         }
