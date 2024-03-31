@@ -1,6 +1,5 @@
 <forced_courses>
-CS21,m800
-CS11,m1100
+CS21,t830
 
 <course_restrict>
 CS11,TRUE,CS21,EXP1,ALG1,m330,$
@@ -18,4 +17,4 @@ Prof_1,TRUE,ALG1,CAP1,PRL1,EXP1,m200,m330,$
 Prof_2,FALSE,CS11,$
 Prof_3,FALSE,DIS1,$
 Prof_4,FALSE,NUA1,$
-Prof_5,FALSE,CS21,ARI1,$
+Prof_5,FALSE,CS21,ARI1,t830,$

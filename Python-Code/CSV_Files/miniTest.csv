@@ -1,3 +1,6 @@
+<forced_courses>
+CS11,m330
+
 <course_restrict>
 CS11,TRUE,$
 DIS1,TRUE,$
