@@ -11,7 +11,7 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
     if success:
         print_all_rows_and_columns()
         print_readable_format(contents_course_restrict)
-        export_csv_website(contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
+    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
