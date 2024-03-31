@@ -10,7 +10,7 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
     # Success tracks whether or not the schedule is feasible
     success = generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
     if success:
-        print_all_rows_and_columns()
+        # print_all_rows_and_columns()
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
@@ -48,7 +48,14 @@ def split_single_csv_and_run(contents_all_restrict):
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
 def expand_sections_from_site(contents_all_restrict):
-    print("todo")
+    course_dict={}
+
+
+    for line in contents_all_restrict:
+        if len(line)>2:
+            course_dict[line[0]]=line[2]
+    print(course_dict)
+    split_single_csv_and_run(contents_all_restrict)
 
 #------------Functions based on number of params----------------------------
 
@@ -73,7 +80,7 @@ def one_csv_param(file):
     temp_all_restrict = csv.reader(all_restrict_file)
     contents_all_restrict = list(temp_all_restrict)
 
-    split_single_csv_and_run(contents_all_restrict)
+    expand_sections_from_site(contents_all_restrict)
 
 # Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
