@@ -419,11 +419,11 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     
     add_to_LP_matrix()
 
-    try:
-        lp.simplex()
-        lp.integer() # Force it to be intger
-    except:
-        print("bwoken!!!")
+    # try:
+    lp.simplex()
+    lp.integer() # Force it to be intger
+    # except:
+    #     print("bwoken!!!")
     #  Add a check here to see if a solution is feasible before checking integer
 
     
