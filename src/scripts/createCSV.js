@@ -2,6 +2,12 @@
 // Taken from this website but will be modified to fit our tasks
 function tableToCSV() {
 
+    /*error check to make sure course table is filled before saving, not working right now*/
+    if (!checkIfFilled("course-table")) {
+        alert("Please fill in all fields before saving CSV file.");
+        return false;
+    }
+
     // Variable to store the final csv data
     let csv_data = [];
 
@@ -82,3 +88,4 @@ function downloadCSVFile(csv_data) {
     temp_link.click();
     document.body.removeChild(temp_link);
 }
+
