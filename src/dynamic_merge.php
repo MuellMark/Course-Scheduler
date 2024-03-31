@@ -267,6 +267,7 @@
             // TODO check if course exist in database and or in course table above
             // TODO could make value uppercase to simplify the check
             var cell3 = row.insertCell(3);
+            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
             cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
