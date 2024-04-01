@@ -34,9 +34,8 @@
 </header>
 
     <body>
-        <h1>
-            Course Scheduler
-        </h1>
+        <h1><span>Course Scheduler</span></h1>
+        <br>
         <section class="pyscript">
         <br>
 
@@ -106,10 +105,7 @@
             <script type="py" src="./scripts/main.py" async></script>
         </section>
     
-        <button class="button" style="float: right; margin-right: 305px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Download Schedule</button>
-        <!-- button with an onclick functionality:
-        <button class="button" onclick="addRow()" style="float: right; margin-right: 230px; margin-top: 20px; background-color:	#ffcb08; font-family: 'lustria', serif">Download Schedule</button>
-        -->
+        <button class="button-style4" style="float: right; margin-right: 305px; margin-top: 20px;">Download Schedule</button>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
