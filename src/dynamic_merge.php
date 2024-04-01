@@ -3,10 +3,11 @@
 
 <head>
     <title>Create CSV</title>
-    <script type="text/javascript" src="scripts/createCSV.js"></script>
+    <script src="
+    "></script>
     <script type="text/javascript" src="scripts/faculty_script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -23,7 +24,7 @@
             <nav>
                 <div id="menubar">
                     <ul>
-                        <li> <a href="landing_page.php"> Home</a> </li>
+                        <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="csv_option.php"> Create Schedule</a> </li>
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
@@ -34,13 +35,13 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+        <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
 
     <button class="button-style4" onclick="window.location.href='final_schedule_result.php'" style="float:right; margin-right: 25px; margin-top: 15px; width: 100px">Next</button>
 
-    <h1 style="margin-left: 125px"><span>Create CSV</span></h1>
+    <h1 style="margin-left: 125px"><span>{{content}}</span></h1>
 
 
     <!---------------------------- Course dynamic table ---------------------------->
@@ -48,7 +49,6 @@
     <h4><span>Course Table</span></h4>
     
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
-    <!-- TODO create a function that grabs the necessary values based on selected-->
     <br><a href="landing_page.php"></a>
 
     <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
@@ -57,14 +57,7 @@
             border-collapse: collapse;
             width: 100%;
         }
-
-        /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
-    @media screen and (max-width: 300px) {
-    table {
-        width: 25%;}
-    }
-    */
-
+      
         th,
         td {
             border: 1px solid #ddd;
@@ -136,10 +129,6 @@
                 var cellRemove = row.insertCell(0);
                 cellRemove.innerHTML = '<button type="button" onclick="deleteRow(this)">-</button>';
 
-                //add
-                //var cellAdd = row.insertCell(1);
-                //cellAdd.innerHTML = '<button type="button" onclick="addRow()">+</button>';
-
                 // Class name
                 var cell2 = row.insertCell(1);
                 cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName +"\">";
@@ -192,7 +181,6 @@
                 alert("Cannot add more than 20 rows")
             }
             // Fill course select
-            //getDBKeys(this.parentNode.parentNode);
             // Reset select after click
             document.getElementById("addCourseRow").options[0].selected = 'selected';
         }
@@ -263,6 +251,7 @@
             // TODO check if course exist in database and or in course table above
             // TODO could make value uppercase to simplify the check
             var cell3 = row.insertCell(3);
+            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
             cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
@@ -577,6 +566,11 @@
         right: 20px; /* Adjust as needed */
     }
 </style>
+<h1>Upload CSV File</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="csv_file" accept=".csv"><br><br>
+                    <input type="submit" value="Upload">
+</form>
 
 <div id="github-icon">
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
