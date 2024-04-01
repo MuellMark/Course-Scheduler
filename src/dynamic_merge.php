@@ -38,14 +38,15 @@
         </div>
     </header>
 
-    <h1><span>Create CSV</span></h1>
+    <button class="button-style4" onclick="window.location.href='final_schedule_result.php'" style="float:right; margin-right: 25px; margin-top: 15px; width: 100px">Next</button>
+
+    <h1 style="margin-left: 125px"><span>Create CSV</span></h1>
+
 
     <!---------------------------- Course dynamic table ---------------------------->
 
     <h4><span>Course Table</span></h4>
-    <!--<button class="button-style" onclick="tableToCSV()">Save as CSV</button>-->
-    <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
-    <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
+    
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <!-- TODO create a function that grabs the necessary values based on selected-->
     <br><a href="landing_page.php"></a>
@@ -56,18 +57,6 @@
             border-collapse: collapse;
             width: 100%;
         }
-
-        /*
-        table#faculty-table {
-            table-layout: fixed ;
-            width: 100% ;
-            border-collapse: collapse;
-        }
-
-        table#faculty-table td {
-            width: 20% ;
-        }
-        */
 
         /* Source help: https://stackoverflow.com/questions/43954090/resize-html-table-width-based-on-screen-size 
     @media screen and (max-width: 300px) {
@@ -157,7 +146,7 @@
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
-                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' value = " + abbrName +">";
+                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' placeholder='Enter Course Abbreviation' value = " + abbrName +">";
 
                 // 4 Contact Hours
                 var selected = '';
@@ -172,7 +161,7 @@
 
                 // Sections
                 var cell5 = row.insertCell(4);
-                cell5.innerHTML = "<input type='number' id='sections' name='sections' min='1'value = " + sections +">";
+                cell5.innerHTML = "<input type='number' id='sections' name='sections' placeholder='Number of Sections' min='1'value = " + sections +">";
 
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
@@ -192,7 +181,7 @@
 
                 // CourseID
                 var cell7 = row.insertCell(6);
-                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' value = " + abbrName + sections + ">";
+                cell7.innerHTML = "<input type='text' id='CourseID' name='CourseID' placeholder='Enter Course ID' value = " + abbrName + sections + ">";
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
