@@ -39,14 +39,15 @@
         </div>
     </header>
 
-    <h1><span>{{content}}</span></h1>
+    <button class="button-style4" onclick="window.location.href='final_schedule_result.php'" style="float:right; margin-right: 25px; margin-top: 15px; width: 100px">Next</button>
+
+    <h1 style="margin-left: 125px"><span>{{content}}</span></h1>
+
 
     <!---------------------------- Course dynamic table ---------------------------->
 
     <h4><span>Course Table</span></h4>
-    <!--<button class="button-style" onclick="tableToCSV()">Save as CSV</button>-->
-    <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
-    <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
+    
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <br><a href="landing_page.php"></a>
 
@@ -56,7 +57,7 @@
             border-collapse: collapse;
             width: 100%;
         }
-
+      
         th,
         td {
             border: 1px solid #ddd;
@@ -135,6 +136,7 @@
                 // Abbreviation
                 var cell3 = row.insertCell(2);
                 cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' placeholder='Enter Course Abbreviation' value = " + abbrName +">";
+
                 // 4 Contact Hours
                 var selected = '';
                 // If 4 contact hour is selected in DB
