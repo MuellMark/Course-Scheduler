@@ -7,6 +7,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('dynamic_merge.php', content="Hello World!")
+@app.route('/home')
+def home():
+    return render_template('landing_page.php')
 
 @app.route('/upload', methods=['POST'])
 def upload():

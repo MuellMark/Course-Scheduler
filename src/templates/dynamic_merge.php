@@ -3,10 +3,10 @@
 
 <head>
     <title>Create CSV</title>
-    <script type="text/javascript" src="scripts/createCSV.js"></script>
+    <script src="{{url_for('static', filename='scripts/createCSV.js')}}"></script>
     <script type="text/javascript" src="scripts/faculty_script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -23,7 +23,7 @@
             <nav>
                 <div id="menubar">
                     <ul>
-                        <li> <a href="landing_page.php"> Home</a> </li>
+                        <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="faq.php"> FAQ</a> </li>
                         <li> <a href="csv_option.php"> Create Schedule</a> </li>
                         <li> <a href="about-howto.php"> How To Guides</a> </li>
@@ -34,7 +34,7 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+        <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
 
