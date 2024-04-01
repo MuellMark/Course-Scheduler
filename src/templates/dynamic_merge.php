@@ -24,9 +24,9 @@
                 <div id="menubar">
                     <ul>
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
-                        <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
-                        <li> <a href="about-howto.php"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
+                        <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
