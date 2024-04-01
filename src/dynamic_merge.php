@@ -3,7 +3,8 @@
 
 <head>
     <title>Create CSV</title>
-    <script src="{{url_for('static', filename='scripts/createCSV.js')}}"></script>
+    <script src="
+    "></script>
     <script type="text/javascript" src="scripts/faculty_script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
