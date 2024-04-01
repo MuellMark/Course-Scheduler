@@ -48,10 +48,13 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="question"> How To Use Course Scheduler </button>
+                    <button class="question"> What is a CSV file? </button>
                     <div class="answer">
                         <p>
-                            Answer to question 2.
+                            A CSV file is a text file that uses commas to separate values and store data. Each line of the file represents 
+                            one data record. The CSV files will be utilized to define the course and faculty restrictions to be implemented
+                            into the final course schedule. 
+                            
                         </p>
                     </div>
                 </div>

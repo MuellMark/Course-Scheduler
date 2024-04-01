@@ -34,9 +34,8 @@
 </header>
 
     <body>
-        <h1>
-            Course Scheduler
-        </h1>
+        <h1><span>Course Scheduler</span></h1>
+        <br>
         <section class="pyscript">
         <br>
 
@@ -78,37 +77,35 @@
                     <td>8:00 AM MWF</td>
                     <td>Calculus 1</td>
                     <!--<td><div id="output2" class="font-mono"></div></td>-->
-                    <td>Dr. John Ross</td>
+                    <!--<td>Dr. John Ross</td>-->
+                    <td>Professor C</td>
                 </tr>
                 <tr>
                     <td>9:30 AM MWF</td>
                     <td>Computer Science 1</td>
-                    <td>Dr. Arjun Chandrasekhar</td>
+                    <td>Professor A</td>
                 </tr>
                 <tr>
                     <td>11:00 AM MWF</td>
                     <td>Computer Science 2</td>
-                    <td>Dr. Arjun Chandrasekhar</td>
+                    <td>Professor B</td>
                 </tr>
                 <tr>
                     <td>10:00 AM TTH</td>
                     <td>Algorithms</td>
-                    <td>Dr. Barbara Anthony</td>
+                    <td>Professor C</td>
                 </tr>
                 <tr>
                     <td>11:30 AM TTH</td>
                     <td>Artificial Intelligence</td>
-                    <td>Dr. Jacob Schrum</td>
+                    <td>Professor D</td>
                 </tr>
             </table>
             
             <script type="py" src="./scripts/main.py" async></script>
         </section>
     
-        <button class="button" style="float: right; margin-right: 305px; margin-top: 20px; background-color: #ffcb08; font-family: 'lustria', serif">Download Schedule</button>
-        <!-- button with an onclick functionality:
-        <button class="button" onclick="addRow()" style="float: right; margin-right: 230px; margin-top: 20px; background-color:	#ffcb08; font-family: 'lustria', serif">Download Schedule</button>
-        -->
+        <button class="button-style4" style="float: right; margin-right: 305px; margin-top: 20px;">Download Schedule</button>
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
