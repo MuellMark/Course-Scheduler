@@ -3,7 +3,7 @@
 
 <head>
     <title>About/HowTo</title> <!-- Title Of Page -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Linking to CSS file -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport settings to make webpage responsive -->
