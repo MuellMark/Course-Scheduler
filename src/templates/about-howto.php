@@ -40,10 +40,10 @@
     <div class="docs-container">
         <div class="docs-section">
             <h1> <span>Documentation </span></h1>
+            <!-- TODO This is broken :( -->
+            <!-- <iframe src="{{url_for('static', filename='docs/placeHolder.pdf')}}." class="pdf-iframe"></iframe> -->
 
-            <iframe src="./docs/placeHolder.pdf" class="pdf-iframe"></iframe>
-
-</div>
+            </div>
             <div class="howTo-section">
 
             <h1> <span>HowTos </span></h1>

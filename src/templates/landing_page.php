@@ -11,7 +11,7 @@
 
 <body>
     <!-- https://github.com/CoderZ90/confetti/blob/main/confetti.js -->
-    <script src="scripts/confetti.js"></script>
+    <script src="{{url_for('static', filename='scripts/confetti.js')}}"></script>
     <header>
         <div id="headerBar">
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
@@ -97,7 +97,7 @@
 
         }
         function playSound() {
-            const audio = new Audio('confetti.mp3'); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
+            const audio = new Audio("{{url_for('static', filename='confetti.mp3')}}"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
             audio.play();
         }
         window.onload = playSound;
