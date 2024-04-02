@@ -47,7 +47,7 @@
     <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
-    <br><a href="landing_page.php"></a>
+    <br><a href="{{ url_for('home')}}"></a>
 
     <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
     <style>
