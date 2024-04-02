@@ -17,7 +17,7 @@
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -571,7 +571,7 @@
 
 <div id="github-icon">
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+<img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
 </a>
 </div>
 

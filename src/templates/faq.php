@@ -14,7 +14,7 @@
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+            <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -30,7 +30,7 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+        <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}" alt="Picture Of Campus At Sunset">
         </div>
     </header>
     <section id="main-content">
@@ -138,7 +138,7 @@
 
 <div id="github-icon-container">
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+    <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
 </a>
 </div>
 

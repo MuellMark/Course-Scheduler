@@ -18,7 +18,7 @@
             <!-- Hamburger menu that starts toggleMenu when it is clicked -->
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -34,7 +34,7 @@
         </div>
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}" alt="Picture Of Campus At Sunset">
         </div>
     </header>
     <div class="content-wrapper">
@@ -52,7 +52,7 @@
             </div>
         </div> <!-- End of info-box div -->
         <div id="examplePicture" class="image-container">
-            <img src="./images/exampleOutput2.png" alt="Picture of possible result output">
+            <img src="{{url_for('static', filename='images/exampleOutput2.png')}}" alt="Picture of possible result output">
         </div>
     </div>
     </div>
