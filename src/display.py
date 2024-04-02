@@ -36,7 +36,7 @@ def upload():
 
         csv_reader = subprocess.call([sys.executable, "PyGLPK_Solver.py", "src/Python_Code/CSV_Files/testSingleFile.csv"])
         # Render HTML template with CSV data
-        return render_template('display.html', csv_data=csv_reader)
+        return render_template('display.php', csv_data=csv_reader)
     else:
         return "No file uploaded!"
 
