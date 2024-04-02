@@ -3,7 +3,7 @@
 
 <head>
     <title>Home</title> <!-- Title Of Page -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport settings to make webpage responsive -->
@@ -11,30 +11,30 @@
 
 <body>
     <!-- https://github.com/CoderZ90/confetti/blob/main/confetti.js -->
-    <script src="scripts/confetti.js"></script>
+    <script src="{{url_for('static', filename='scripts/confetti.js')}}"></script>
     <header>
         <div id="headerBar">
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!-- Hamburger menu that starts toggleMenu when it is clicked -->
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
                 <div id="menubar">
                     <ul>
-                        <li> <a href="landing_page.php"> Home</a> </li>
-                        <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
-                        <li> <a href="about-howto.php"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('home')}}"> Home</a> </li>
+                        <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
+                        <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
         </div>
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}" alt="Picture Of Campus At Sunset">
         </div>
     </header>
     <div class="content-wrapper">
@@ -46,13 +46,13 @@
                 and user-friendly solution. Let's simplify scheduling together!
             </div>
             <div style="text-align: center;">
-                <a href="csv_option.php">
+                <a href="{{ url_for('option')}}">
                     <button class="button-style2"> Get Started </button>
                 </a>
             </div>
         </div> <!-- End of info-box div -->
         <div id="examplePicture" class="image-container">
-            <img src="./images/exampleOutput2.png" alt="Picture of possible result output">
+            <img src="{{url_for('static', filename='images/exampleOutput2.png')}}" alt="Picture of possible result output">
         </div>
     </div>
     </div>
@@ -97,7 +97,7 @@
 
         }
         function playSound() {
-            const audio = new Audio('confetti.mp3'); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
+            const audio = new Audio("{{url_for('static', filename='confetti.mp3')}}"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
             audio.play();
         }
         window.onload = playSound;

@@ -10,6 +10,15 @@ def index():
 @app.route('/home')
 def home():
     return render_template('landing_page.php')
+@app.route('/faq')
+def faq():
+    return render_template('faq.php')
+@app.route('/option')
+def option():
+    return render_template('csv_option.php')
+@app.route('/howto')
+def howto():
+    return render_template('about-howto.php')
 
 @app.route('/upload', methods=['POST'])
 def upload():
