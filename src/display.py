@@ -1,12 +1,18 @@
 from flask import Flask, request, render_template
 import csv
 import io
+from Python_Code import test
+import Python_Code
+import subprocess
+import sys
+
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('dynamic_merge.php', content="Hello World!")
+    name = test.returnName()
+    return render_template('dynamic_merge.php', content=name)
 @app.route('/home')
 def home():
     return render_template('landing_page.php')
@@ -28,6 +34,7 @@ def upload():
         csv_data = csv_file.read().decode('utf-8')
         csv_reader = csv.reader(io.StringIO(csv_data))
 
+        csv_reader = subprocess.call([sys.executable, "PyGLPK_Solver.py", "src/Python_Code/CSV_Files/testSingleFile.csv"])
         # Render HTML template with CSV data
         return render_template('display.html', csv_data=csv_reader)
     else:
