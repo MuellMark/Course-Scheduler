@@ -14,7 +14,7 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
-    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
+    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/test_export.csv")
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
@@ -49,7 +49,7 @@ def split_single_csv_and_run(contents_all_restrict):
 
 def expand_sections_from_site(contents_all_restrict):
     course_dict={}
-
+ 
     add_to_dict = False
     
     for line in contents_all_restrict:
@@ -68,8 +68,8 @@ def expand_sections_from_site(contents_all_restrict):
 # Default for testing as I redistribute code, will remove once complete
 def no_csv_param():
     # Default test files
-    course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/csTemplateCourseRestrictions.csv",'r')
-    faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/csTemplateFacultyRestrictions.csv",'r')
+    course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/csAndMathTemplateCourseRestrictions.csv",'r')
+    faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/csAndMathTemplateFacultyRestrictions.csv",'r')
 
     temp_course_restrict = csv.reader(course_restrict_file)
     contents_course_restrict = list(temp_course_restrict)
