@@ -10,16 +10,3 @@
 </body>
 </html>
 
-<body>
-    <h1>CSV Data</h1>
-    <table border="1">
-        {% for row in csv_data %}
-            <tr>
-                {% for col in row %}
-                    <td>{{ col }}</td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>

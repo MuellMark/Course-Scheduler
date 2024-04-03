@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import csv
 import io
-from Python_Code import test
+import test
 import subprocess
 import sys
 import os
@@ -35,14 +35,12 @@ def upload():
         csv_data = csv_file.read().decode('utf-8')
         csv_reader = csv.reader(io.StringIO(csv_data))
         filename = request.files['csv_file'].filename
+        
         test.createFile(csv_file,app,filename)
-        # csv_file.save(os.path.join(
-        #         app.config['UPLOAD_FOLDER'],
-        #         request.files['csv_file'].filename
-        #     ))
-        # csv_reader = subprocess.call([sys.executable, "File_Convertor.py", "src/Python_Code/CSV_Files/testSingleFile2.csv"])
+        test.write_csv_to_file(csv_reader, "static/input.csv")
+        csv_reader = subprocess.call([sys.executable, "File_Convertor.py", "src/static/input.csv"])
         # Render HTML template with CSV data
-        os.remove("static/"+ filename) # Remove created file
+        # os.remove("static/output") # Remove created file
         return render_template('display.php', csv_data=csv_reader, test=filename)
     else:
         return "No file uploaded!"
