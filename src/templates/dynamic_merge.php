@@ -17,16 +17,16 @@
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
                 <div id="menubar">
                     <ul>
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
-                        <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
-                        <li> <a href="about-howto.php"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
+                        <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -47,7 +47,7 @@
     <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
     <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
-    <br><a href="landing_page.php"></a>
+    <br><a href="{{ url_for('home')}}"></a>
 
     <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
     <style>
@@ -571,7 +571,7 @@
 
 <div id="github-icon">
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+<img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
 </a>
 </div>
 

@@ -3,7 +3,7 @@
 
 <head>
     <title>About/HowTo</title> <!-- Title Of Page -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Linking to CSS file -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport settings to make webpage responsive -->
@@ -16,16 +16,16 @@
             <!-- Hamburger menu that starts toggleMenu when it is clicked -->
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
                 <div id="menubar">
                     <ul>
-                        <li> <a href="landing_page.php"> Home</a> </li>
-                        <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="csv_option.php"> Create Schedule</a> </li>
-                        <li> <a href="about-howto.php"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('home')}}"> Home</a> </li>
+                        <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
+                        <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -33,17 +33,17 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
 
     <div class="docs-container">
         <div class="docs-section">
             <h1> <span>Documentation </span></h1>
+            <!-- TODO This is broken :( -->
+            <!-- <iframe src="{{url_for('static', filename='docs/placeHolder.pdf')}}." class="pdf-iframe"></iframe> -->
 
-            <iframe src="./docs/placeHolder.pdf" class="pdf-iframe"></iframe>
-
-</div>
+            </div>
             <div class="howTo-section">
 
             <h1> <span>HowTos </span></h1>
@@ -80,7 +80,7 @@
 
 <div id="github-icon-container">
 <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="./images/github.png" alt="Link to Github" id="github-icon">
+    <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
 </a>
 </div>
 

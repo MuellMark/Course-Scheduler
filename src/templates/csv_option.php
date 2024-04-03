@@ -3,7 +3,7 @@
 
 <head>
     <title>CSV Create Options</title> <!-- Title Of Page -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Linking to CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport settings to make webpage responsive -->
@@ -16,16 +16,16 @@
             <!-- Hamburger menu that starts toggleMenu when it is clicked -->
             <!--Logo Placement-->
             <div id="logo">
-                <img src="./images/Logo.png">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
                 <div id="menubar">
                     <ul>
-                        <li> <a href="landing_page.php"> Home</a> </li>
-                        <li> <a href="faq.php"> FAQ</a> </li>
-                        <li> <a href="dynamic_merge.php"> Create Schedule</a> </li>
-                        <li> <a href="about-howto.php"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('home')}}"> Home</a> </li>
+                        <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
+                        <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -33,7 +33,7 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="./images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg" alt="Picture Of Campus At Sunset">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
 
@@ -53,8 +53,8 @@
     <!-- Container for buttons -->
     <div class="container2">
         <div class="info-box">
-        <button class="button-style2" onclick="window.location.href='dynamic_merge.php'" style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
-        <button class="button-style2" onclick="window.location.href='csv_option.php'" style="height:50px; width:250px">Import A CSV</button>
+        <button class="button-style2" onclick="window.location.href='{{ url_for('index')}}'" style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
+        <button class="button-style2" onclick="window.location.href='{{ url_for('option')}}'" style="height:50px; width:250px">Import A CSV</button>
         </div>
     </div>
 
