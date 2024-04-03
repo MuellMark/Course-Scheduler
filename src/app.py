@@ -36,7 +36,7 @@ def upload():
         csv_reader = csv.reader(io.StringIO(csv_data))
         filename = request.files['csv_file'].filename
         
-        test.createFile(csv_file,app,filename)
+        test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "static/input.csv")
         csv_reader = subprocess.call([sys.executable, "File_Convertor.py", "src/static/input.csv"])
         # Render HTML template with CSV data

@@ -3,7 +3,7 @@ import csv
 
 def returnName():
     return "test"
-def createFile(csv_file,app,filename):
+def createFile(csv_file,app):
     csv_file.save(os.path.join(
                 app.config['UPLOAD_FOLDER'],
                 "input.csv"
