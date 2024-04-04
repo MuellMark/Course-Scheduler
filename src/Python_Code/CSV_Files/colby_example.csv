@@ -1,6 +1,0 @@
-<course-table>
-CS2,TRUE,1,m800,m330,NUA,$,CS211
-NUA,TRUE,1,m800,CS2,$,NUA11
-
-<faculty-table>
-Faculty 1,TRUE,CS2,NUA,$
