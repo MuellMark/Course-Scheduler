@@ -9,6 +9,7 @@ cd src
 source venv/bin/activate
 python app.py
 
+The final display will not work on this
 For powershell or on windows:
 cd src
 .venv2\bin\activate
