@@ -10,12 +10,11 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
     # Success tracks whether or not the schedule is feasible
     success = generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
     if success:
-        print_all_rows_and_columns()
+        # print_all_rows_and_columns()
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
-    # export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
-    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"output.csv")
+    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/Python-Code/CSV_Files/test_export.csv")
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
@@ -48,6 +47,22 @@ def split_single_csv_and_run(contents_all_restrict):
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
+def expand_sections_from_site(contents_all_restrict):
+    course_dict={}
+
+    add_to_dict = False
+    
+    for line in contents_all_restrict:
+        if len(line)>0:
+            if "<course" in line[0]:
+                add_to_dict=True
+            if"<faculty" in line[0]:
+                add_to_dict=False
+            if len(line)>2 and add_to_dict:
+                course_dict[line[0]]=line[2]
+    print(course_dict)
+    split_single_csv_and_run(contents_all_restrict)
+
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
@@ -71,7 +86,7 @@ def one_csv_param(file):
     temp_all_restrict = csv.reader(all_restrict_file)
     contents_all_restrict = list(temp_all_restrict)
 
-    split_single_csv_and_run(contents_all_restrict)
+    expand_sections_from_site(contents_all_restrict)
 
 # Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
