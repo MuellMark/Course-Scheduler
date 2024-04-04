@@ -38,7 +38,21 @@ def upload():
         
         test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "static/input.csv")
-        csv_reader = subprocess.call([sys.executable, "File_Convertor.py", "static/input.csv"])
+        subprocess.call([sys.executable, "File_Convertor.py", "static/input.csv"])
+
+        csv_file_path = 'output.csv'
+
+        # Initialize an empty list to store the data from the CSV file
+        csv_data = []
+
+        # Open the CSV file and read its contents
+        with open(csv_file_path, newline='') as csvfile:
+            csv_reader = csv.reader(csvfile)
+            # Iterate over each row in the CSV file
+            for row in csv_reader:
+                # Append each row to the csv_data list
+                csv_data.append(row)
+        csv_reader = csv_data
         # Render HTML template with CSV data
         # os.remove("static/output") # Remove created file
         return render_template('display.php', csv_data=csv_reader, test=filename)
