@@ -38,7 +38,7 @@ def upload():
         
         test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "static/input.csv")
-        csv_reader = subprocess.call([sys.executable, "File_Convertor.py", "src/static/input.csv"])
+        csv_reader = subprocess.call([sys.executable, "File_Convertor.py", "static/input.csv"])
         # Render HTML template with CSV data
         # os.remove("static/output") # Remove created file
         return render_template('display.php', csv_data=csv_reader, test=filename)

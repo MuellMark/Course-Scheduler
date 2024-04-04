@@ -5,6 +5,8 @@ If you need to reinstall enviroment but it should all be in the env folder
 https://flask.palletsprojects.com/en/3.0.x/installation/
 
 Commands:
+source .venv/bin/activate
+
 source venv/bin/activate
 python display.py
 or
