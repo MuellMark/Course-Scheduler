@@ -327,6 +327,7 @@
      */
     function checkIfFilled(tableId) {
         var table = document.getElementById(tableId);
+        if(!table) return false; 
         var rows = table.getElementsByTagName("tr");
         //Start from row 1, and not the the header row
         for (var i = 1; i < rows.length; i++) {
@@ -340,7 +341,7 @@
                     || (input.type === "text" && input.value.trim() === "")
                     //Check if the number inputs are empty
                     || (input.type === "number" && input.value.trim() === "")) {
-                    return true;
+                    return false;
                 }
             }
         }
