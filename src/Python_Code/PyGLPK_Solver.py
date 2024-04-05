@@ -472,7 +472,7 @@ def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses
         file_contents+=("$\n")
 
     export_file.write(file_contents)
-
+ 
 # Exports the file for the website to intercept and displays the schedule
 def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     export_file = open(export_file_name,'w')
