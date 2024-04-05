@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: glpk
+Version: 0.4.7
+Summary: PyGLPK, a Python module encapsulating GLPK.
+Home-page: http://tfinley.net/software/pyglpk/
+Author: Thomas Finley
+Author-email: tfinley@gmail.com
+Maintainer: Bradford D. Boyle
+Maintainer-email: bradford.d.boyle@gmail.com
+License: GPL
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+License-File: COPYING.txt
+
+The PyGLPK module gives one access to the functionality of the GNU Linear Programming Kit.
