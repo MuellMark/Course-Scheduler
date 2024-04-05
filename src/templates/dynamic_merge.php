@@ -240,8 +240,8 @@
             // Prime time
             var cell2 = row.insertCell(2);
             cell2.innerHTML = "<select name='primetime'>" +
-                "<option value='no'>No</option>" +
-                "<option value='yes'>Yes</option>" +
+                "<option value='TRUE'>No</option>" +
+                "<option value='FALSE'>Yes</option>" +
                 "</select>";
 
             // Classes                  

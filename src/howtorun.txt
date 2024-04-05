@@ -4,6 +4,13 @@ pip install Flask
 If you need to reinstall enviroment but it should all be in the env folder
 https://flask.palletsprojects.com/en/3.0.x/installation/
 
-Commands:
+Commands: In Bash
+cd src
 source venv/bin/activate
-python display.py
+python app.py
+
+The final display will not work on this
+For powershell or on windows:
+cd src
+.venv2\bin\activate
+python app.py
