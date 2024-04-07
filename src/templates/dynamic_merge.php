@@ -38,7 +38,7 @@
         </div>
     </header>
 
-    <h1><span>{{content}}</span></h1>
+    <!--<h1><span>{{content}}</span></h1>-->
 
     <!---------------------------- Course dynamic table ---------------------------->
 
