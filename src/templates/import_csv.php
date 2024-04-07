@@ -3,7 +3,8 @@
 
 <head>
     <title>Import A CSV</title> <!-- Title Of Page -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Linking to CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Linking to CSS file -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport settings to make webpage responsive -->
@@ -38,20 +39,23 @@
     </header>
 
     <style>
-    #githublink {
-        position: fixed;
-        bottom: 20px; /* Adjust as needed */
-        right: 20px; /* Adjust as needed */
-    }
+        #githublink {
+            position: fixed;
+            bottom: 20px;
+            /* Adjust as needed */
+            right: 20px;
+            /* Adjust as needed */
+        }
     </style>
 
     <br>
     <h1 style="margin-top: 25px"><span>Import A CSV</span></h1>
     <br>
     <br>
-    <p style="margin-left: auto; margin-right: auto; max-width: 825px"> The Course Scheduler allows users to upload existing CSV files to create schedules. To do so, upload one below. 
-    <br>
-    <br>
+    <p style="margin-left: auto; margin-right: auto; max-width: 825px"> The Course Scheduler allows users to upload
+        existing CSV files to create schedules. To do so, upload one below.
+        <br>
+        <br>
     <div style="text-align: center">
         <form action="/upload" method="post" enctype="multipart/form-data">
             <input type="file" style="margin-left: 80px" name="csv_file" accept=".csv"><br><br>
@@ -61,7 +65,7 @@
 
     <div id="github-icon">
         <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-        <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
+            <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
         </a>
     </div>
 

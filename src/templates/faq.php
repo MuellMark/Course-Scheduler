@@ -65,7 +65,16 @@
                     <button class="question"> Who To Contact? </button>
                     <div class="answer">
                         <p>
-                            Answer to question 3.
+
+                            This was previously a capstone project, so if there are any quetsions there, please contact
+                            Yahya Hamdallah - hamdally@southwestern.edu,
+                            Mark Mueller - muellerm@southwestern.edu,
+                            Kate Nguyen - nguyen10@southwestern.edu,
+                            Colby Sullivan - sullivanc@southwestern.edu.
+
+                            But, if you have questions on how to use the program, or general questions, contact the
+                            Computer Science Department: anthonyb@southwestern.edu.
+
                         </p>
                     </div>
                 </div>

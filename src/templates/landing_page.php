@@ -34,27 +34,29 @@
         </div>
         <!--Header Pic-->
         <div id="headerImage">
-            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}" alt="Picture Of Campus At Sunset">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}"
+                alt="Picture Of Campus At Sunset">
         </div>
     </header>
     <div class="content-wrapper">
-    <div class="container">
-        <div class="info-box"> <!-- New div wrapper with class info-box -->
-        <h4> <span> Scheduling Made Simple. </span> </h4>
-            <div class="description" style="text-align: left">
-                Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient, 
-                and user-friendly solution. Let's simplify scheduling together!
+        <div class="container">
+            <div class="info-box"> <!-- New div wrapper with class info-box -->
+                <h4> <span> Scheduling Made Simple. </span> </h4>
+                <div class="description" style="text-align: left">
+                    Join us in revolutionizing course scheduling. Empower your department with our intuitive, efficient,
+                    and user-friendly solution. Let's simplify scheduling together!
+                </div>
+                <div style="text-align: center;">
+                    <a href="{{ url_for('option')}}">
+                        <button class="button-style2"> Get Started <stlye=padding: 20px> </button>
+                    </a>
+                </div>
+            </div> <!-- End of info-box div -->
+            <div id="examplePicture" class="image-container">
+                <img src="{{url_for('static', filename='images/exampleOutput2.png')}}"
+                    alt="Picture of possible result output">
             </div>
-            <div style="text-align: center;">
-                <a href="{{ url_for('option')}}">
-                    <button class="button-style2"> Get Started <stlye = padding: 20px> </button>
-                </a>
-            </div>
-        </div> <!-- End of info-box div -->
-        <div id="examplePicture" class="image-container">
-            <img src="{{url_for('static', filename='images/exampleOutput2.png')}}" alt="Picture of possible result output">
         </div>
-    </div>
     </div>
 
     <!-- JavaScript used to enable hamburger menu -->
@@ -90,14 +92,14 @@
         function toggleMenu() {
             var menu = document.getElementById('menubar');
             var contentWrapper = document.querySelector('.content-wrapper'); //Toggle the display style between block and none
-                if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
-                    menu.style.display = 'none';
-                    contentWrapper.classList.remove('menu-opened');
-                } else { //Else, show it
-                    menu.style.display = 'block';
-                    contentWrapper.classList.add('menu-opened');
-                }
+            if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
+                menu.style.display = 'none';
+                contentWrapper.classList.remove('menu-opened');
+            } else { //Else, show it
+                menu.style.display = 'block';
+                contentWrapper.classList.add('menu-opened');
             }
+        }
 
         function playSound() {
             const audio = new Audio("{{url_for('static', filename='confetti.mp3')}}"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
