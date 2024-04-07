@@ -90,6 +90,12 @@ def expand_sections_from_site(contents_all_restrict):
                     is_course=True
                 if"<faculty" in line[0]:
                     is_course=False
+
+                if is_course and line[0]==key:
+                    for val in range(int(course_dict[key])):
+                        if val<int(course_dict[key]):
+                            contents_all_restrict.append(line)
+                        line[0]+=str(val+1)
         
     # print(course_dict)
     print(contents_all_restrict)
