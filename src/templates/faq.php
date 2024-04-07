@@ -14,7 +14,7 @@
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
-            <img src="{{url_for('static', filename='images/Logo.png')}}">
+                <img src="{{url_for('static', filename='images/Logo.png')}}">
             </div>
             <!--Navigation Bar-->
             <nav>
@@ -30,7 +30,8 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-        <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}" alt="Picture Of Campus At Sunset">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}"
+                alt="Picture Of Campus At Sunset">
         </div>
     </header>
     <section id="main-content">
@@ -51,10 +52,12 @@
                     <button class="question"> What is a CSV file? </button>
                     <div class="answer">
                         <p>
-                            A CSV file is a text file that uses commas to separate values and store data. Each line of the file represents 
-                            one data record. The CSV files will be utilized to define the course and faculty restrictions to be implemented
-                            into the final course schedule. 
-                            
+                            A CSV file is a text file that uses commas to separate values and store data. Each line of
+                            the file represents
+                            one data record. The CSV files will be utilized to define the course and faculty
+                            restrictions to be implemented
+                            into the final course schedule.
+
                         </p>
                     </div>
                 </div>
@@ -100,7 +103,6 @@
 
     <!-- JavaScript used to enable hamburger menu -->
     <script>
-
         window.onload = function () { //When webpage opens, run this code
             var menu = document.getElementById('menubar');
             if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
@@ -110,15 +112,14 @@
 
         function toggleMenu() {
             var menu = document.getElementById('menubar');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
-            window.onresize = function () { //This will know when the window is resized
-                if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
-                    menu.style.display = 'none';
-                } else { //Else, show it
-                    menu.style.display = 'block';
-                }
-            };
-
+            var contentWrapper = document.querySelector('.content-wrapper'); //Toggle the display style between block and none
+            if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
+                menu.style.display = 'none';
+                contentWrapper.classList.remove('menu-opened');
+            } else { //Else, show it
+                menu.style.display = 'block';
+                contentWrapper.classList.add('menu-opened');
+            }
         }
 
         //Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs
@@ -137,9 +138,9 @@
 </body>
 
 <div id="github-icon-container">
-<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
-</a>
+    <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+        <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
+    </a>
 </div>
 
 </html>
