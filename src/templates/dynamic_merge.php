@@ -312,7 +312,7 @@
 
         //Check if the table has more than 2 rows 
         // I also changed it to 1 to fix another issue but if need be we can revert it back to 3 - Colby
-        if (rowCount > 1) {
+        if (rowCount > 2) {
             table.removeChild(row);
         }
         else {
