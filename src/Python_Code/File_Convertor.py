@@ -51,7 +51,8 @@ def expand_sections_from_site(contents_all_restrict):
     course_dict={}
  
     add_to_dict = False
-    
+
+    # populates the dictionary
     for line in contents_all_restrict:
         if len(line)>0:
             if "<course" in line[0]:
@@ -60,7 +61,22 @@ def expand_sections_from_site(contents_all_restrict):
                 add_to_dict=False
             if len(line)>2 and add_to_dict:
                 course_dict[line[0]]=line[2]
-    print(course_dict)
+    
+    for key in course_dict:
+        for line in contents_all_restrict:
+            i=0
+            section_num=1
+            while i<len(line):
+                if i>0 and line[i]==key:
+                    if section_num<int(course_dict[key]):
+                        line.insert(i,line[i])
+                    line[i]+=str(section_num)
+                    section_num+=1
+                    
+                i+=1
+
+    # print(course_dict)
+    print(contents_all_restrict)
     split_single_csv_and_run(contents_all_restrict)
 
 #------------Functions based on number of params----------------------------
