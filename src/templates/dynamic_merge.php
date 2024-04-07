@@ -31,33 +31,21 @@
                 </div>
             </nav>
         </div>
-
         <!--Header Pic-->
         <div id="headerImage">
             <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
-
     <!---------------------------- Course dynamic table ---------------------------->
-
     <h4><span>Course Table</span></h4>
-    <!--<button class="button-style" onclick="tableToCSV()">Save as CSV</button>-->
-    <!--<button class="button-style" onclick="addToDB()">Add to Firebase</button>-->
-    <!-- <button class="button-style" onclick="getDBKeys()">getDBKeys</button> -->
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
-    <br><a href="{{ url_for('home')}}"></a>
-
     <div class="divScroll">
-
         <button class="button-style5" onclick="clearTable('course-table')">Clear Table</button>
         <button class="button-style5" onclick="addToDB()">Add to Firebase</button>
         <button class="button-style5" onclick="addRow()">Add Row</button>
-
         <select id='addCourseRow' onchange="addRowFromKey(this.value);">
-            <option value=''>Add New Course</option>
             <option value=''>New Course</option>
         </select>
-
         <button class="button-style5" onclick="tableToCSV()">Save as CSV</button>
     </div>
     <table id="course-table">
@@ -73,9 +61,7 @@
         </tr>
     </table>
     </div>
-
     <br>
-
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
@@ -116,15 +102,15 @@
 
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
-                // <label for=\"m930\"></label>
                 cell6.className = "scrollable-cell";
                 cell6.innerHTML =
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
                     "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
                     "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
                     "<label for='m200'><input type='checkbox' id='m200' name='m200' value='m200'>2:00</label>" +
-                    "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
-                    "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
+                    "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div>" +
+                    "<hr class='day-separator'> <!-- This is the line separator -->" +
+                    "<div>TTh <label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
                     "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
                     "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
                     "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
@@ -136,7 +122,7 @@
 
                 // Add button            
                 var cellAdd = row.insertCell(7);
-                cellAdd.innerHTML = "<button button onclick='addColumn(this.parentNode.parentNode)'>Add Conflicting Course </button>";
+                cellAdd.innerHTML = "<button class='button-style5' onclick='addColumn(this.parentNode.parentNode)'>Add Conflicting Course </button>";
                 cellAdd.style.border = "none";
             }
             else {
@@ -148,32 +134,26 @@
         }
     </script>
 </body>
-
 <!---------------------------- Faculty dynamic table ---------------------------->
 
 <body>
-
     <h4><span>Faculty Table</span></h4>
-
     <div class="divScroll">
+        <button class="button-style5" onclick="clearTable('faculty-table')">Clear Table</button>
+        <button class="button-style5" onclick="addToDBFac()">Add to Firebase</button>
+    </div>
+    <table id="faculty-table">
         <tr>
-            <button class="button-style5" onclick="clearTable('faculty-table')">Clear Table</button>
-            <button class="button-style5" onclick="addToDBFac()">Add to Firebase</button>
+            <th style="width: 25px"></th>
+            <th style="width: 350px">Professor Name</th>
+            <th style="width: 100px">Prime time</th>
+            <th style="width: 300px">Classes</th>
+            <th style="width: 300px">Unavailable Times</th>
+        </tr>
+    </table>
     </div>
-        <table id="faculty-table">
-            <tr>
-                <th style="width: 25px"></th>
-                <th style="width: 350px">Professor Name</th>
-                <th style="width: 100px">Prime time</th>
-                <th style="width: 300px">Classes</th>
-                <th style="width: 300px">Unavailable Times</th>
-            </tr>
-        </table>
-    </div>
-
     <br>
     <br>
-
     <script>
         addRowFac(); // Start with one empty row
         // addCourse(); // This does not work currently
@@ -202,56 +182,39 @@
                 "</select>";
 
             //unavailable times
-<<<<<<< Updated upstream
             var cell3 = row.insertCell(3);
-                var unavailableTimesContent = 
-                    "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
-                    "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
-                    "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
-                    "<label for='m200'><input type='checkbox' id='m200' name='m200' value='m200'>2:00</label>" +
-                    "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
-                    "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
-                    "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
-                    "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
-                    "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
-                    "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
-                cell3.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
+            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
+            cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
 
-            
             // Classes                  
             // TODO check if course exist in database and or in course table above
             // TODO could make value uppercase to simplify the check
+            // Unavailable Times
             var cell4 = row.insertCell(4);
-            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
-            cell4.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
-            // https://www.w3schools.com/jsref/prop_node_parentnode.asp
-=======
-            var cell4 = row.insertCell(4);
-            var unavailableTimesContent =
+            cell4.className = "scrollable-cell";
+            cell4.innerHTML =
                 "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
                 "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
                 "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
                 "<label for='m200'><input type='checkbox' id='m200' name='m200' value='m200'>2:00</label>" +
-                "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
-                "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
+                "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div>" +
+                "<hr class='day-separator'> <!-- This is the line separator -->" +
+                "<div>TTh <label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
                 "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
                 "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
                 "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
                 "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
-            cell4.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
->>>>>>> Stashed changes
+
+            // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
             // Add extra courses
             var cell5 = row.insertCell(5);
-            cell5.innerHTML = "<button onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
+            cell5.innerHTML = "<button class='button-style5' onclick='addColumn(this.parentNode.parentNode)'>Add Course Taught</button>";
             cell5.style.border = "none";
             cell5.style.width = "150px";
         }
     </script>
 </body>
-
-
-
 <!---------------------------- Collection of JS scripts used to manipulate both dynamic forms ---------------------------->
 <script>
     /**
@@ -323,7 +286,6 @@
         return true;
     }
 </script>
-
 <!---------------------------- JavaScript used to put data into database ---------------------------->
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 <script>
@@ -447,7 +409,7 @@
         This function retrieves courseID values from the Firebase Database and 
         populates a dropdown list with these keys. 
         These values populate two different dropdown lists ('CourseID' and 'addCourseRow').
-
+    
         Dependencies:
         - Firebase Database reference
         - HTML elements: 'course-table', 'CourseID', and 'addCourseRow'
@@ -485,7 +447,7 @@
     This function retrieves data from a Firebase Database using 
     the provided courseID key and then adds a row to the table 
     using the selected data.
-
+    
     Parameters:
     - courseID: The courseID key passed from the add course drop down.
     */
@@ -507,7 +469,6 @@
     // On window start fill key array
     window.onload = getDBKeys();
 </script>
-
 <!---------------------------- JavaScript used to enable hamburger menu ---------------------------->
 <script>
     window.onload = function () { //When webpage opens, run this code
@@ -529,7 +490,6 @@
         }
     }
 </script>
-
 <style>
     #githublink {
         position: fixed;
@@ -539,20 +499,17 @@
         /* Adjust as needed */
     }
 </style>
-
 <!---------------------------- Upload CSV ---------------------------->
-
 <!-- <h1>Upload CSV File</h1>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="csv_file" accept=".csv"><br><br>
-    <input type="submit" value="Upload">
-</form>
-
-<div id="github-icon">
-    <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-        <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
-    </a>
-</div> -->
-
+      <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="csv_file" accept=".csv"><br><br>
+          <input type="submit" value="Upload">
+      </form>
+      
+      <div id="github-icon">
+          <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+              <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
+          </a>
+      </div> -->
 
 </html>
