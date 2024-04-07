@@ -26,6 +26,9 @@ def option():
 @app.route('/howto')
 def howto():
     return render_template('about-howto.php')
+@app.route('/importpg')
+def importpg():
+    return render_template('import_csv.php')
 
 @app.route('/upload', methods=['POST'])
 def upload():

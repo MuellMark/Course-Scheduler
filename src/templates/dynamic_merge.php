@@ -244,16 +244,8 @@
                 "<option value='FALSE'>Yes</option>" +
                 "</select>";
 
-            // Classes                  
-            // TODO check if course exist in database and or in course table above
-            // TODO could make value uppercase to simplify the check
-            var cell3 = row.insertCell(3);
-            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
-            cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
-            // https://www.w3schools.com/jsref/prop_node_parentnode.asp
-
             //unavailable times
-            var cell4 = row.insertCell(4);
+            var cell3 = row.insertCell(3);
                 var unavailableTimesContent = 
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
                     "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
@@ -265,7 +257,16 @@
                     "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
                     "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
                     "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
-                cell4.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
+                cell3.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
+
+            
+            // Classes                  
+            // TODO check if course exist in database and or in course table above
+            // TODO could make value uppercase to simplify the check
+            var cell4 = row.insertCell(4);
+            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
+            cell4.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
+            // https://www.w3schools.com/jsref/prop_node_parentnode.asp
 
             // Add extra courses
             var cell5 = row.insertCell(5);
