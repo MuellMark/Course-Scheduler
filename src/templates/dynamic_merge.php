@@ -201,8 +201,7 @@
                 "<option value='FALSE'>Yes</option>" +
                 "</select>";
 
-            //unavailable times
-<<<<<<< Updated upstream
+           //unavailable times
             var cell3 = row.insertCell(3);
                 var unavailableTimesContent = 
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
@@ -216,7 +215,6 @@
                     "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
                     "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
                 cell3.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
-
             
             // Classes                  
             // TODO check if course exist in database and or in course table above
@@ -225,21 +223,6 @@
             //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
             cell4.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
             // https://www.w3schools.com/jsref/prop_node_parentnode.asp
-=======
-            var cell4 = row.insertCell(4);
-            var unavailableTimesContent =
-                "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
-                "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
-                "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
-                "<label for='m200'><input type='checkbox' id='m200' name='m200' value='m200'>2:00</label>" +
-                "<label for='m330'><input type='checkbox' id='m330' name='m330' value='m330'>3:30</label></div><div>TTh" +
-                "<label for='t830'><input type='checkbox' id='t830' name='t830' value='t830'>8:30</label>" +
-                "<label for='t1000'><input type='checkbox' id='t1000' name='t1000' value='t1000'>10:00</label>" +
-                "<label for='t1130'><input type='checkbox' id='t1130' name='t1130' value='t1130'>11:30</label>" +
-                "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
-                "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
-            cell4.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
->>>>>>> Stashed changes
 
             // Add extra courses
             var cell5 = row.insertCell(5);
