@@ -18,8 +18,20 @@ body {
   /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
 }
 
+body {
+  padding-top: 0;
+}
+
+.content-wrapper.menu-opened {
+  padding-top: 200px;
+}
+
 /* Text Styling and Formating */
-h1,h2,h3,h4,h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-size: 1.5rem;
   /*Use the default font size on the users setting*/
   margin: 0;
@@ -64,7 +76,7 @@ h4 span {
   /*Add padding*/
 }
 
-h5{
+h5 {
   font-size: 2rem;
   /*Use the default font size from user*/
   text-align: center;
@@ -77,7 +89,9 @@ h5{
   /*Add a margin below the text*/
 }
 
-p,ol,ul {
+p,
+ol,
+ul {
   margin-top: 0;
   /* Reset the margin for paragraphs and lists to keep consistent */
 }
@@ -87,7 +101,8 @@ p {
   /* Increase the space between lines for paragraphs*/
 }
 
-ol,ul {
+ol,
+ul {
   padding: 0;
   /* Remove padding for lists*/
   list-style: none;
@@ -233,7 +248,7 @@ header {
 }
 
 /*Homepage Styling and Formating*/
-.info-box{
+.info-box {
   text-align: center;
   /*Center text horizontally*/
   max-width: 600px;
@@ -291,7 +306,7 @@ header {
   z-index: 1000;
   /* Makes sure that the hamburger menu will stack on top of other elements*/
   /*https://developer.mozilla.org/en-US/docs/Web/CSS/z-index*/
-  color: white;
+  color: rgb(0, 0, 0);
   /* Set color to white*/
   background-color: #ffcb08;
   /* Set color to SU colors*/
@@ -300,10 +315,11 @@ header {
 /*Table Scroll Bar*/
 /*https://www.educba.com/scrollbar-in-html-table/*/
 .divScroll {
-  overflow-x: scroll;
-  /*Allow webpage to scroll with the table*/
-  width: auto;
-  /*The maximum size of the table/container is determined by user*/
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #FFFFFF;
 }
 
 /*Button Design*/
@@ -372,13 +388,13 @@ header {
 .button-style3 {
   padding: 0.25em 0.25em;
   /*Add padding around button*/
-  float: left; 
+  float: left;
   /*Align button to the left*/
-  margin-left: 15px; 
+  margin-left: 15px;
   /*Add space to left of button*/
   margin-bottom: 10px;
   /*Add space below button*/
-  background-color: #e8e8e8; 
+  background-color: #e8e8e8;
   /*Make background color lighter grey*/
   font-family: 'Arial', sans-serif;
   /*Same font style as before*/
@@ -387,13 +403,13 @@ header {
 .button-style4 {
   padding: 0.25em 0.25em;
   /*Add padding around button*/
-  float: left; 
+  float: left;
   /*Align button to the left*/
-  margin-left: 15px; 
+  margin-left: 15px;
   /*Add space to left of button*/
   margin-bottom: 10px;
   /*Add space below button*/
-  background-color: #ffcb08; 
+  background-color: #ffcb08;
   /*Make background color yellow*/
   font-family: 'Arial', sans-serif;
   /*Same font style as before*/
@@ -411,6 +427,49 @@ header {
   /*Set color to black*/
   background-color: #FFF;
   /*Set background color to white*/
+}
+
+
+.button-style5 {
+  padding: 1em;
+  /*Make button bigger*/
+  text-decoration: none;
+  /*Do not have default text decorations*/
+  font-weight: 6400;
+  /*Set font weight*/
+  color: #000000;
+  /*Set color to black*/
+  background-color: #ffcb08;
+  /*Set color to SU color*/
+  border: none;
+  /*Remove border around text*/
+  cursor: pointer;
+  /*When hovering, make cursor a pointer*/
+  white-space: nowrap;
+  /*Do not wrap text*/
+  margin-top: 21px;
+  /*Add space above button*/
+  font-size: 1em;
+  /*Use the default font size on the users setting*/
+  outline: none;
+  /*Do not add an outline around button*/
+  font-family: 'Arial', sans-serif;
+  /*Same font family as before to keep consistent*/
+  transition: background-color 0.2s ease-in-out;
+  /*Add transition for the background color of button*/
+}
+
+.button-style5,
+.divScroll select {
+  margin: 0;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.button-style5:hover,
+.divScroll select:hover {
+  background-color: #FFFFFF;
+  /*When hovering over button, change color to white*/
 }
 
 .button-container {
@@ -593,7 +652,7 @@ header {
   /*Makes sure that the image is below the header image*/
 }
 
-.content-wrapper{
+.content-wrapper {
   max-width: 1200px;
   /*Max width container can be*/
   margin: 1em auto;
@@ -603,7 +662,7 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
+
 }
 
 .container {
@@ -664,13 +723,13 @@ header {
 }
 
 /*Example Image Home Page*/
-#examplePicture img{
+#examplePicture img {
   max-width: 100%;
   height: auto;
   margin-top: 1em;
 }
 
-.image-container{
+.image-container {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -678,7 +737,7 @@ header {
   padding: 1em;
 }
 
-.text-container{
+.text-container {
   flex: 1;
   padding: 1em;
   max-width: 600px;
@@ -688,7 +747,7 @@ header {
   align-items: center;
 }
 
-.image-container img{
+.image-container img {
   width: 100%;
   height: auto;
 }
@@ -721,9 +780,60 @@ iframe {
   margin-top: 20px;
   border: none;
 }
+
+/* Table Style */
+
+.day-separator {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  margin: 10px 0;
+}
+
+/*https://www.w3schools.com/html/html_table_borders.asp */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+  align-items: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Feel free to remove this or change this */
+label {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  font-family: 'Comic Sans MS';
+}
+
+#faculty-table th:nth-child(5),
+#faculty-table td:nth-child(5) {
+  width: 50%;
+  white-space: nowrap;
+}
+
+#course-table th:nth-child(6),
+#course-table td:nth-child(6) {
+  width: 50%;
+  white-space: nowrap;
+}
+
 /*Making Webpage Responsive*/
 @media (max-width: 750px) {
- 
+
   /* When webpage is 750px width or less*/
 
   body {
@@ -801,9 +911,10 @@ iframe {
 
   .checkbox-group label {
     font-family: 'Arial', sans-serif;
-    font-size: 14px; /* Change the font size to your desired size */
+    font-size: 14px;
+    /* Change the font size to your desired size */
     /* You can add more font properties here as needed */
-}
+  }
 
   #github-icon {
     right: 30px;
@@ -814,29 +925,26 @@ iframe {
     padding-bottom: 70px;
   }
 
-  #faqPicture{
+  #faqPicture {
     display: none;
   }
 
-  #examplePicture img{
-    display: block;
-    width: 80%;
-    height: auto;
+  #examplePicture img {
+    width: 100%;
     margin: 0 auto;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    bottom: 0;
-}
+    position: relative;
+    left: auto;
+    bottom: auto;
+  }
 
-.container{
-  flex-direction: column;
-}
+  .container {
+    flex-direction: column;
+  }
 
-.scrollable-cell {
-  overflow-x: scroll;
-  /*add scrollbar when content goes over width*/
-  max-width: 100px;
-}
+  .scrollable-cell {
+    overflow-x: scroll;
+    /*add scrollbar when content goes over width*/
+    max-width: 100px;
+  }
 
 }

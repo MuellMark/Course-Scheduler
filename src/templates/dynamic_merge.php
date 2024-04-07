@@ -34,11 +34,9 @@
 
         <!--Header Pic-->
         <div id="headerImage">
-        <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
+            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
-
-    <!--<h1><span>{{content}}</span></h1>-->
 
     <!---------------------------- Course dynamic table ---------------------------->
 
@@ -49,68 +47,35 @@
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <br><a href="{{ url_for('home')}}"></a>
 
-    <!-- Source help: https://www.w3schools.com/html/html_table_borders.asp -->
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 5px;
-            text-align: center;
-            align-items:center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-        /* Feel free to remove this or change this */
-        label {
-            display: inline-block;
-            margin-right: 5px;
-            font-size: 14px;
-            color: #333;
-            cursor: pointer;
-            font-family: 'Comic Sans MS';
-        }
-
-    </style>
-
     <div class="divScroll">
+
+        <button class="button-style5" onclick="clearTable('course-table')">Clear Table</button>
+        <button class="button-style5" onclick="addToDB()">Add to Firebase</button>
+        <button class="button-style5" onclick="addRow()">Add Row</button>
+
+        <select id='addCourseRow' onchange="addRowFromKey(this.value);">
+            <option value=''>Add New Course</option>
+            <option value=''>New Course</option>
+        </select>
+
+        <button class="button-style5" onclick="tableToCSV()">Save as CSV</button>
+    </div>
+    <table id="course-table">
         <tr>
-            <th style="background-color: #ffffff"; colspan="7";>
-                <button class="button-style3" onclick="clearTable('course-table')">Clear Table</button>
-                <button class="button-style3" onclick="addToDB()">Add to Firebase</button>
-                <button class="button-style3" onclick="addRow()">Add Row</button>
-
-                <select style="padding: 0.25em 0.25em; float: left; margin-left: 15px; background-color: #e8e8e8; font-family: 'Arial', sans-serif; name='addCourseRow'" id='addCourseRow' onchange="addRowFromKey(this.value);">
-                    <option value=''>Add New Course</option>
-                    <option value=''>New Course</option>
-                </select>
-
-                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button>
-        
-            </th>
+            <th></th>
+            <!--<th>Add row</th> -->
+            <th>Class name</th>
+            <th>Abbreviation</th>
+            <th>4 Contact Hours</th>
+            <th>Sections</th>
+            <th>Unavailable Times</th>
+            <th>Select CourseID</th>
         </tr>
-        <table id="course-table">
-            <tr>
-                <th></th>
-                <!--<th>Add row</th> -->
-                <th>Class name</th>
-                <th>Abbreviation</th>
-                <th>4 Contact Hours</th>
-                <th>Sections</th>
-                <th>Unavailable Times</th>
-                <th>Select CourseID</th>
-            </tr>
-        </table>
+    </table>
     </div>
 
     <br>
-    
+
     <script>
         addRow(); // Start with one empty row
         // Source help: https://www.w3schools.com/jsref/met_table_insertrow.asp
@@ -129,31 +94,31 @@
 
                 // Class name
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName +"\">";
+                cell2.innerHTML = "<input type='text' id='newCourse' name='newCourse' placeholder='Enter New Course' value = \"" + fullName + "\">";
 
                 // Abbreviation
                 var cell3 = row.insertCell(2);
-                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' placeholder='Enter Course Abbreviation' value = " + abbrName +">";
+                cell3.innerHTML = "<input type='text' id='abbreviation' name='abbreviation' placeholder='Enter Course Abbreviation' value = " + abbrName + ">";
                 // 4 Contact Hours
                 var selected = '';
                 // If 4 contact hour is selected in DB
-                if(meeting_hours !== "FALSE")
+                if (meeting_hours !== "FALSE")
                     selected = 'selected';
                 var cell4 = row.insertCell(3);
                 cell4.innerHTML = "<select name='meeting_hours' id='meeting'>" +
                     "<option value='FALSE'>No</option>" +
-                    "<option value='TRUE'" +  selected +  ">Yes</option>" +
+                    "<option value='TRUE'" + selected + ">Yes</option>" +
                     "</select>";
 
                 // Sections
                 var cell5 = row.insertCell(4);
-                cell5.innerHTML = "<input type='number' id='sections' name='sections' placeholder='Number of Sections' min='1'value = " + sections +">";
+                cell5.innerHTML = "<input type='number' id='sections' name='sections' placeholder='Number of Sections' min='1'value = " + sections + ">";
 
                 // Unavailable Times
                 var cell6 = row.insertCell(5);
                 // <label for=\"m930\"></label>
                 cell6.className = "scrollable-cell";
-                cell6.innerHTML = 
+                cell6.innerHTML =
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
                     "<label for='m930'><input type='checkbox' id='m930' name='m930' value='m930'>9:30</label>" +
                     "<label for='m1100'><input type='checkbox' id='m1100' name='m1100' value='m1100'>11:00</label>" +
@@ -187,31 +152,23 @@
 <!---------------------------- Faculty dynamic table ---------------------------->
 
 <body>
-    <br>
+
     <h4><span>Faculty Table</span></h4>
-    <!--<button class="button-style" onclick="addRowFac()">Add Row</button>-->
-    <!--<button class="button-style" onclick="tableToCSVFac()">Save as CSV</button>-->
-    <!--<button class="button-style" onclick="clearTable('faculty-table')">Clear Table</button>-->
-    <!--<button class="button-style" onclick="addToDBFac()">Add to Firebase</button>-->
-    <br>
+
     <div class="divScroll">
-    <tr>
-            <th style="background-color: #ffffff"; colspan="4">
-                <button class="button-style3" onclick="clearTable('faculty-table')">Clear Table</button>
-                <button class="button-style3" onclick="addToDBFac()">Add to Firebase</button>
-                <!-- <button class="button-style3" onclick="addRowFac()">Add Row</button>
-                <button class="button-style4" onclick="tableToCSV()">Save as CSV</button> -->
-            </th>
-        </tr>
-        <table id="faculty-table">
         <tr>
-            <th style="width: 25px"></th>
-            <th style="width: 350px">Professor Name</th>
-            <th style="width: 100px">Prime time</th>
-            <th style="width: 300px">Classes</th>
-            <th style="width: 300px">Unavailable Times</th>
-        </tr>
-    </table>
+            <button class="button-style5" onclick="clearTable('faculty-table')">Clear Table</button>
+            <button class="button-style5" onclick="addToDBFac()">Add to Firebase</button>
+    </div>
+        <table id="faculty-table">
+            <tr>
+                <th style="width: 25px"></th>
+                <th style="width: 350px">Professor Name</th>
+                <th style="width: 100px">Prime time</th>
+                <th style="width: 300px">Classes</th>
+                <th style="width: 300px">Unavailable Times</th>
+            </tr>
+        </table>
     </div>
 
     <br>
@@ -235,7 +192,7 @@
 
             // Professor Name
             var cell1 = row.insertCell(1);
-            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' style='width: 300px' placeholder='Enter Faculty Name'>";
+            cell1.innerHTML = "<input type='text' id='facultyName' name='facultyName' class='input-style' placeholder='Enter Faculty Name'>";
 
             // Prime time
             var cell2 = row.insertCell(2);
@@ -244,7 +201,7 @@
                 "<option value='FALSE'>Yes</option>" +
                 "</select>";
 
-            //unavailable times
+           //unavailable times
             var cell3 = row.insertCell(3);
                 var unavailableTimesContent = 
                     "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
@@ -258,7 +215,6 @@
                     "<label for='t100'><input type='checkbox' id='t100' name='t100' value='t100'>1:00</label>" +
                     "<label for='t230'><input type='checkbox' id='t230' name='t230' value='t230'>2:30</label></div></fieldset>";
                 cell3.innerHTML = "<div class='scrollable-cell'>" + unavailableTimesContent + "</div>";
-
             
             // Classes                  
             // TODO check if course exist in database and or in course table above
@@ -312,7 +268,7 @@
 
         //Check if the table has more than 2 rows 
         // I also changed it to 1 to fix another issue but if need be we can revert it back to 3 - Colby
-        if (rowCount > 1) {
+        if (rowCount > 2) {
             table.removeChild(row);
         }
         else {
@@ -328,7 +284,7 @@
      */
     function checkIfFilled(tableId) {
         var table = document.getElementById(tableId);
-        if(!table) return false; 
+        if (!table) return false;
         var rows = table.getElementsByTagName("tr");
         //Start from row 1, and not the the header row
         for (var i = 1; i < rows.length; i++) {
@@ -386,7 +342,7 @@
             var cells = rows[i].getElementsByTagName("td");
             var courseID = cells[6].querySelector("input").value;
             // User selected new course
-            if(courseID == '')
+            if (courseID == '')
                 courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
 
             if (courseID !== '' && courseID !== 'new') {
@@ -487,23 +443,23 @@
         var ref = firebase.database().ref('temp_courses');
 
         ref.once('value')
-        .then((snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-            Object.keys(data).forEach((key) => {
-                if (!(key in dbKeys)) {
-                    dbKeys.push(key);
+            .then((snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    Object.keys(data).forEach((key) => {
+                        if (!(key in dbKeys)) {
+                            dbKeys.push(key);
+                        }
+                    });
                 }
-            });
-            } 
                 //dbKeys.forEach((element) => addRow(element)); // Used for debugging
                 const courseAdd = document.getElementById('addCourseRow');
                 for (let i = 0; i < dbKeys.length; i++) {
                     const option = document.createElement('option');
                     option.text = dbKeys[i];
                     courseAdd.add(option);
-            }
-        })
+                }
+            })
     }
 
 
@@ -520,14 +476,14 @@
         // Reference to the Firebase database path
         var ref = firebase.database().ref("temp_courses/" + courseID);
         ref.once('value')
-            .then(function(snapshot) {
-            var courseData = snapshot.val();
-            if (courseData) {
-                var courseAbbr = courseData.abbreviation;
-                var courseName = courseData.class_name;
-                var meeting_hours = courseData.contact_hours;
-                var sections = courseData.sections;
-                addRow(courseName, courseAbbr,meeting_hours,sections);
+            .then(function (snapshot) {
+                var courseData = snapshot.val();
+                if (courseData) {
+                    var courseAbbr = courseData.abbreviation;
+                    var courseName = courseData.class_name;
+                    var meeting_hours = courseData.contact_hours;
+                    var sections = courseData.sections;
+                    addRow(courseName, courseAbbr, meeting_hours, sections);
                 }
             })
     }
@@ -546,36 +502,40 @@
 
     function toggleMenu() {
         var menu = document.getElementById('menubar');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
-        window.onresize = function () { //This will know when the window is resized
-            if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
-                menu.style.display = 'none';
-            } else { //Else, show it
-                menu.style.display = 'block';
-            }
+        var contentWrapper = document.querySelector('.content-wrapper'); //Toggle the display style between block and none
+        if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
+            menu.style.display = 'none';
+            contentWrapper.classList.remove('menu-opened');
+        } else { //Else, show it
+            menu.style.display = 'block';
+            contentWrapper.classList.add('menu-opened');
         }
-
     }
 </script>
 
 <style>
     #githublink {
         position: fixed;
-        bottom: 20px; /* Adjust as needed */
-        right: 20px; /* Adjust as needed */
+        bottom: 20px;
+        /* Adjust as needed */
+        right: 20px;
+        /* Adjust as needed */
     }
 </style>
-<h1>Upload CSV File</h1>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="csv_file" accept=".csv"><br><br>
-                    <input type="submit" value="Upload">
+
+<!---------------------------- Upload CSV ---------------------------->
+
+<!-- <h1>Upload CSV File</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="csv_file" accept=".csv"><br><br>
+    <input type="submit" value="Upload">
 </form>
 
 <div id="github-icon">
-<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-<img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
-</a>
-</div>
+    <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+        <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
+    </a>
+</div> -->
 
 
 </html>

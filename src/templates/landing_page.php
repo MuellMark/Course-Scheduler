@@ -47,7 +47,7 @@
             </div>
             <div style="text-align: center;">
                 <a href="{{ url_for('option')}}">
-                    <button class="button-style2"> Get Started </button>
+                    <button class="button-style2"> Get Started <stlye = padding: 20px> </button>
                 </a>
             </div>
         </div> <!-- End of info-box div -->
@@ -76,26 +76,29 @@
         start();
         stop();
 
-
         window.onload = function () { //When webpage opens, run this code
             var menu = document.getElementById('menubar');
             if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
                 menu.style.display = 'none'
             }
+
+            start();
+            stop();
+            playSound();
         };
 
         function toggleMenu() {
             var menu = document.getElementById('menubar');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
-            window.onresize = function () { //This will know when the window is resized
-                if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
+            var contentWrapper = document.querySelector('.content-wrapper'); //Toggle the display style between block and none
+                if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
                     menu.style.display = 'none';
+                    contentWrapper.classList.remove('menu-opened');
                 } else { //Else, show it
                     menu.style.display = 'block';
+                    contentWrapper.classList.add('menu-opened');
                 }
             }
 
-        }
         function playSound() {
             const audio = new Audio("{{url_for('static', filename='confetti.mp3')}}"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
             audio.play();
