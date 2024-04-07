@@ -45,13 +45,19 @@
     }
     </style>
 
+    <br>
     <h1 style="margin-top: 25px"><span>Import A CSV</span></h1>
     <br>
     <br>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="csv_file" accept=".csv"><br><br>
-    <input type="submit" value="Upload">
-    </form>
+    <p style="margin-left: auto; margin-right: auto; max-width: 825px"> The Course Scheduler allows users to upload existing CSV files to create schedules. To do so, upload one below. 
+    <br>
+    <br>
+    <div style="text-align: center">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" style="margin-left: 80px" name="csv_file" accept=".csv"><br><br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
 
     <div id="github-icon">
         <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">

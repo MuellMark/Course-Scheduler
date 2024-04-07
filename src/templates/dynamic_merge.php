@@ -181,16 +181,22 @@
                 "<option value='FALSE'>Yes</option>" +
                 "</select>";
 
+
             //unavailable times
             var cell3 = row.insertCell(3);
             //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
             cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
+
 
             // Classes                  
             // TODO check if course exist in database and or in course table above
             // TODO could make value uppercase to simplify the check
             // Unavailable Times
             var cell4 = row.insertCell(4);
+
+            //cell3.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught' autocomplete='off' onclick='addRow()'>";
+            cell4.innerHTML = "<input type='text' id='courses' name='courses' style='width: 200px' placeholder='Course Abbreviation Taught'>";
+
             cell4.className = "scrollable-cell";
             cell4.innerHTML =
                 "<fieldset><div>MWF <label for='m800'><input type='checkbox' id='m800' name='m800' value='m800'>8:00</label>" +
