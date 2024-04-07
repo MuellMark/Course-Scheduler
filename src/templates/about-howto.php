@@ -3,7 +3,8 @@
 
 <head>
     <title>About/HowTo</title> <!-- Title Of Page -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Linking to CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Linking to CSS file -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport settings to make webpage responsive -->
@@ -43,45 +44,43 @@
             <!-- TODO This is broken :( -->
             <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
 
-            </div>
-            <div class="howTo-section">
+        </div>
+        <div class="howTo-section">
 
             <h1> <span>HowTos </span></h1>
 
             <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
-</div>
-</div>
+        </div>
+    </div>
 
-            <!-- JavaScript used to enable hamburger menu -->
-            <script>
+    <!-- JavaScript used to enable hamburger menu -->
+    <script>
+        window.onload = function () { //When webpage opens, run this code
+            var menu = document.getElementById('menubar');
+            if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
+                menu.style.display = 'none'
+            }
+        };
 
-                window.onload = function () { //When webpage opens, run this code
-                    var menu = document.getElementById('menubar');
-                    if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
-                        menu.style.display = 'none'
-                    }
-                };
-
-                function toggleMenu() {
-                    var menu = document.getElementById('menubar');
-                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; //Toggle the display style between block and none
-                    window.onresize = function () { //This will know when the window is resized
-                        if (window.innerWidth < 750) { //If the window is resizdd to below 750, then hide the menu
-                            menu.style.display = 'none';
-                        } else { //Else, show it
-                            menu.style.display = 'block';
-                        }
-                    }
-
-                }
-            </script>
+        function toggleMenu() {
+            var menu = document.getElementById('menubar');
+            var contentWrapper = document.querySelector('.content-wrapper'); //Toggle the display style between block and none
+            if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
+                menu.style.display = 'none';
+                contentWrapper.classList.remove('menu-opened');
+            } else { //Else, show it
+                menu.style.display = 'block';
+                contentWrapper.classList.add('menu-opened');
+            }
+        }
+    </script>
 
 </body>
 
 <div id="github-icon-container">
-<a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-    <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
-</a>
+    <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
+        <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
+    </a>
 </div>
 
 </html>
