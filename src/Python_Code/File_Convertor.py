@@ -63,11 +63,18 @@ def expand_sections_from_site(contents_all_restrict):
                 course_dict[line[0]]=line[2]
     
     for key in course_dict:
+        is_course=False
         for line in contents_all_restrict:
+            if len(line)>0:
+                if "<course" in line[0]:
+                    is_course=True
+                if"<faculty" in line[0]:
+                    is_course=False
+            
             i=0
             section_num=1
             while i<len(line):
-                if i>0 and line[i]==key:
+                if is_course and i>0 and line[i]==key:
                     if section_num<int(course_dict[key]):
                         line.insert(i,line[i])
                     line[i]+=str(section_num)
