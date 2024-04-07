@@ -82,6 +82,15 @@ def expand_sections_from_site(contents_all_restrict):
                     
                 i+=1
 
+    for key in course_dict:
+        is_course=False
+        for line in contents_all_restrict:
+            if len(line)>0:
+                if "<course" in line[0]:
+                    is_course=True
+                if"<faculty" in line[0]:
+                    is_course=False
+        
     # print(course_dict)
     print(contents_all_restrict)
     split_single_csv_and_run(contents_all_restrict)
