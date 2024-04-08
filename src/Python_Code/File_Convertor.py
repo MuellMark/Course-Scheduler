@@ -25,7 +25,6 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
 def split_single_csv_and_run(contents_all_restrict):
-    print(contents_all_restrict)
     # Boolean values to denote whento parse different aspects
     course_bool = False
     faculty_bool = False
@@ -70,6 +69,7 @@ def expand_sections_from_site(contents_all_restrict):
                 course_dict[line[0]]=int(line[2])
                 line.remove(line[2])
     
+    # adds in the section numbers to the conflicting courses
     for key in course_dict:
         is_course=False
         for line in contents_all_restrict:
@@ -90,6 +90,8 @@ def expand_sections_from_site(contents_all_restrict):
                     
                 i+=1
 
+    # duplicates the rows of courses with multiple sections and edits their names to add
+    # all section numbers
     for key in course_dict:
         is_course=False
 
@@ -103,16 +105,14 @@ def expand_sections_from_site(contents_all_restrict):
                 if"<faculty" in line[0]:
                     is_course=False
 
-                
-
                 if is_course and line[0]==key:
-
                     if val+1<int(course_dict[key]):
                         contents_all_restrict.insert(i+1,copy(line))
                     line[0]+=str(val+1)
                     val+=1
             i+=1
 
+    # Adds all of the section numbers to the faculty restrictions 
     for key in course_dict:
         is_fac=False
         for line in contents_all_restrict:
@@ -124,15 +124,11 @@ def expand_sections_from_site(contents_all_restrict):
             section_num=1
             while i<len(line):
                 if is_fac and i>0 and line[i]==key:
-                    # if section_num<int(course_dict[key]):
-                    #     line.insert(i,line[i])
                     line[i]+=str(course_dict[key])
-                    course_dict[key]-=1
-                    
+                    course_dict[key]-=1 
                 i+=1
 
-    # print(course_dict)
-    print(contents_all_restrict)
+    # print(contents_all_restrict)
     split_single_csv_and_run(contents_all_restrict)
 
 #------------Functions based on number of params----------------------------
