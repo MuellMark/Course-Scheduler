@@ -25,6 +25,7 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
 def split_single_csv_and_run(contents_all_restrict):
+    print(contents_all_restrict)
     # Boolean values to denote whento parse different aspects
     course_bool = False
     faculty_bool = False
@@ -158,6 +159,7 @@ def one_csv_param(file):
     contents_all_restrict = list(temp_all_restrict)
 
     expand_sections_from_site(contents_all_restrict)
+    # split_single_csv_and_run(contents_all_restrict)
 
 # Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
