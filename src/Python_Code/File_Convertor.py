@@ -148,14 +148,18 @@ def no_csv_param():
     
 
 # For when there is only 1 csv file
-def one_csv_param(file):
+def one_csv_param(file,file_type):
     all_restrict_file = open(file,'r')
 
     temp_all_restrict = csv.reader(all_restrict_file)
     contents_all_restrict = list(temp_all_restrict)
 
-    expand_sections_from_site(contents_all_restrict)
-    # split_single_csv_and_run(contents_all_restrict)
+    if file_type=="user":
+        split_single_csv_and_run(contents_all_restrict)
+    elif file_type=="site":
+        expand_sections_from_site(contents_all_restrict)     
+    else:
+        print("error")
 
 # Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
@@ -175,10 +179,9 @@ if __name__=="__main__":
     num_args = len(sys.argv)
 
     if(num_args==1):
-        no_csv_param()
-    elif(num_args==2):
-        one_csv_param(sys.argv[1])
+        no_csv_param()  
     elif(num_args==3):
-        two_csv_param(sys.argv[1],sys.argv[2])
+        one_csv_param(sys.argv[1],sys.argv[2])
+        # two_csv_param(sys.argv[1],sys.argv[2])
     else:
         print("error, too many parameters")
