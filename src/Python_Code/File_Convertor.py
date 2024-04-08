@@ -66,7 +66,7 @@ def expand_sections_from_site(contents_all_restrict):
             if"<faculty" in line[0]:
                 add_to_dict=False
             if len(line)>2 and add_to_dict:
-                course_dict[line[0]]=line[2]
+                course_dict[line[0]]=int(line[2])
                 line.remove(line[2])
     
     for key in course_dict:
@@ -111,7 +111,25 @@ def expand_sections_from_site(contents_all_restrict):
                     line[0]+=str(val+1)
                     val+=1
             i+=1
-        
+
+    for key in course_dict:
+        is_fac=False
+        for line in contents_all_restrict:
+            if len(line)>0:
+                if"<faculty" in line[0]:
+                    is_fac=True
+            
+            i=0
+            section_num=1
+            while i<len(line):
+                if is_fac and i>0 and line[i]==key:
+                    # if section_num<int(course_dict[key]):
+                    #     line.insert(i,line[i])
+                    line[i]+=str(course_dict[key])
+                    course_dict[key]-=1
+                    
+                i+=1
+
     # print(course_dict)
     print(contents_all_restrict)
     split_single_csv_and_run(contents_all_restrict)
