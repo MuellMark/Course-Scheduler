@@ -41,9 +41,9 @@ def split_single_csv_and_run(contents_all_restrict):
         if len(contents_all_restrict[i])==2:
             forced_courses.append(contents_all_restrict[i])
         elif len(contents_all_restrict[i])==1:
-            if contents_all_restrict[i][0] == "<course_restrict>":
+            if"<course" in contents_all_restrict[i][0]:
                 course_bool=True
-            if contents_all_restrict[i][0] == "<faculty_restrict>":
+            if"<faculty" in contents_all_restrict[i][0]:
                 faculty_bool=True
                 course_bool=False
         if len(contents_all_restrict[i])>1: # Only adds rows with more than one value in it
