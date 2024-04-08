@@ -67,6 +67,7 @@ def expand_sections_from_site(contents_all_restrict):
                 add_to_dict=False
             if len(line)>2 and add_to_dict:
                 course_dict[line[0]]=line[2]
+                line.remove(line[2])
     
     for key in course_dict:
         is_course=False
