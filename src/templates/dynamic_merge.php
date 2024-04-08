@@ -36,6 +36,9 @@
             <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
+
+    <button class="button-style6" style="margin-right: 25px" onclick="window.location.href='{{ url_for('importpg')}}'">Next</button>
+    <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
     <!---------------------------- Course dynamic table ---------------------------->
     <h4><span>Course Table</span></h4>
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
@@ -46,7 +49,7 @@
         <select id='addCourseRow' onchange="addRowFromKey(this.value);">
             <option value=''>New Course</option>
         </select>
-        <button class="button-style5" onclick="tableToCSV()">Save as CSV</button>
+        <!--<button class="button-style5" onclick="tableToCSV()">Save as CSV</button>-->
     </div>
     <table id="course-table">
         <tr>
