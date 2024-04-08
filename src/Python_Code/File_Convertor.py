@@ -5,6 +5,12 @@ from PyGLPK_Solver import *
 
 #------------Helper Functions-----------------------------------------------
 
+def copy(l):
+    new_list=[]
+    for val in l:
+        new_list.append(val)
+    return new_list
+
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
     # Success tracks whether or not the schedule is feasible
@@ -84,20 +90,26 @@ def expand_sections_from_site(contents_all_restrict):
 
     for key in course_dict:
         is_course=False
-        for line in contents_all_restrict:
+
+        i=0
+        val=0
+        while i<len(contents_all_restrict):
+            line=contents_all_restrict[i]
             if len(line)>0:
                 if "<course" in line[0]:
                     is_course=True
                 if"<faculty" in line[0]:
                     is_course=False
 
-                val = 0
                 
+
                 if is_course and line[0]==key:
 
-                    if val<int(course_dict[key]):
-                        contents_all_restrict.append(line)
+                    if val+1<int(course_dict[key]):
+                        contents_all_restrict.insert(i+1,copy(line))
                     line[0]+=str(val+1)
+                    val+=1
+            i+=1
         
     # print(course_dict)
     print(contents_all_restrict)
