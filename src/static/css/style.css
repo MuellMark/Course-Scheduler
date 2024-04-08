@@ -472,6 +472,42 @@ header {
   /*When hovering over button, change color to white*/
 }
 
+.button-style6 {
+  padding: 1em;
+  /*Make button bigger*/
+  text-decoration: none;
+  /*Do not have default text decorations*/
+  font-weight: 6400;
+  /*Set font weight*/
+  color: #000000;
+  /*Set color to black*/
+  background-color: #ffcb08;
+  /*Set color to SU color*/
+  border: none;
+  /*Remove border around text*/
+  cursor: pointer;
+  /*When hovering, make cursor a pointer*/
+  white-space: nowrap;
+  /*Do not wrap text*/
+  margin-top: 21px;
+  /*Add space above button*/
+  font-size: 1em;
+  /*Use the default font size on the users setting*/
+  outline: none;
+  /*Do not add an outline around button*/
+  font-family: 'Arial', sans-serif;
+  /*Same font family as before to keep consistent*/
+  transition: background-color 0.2s ease-in-out;
+  /*Add transition for the background color of button*/
+  float: right;
+}
+
+.button-style6:hover,
+.divScroll select:hover {
+  background-color: #FFFFFF;
+  /*When hovering over button, change color to white*/
+}
+
 .button-container {
   display: flex;
   /*Use flex to setup button container*/
