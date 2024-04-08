@@ -147,7 +147,7 @@ def no_csv_param():
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
     
 
-# For when there is only 1 csv file
+# For when there is only 1 csv file, has two params to specify the type of csv file
 def one_csv_param(file,file_type):
     all_restrict_file = open(file,'r')
 
@@ -174,12 +174,14 @@ def two_csv_param(course_file,faculty_file):
 
 #------------Main--------------------------------------------------
 
-# Will only run if file is called directly TODO change no params
+# Will only run if file is called directly TODO change no params and the num_args==2 line
 if __name__=="__main__":
     num_args = len(sys.argv)
 
     if(num_args==1):
         no_csv_param()  
+    elif(num_args==2): #default in case it's called, will remove soon
+        one_csv_param(sys.argv[1],"user")
     elif(num_args==3):
         one_csv_param(sys.argv[1],sys.argv[2])
         # two_csv_param(sys.argv[1],sys.argv[2])
