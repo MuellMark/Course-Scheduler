@@ -43,13 +43,9 @@
         <br>
         <br>
         <br>
-<<<<<<< Updated upstream
-        <p style="margin-left: auto; margin-right: auto; max-width: 700px"> The first step in course scheduling is creating a CSV file. This is where all of the course and faculty restrictions are specified. Users may either create a new CSV file or import an existing one. </p>
-=======
         <p style="margin-left: auto; margin-right: auto; max-width: 700px"> The first step in course scheduling is
             creating a CSV file. This is where all of the course and faculty restrictions are specified. Users may
             either create a new CSV file or import an existing one. </p>
->>>>>>> Stashed changes
     </div>
 
     <br>
@@ -57,15 +53,10 @@
     <!-- Container for buttons -->
     <div class="container2">
         <div class="info-box">
-<<<<<<< Updated upstream
-        <button class="button-style2" onclick="window.location.href='{{ url_for('index')}}'" style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
-        <button class="button-style2" onclick="window.location.href='{{ url_for('importpg')}}'" style="height:50px; width:250px">Import A CSV</button>
-=======
             <button class="button-style2" onclick="window.location.href='{{ url_for('index')}}'"
                 style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
             <button class="button-style2" onclick="window.location.href='{{ url_for('importpg')}}'"
                 style="height:50px; width:250px">Import A CSV</button>
->>>>>>> Stashed changes
         </div>
     </div>
 
