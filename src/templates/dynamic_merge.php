@@ -38,6 +38,7 @@
     </header>
 
     <button class="button-style6" style="margin-right: 25px" onclick="window.location.href='{{ url_for('importpg')}}'">Next</button>
+    <button class="button-style6" style="margin-right: 25px" onclick="tableToCSV()">Run Script</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
     <!---------------------------- Course dynamic table ---------------------------->
     <h4><span>Course Table</span></h4>

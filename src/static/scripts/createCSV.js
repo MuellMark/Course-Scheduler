@@ -58,7 +58,32 @@ function tableToCSV() {
     csv_data = csv_data.join('\n');
 
     // Call this function to download csv file  
-    downloadCSVFile(csv_data);
+    //downloadCSVFile(csv_data);
+    
+    // <form action="/upload" method="post" enctype="multipart/form-data">
+    //       <input type="file" name="csv_file" accept=".csv"><br><br>
+    //       <input type="submit" value="Upload"></input>
+    // </form>
+    CSVFile = new Blob([csv_data], {
+        type: "text/csv"
+    });
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = '/upload'; // Change to the actual URL of your display page
+
+    // Create a hidden input field to hold the CSV data
+    const csvInput = document.createElement('input');
+    csvInput.type = 'hidden';
+    csvInput.name = 'csv_file';
+    csvInput.value = CSVFile;
+    form.appendChild(csvInput);
+
+    // Append the form to the document and submit it
+    document.body.appendChild(form);
+    form.submit();
+
+    // Clean up
+    document.body.removeChild(form);
 
 }
 
