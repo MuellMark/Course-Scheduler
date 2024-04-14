@@ -28,6 +28,7 @@ def split_single_csv_and_run(contents_all_restrict):
     # Boolean values to denote whento parse different aspects
     course_bool = False
     faculty_bool = False
+    forced_bool=False
 
     # Stores the courses
     forced_courses=[]
@@ -37,12 +38,15 @@ def split_single_csv_and_run(contents_all_restrict):
     # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
-        if len(contents_all_restrict[i])==2:
+        if len(contents_all_restrict[i])==2 and forced_bool:
             forced_courses.append(contents_all_restrict[i])
         elif len(contents_all_restrict[i])==1:
-            if"<course" in contents_all_restrict[i][0]:
+            if"<force" in contents_all_restrict[i][0]:
+                forced_bool=True
+            elif"<course" in contents_all_restrict[i][0]:
                 course_bool=True
-            if"<faculty" in contents_all_restrict[i][0]:
+                forced_bool=False
+            elif"<faculty" in contents_all_restrict[i][0]:
                 faculty_bool=True
                 course_bool=False
         if len(contents_all_restrict[i])>1: # Only adds rows with more than one value in it

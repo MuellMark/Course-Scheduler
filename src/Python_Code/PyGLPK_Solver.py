@@ -79,7 +79,7 @@ def courses_offered_cons(all_combos):
             for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
         matrix+=(temp_matrix)
-
+    
     global_matrix.append(matrix)
 
 # Makes sure each time/ column pairing only has 1 course offered          
@@ -340,6 +340,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     courses=[]
     for course in contents_course_restrict:
         courses.append(course[0])
+        print(course)
 
     # Global creation of dictionaries needed in constraints
     global tI
