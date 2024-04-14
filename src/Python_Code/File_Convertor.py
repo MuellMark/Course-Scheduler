@@ -20,7 +20,13 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
-    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/test_export.csv")
+
+    if export_type=="site":
+        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/test_export.csv")
+    elif export_type=="csv":
+        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/test_export.csv")
+    else:
+        print("Error, incorrect export type")
 
 # Method specifically for single file CSVs. It splits the CSV into 2 
 # separate lists and then calls PyGLPK_solver
