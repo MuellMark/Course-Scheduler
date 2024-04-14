@@ -171,11 +171,28 @@ def swap_courses_setup(contents_all_restrict,swap_file):
             if len(contents_all_restrict)>0:
                 if bool_forced:
                     for line in contents_swap:
-                        added=True
+                        if line[2]==course1:
+                            c1time=line[1]
+                        if line[2]==course2:
+                            c2time=line[1]
+
+                    forced1=[]
+                    forced2=[]
+                    forced1.append(course1)
+                    forced1.append(c2time)
+                    forced1.append(course2)
+                    forced1.append(c1time) # Swapped course times
+
+                    contents_all_restrict.insert(i,forced1)
+                    contents_all_restrict.insert(i,forced2)
+
                     added=True
                 if "<force" in contents_all_restrict[i][0]:
                     bool_forced=True
             i+=1
+        
+        print(c1time)
+        print(c2time)
         split_single_csv_and_run(contents_all_restrict)
 #------------Functions based on number of params----------------------------
 
