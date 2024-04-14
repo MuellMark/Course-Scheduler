@@ -12,7 +12,6 @@ Welcome! Course scheduling is laborious and subject to many fixed university req
 
 While some already use this tool, it is unintuitive and requires some programming knowledge to run. This computer science capstone project aims to create a user-friendly web-based version of the scheduler so that more departments can utilize it to schedule their courses. This site includes intuitive interfaces to create CSV files, run the software tool, and display the generated schedule.
 
-  
 ## Demo
 ![5l89](https://github.com/MuellMark/Course-Scheduler/assets/88158644/8cba9212-9d7a-43ce-9181-92ec9a8ab7cd)
 
@@ -46,9 +45,7 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 4. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
 
 5. Now that the CSV files have been created, they can be uploaded to the application to generate the schedule. Click the Next button. This will help you navigate to a page to begin uploading.
-   
-6. 
-
+ 
 <br>
 
 ## Tools
@@ -56,7 +53,8 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 
 1. The Scheduler operates from a Python script running Python GNU Linear Programming Kit (PyGLPK). The script is fed in 1-2 CSV files containing all the course and faculty constraints. Based on these constraints, a linear program modeled as a 2D matrix is created. This linear program is then passed into PyGLPK, where it is solved, checked for feasibility, and exported to a separate CSV file. This CSV file is passed back to the website for proper display.
   
-2. Our responsibility is to ensure that, even as a capstone project, the project does not become obsolete due to poor design, readability, or usability after it is finished. The Scheduler front-end uses HTML, CSS, and JavaScript. These were chosen because they are accessible languages that do not require much programming knowledge to understand and learn. Utilizing these languages guarantees that the program will withstand industry changes. By design, you should see things where you expect them to be on a website, meaning you should make the tool as efficient as possible by designing it to make it easier for users to navigate. With users in mind, the tool is beginner-friendly and easy to use, with clear instructions and labeling. Error checks and handling are seen throughout the creation and updating of the course schedules, with immediate feedback in case of a problem. 
+2. Our responsibility is to ensure that, even as a capstone project, the project does not become obsolete due to poor design, readability, or usability after it is finished. The Scheduler front-end uses HTML, CSS, and JavaScript. These were chosen because they are accessible languages that do not require much programming knowledge to understand and learn. Utilizing these languages guarantees that the program will withstand industry changes. By design, you should see things where you expect them to be on a website, meaning you should make the tool as efficient as possible by designing it to make it easier for users to navigate. With users in mind, the tool is beginner-friendly and easy to use, with clear instructions and labeling. Error checks and handling are seen throughout the creation and updating of the course schedules, with immediate feedback in case of a problem.
+   
 <br>
 
 ## Installation
