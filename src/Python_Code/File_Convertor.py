@@ -136,7 +136,7 @@ def expand_sections_from_site(contents_all_restrict):
     split_single_csv_and_run(contents_all_restrict)
 
 #todo comments
-def swap_courses_setup(contents_all_restrict):
+def swap_courses_setup(contents_all_restrict,swap_file):
     split_single_csv_and_run(contents_all_restrict)
 #------------Functions based on number of params----------------------------
 
@@ -153,8 +153,8 @@ def no_csv_param():
 
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
 
-# For when there is only 1 csv file, has two params to specify the type of csv file
-def one_csv_param(file,file_type):
+# TODO fix names For when there is only 1 csv file, has two params to specify the type of csv file
+def one_csv_param(file,file_type,swap_file):
     all_restrict_file = open(file,'r')
 
     temp_all_restrict = csv.reader(all_restrict_file)
@@ -165,11 +165,11 @@ def one_csv_param(file,file_type):
     elif file_type=="site":
         expand_sections_from_site(contents_all_restrict)   
     elif file_type=="swap":
-        expand_sections_from_site(contents_all_restrict)    
+        swap_courses_setup(contents_all_restrict,swap_file)    
     else:
         print("error")
 
-# Original standard, when there are 2 csv files
+# Defunct, Original standard, when there are 2 csv files
 def two_csv_param(course_file,faculty_file):
     course_restrict_file = open(course_file,'r')
     faculty_restrict_file = open(faculty_file,'r')
@@ -186,12 +186,18 @@ def two_csv_param(course_file,faculty_file):
 if __name__=="__main__":
     num_args = len(sys.argv)
 
+    if (num_args==4):
+        global export_type
+        export_type=sys.argv[3]
+
     if(num_args==1):
         no_csv_param()  
     elif(num_args==2): #default in case it's called, will remove soon
-        one_csv_param(sys.argv[1],"user")
-    elif(num_args==3):
-        one_csv_param(sys.argv[1],sys.argv[2])
+        one_csv_param(sys.argv[1],"user","site","")
+    elif(num_args==4):
+        one_csv_param(sys.argv[1],sys.argv[2],"")
         # two_csv_param(sys.argv[1],sys.argv[2])
+    elif(num_args==5):
+        one_csv_param(sys.argv[1],sys.argv[2],sys.argv[4])
     else:
         print("error, too many parameters")
