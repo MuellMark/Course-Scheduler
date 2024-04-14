@@ -148,7 +148,6 @@ def no_csv_param():
     contents_faculty_restrict = list(temp_faculty_restrict)
 
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
-    
 
 # For when there is only 1 csv file, has two params to specify the type of csv file
 def one_csv_param(file,file_type):

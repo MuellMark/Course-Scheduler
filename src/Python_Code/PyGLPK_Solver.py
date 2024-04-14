@@ -82,7 +82,7 @@ def courses_offered_cons(all_combos):
 
     global_matrix.append(matrix)
 
-# Makes sure each time/ column paring only has 1 course offered          
+# Makes sure each time/ column pairing only has 1 course offered          
 def time_overlap_cons(all_combos):
     matrix=[]
     for col in range(num_cols):
