@@ -143,7 +143,22 @@ def expand_sections_from_site(contents_all_restrict):
 
 #todo comments
 def swap_courses_setup(contents_all_restrict,swap_file):
-    split_single_csv_and_run(contents_all_restrict)
+    if len(swap_file)<2:
+        print("error, no file found. Please make sure a file is connected")
+    else:
+        i=0
+        added=False
+        bool_swapped=False
+        while i < len(contents_all_restrict) and not added:
+            if len(contents_all_restrict)>0:
+                if bool_swapped:
+                    course1=contents_all_restrict[i][0]
+                    course2=contents_all_restrict[i][1]
+                if "<swap" in contents_all_restrict[i][0]:
+                    bool_swapped=True
+                
+            i+=1
+        split_single_csv_and_run(contents_all_restrict)
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
@@ -192,7 +207,7 @@ def two_csv_param(course_file,faculty_file):
 if __name__=="__main__":
     num_args = len(sys.argv)
 
-    if (num_args==4):
+    if (num_args>=4):
         global export_type
         export_type=sys.argv[3]
 
