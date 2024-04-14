@@ -54,7 +54,8 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 ## Tools
 ![bunda-feia-cute](https://github.com/MuellMark/Course-Scheduler/assets/88158644/21c5dbc3-83e3-454c-9e24-b164bf32d48d)
 
-The Scheduler operates off of a Python script running Python GNU Linear Programming Kit (PyGLPK). The script is fed in 1-2 CSV files containing all the course and faculty constraints. Based on these constraints, a linear program is created modeled as a 2D matrix. This linear program is then passed into PyGLPK, where it is solved, checked for feasibility, and exported to a separate CSV file. This CSV file is passed back to the website for proper display.
+  The Scheduler operates off of a Python script running Python GNU Linear Programming Kit (PyGLPK). The script is fed in 1-2 CSV files containing all the course and faculty constraints. Based on these constraints, a linear program is created modeled as a 2D matrix. This linear program is then passed into PyGLPK, where it is solved, checked for feasibility, and exported to a separate CSV file. This CSV file is passed back to the website for proper display.
+  The Scheduler front-end uses HTML, CSS, and JavaScript. This was chosen because they are accessible languages that do not require much programming knowledge to understand and learn. By utilizing these languages, it guarantees that the program will withstand the changes in the industry. With users in mind, the tool is beginner-friendly and easy to use with clear instructions and labelling. Error checks and handling is seen throughout the process of creating and updating the course schedules. 
 <br>
 
 ## Installation
