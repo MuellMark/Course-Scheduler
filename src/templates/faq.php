@@ -80,6 +80,19 @@
                 </div>
 
                 <div class="faq-item">
+                    <button class="question"> GitHub Repo </button>
+                    <div class="answer">
+                        <p>
+
+                        Check out the latest up to date program for the Course Scheduler:
+                        <a href="url">github.com/MuellMark/Course-Scheduler</a>
+                        
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
                     <button class="question"> What Is Firebase? </button>
                     <div class="answer">
                         <p>
