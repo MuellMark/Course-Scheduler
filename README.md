@@ -17,6 +17,7 @@ While this tool is already usable by some, it is unintuitive and requires some p
 
 The goal of the Southwestern University Course Scheduler was to make the course scheduling process as simple as possible. Therefore, the steps to accomplish this task are quite minimal. The requirements of the user include creating the CSV files and uploading them in the Python tool. The application will run PyGLPK and the resulting course schedule will be outputted for the user to download. Follow the steps below to do this. 
 
+![Untitled video - Made with Clipchamp](https://github.com/MuellMark/Course-Scheduler/assets/88158644/b6be537d-a3d6-4e77-a2c4-d1236f0d9019)
 
 1. From the Home page, click the Get Started button. This will take you to a page that gives two options: Create A New CSV or Import A CSV. 
 
@@ -28,8 +29,9 @@ The goal of the Southwestern University Course Scheduler was to make the course 
   
     b. If not, click Create A New CSV.
 
-
 2. You have now been navigated to the Create CSV page. This is where all course and faculty restrictions will be defined. 
+
+![Untitled video - Made with Clipchamp (1)](https://github.com/MuellMark/Course-Scheduler/assets/88158644/9a0819fa-feac-4d27-b4ac-87dd580464c0)
 
     a. Add all courses
 
