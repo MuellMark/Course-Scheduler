@@ -160,13 +160,18 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                     bool_swapped=True
             i+=1
 
+        swap_file_open = open(swap_file,'r')
+
+        temp_swap = csv.reader(swap_file_open)
+        contents_swap = list(temp_swap)
+
         added=False
         bool_forced=False
         while i < len(contents_all_restrict) and not added:
             if len(contents_all_restrict)>0:
                 if bool_forced:
-                    # course1=contents_all_restrict[i][0]
-                    # course2=contents_all_restrict[i][1]
+                    for line in contents_swap:
+                        added=True
                     added=True
                 if "<force" in contents_all_restrict[i][0]:
                     bool_forced=True
