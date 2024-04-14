@@ -147,16 +147,29 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         print("error, no file found. Please make sure a file is connected")
     else:
         i=0
-        added=False
+        stored=False
         bool_swapped=False
-        while i < len(contents_all_restrict) and not added:
+        
+        while i < len(contents_all_restrict) and not stored:
             if len(contents_all_restrict)>0:
                 if bool_swapped:
                     course1=contents_all_restrict[i][0]
                     course2=contents_all_restrict[i][1]
+                    stored=True
                 if "<swap" in contents_all_restrict[i][0]:
                     bool_swapped=True
-                
+            i+=1
+
+        added=False
+        bool_forced=False
+        while i < len(contents_all_restrict) and not added:
+            if len(contents_all_restrict)>0:
+                if bool_forced:
+                    # course1=contents_all_restrict[i][0]
+                    # course2=contents_all_restrict[i][1]
+                    added=True
+                if "<force" in contents_all_restrict[i][0]:
+                    bool_forced=True
             i+=1
         split_single_csv_and_run(contents_all_restrict)
 #------------Functions based on number of params----------------------------
