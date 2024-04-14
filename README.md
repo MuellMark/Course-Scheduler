@@ -36,10 +36,10 @@ The goal of the Southwestern University Course Scheduler was to make the course 
        i. For each course, enter its name, abbreviation, specify if it is a four contact hour course or not, and the number of sections this course has. Check every time that the course is unable to be taught and then specify the course’s ID.
        ii. If there are other courses that conflict with this one, click the Add Conflicting Course button and write the name of that course. You can do this multiple times.
     
-  b. Add all faculty
+    b. Add all faculty
     
-      i. For each faculty member, enter their name, indicate whether they need to teach in the prime time or no, and check every time that the professor is unable to teach. 
-      ii. Then specify another course the professor is teaching. If there are other courses being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
+        i. For each faculty member, enter their name, indicate whether they need to teach in the prime time or no, and check every time that the professor is unable to teach. 
+        ii. Then specify another course the professor is teaching. If there are other courses being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
 
 4. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
 
