@@ -3,7 +3,8 @@
 
 # Course-Scheduler
 
-
+![] https://github.com/MuellMark/Course-Scheduler/blob/main/src/static/images/1407271393_piraty_06.gif
+Welcome!
 
 ## Table of Contents
 
