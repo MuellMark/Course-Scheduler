@@ -21,8 +21,7 @@ While this tool is already usable by some, it is unintuitive and requires some p
 <br>
   
 ## Demo
-
-*TODO* Plans for a demo are to be completed when website is finished
+*TODO*
 <br>
 
 ## Tools
