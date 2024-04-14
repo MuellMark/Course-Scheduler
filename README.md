@@ -2,8 +2,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/MuellMark/Course-Scheduler)](https://github.com/MuellMark/Course-Scheduler/issues)
 
 # Course-Scheduler
+![bd64524d365b1cb58dcbed64e3a4e455](https://github.com/MuellMark/Course-Scheduler/assets/88158644/8a4452a4-5f42-4f85-b7f6-4154368102b1)
 
-![] https://github.com/MuellMark/Course-Scheduler/blob/main/src/static/images/1407271393_piraty_06.gif
+
 Welcome!
 
 ## Table of Contents
