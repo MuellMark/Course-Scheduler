@@ -31,7 +31,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-size: 1.5rem;
   /*Use the default font size on the users setting*/
   margin: 0;
@@ -87,6 +88,14 @@ h5 {
   /*Add padding around text*/
   margin-bottom: 15px;
   /*Add a margin below the text*/
+}
+
+h6 {
+  font-size: 1rem;
+  /*Use the default font size from user*/
+  text-align: center;
+  /* Center the text */
+  margin-top: 0;
 }
 
 p,
