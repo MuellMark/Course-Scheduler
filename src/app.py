@@ -53,6 +53,8 @@ def upload():
             csv_reader = csv.reader(csvfile)
             # Iterate over each row in the CSV file
             for row in csv_reader:
+                if row == 'm800':
+                    row = "monday"
                 # Append each row to the csv_data list
                 csv_data.append(row)
         csv_reader = csv_data
@@ -63,4 +65,4 @@ def upload():
         return "No file uploaded!"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
