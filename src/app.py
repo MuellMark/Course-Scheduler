@@ -40,11 +40,11 @@ def upload():
         filename = request.files['csv_file'].filename
 
         test.createFile(csv_file,app)
-        test.write_csv_to_file(csv_reader, "/home/colbySullivan/Course-Scheduler/src/static/input.csv")
+        test.write_csv_to_file(csv_reader, "static/input.csv")
         command = "python /home/colbySullivan/Course-Scheduler/src/File_Convertor.py /home/colbySullivan/Course-Scheduler/src/static/input.csv site site"
         subprocess.call(command, shell=True)
 
-        csv_file_path = '/home/colbySullivan/Course-Scheduler/src/static/output.csv'
+        csv_file_path = "static/output.csv"
 
         # Initialize an empty list to store the data from the CSV file
         csv_data = []
