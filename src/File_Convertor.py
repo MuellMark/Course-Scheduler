@@ -22,9 +22,9 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
         print("infeasible")
 
     if export_type=="site":
-        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/mysite/static/output.csv")
+        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/Course-Scheduler/src/static/output.csv")
     elif export_type=="csv":
-        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/mysite/static/output.csv")
+        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/Course-Scheduler/src/static/output.csv")
     else:
         print("Error, incorrect export type")
 
