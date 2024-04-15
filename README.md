@@ -10,12 +10,12 @@
 
 Welcome! Course scheduling is laborious and subject to many fixed university requirements. However, there are enough changing factors to make it difficult to reuse schedules from prior years, making it cumbersome for department chairs. By documenting these course and faculty restrictions, a Python tool has already been created that takes in CSV files of said constraints and generates a linear program that runs through an existing tool for linear programming, PyGLPK, to schedule the courses. 
 
-While some already use this tool, it is unintuitive and requires some programming knowledge to run. This computer science capstone project aims to create a user-friendly web-based version of the scheduler so that more departments can utilize it to schedule their courses. This site includes intuitive interfaces to create CSV files, run the software tool, and display the generated schedule.
+While some already use this tool, it is unintuitive and requires some programming knowledge. This computer science capstone project aims to create a user-friendly web-based version of the scheduler so that more departments can utilize it to schedule their courses. This site includes intuitive interfaces to create CSV files, run the software tool, and display the generated schedule.
 
 ## Demo
 ![5l89](https://github.com/MuellMark/Course-Scheduler/assets/88158644/8cba9212-9d7a-43ce-9181-92ec9a8ab7cd)
 
-The goal of the Southwestern University Course Scheduler was to make the course scheduling process as simple as possible. Therefore, the steps to accomplish this task are quite minimal. The user's requirements include creating and uploading the CSV files using the Python tool. The application will run PyGLPK, and the resulting course schedule will be outputted for the user to download. Follow the steps below to do this. 
+The goal of the Southwestern University Course Scheduler was to make the course scheduling process as simple as possible. Therefore, the steps to accomplish this task are quite minimal. The user's requirements include creating and uploading the CSV files using Python. The application will run PyGLPK, and the resulting course schedule will be outputted for the user to download. Follow the steps below to do this. 
 
 ![Untitled video - Made with Clipchamp](https://github.com/MuellMark/Course-Scheduler/assets/88158644/b6be537d-a3d6-4e77-a2c4-d1236f0d9019)
 
@@ -34,12 +34,12 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 
     a. Add all courses
 
-       i. For each course, enter its name and abbreviation, specify whether it is a four-contact-hour course or not, and the number of sections it has. Check every time the course cannot be taught and then specify the course’s ID.
+       i. For each course, enter its name and abbreviation, specify whether it is a four-contact-hour course and the number of sections it has. Check when the course cannot be taught and then specify the course’s ID.
        ii. If other courses conflict with this one, click the Add Conflicting Course button and write the name of that course. You can do this multiple times.
     
     b. Add all faculty
     
-        i. For each faculty member, enter their name, indicate whether they need to teach during prime time, and check every time that the professor is unable to teach. 
+        i. For each faculty member, enter their name, indicate whether they need to teach during prime time, and check every time the professor cannot teach. 
         ii. Then specify another course the professor is teaching. If other courses are being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
 
 4. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
@@ -51,11 +51,15 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 ## Tools
 ![bunda-feia-cute](https://github.com/MuellMark/Course-Scheduler/assets/88158644/21c5dbc3-83e3-454c-9e24-b164bf32d48d)
 
-1. The Scheduler operates from a Python script running Python GNU Linear Programming Kit (PyGLPK). The script is fed in 1-2 CSV files containing all the course and faculty constraints. Based on these constraints, a linear program modeled as a 2D matrix is created. This linear program is then passed into PyGLPK, where it is solved, checked for feasibility, and exported to a separate CSV file. This CSV file is passed back to the website for proper display.
+1. The Scheduler operates from a Python script running Python GNU Linear Programming Kit (PyGLPK). The script is fed in 1-2 CSV files containing all the course and faculty constraints. A linear program modeled as a 2D matrix is created based on these constraints. This linear program is then passed into PyGLPK, where it is solved, checked for feasibility, and exported to a separate CSV file. This CSV file is passed back to the website for proper display.
+
+<img src= "https://github.com/MuellMark/Course-Scheduler/assets/88158644/ce382ebf-a8a0-41d4-98d4-a2a3a5bef896" width="600" height="300">
   
-2. Our responsibility is to ensure that, even as a capstone project, the project does not become obsolete due to poor design, readability, or usability after it is finished. The Scheduler front-end uses HTML, CSS, and JavaScript. These were chosen because they are accessible languages that do not require much programming knowledge to understand and learn. Utilizing these languages guarantees that the program will withstand industry changes. By design, you should see things where you expect them to be on a website, meaning you should make the tool as efficient as possible by designing it to make it easier for users to navigate. With users in mind, the tool is beginner-friendly and easy to use, with clear instructions and labeling. Error checks and handling are seen throughout the creation and updating of the course schedules, with immediate feedback in case of a problem.
-   
-3. What makes course scheduling so complex is adhering to all of the restrictions and requests made by faculty members while also producing the most efficient schedule. This is where the linear programming comes in. Linear programming is a mathematical modeling method to create the best outcome where the constraints and the objective are represented by linear relationships. In the context of our application, the objective is to create the most efficient, optimized schedule. The constraints that the schedule must follow are the course and faculty restrictions that will be specified by the users. These include, but are not limited to, a faculty member’s teaching time availability, the classes being taught, and when they are offered.  The constraints will be defined by the user in the Create CSV page that will be explained more in depth in a later section. The application will implement a linear program with the objective and the constraints, and then using PyGLK, a software package that solves linear programs, will output the course schedule for the year. 
+2. Our responsibility is to ensure that, even as a capstone project, the project does not become obsolete due to poor design, readability, or usability after it is finished. The Scheduler front-end uses HTML, CSS, and JavaScript. These were chosen because they are accessible languages that do not require much programming knowledge to understand and learn. Utilizing these languages guarantees that the program will withstand industry changes. By design, you should see things where you expect them to be on a website, meaning you should make the tool as efficient as possible by designing it to make it easier for users to navigate. With users in mind, the tool is beginner-friendly and easy to use, with clear instructions and labeling. Error checks and handling are seen throughout creating and updating the course schedules, with immediate feedback in case of a problem.
+
+![image](https://github.com/MuellMark/Course-Scheduler/assets/88158644/fb560950-262b-4459-8bae-f78189769a14)
+
+3. What makes course scheduling so complex is adhering to all of the restrictions and requests made by faculty members while producing the most efficient schedule. This is where linear programming comes in. Linear programming is a mathematical modeling method that creates the best outcome where the constraints and the objective are represented by linear relationships. In the context of our application, the objective is to create the most efficient, optimized schedule. The constraints that the schedule must follow are the course and faculty restrictions that will be specified by the users. These include, but are not limited to, a faculty member’s teaching time availability, the classes being taught, and when they are offered.  The user will define the constraints in the Create CSV page, which will be explained in more depth in a later section. The application will implement a linear program with the objective and the constraints, and then using PyGLK, a software package that solves linear programs, will output the course schedule for the year. 
    
 <br>
 
