@@ -45,7 +45,11 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 4. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
 
 5. Now that the CSV files have been created, they can be uploaded to the application to generate the schedule. Click the Next button. This will help you navigate to a page to begin uploading.
- 
+
+![Untitled video - Made with Clipchamp (2)](https://github.com/MuellMark/Course-Scheduler/assets/88158644/a64c2383-f25f-45ec-8bac-1262f3088762)
+
+![Untitled video - Made with Clipchamp](https://github.com/MuellMark/Course-Scheduler/assets/88158644/0417811c-aa85-46bd-9a35-b0b644cc11b7)
+
 <br>
 
 ## Tools
