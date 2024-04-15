@@ -38,13 +38,13 @@ def upload():
         csv_data = csv_file.read().decode('utf-8')
         csv_reader = csv.reader(io.StringIO(csv_data))
         filename = request.files['csv_file'].filename
-        
+
         test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "static/input.csv")
-        command = "python File_Convertor.py static/input.csv site site"
+        command = "python /home/colbySullivan/mysite/File_Convertor.py /home/colbySullivan/mysite/static/input.csv site site"
         subprocess.call(command, shell=True)
 
-        csv_file_path = 'output.csv'
+        csv_file_path = 'static/output.csv'
 
         # Initialize an empty list to store the data from the CSV file
         csv_data = []
