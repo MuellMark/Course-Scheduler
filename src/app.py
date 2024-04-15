@@ -41,7 +41,7 @@ def upload():
         
         test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "static/input.csv")
-        # subprocess.call([sys.executable, "File_Convertor.py", "static/input.csv"])
+        subprocess.call([sys.executable, "File_Convertor.py", "static/input.csv"])
 
         csv_file_path = 'output.csv'
 
