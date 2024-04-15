@@ -23,24 +23,24 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 
    a. The import option is to be chosen if the user has an existing CSV file to which they would like to make alterations.
       
-        i. If so, click Import A CSV
-        ii. Choose the CSV file to upload and click the Upload button
-        iii. TODO: The next step is when the page is implemented
+   i. If so, click Import A CSV
+   ii. Choose the CSV file to upload and click the Upload button
+   iii. TODO: The next step is when the page is implemented
    b. If not, click Create A New CSV.
 
 3. You have now navigated to the Create CSV page. This is where you will define all course and faculty restrictions. 
 
 ![Untitled video - Made with Clipchamp (1)](https://github.com/MuellMark/Course-Scheduler/assets/88158644/9a0819fa-feac-4d27-b4ac-87dd580464c0)
 
-    a. Add all courses
+   a. Add all courses
 
-       i. For each course, enter its name and abbreviation, specify whether it is a four-contact-hour course and the number of sections it has. Check when the course cannot be taught and then specify the course’s ID.
-       ii. If other courses conflict with this one, click the Add Conflicting Course button and write the name of that course. You can do this multiple times.
+   i. For each course, enter its name and abbreviation, specify whether it is a four-contact-hour course and the number of sections it has. Check when the course cannot be taught and then specify the course’s ID.
+   ii. If other courses conflict with this one, click the Add Conflicting Course button and write the name of that course. You can do this multiple times.
     
-    b. Add all faculty
+   b. Add all faculty
     
-        i. For each faculty member, enter their name, indicate whether they need to teach during prime time, and check every time the professor cannot teach. 
-        ii. Then specify another course the professor is teaching. If other courses are being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
+   i. For each faculty member, enter their name, indicate whether they need to teach during prime time, and check every time the professor cannot teach. 
+   ii. Then specify another course the professor is teaching. If other courses are being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
 
 4. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
 
