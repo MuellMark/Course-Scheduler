@@ -1,2 +1,0 @@
-def returnName():
-    return "test"

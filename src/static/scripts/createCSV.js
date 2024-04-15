@@ -88,3 +88,32 @@ function downloadCSVFile(csv_data) {
     temp_link.click();
     document.body.removeChild(temp_link);
 }
+
+    /**
+     * Check if all required fields are filled in table
+     * @param tableId - Get ID of table
+     * @returns boolena - Ture if all required fields are filled
+     */
+    function checkIfFilled(tableId) {
+        var table = document.getElementById(tableId);
+        if(!table) return false; 
+        var rows = table.getElementsByTagName("tr");
+        //Start from row 1, and not the the header row
+        for (var i = 1; i < rows.length; i++) {
+            var inputs = rows[i].querySelectorAll("input[type='text'], input[type='number'], select");
+            for (var j = 0; j < inputs.length; j++) {
+                var input = inputs[j];
+                //Check if Select Course ID is filled
+                //Check if select is not selected
+                if ((input.tagName === "SELECT" && input.value === "empty")
+                    //Check if empty
+                    || (input.type === "text" && input.value.trim() === "")
+                    //Check if the number inputs are empty
+                    || (input.type === "number" && input.value.trim() === "")) {
+                    return false;
+                }
+            }
+        }
+        //All fields are filled
+        return true;
+    }
