@@ -511,4 +511,4 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
             
         export_file.write(file_contents)
     else:
-        export_file.write("infeasible")
+        export_file.write("infeasible") 
