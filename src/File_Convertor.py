@@ -246,18 +246,23 @@ def two_csv_param(course_file,faculty_file):
 if __name__=="__main__":
     num_args = len(sys.argv)
 
+    global export_type
     if (num_args>=4):
-        global export_type
+        
         export_type=sys.argv[3]
 
     if(num_args==1):
         no_csv_param()  
     elif(num_args==2): #default in case it's called, will remove soon
-        one_csv_param(sys.argv[1],"user","site","")
+        args=sys.argv[1].split()
+        if len(args==3):
+            args.append("")
+            export_type=args[2]
+        one_csv_param(args[0],args[1],args[3])
     elif(num_args==4):
         one_csv_param(sys.argv[1],sys.argv[2],"")
         # two_csv_param(sys.argv[1],sys.argv[2])
     elif(num_args==5):
         one_csv_param(sys.argv[1],sys.argv[2],sys.argv[4])
     else:
-        print("error, too many parameters")
+        print("error, too many parameters") 
