@@ -22,9 +22,9 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
         print("infeasible")
 
     if export_type=="site":
-        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/Course-Scheduler/src/static/output.csv")
+        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/Course-Scheduler/src/output.csv")
     elif export_type=="csv":
-        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/Course-Scheduler/src/static/output.csv")
+        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/home/colbySullivan/Course-Scheduler/src/output.csv")
     else:
         print("Error, incorrect export type")
 
@@ -267,7 +267,7 @@ if __name__=="__main__":
 
     global export_type
     if (num_args>=4):
-        
+
         export_type=sys.argv[3]
 
     if(num_args==1):
@@ -284,4 +284,4 @@ if __name__=="__main__":
     elif(num_args==5):
         one_csv_param(sys.argv[1],sys.argv[2],sys.argv[4])
     else:
-        print("error, too many parameters") 
+        print("error, too many parameters")
