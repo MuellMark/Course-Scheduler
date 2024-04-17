@@ -79,10 +79,10 @@ def courses_offered_cons(all_combos):
             for col in range(num_cols):
                 temp_matrix[(maxT*maxC*col)+(cI[course]*maxT)+tI[time]]=1
         matrix+=(temp_matrix)
-
+    
     global_matrix.append(matrix)
 
-# Makes sure each time/ column paring only has 1 course offered          
+# Makes sure each time/ column pairing only has 1 course offered          
 def time_overlap_cons(all_combos):
     matrix=[]
     for col in range(num_cols):
@@ -340,6 +340,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     courses=[]
     for course in contents_course_restrict:
         courses.append(course[0])
+        print(course)
 
     # Global creation of dictionaries needed in constraints
     global tI
@@ -449,30 +450,33 @@ def print_readable_format(contents_course_restrict):
         print(pair)
 
 # Export method for the user to put it back into the site, NOT for displaying
-def export_csv(contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
+def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     export_file = open(export_file_name,'w')
     file_contents=""
-    if len(forced_courses)>0:
-        file_contents+=("<forced_courses>\n")
-        for pairing in forced_courses:
-            file_contents+=(pairing[0]+","+pairing[1]+"\n")
+    if success:
+        if len(forced_courses)>0:
+            file_contents+=("<forced_courses>\n")
+            for pairing in forced_courses:
+                file_contents+=(pairing[0]+","+pairing[1]+"\n")
 
-    file_contents+="<course_restrict>\n"
-    for line in contents_course_restrict:
-        for val in line:
-            if not val=="$":
-                file_contents+=(val+",")
-        file_contents+=("$\n")
+        file_contents+="<course_restrict>\n"
+        for line in contents_course_restrict:
+            for val in line:
+                if not val=="$":
+                    file_contents+=(val+",")
+            file_contents+=("$\n")
 
-    file_contents+="<faculty_restrictions>\n"
-    for line in contents_faculty_restrict:
-        for val in line:
-            if not val=="$":
-                file_contents+=(val+",")
-        file_contents+=("$\n")
+        file_contents+="<faculty_restrictions>\n"
+        for line in contents_faculty_restrict:
+            for val in line:
+                if not val=="$":
+                    file_contents+=(val+",")
+            file_contents+=("$\n")
 
-    export_file.write(file_contents)
-
+        export_file.write(file_contents)
+    else:
+        export_file.write("infeasible")
+ 
 # Exports the file for the website to intercept and displays the schedule
 def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     export_file = open(export_file_name,'w')
@@ -494,7 +498,7 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
                 for pair in pairings:
                     if col_string in pair and time in pair:
                         if pair not in sortedPairings: # Not sure why there a duplicates 
-                            temp=str(num+1)+","+time+","+pair[:3]
+                            temp=str(num+1)+","+time+","+pair[:4]
                             for fac in contents_faculty_restrict:
                                 if pair[:4] in fac:
                                     temp+=","+fac[0]
@@ -507,4 +511,4 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
             
         export_file.write(file_contents)
     else:
-        export_file.write("infeasible")
+        export_file.write("infeasible") 

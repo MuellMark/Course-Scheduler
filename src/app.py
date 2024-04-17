@@ -38,12 +38,13 @@ def upload():
         csv_data = csv_file.read().decode('utf-8')
         csv_reader = csv.reader(io.StringIO(csv_data))
         filename = request.files['csv_file'].filename
-        
-        test.createFile(csv_file,app)
-        test.write_csv_to_file(csv_reader, "static/input.csv")
-        subprocess.call([sys.executable, "File_Convertor.py", "static/input.csv"])
 
-        csv_file_path = 'output.csv'
+        test.createFile(csv_file,app)
+        test.write_csv_to_file(csv_reader, "input.csv")
+        # command = "python File_Convertor.py input.csv user site"
+        # subprocess.call(command, shell=True)
+
+        csv_file_path = "output.csv"
 
         # Initialize an empty list to store the data from the CSV file
         csv_data = []
@@ -53,8 +54,6 @@ def upload():
             csv_reader = csv.reader(csvfile)
             # Iterate over each row in the CSV file
             for row in csv_reader:
-                if row == 'm800':
-                    row = "monday"
                 # Append each row to the csv_data list
                 csv_data.append(row)
         csv_reader = csv_data

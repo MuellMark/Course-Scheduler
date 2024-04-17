@@ -37,8 +37,11 @@
         </div>
     </header>
 
+    <h5> <span> Create CSV </span> </h5>
+
     <button class="button-style6" style="margin-right: 25px" onclick="window.location.href='{{ url_for('importpg')}}'">Next</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
+    
     <!---------------------------- Course dynamic table ---------------------------->
     <h4><span>Course Table</span></h4>
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
