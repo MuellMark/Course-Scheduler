@@ -498,7 +498,8 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
                 for pair in pairings:
                     if col_string in pair and time in pair:
                         if pair not in sortedPairings: # Not sure why there a duplicates 
-                            temp=str(num+1)+","+time+","+pair[:4]
+                            # temp=str(num+1)+","+time+","+pair[:4]
+                            temp=str(1)+","+time+","+pair[:4]
                             for fac in contents_faculty_restrict:
                                 if pair[:4] in fac:
                                     temp+=","+fac[0]
