@@ -200,8 +200,22 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         split_single_csv_and_run(contents_all_restrict)
 
 def determine_user_or_site(contents_all_restrict):
-    print("todo")
-    # loop thru, see if after course restrict, if [2] is numeric, it's from site, otherwise user
+    bool_course=False
+    i=0
+
+    # Loops and finds index where course_restrict is 
+    while not bool_course and i<len(contents_all_restrict):
+        if len(contents_all_restrict[i])>0:
+            if "<course" in contents_all_restrict[i][0]:
+                bool_course=True
+        i+=1
+
+    # if index is a numeric, its from the site, otherwise user
+    if contents_all_restrict[i][2].isnumeric():
+        expand_sections_from_site(contents_all_restrict) 
+    else:
+        split_single_csv_and_run(contents_all_restrict)
+
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
