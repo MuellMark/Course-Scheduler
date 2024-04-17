@@ -41,7 +41,7 @@ def upload():
 
         test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "input.csv")
-        command = "python /home/colbySullivan/Course-Scheduler/src/File_Convertor.py /home/colbySullivan/Course-Scheduler/src/input.csv user site"
+        command = "python File_Convertor.py input.csv user site"
         subprocess.call(command, shell=True)
 
         csv_file_path = "output.csv"
