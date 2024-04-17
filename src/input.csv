@@ -1,5 +1,6 @@
 <course-table>
-CS2,FALSE,2,CS22,$
+CS1,FALSE,1,m800,t1000,t1130,CS11,$
+CS21,TRUE,1,m930,m330,CS211,$
 
 <faculty-table>
 ,TRUE,,$
