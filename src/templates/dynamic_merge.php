@@ -146,6 +146,7 @@
     <h4><span>Faculty Table</span></h4>
     <div class="divScroll">
         <button class="button-style5" onclick="clearTable('faculty-table')">Clear Table</button>
+        <button class="button-style5" onclick="addRowFac()">Add Row</button>
         <button class="button-style5" onclick="addToDBFac()">Add to Firebase</button>
     </div>
     <table id="faculty-table">
