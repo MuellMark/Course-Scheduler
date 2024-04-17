@@ -22,13 +22,13 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
         print("infeasible")
 
     if export_type=="site":
-        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/test_export.csv")
+        export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"output.csv")
     elif export_type=="csv":
-        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/test_export.csv")
+        export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"output.csv")
     else:
         print("Error, incorrect export type")
 
-# Method specifically for single file CSVs. It splits the CSV into 2 
+# Method specifically for single file CSVs. It splits the CSV into 2
 # separate lists and then calls PyGLPK_solver
 def split_single_csv_and_run(contents_all_restrict):
     # Boolean values to denote whento parse different aspects
@@ -57,7 +57,7 @@ def split_single_csv_and_run(contents_all_restrict):
                 course_bool=False
         if len(contents_all_restrict[i])>1: # Only adds rows with more than one value in it
             if course_bool:
-                contents_course_restrict.append(contents_all_restrict[i])      
+                contents_course_restrict.append(contents_all_restrict[i])
             elif faculty_bool:
                 contents_faculty_restrict.append(contents_all_restrict[i])
         i+=1
@@ -65,7 +65,7 @@ def split_single_csv_and_run(contents_all_restrict):
 
 def expand_sections_from_site(contents_all_restrict):
     course_dict={}
- 
+
     add_to_dict = False
 
     # populates the dictionary
@@ -78,7 +78,7 @@ def expand_sections_from_site(contents_all_restrict):
             if len(line)>2 and add_to_dict:
                 course_dict[line[0]]=int(line[2])
                 line.remove(line[2])
-    
+
     # adds in the section numbers to the conflicting courses
     for key in course_dict:
         is_course=False
@@ -88,7 +88,7 @@ def expand_sections_from_site(contents_all_restrict):
                     is_course=True
                 if"<faculty" in line[0]:
                     is_course=False
-            
+
             i=0
             section_num=1
             while i<len(line):
@@ -97,7 +97,7 @@ def expand_sections_from_site(contents_all_restrict):
                         line.insert(i,line[i])
                     line[i]+=str(section_num)
                     section_num+=1
-                    
+
                 i+=1
 
     # duplicates the rows of courses with multiple sections and edits their names to add
@@ -122,20 +122,20 @@ def expand_sections_from_site(contents_all_restrict):
                     val+=1
             i+=1
 
-    # Adds all of the section numbers to the faculty restrictions 
+    # Adds all of the section numbers to the faculty restrictions
     for key in course_dict:
         is_fac=False
         for line in contents_all_restrict:
             if len(line)>0:
                 if"<faculty" in line[0]:
                     is_fac=True
-            
+
             i=0
             section_num=1
             while i<len(line):
                 if is_fac and i>0 and line[i]==key:
                     line[i]+=str(course_dict[key])
-                    course_dict[key]-=1 
+                    course_dict[key]-=1
                 i+=1
 
     # print(contents_all_restrict)
@@ -149,7 +149,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         i=0
         stored=False
         bool_swapped=False
-        
+
         while i < len(contents_all_restrict) and not stored:
             if len(contents_all_restrict)>0:
                 if bool_swapped:
@@ -175,7 +175,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
             if len(contents_all_restrict)>0:
                 if bool_forced:
                     for line in contents_swap:
-                       
+
                         if line[2]==course1:
                             c1time=line[1]
                         if line[2]==course2:
@@ -192,9 +192,9 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                     contents_all_restrict.insert(i,forced2)
 
                     added=True
-                
+
             i+=1
-        
+
         # print(c1time)
         # print(c2time)
         split_single_csv_and_run(contents_all_restrict)
@@ -244,7 +244,7 @@ def one_csv_param(file,file_type,swap_file):
     # elif file_type=="site":
     #     expand_sections_from_site(contents_all_restrict)   
     elif file_type=="swap":
-        swap_courses_setup(contents_all_restrict,swap_file)    
+        swap_courses_setup(contents_all_restrict,swap_file)
     else:
         print("error")
 
@@ -267,11 +267,11 @@ if __name__=="__main__":
 
     global export_type
     if (num_args>=4):
-        
+
         export_type=sys.argv[3]
 
     if(num_args==1):
-        no_csv_param()  
+        no_csv_param()
     elif(num_args==2): #default in case it's called, will remove soon
         args=sys.argv[1].split()
         if len(args==3):
@@ -284,4 +284,4 @@ if __name__=="__main__":
     elif(num_args==5):
         one_csv_param(sys.argv[1],sys.argv[2],sys.argv[4])
     else:
-        print("error, too many parameters") 
+        print("error, too many parameters")
