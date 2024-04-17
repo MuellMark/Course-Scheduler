@@ -39,7 +39,7 @@
 
     <h5> <span> Create CSV </span> </h5>
 
-    <button class="button-style6" style="margin-right: 25px" onclick="addToDB(); window.location.href='{{ url_for('importpg')}}'">Next</button>
+    <button class="button-style6" style="margin-right: 25px" onclick="addToDB(); addToDBFac(); window.location.href='{{ url_for('importpg')}}'">Next</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
     
     <!---------------------------- Course dynamic table ---------------------------->
