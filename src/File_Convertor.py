@@ -198,6 +198,24 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         # print(c1time)
         # print(c2time)
         split_single_csv_and_run(contents_all_restrict)
+
+def determine_user_or_site(contents_all_restrict):
+    bool_course=False
+    i=0
+
+    # Loops and finds index where course_restrict is 
+    while not bool_course and i<len(contents_all_restrict):
+        if len(contents_all_restrict[i])>0:
+            if "<course" in contents_all_restrict[i][0]:
+                bool_course=True
+        i+=1
+
+    # if index is a numeric, its from the site, otherwise user
+    if contents_all_restrict[i][2].isnumeric():
+        expand_sections_from_site(contents_all_restrict) 
+    else:
+        split_single_csv_and_run(contents_all_restrict)
+
 #------------Functions based on number of params----------------------------
 
 # Default for testing as I redistribute code, will remove once complete
@@ -219,11 +237,12 @@ def one_csv_param(file,file_type,swap_file):
 
     temp_all_restrict = csv.reader(all_restrict_file)
     contents_all_restrict = list(temp_all_restrict)
-
-    if file_type=="user" or file_type=="time":
+    if file_type=="csv":
+        determine_user_or_site(contents_all_restrict)
+    elif file_type=="time":
         split_single_csv_and_run(contents_all_restrict)
-    elif file_type=="site":
-        expand_sections_from_site(contents_all_restrict)
+    # elif file_type=="site":
+    #     expand_sections_from_site(contents_all_restrict)   
     elif file_type=="swap":
         swap_courses_setup(contents_all_restrict,swap_file)
     else:
