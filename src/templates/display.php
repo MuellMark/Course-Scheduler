@@ -38,10 +38,12 @@
         </div>
     </header>
 <body>
-    <h1>Course Schedule</h1>
+    <h1><span>Course Schedule</span></h1>
+    <br>
+    <br>
     <table border="1">
         <th>Time</th>
-        <th>CourseID</th>
+        <th>Course ID</th>
         <th>Faculty</th>
         {% for row in csv_data %}
         <tr>
@@ -56,17 +58,19 @@
                     <td>Monday at 11:00 am</td>
                 {% elif col == "m200" %}
                     <td>Monday at 2:00 pm</td>
+                {% elif col == "m330" %}
+                    <td>Monday at 3:30 pm</td>
 
                 {% elif col == "t830" %}
                     <td>Tuesday at 8:30 am</td>
                 {% elif col == "t1000" %}
-                    <td>Monday at 10:00 am</td>
+                    <td>Tuesday at 10:00 am</td>
                 {% elif col == "t1130" %}
-                    <td>Monday at 11:30 am</td>
+                    <td>Tuesday at 11:30 am</td>
                 {% elif col == "t100" %}
-                    <td>Monday at 1:00 pm</td>
+                    <td>Tuesday at 1:00 pm</td>
                 {% elif col == "t230" %}
-                    <td>Monday at 2:30 pm</td>
+                    <td>Tuesday at 2:30 pm</td>
                 {% else %}
                     <td>{{ col }}</td>
                 {% endif %}
