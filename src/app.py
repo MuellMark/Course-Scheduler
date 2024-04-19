@@ -37,11 +37,10 @@ def upload():
         # Read the uploaded CSV file
         csv_data = csv_file.read().decode('utf-8')
         csv_reader = csv.reader(io.StringIO(csv_data))
-        filename = request.files['csv_file'].filename
 
         test.createFile(csv_file,app)
         test.write_csv_to_file(csv_reader, "input.csv")
-        command = "python File_Convertor.py input.csv csv site"
+        command = "python File_Convertor.py input.csv csv both"
         subprocess.call(command, shell=True)
 
         csv_file_path = "output.csv"
@@ -60,20 +59,42 @@ def upload():
         csv_data.sort(key=lambda x: x[1])
         # Render HTML template with CSV data
         # os.remove("static/output") # Remove created file
-        return render_template('display.php', csv_data=csv_reader, test=filename)
+        return render_template('display.php', csv_data=csv_reader)
     else:
         return "No file uploaded!"
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
     f = open('input.csv','r')
-    newf = open('newfile.txt','w')
+    newf = open('swap.csv','w')
     lines = f.readlines() # read old content
-    newf.write("test") # write new content at the beginning
+    newf.write("<forced_courses>" + "\n" + request.form['course'] + "," + request.form['time'] + "\n") # write new content at the beginning
     for line in lines: # write old content after new
         newf.write(line)
     newf.close()
     f.close()
+    command = "python File_Convertor.py swap.csv csv both"
+    subprocess.call(command, shell=True)
+
+    csv_file_path = "output.csv"
+
+    # Initialize an empty list to store the data from the CSV file
+    csv_data = []
+    # TODO make a method
+    # Open the CSV file and read its contents
+    with open(csv_file_path, newline='') as csvfile:
+        csv_reader = csv.reader(csvfile)
+        # Iterate over each row in the CSV file
+        for row in csv_reader:
+            # Append each row to the csv_data list
+            csv_data.append(row)
+    csv_reader = csv_data
+    csv_data.sort(key=lambda x: x[1])
+
+
+    return render_template('display.php', csv_data=csv_reader)
+
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8080")
