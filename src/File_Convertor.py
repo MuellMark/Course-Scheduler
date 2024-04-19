@@ -11,6 +11,17 @@ def copy(l):
         new_list.append(val)
     return new_list
 
+def export_both(success,contents_course_restrict,contents_faculty_restrict,forced_courses):
+    # Change site download path here
+    site_path="output.csv"
+
+    # Change user download path here
+    user_path="user_output.csv"
+
+    export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,site_path)
+    export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,user_path)
+
+
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
     # Success tracks whether or not the schedule is feasible
@@ -20,8 +31,10 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
-
-    if export_type=="site":
+        
+    if export_type=="both":
+        export_both(success,contents_course_restrict,contents_faculty_restrict,forced_courses)
+    elif export_type=="site":
         export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"output.csv")
     elif export_type=="csv":
         export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,"output.csv")
