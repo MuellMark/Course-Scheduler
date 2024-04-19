@@ -63,5 +63,16 @@ def upload():
     else:
         return "No file uploaded!"
 
+@app.route("/swap", methods=['GET', 'POST'])
+def swap():
+    f = open('input.csv','r')
+    newf = open('newfile.txt','w')
+    lines = f.readlines() # read old content
+    newf.write("test") # write new content at the beginning
+    for line in lines: # write old content after new
+        newf.write(line)
+    newf.close()
+    f.close()
+
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port="8080")

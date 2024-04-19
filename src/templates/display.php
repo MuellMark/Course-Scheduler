@@ -74,6 +74,17 @@
         </tr>
         {% endfor %}
     </table>
+    <form method="post" action="swap">
+    <label for="course">Choose a course to swap:</label>
+    <select id="CS2" name="CS2">
+        <option value="CS2">CS2</option>
+    </select> 
+    <label for="time">When will it be taught:</label>
+    <select id="m200" name="m200">
+        <option value="m200">m200</option>
+    </select> 
+    <input type="submit" value="submit" name="submit"/>
+    </form>
 </body>
 
 </html>
