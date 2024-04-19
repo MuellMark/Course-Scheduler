@@ -57,6 +57,7 @@ def upload():
                 # Append each row to the csv_data list
                 csv_data.append(row)
         csv_reader = csv_data
+        csv_data.sort(key=lambda x: x[1])
         # Render HTML template with CSV data
         # os.remove("static/output") # Remove created file
         return render_template('display.php', csv_data=csv_reader, test=filename)
