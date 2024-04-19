@@ -164,7 +164,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         bool_swapped=False
 
         while i < len(contents_all_restrict) and not stored:
-            if len(contents_all_restrict)>0:
+            if len(contents_all_restrict[i])>0:
                 if bool_swapped:
                     course1=contents_all_restrict[i][0]
                     course2=contents_all_restrict[i][1]
@@ -173,44 +173,48 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                     bool_swapped=True
             i+=1
 
-        swap_file_open = open(swap_file,'r')
+        # If tag not found, do not run alg
+        if not stored:
+            print("Error, no swap tag")
+        else:
+            swap_file_open = open(swap_file,'r')
 
-        temp_swap = csv.reader(swap_file_open)
-        contents_swap = list(temp_swap)
+            temp_swap = csv.reader(swap_file_open)
+            contents_swap = list(temp_swap)
 
-        added=False
-        bool_forced=False
-        while i < len(contents_all_restrict) and not added:
-            # print(i)
-            if "<force" in contents_all_restrict[i][0]:
-                    bool_forced=True
-                    i+=1
-            if len(contents_all_restrict)>0:
-                if bool_forced:
-                    for line in contents_swap:
+            added=False
+            bool_forced=False
+            while i < len(contents_all_restrict) and not added:
+                # print(i)
+                if "<force" in contents_all_restrict[i][0]:
+                        bool_forced=True
+                        i+=1
+                if len(contents_all_restrict)>0:
+                    if bool_forced:
+                        for line in contents_swap:
 
-                        if line[2]==course1:
-                            c1time=line[1]
-                        if line[2]==course2:
-                            c2time=line[1]
+                            if line[2]==course1:
+                                c1time=line[1]
+                            if line[2]==course2:
+                                c2time=line[1]
 
-                    forced1=[]
-                    forced2=[]
-                    forced1.append(course1)
-                    forced1.append(c2time)
-                    forced1.append(course2)
-                    forced1.append(c1time) # Swapped course times
+                        forced1=[]
+                        forced2=[]
+                        forced1.append(course1)
+                        forced1.append(c2time)
+                        forced1.append(course2)
+                        forced1.append(c1time) # Swapped course times
 
-                    contents_all_restrict.insert(i,forced1)
-                    contents_all_restrict.insert(i,forced2)
+                        contents_all_restrict.insert(i,forced1)
+                        contents_all_restrict.insert(i,forced2)
 
-                    added=True
+                        added=True
 
-            i+=1
+                i+=1
 
-        # print(c1time)
-        # print(c2time)
-        split_single_csv_and_run(contents_all_restrict)
+            # print(c1time)
+            # print(c2time)
+            split_single_csv_and_run(contents_all_restrict)
 
 def determine_user_or_site(contents_all_restrict):
     bool_course=False
