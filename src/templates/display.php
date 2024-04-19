@@ -41,6 +41,19 @@
     <h1><span>Course Schedule</span></h1>
     <br>
     <br>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, 
+        td {
+            width: calc(100% / 3);
+        }
+    </style>
+
     <table border="1">
         <th>Time</th>
         <th>Course ID</th>
@@ -51,26 +64,26 @@
                 {% if col == "1" %}
                     
                 {% elif col == "m800" %}
-                    <td>Monday at 8:00 am</td>
+                    <td>MWF at 8:00 AM</td>
                 {% elif col == "m930" %}
-                    <td>Monday at 9:30 am</td>
+                    <td>MWF at 9:30 AM</td>
                 {% elif col == "m1100" %}
-                    <td>Monday at 11:00 am</td>
+                    <td>MWF at 11:00 AM</td>
                 {% elif col == "m200" %}
-                    <td>Monday at 2:00 pm</td>
+                    <td>MWF at 2:00 PM</td>
                 {% elif col == "m330" %}
-                    <td>Monday at 3:30 pm</td>
+                    <td>MWF at 3:30 PM</td>
 
                 {% elif col == "t830" %}
-                    <td>Tuesday at 8:30 am</td>
+                    <td>TTH at 8:30 AM</td>
                 {% elif col == "t1000" %}
-                    <td>Tuesday at 10:00 am</td>
+                    <td>TTH at 10:00 AM</td>
                 {% elif col == "t1130" %}
-                    <td>Tuesday at 11:30 am</td>
+                    <td>TTH at 11:30 AM</td>
                 {% elif col == "t100" %}
-                    <td>Tuesday at 1:00 pm</td>
+                    <td>TTH at 1:00 PM</td>
                 {% elif col == "t230" %}
-                    <td>Tuesday at 2:30 pm</td>
+                    <td>TTH at 2:30 PM</td>
                 {% else %}
                     <td>{{ col }}</td>
                 {% endif %}
