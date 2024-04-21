@@ -75,7 +75,7 @@ function downloadCSVFile(csv_data) {
     let temp_link = document.createElement('a');
 
     // Download csv file
-    temp_link.download = "course.csv";
+    temp_link.download = "upload-this-file-CSS.csv";
     let url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
