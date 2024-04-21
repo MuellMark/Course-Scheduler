@@ -54,7 +54,7 @@
         }
     </style>
 
-    <table border="1">
+    <table id="optimalTable">
         <th>Time</th>
         <th>Course ID</th>
         <th>Faculty</th>
@@ -93,6 +93,72 @@
     </table>
     <form method="post" action="swap">
     <label for="course">Choose a course to swap:</label>
+    <!-- <select id="courseMenu" name="courseMenu"> -->
+    <div id="courseMenu"></div>
+    
+    <label for="time">When will it be taught:</label>
+    <!-- <select id="timeMenu" name="timeMenu"> -->
+    <!-- <div id="timeMenu"></div> -->
+    <select id="time" name="time">
+        <option value="m800">MWF at 8:00 AM</option>
+        <option value="m930">MWF at 9:30 AM</option>
+        <option value="m1100">MWF at 11:00 AM</option>
+        <option value="m200">MWF at 2:00 PM</option>
+        <option value="m330">MWF at 3:30 PM</option>
+        <option value="t830">TTH at 8:30 AM</option>
+        <option value="t1000">TTH at 10:00 AM</option>
+        <option value="t1130">TTH at 11:30 AM</option>
+        <option value="t100">TTH at 1:00 PM</option>
+        <option value="t230">TTH at 2:30 PM</option>
+    </select> 
+    <input type="submit" value="submit" name="submit"/>
+    </form>
+    <script>
+    // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
+    function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
+      // Get the table element
+      const table = document.getElementById(tableId);
+      
+      // Check if the table exists
+      if (!table) {
+        console.error('Table not found.');
+        return;
+      }
+      
+      // Create the select element
+      const select = document.createElement('select');
+      select.id = selectId;
+      select.name = selectId;
+      
+      // Loop through the rows in the table starting from the second row (index 1)
+      for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        
+        // Get the cell in the specified column index
+        const cell = row.cells[columnIndex];
+        
+        // Create an option element for the cell value
+        const option = document.createElement('option');
+        option.value = cell.textContent.trim();
+        option.textContent = cell.textContent.trim();
+        
+        // Append the option to the select element
+        select.appendChild(option);
+      }
+      
+      // Append the select element to the specified container
+      const selectContainer = document.getElementById(containerType);
+      selectContainer.appendChild(select);
+      
+      // Return the created select element
+      return select;
+    }
+
+    // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
+    createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
+  </script>
+    <!-- <form method="post" action="swap">
+    <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
         <option value="CS2">CS2</option>
     </select> 
@@ -101,7 +167,7 @@
         <option value="m200">m200</option>
     </select> 
     <input type="submit" value="submit" name="submit"/>
-    </form>
+    </form> -->
 </body>
 
 </html>
