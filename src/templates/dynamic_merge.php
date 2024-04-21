@@ -368,6 +368,7 @@
                     extraCourses: coursesList
                 });
                 addToDBFac();
+                tableToCSV();
                 window.location.href='{{ url_for('importpg')}}'
             }
             else
