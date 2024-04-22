@@ -65,7 +65,7 @@ def upload():
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
-    f = open('input.csv','r')
+    f = open('user_output.csv','r')
     newf = open('swap.csv','w')
     lines = f.readlines() # read old content
     newf.write("<forced_courses>" + "\n" + request.form['course'] + "," + request.form['time'] + "\n") # write new content at the beginning
