@@ -30,6 +30,21 @@ def howto():
 def importpg():
     return render_template('import_csv.php')
 
+def getCSVData():
+    csv_file_path = "output.csv"
+
+    # Initialize an empty list to store the data from the CSV file
+    csv_data = []
+    # Open the CSV file and read its contents
+    with open(csv_file_path, newline='') as csvfile:
+        csv_reader = csv.reader(csvfile)
+        # Iterate over each row in the CSV file
+        for row in csv_reader:
+            # Append each row to the csv_data list
+            csv_data.append(row)
+    csv_data.sort(key=lambda x: x[1])
+    return csv_data
+
 @app.route('/upload', methods=['POST'])
 def upload():
     csv_file = request.files['csv_file']
@@ -66,21 +81,6 @@ def force():
     csv_function_data = getCSVData()
 
     return render_template('display.php', csv_data=csv_function_data)
-
-def getCSVData():
-    csv_file_path = "output.csv"
-
-    # Initialize an empty list to store the data from the CSV file
-    csv_data = []
-    # Open the CSV file and read its contents
-    with open(csv_file_path, newline='') as csvfile:
-        csv_reader = csv.reader(csvfile)
-        # Iterate over each row in the CSV file
-        for row in csv_reader:
-            # Append each row to the csv_data list
-            csv_data.append(row)
-    csv_data.sort(key=lambda x: x[1])
-    return csv_data
 
 
 if __name__ == '__main__':

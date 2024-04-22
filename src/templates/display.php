@@ -92,8 +92,8 @@
         </tr>
         {% endfor %}
     </table>
-    <form method="post" action="swap">
-    <label for="course">Choose a course to swap:</label>
+    <form method="post" action="force">
+    <label for="course">Choose a course to force:</label>
     <!-- <select id="courseMenu" name="courseMenu"> -->
     <div id="courseMenu"></div>
     
@@ -180,7 +180,7 @@
         // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
   </script>
-    <!-- <form method="post" action="swap">
+    <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
         <option value="CS2">CS2</option>
