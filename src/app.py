@@ -89,11 +89,14 @@ def upload():
         test.write_csv_to_file(csv_reader, "input.csv")
         command = "python File_Convertor.py input.csv csv both"
         subprocess.call(command, shell=True)
-        organizeData()
         
         # Render HTML template with CSV data
-        csv_function_data = getCSVData()
-        return render_template('display.php', csv_data=csv_function_data)
+        if(notInfeasible()):
+            organizeData()
+            csv_function_data = getCSVData()
+            return render_template('display.php', csv_data=csv_function_data)
+        else:
+            return "Not feasible"
     else:
         return "No file uploaded!"
 
@@ -109,10 +112,12 @@ def force():
     f.close()
     command = "python File_Convertor.py force.csv csv both"
     subprocess.call(command, shell=True)
-    organizeData()
-    csv_function_data = getCSVData()
-
-    return render_template('display.php', csv_data=csv_function_data)
+    if(notInfeasible()):
+        organizeData()
+        csv_function_data = getCSVData()
+        return render_template('display.php', csv_data=csv_function_data)
+    else:
+        return "Not feasible"
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
@@ -126,11 +131,22 @@ def swap():
     f.close()
     command = "python File_Convertor.py swap.csv swap both output.csv"
     subprocess.call(command, shell=True)
-    organizeData()
-    csv_function_data = getCSVData()
+    if(notInfeasible()):
+        organizeData()
+        csv_function_data = getCSVData()
+        return render_template('display.php', csv_data=csv_function_data)
+    else:
+        return "Not feasible"
 
-    return render_template('display.php', csv_data=csv_function_data)
-
+def notInfeasible():
+    with open('user_output.csv', 'r', newline='') as file:
+        reader = csv.reader(file)
+        # Skip the header row
+        next(reader, None)
+        # Count the number of data rows
+        num_rows = sum(1 for _ in reader)
+        # Check if there are at least two rows
+        return num_rows >= 2
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8080")
