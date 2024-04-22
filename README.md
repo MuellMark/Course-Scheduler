@@ -67,7 +67,7 @@ The goal of the Southwestern University Course Scheduler was to make the course 
 
 3. What makes course scheduling so complex is adhering to all of the restrictions and requests made by faculty members while producing the most efficient schedule. This is where linear programming comes in. Linear programming is a mathematical modeling method that creates the best outcome where the constraints and the objective are represented by linear relationships. In the context of our application, the objective is to create the most efficient, optimized schedule. The constraints that the schedule must follow are the course and faculty restrictions that will be specified by the users. These include, but are not limited to, a faculty member’s teaching time availability, the classes being taught, and when they are offered.  The user will define the constraints in the Create CSV page, which will be explained in more depth in a later section. The application will implement a linear program with the objective and the constraints, and then using PyGLK, a software package that solves linear programs, will output the course schedule for the year.
 
-![image](https://github.com/MuellMark/Course-Scheduler/assets/88158644/f4b78d14-997b-48ed-a29e-091f95c97269)
+![image](https://github.com/MuellMark/Course-Scheduler/assets/88158644/a190fb2c-21a1-47c9-a6c3-f6912754ad8a)
 
 4. Our program uses a Google Firebase database to store essential course information. It is used in the Create CSV page. When users enter a course into the course table, its name, abbreviation, the number of sections, and its course ID are added to the database. This allows the information to be saved and easily retrievable for future use. It allows the useful feature of autofill in the course table. 
 
