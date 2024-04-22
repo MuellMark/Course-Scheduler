@@ -37,6 +37,7 @@ function tableToCSV() {
                 csv_data.push("<faculty-table>");
             }
         }
+        courseName = ""
         for (let j = 0; j < cols.length; j++) {
             // if(cols[j].id == "newCourse")
             //     csvrow.push("<course-table>");
@@ -46,11 +47,13 @@ function tableToCSV() {
             // of a row and push it to csvrow
             if(cols[j].id != 'newCourse')
                 csvrow.push(cols[j].value);
+            else
+                courseName = "," + cols[j].value
         }
         //csv_data.push('$');
         // Combine each column value with comma
         if(cols.length > 0)
-            csvrow.push("$");
+            csvrow.push("$" + courseName);
         csv_data.push(csvrow.join(","));
     }
 

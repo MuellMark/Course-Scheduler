@@ -51,15 +51,19 @@
 
         th, 
         td {
-            width: calc(100% / 3);
+            width: calc(100% / 9);
         }
     </style>
 
-    <table id="optimalTable">
+    <table id="optimalTable" border="1">
         <th>Time</th>
-        <th>Course Abbreviation</th>
+        <th>Course Col 1</th>
         <th>Faculty</th>
-        <th>Course Abbreviation</th>
+        <th>Course Col 2</th>
+        <th>Faculty</th>
+        <th>Course Col 3</th>
+        <th>Faculty</th>
+        <th>Course Col 4</th>
         <th>Faculty</th>
         {% for row in csv_data %}
         <tr>
@@ -114,6 +118,13 @@
         <option value="t100">TTH at 1:00 PM</option>
         <option value="t230">TTH at 2:30 PM</option>
     </select> 
+    <input type="submit" value="submit" name="submit"/>
+    </form>
+    <form method="post" action="force">
+    <label for="firstcourse">Swap courses</label>
+    <div id="firstcourse"></div>
+    <label for="secondcourse">Swap courses</label>
+    <div id="secondcourse"></div>
     <input type="submit" value="submit" name="submit"/>
     </form>
     <script>
@@ -179,6 +190,10 @@
 
         // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
+
+        createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');
+        createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
+
   </script>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>

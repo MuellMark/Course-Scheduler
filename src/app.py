@@ -112,6 +112,23 @@ def force():
 
     return render_template('display.php', csv_data=csv_function_data)
 
+@app.route("/swap", methods=['GET', 'POST'])
+def swap():
+    f = open('user_output.csv','r')
+    newf = open('swap.csv','w')
+    lines = f.readlines() # read old content
+    newf.write("<swapped_courses>" + "\n" + request.form['firstcourse'] + "," + request.form['secondcourse'] + "\n") # write new content at the beginning
+    for line in lines: # write old content after new
+        newf.write(line)
+    newf.close()
+    f.close()
+    command = "python File_Convertor.py swap.csv swap both output.csv"
+    subprocess.call(command, shell=True)
+
+    csv_function_data = getCSVData()
+
+    return render_template('display.php', csv_data=csv_function_data)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8080")
