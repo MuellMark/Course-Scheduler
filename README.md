@@ -2,7 +2,8 @@
 [![GitHub issues](https://img.shields.io/github/issues/MuellMark/Course-Scheduler)](https://github.com/MuellMark/Course-Scheduler/issues)
 
 # Course Scheduling Service (CSS)
-![image](https://github.com/MuellMark/Course-Scheduler/assets/88158644/0ce5e46e-18e2-4169-ad77-a6df072936c0)
+
+![Screenshot 2024-04-22 103253](https://github.com/MuellMark/Course-Scheduler/assets/88158644/84156414-2983-448d-af76-f4e5027cdd54)
 
 ## About
 
