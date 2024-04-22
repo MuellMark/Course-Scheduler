@@ -66,6 +66,8 @@ def split_single_csv_and_run(contents_all_restrict):
         elif len(contents_all_restrict[i])==1:
             if"<force" in contents_all_restrict[i][0]:
                 forced_bool=True
+            elif"<swap" in contents_all_restrict[i][0]:
+                forced_bool=False
             elif"<course" in contents_all_restrict[i][0]:
                 course_bool=True
                 forced_bool=False
