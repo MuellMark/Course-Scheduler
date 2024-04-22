@@ -332,11 +332,12 @@
         // Skip first title row
         for (var i = 1; i < rows.length; i++) {
             var cells = rows[i].getElementsByTagName("td");
-            var courseID = cells[6].querySelector("input").value;
+            // var courseID = cells[6].querySelector("input").value;
+            var courseID = cells[1].querySelector("input").value;
             // User selected new course
             if (courseID == '')
-                courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
-
+                // courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
+                courseID = cells[1].querySelector("input").value;
             if (courseID !== '' && courseID !== 'new') {
                 var className = cells[1].querySelector("input").value;
                 var abbreviation = cells[2].querySelector("input").value;
@@ -367,13 +368,16 @@
                     unavailableTimes: unavailableTimesList,
                     extraCourses: coursesList
                 });
-                addToDBFac();
-                tableToCSV();
-                window.location.href='{{ url_for('importpg')}}'
             }
-            else
+            else{
                 alert("Please select a course from the dropdown");
+                return false;
+            }
+
         }
+        addToDBFac();
+        tableToCSV();
+        window.location.href='{{ url_for('importpg')}}'
     }
 
     /**

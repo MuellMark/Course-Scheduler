@@ -57,7 +57,7 @@
 
     <table id="optimalTable" border="1">
         <th>Time</th>
-        <th>Course ID</th>
+        <th>Course Abbreviation</th>
         <th>Faculty</th>
         {% for row in csv_data %}
         <tr>
