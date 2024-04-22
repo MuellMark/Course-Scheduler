@@ -211,7 +211,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                         forced2.append(course2)
                         forced2.append(c1time) # Swapped course times
 
-                        contents_all_restrict.insert(0,"<forced_courses>")
+                        contents_all_restrict.insert(0,["<forced_courses>"])
                         contents_all_restrict.insert(1,forced1)
                         contents_all_restrict.insert(2,forced2)
 
