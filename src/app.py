@@ -3,7 +3,10 @@ import csv
 import io
 import test
 import subprocess
+import sys
+import os
 from collections import defaultdict
+from io import StringIO
 
 
 app = Flask(__name__)
@@ -43,6 +46,7 @@ def getCSVData():
         for row in csv_reader:
             # Append each row to the csv_data list
             csv_data.append(row)
+    csv_data.sort(key=lambda x: x[1])
     return csv_data
 
 @app.route('/upload', methods=['POST'])
@@ -58,22 +62,22 @@ def upload():
         command = "python File_Convertor.py input.csv csv both"
         subprocess.call(command, shell=True)
 
-        # https://www.geeksforgeeks.org/defaultdict-in-python/
+        # Create a defaultdict to store entries based on the code
         entries = defaultdict(list)
 
-        # Read the original CSV file
+        # Read the input CSV file
         with open('output.csv', 'r') as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
-                number, time, label, professor, name = row
-                entries[time].append((number, label, professor, name))
+                number, code, label, professor = row
+                entries[code].append((number, label, professor))
 
-        # Write the merged data to the output CSV file based on dict keys
+        # Write the merged data to the output CSV file
         with open("output.csv", 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            for time, data_list in entries.items():
-                if len(data_list) > 1:  # Only merge if there are multiple entries with the same time
-                    merged_row = [data_list[0][0], time]
+            for code, data_list in entries.items():
+                if len(data_list) > 1:  # Only merge if there are multiple entries with the same code
+                    merged_row = [data_list[0][0], code]
                     data_list = sum(data_list,())
                     expanded_list = []
                     for item in data_list:
@@ -84,7 +88,7 @@ def upload():
                     merged_row.extend([entry[0:] for entry in expanded_list])
                     writer.writerow(merged_row)
                 else:
-                    writer.writerow([data_list[0][0], time, data_list[0][1], data_list[0][2]])
+                    writer.writerow([data_list[0][0], code, data_list[0][1], data_list[0][2]])
         # Render HTML template with CSV data
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
@@ -102,6 +106,23 @@ def force():
     newf.close()
     f.close()
     command = "python File_Convertor.py force.csv csv both"
+    subprocess.call(command, shell=True)
+
+    csv_function_data = getCSVData()
+
+    return render_template('display.php', csv_data=csv_function_data)
+
+@app.route("/swap", methods=['GET', 'POST'])
+def swap():
+    f = open('user_output.csv','r')
+    newf = open('swap.csv','w')
+    lines = f.readlines() # read old content
+    newf.write("<swapped_courses>" + "\n" + request.form['firstcourse'] + "," + request.form['secondcourse'] + "\n") # write new content at the beginning
+    for line in lines: # write old content after new
+        newf.write(line)
+    newf.close()
+    f.close()
+    command = "python File_Convertor.py swap.csv swap both output.csv"
     subprocess.call(command, shell=True)
 
     csv_function_data = getCSVData()
