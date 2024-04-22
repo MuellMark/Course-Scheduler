@@ -37,7 +37,7 @@
         </div>
     </header>
 
-    <h5> <span> Create CSV </span> </h5>
+    <h1 style="padding-top: 40px;"> Create CSV </h1>
 
     <button class="button-style6" style="margin-right: 25px" onclick="window.location.href='{{ url_for('importpg')}}'">Next</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
@@ -246,6 +246,11 @@
      * @param row - The row to which the column should be added.
      */
     function addColumn(row) {
+        if(!checkIfFilled(row)){
+            alert("Fill in all fields before adding a conflicting course.");
+            return;
+        }
+        
         var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
         cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>";
     }

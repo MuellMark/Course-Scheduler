@@ -53,7 +53,7 @@
                 </div>
             </div> <!-- End of info-box div -->
             <div id="examplePicture" class="image-container">
-                <img src="{{url_for('static', filename='images/exampleOutput2.png')}}"
+                <img src="{{url_for('static', filename='images/result.png')}}"
                     alt="Picture of possible result output">
             </div>
         </div>
