@@ -37,7 +37,7 @@
         </div>
     </header>
 
-    <h5> <span> Create CSV </span> </h5>
+    <h1 style="padding-top: 40px;"> Create CSV </h1>
 
     <button class="button-style6" style="margin-right: 25px" onclick="addToDB()">Next</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
