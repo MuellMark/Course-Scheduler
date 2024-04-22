@@ -84,18 +84,10 @@ h5 {
   /* Center the text */
   margin-top: 0;
   /* Add margin to separate h1 from the elements that are above it*/
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   /*Add padding around text*/
   margin-bottom: 15px;
   /*Add a margin below the text*/
-}
-
-h6 {
-  font-size: 1rem;
-  /*Use the default font size from user*/
-  text-align: center;
-  /* Center the text */
-  margin-top: 0;
 }
 
 p,

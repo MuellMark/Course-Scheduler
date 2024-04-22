@@ -27,7 +27,7 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
     # Success tracks whether or not the schedule is feasible
     success = generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
     if success:
-        print_all_rows_and_columns()
+        # print_all_rows_and_columns()
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
@@ -54,14 +54,21 @@ def split_single_csv_and_run(contents_all_restrict):
     contents_course_restrict = []
     contents_faculty_restrict = []
 
+    # Prevents forced course overlap
+    courses_found=[]
+
     # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
         if len(contents_all_restrict[i])==2 and forced_bool:
-            forced_courses.append(contents_all_restrict[i])
+            if not contents_all_restrict[i][0] in courses_found:
+                forced_courses.append(contents_all_restrict[i])
+                courses_found.append(contents_all_restrict[i][0])
         elif len(contents_all_restrict[i])==1:
             if"<force" in contents_all_restrict[i][0]:
                 forced_bool=True
+            elif"<swap" in contents_all_restrict[i][0]:
+                forced_bool=False
             elif"<course" in contents_all_restrict[i][0]:
                 course_bool=True
                 forced_bool=False
@@ -151,7 +158,6 @@ def expand_sections_from_site(contents_all_restrict):
                     course_dict[key]-=1
                 i+=1
 
-    # print(contents_all_restrict)
     split_single_csv_and_run(contents_all_restrict)
 
 #todo comments
@@ -164,7 +170,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         bool_swapped=False
 
         while i < len(contents_all_restrict) and not stored:
-            if len(contents_all_restrict)>0:
+            if len(contents_all_restrict[i])>0:
                 if bool_swapped:
                     course1=contents_all_restrict[i][0]
                     course2=contents_all_restrict[i][1]
@@ -173,44 +179,46 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                     bool_swapped=True
             i+=1
 
-        swap_file_open = open(swap_file,'r')
+        # If tag not found, do not run alg
+        if not stored:
+            print("Error, no swap tag")
+        else:
+            swap_file_open = open(swap_file,'r')
 
-        temp_swap = csv.reader(swap_file_open)
-        contents_swap = list(temp_swap)
+            temp_swap = csv.reader(swap_file_open)
+            contents_swap = list(temp_swap)
 
-        added=False
-        bool_forced=False
-        while i < len(contents_all_restrict) and not added:
-            # print(i)
-            if "<force" in contents_all_restrict[i][0]:
-                    bool_forced=True
-                    i+=1
-            if len(contents_all_restrict)>0:
-                if bool_forced:
-                    for line in contents_swap:
+            added=False
+            bool_forced=False
+            while i < len(contents_all_restrict) and not added:
+                if "<force" in contents_all_restrict[i][0]:
+                        bool_forced=True
+                        i+=1
+                if len(contents_all_restrict[i])>0:
+                    if bool_forced:
+                        for line in contents_swap:
 
-                        if line[2]==course1:
-                            c1time=line[1]
-                        if line[2]==course2:
-                            c2time=line[1]
+                            if line[2]==course1:
+                                c1time=line[1]
+                            if line[2]==course2:
+                                c2time=line[1]
 
-                    forced1=[]
-                    forced2=[]
-                    forced1.append(course1)
-                    forced1.append(c2time)
-                    forced1.append(course2)
-                    forced1.append(c1time) # Swapped course times
+                        forced1=[]
+                        forced2=[]
+                        forced1.append(course1)
+                        forced1.append(c2time)
+                        forced2.append(course2)
+                        forced2.append(c1time) # Swapped course times
 
-                    contents_all_restrict.insert(i,forced1)
-                    contents_all_restrict.insert(i,forced2)
+                        contents_all_restrict.insert(0,["<forced_courses>"])
+                        contents_all_restrict.insert(1,forced1)
+                        contents_all_restrict.insert(2,forced2)
 
-                    added=True
+                        added=True
 
-            i+=1
-
-        # print(c1time)
-        # print(c2time)
-        split_single_csv_and_run(contents_all_restrict)
+                i+=1
+                
+            split_single_csv_and_run(contents_all_restrict)
 
 def determine_user_or_site(contents_all_restrict):
     bool_course=False
@@ -287,10 +295,14 @@ if __name__=="__main__":
         no_csv_param()
     elif(num_args==2): #default in case it's called, will remove soon
         args=sys.argv[1].split()
-        if len(args==3):
+        if len(args==3): # everything else for colby
             args.append("")
             export_type=args[2]
-        one_csv_param(args[0],args[1],args[3])
+            one_csv_param(args[0],args[1],args[3])
+        if len(args==4): # swap for colby
+            args.append("")
+            export_type=args[2]
+            one_csv_param(args[0],args[1],args[3],args[4])
     elif(num_args==4):
         one_csv_param(sys.argv[1],sys.argv[2],"")
         # two_csv_param(sys.argv[1],sys.argv[2])
