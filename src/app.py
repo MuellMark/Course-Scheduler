@@ -46,7 +46,6 @@ def getCSVData():
         for row in csv_reader:
             # Append each row to the csv_data list
             csv_data.append(row)
-    csv_data.sort(key=lambda x: x[1])
     return csv_data
 
 @app.route('/upload', methods=['POST'])
