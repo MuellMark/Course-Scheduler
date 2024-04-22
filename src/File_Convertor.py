@@ -295,10 +295,14 @@ if __name__=="__main__":
         no_csv_param()
     elif(num_args==2): #default in case it's called, will remove soon
         args=sys.argv[1].split()
-        if len(args==3):
+        if len(args==3): # everything else for colby
             args.append("")
             export_type=args[2]
-        one_csv_param(args[0],args[1],args[3])
+            one_csv_param(args[0],args[1],args[3])
+        if len(args==4): # swap for colby
+            args.append("")
+            export_type=args[2]
+            one_csv_param(args[0],args[1],args[3],args[4])
     elif(num_args==4):
         one_csv_param(sys.argv[1],sys.argv[2],"")
         # two_csv_param(sys.argv[1],sys.argv[2])
