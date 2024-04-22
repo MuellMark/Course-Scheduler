@@ -54,6 +54,7 @@ def split_single_csv_and_run(contents_all_restrict):
     contents_course_restrict = []
     contents_faculty_restrict = []
 
+    # Prevents forced course overlap
     courses_found=[]
 
     # Parses list and puts faculty and course into respective lists
