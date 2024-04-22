@@ -59,6 +59,8 @@
         <th>Time</th>
         <th>Course Abbreviation</th>
         <th>Faculty</th>
+        <th>Course Abbreviation</th>
+        <th>Faculty</th>
         {% for row in csv_data %}
         <tr>
             {% for col in row %}

@@ -78,7 +78,14 @@ def upload():
             for code, data_list in entries.items():
                 if len(data_list) > 1:  # Only merge if there are multiple entries with the same code
                     merged_row = [data_list[0][0], code]
-                    merged_row.extend([entry[1:] for entry in data_list])
+                    data_list = sum(data_list,())
+                    expanded_list = []
+                    for item in data_list:
+                        if isinstance(item, tuple):
+                            expanded_list.extend(item)
+                        else:
+                            expanded_list.append(item)
+                    merged_row.extend([entry[0:] for entry in expanded_list])
                     writer.writerow(merged_row)
                 else:
                     writer.writerow([data_list[0][0], code, data_list[0][1], data_list[0][2]])
