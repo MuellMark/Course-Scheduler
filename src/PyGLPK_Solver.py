@@ -340,7 +340,7 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     courses=[]
     for course in contents_course_restrict:
         courses.append(course[0])
-        print(course)
+        # print(course)
 
     # Global creation of dictionaries needed in constraints
     global tI
