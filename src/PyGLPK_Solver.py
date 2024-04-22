@@ -460,17 +460,23 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
                 file_contents+=(pairing[0]+","+pairing[1]+"\n")
 
         file_contents+="<course_restrict>\n"
+        
         for line in contents_course_restrict:
+            course_name_found=False
             for val in line:
-                if not val=="$":
+                if not val=="$" and not course_name_found:
                     file_contents+=(val+",")
+                else:
+                    course_name_found=True
             file_contents+=("$\n")
 
         file_contents+="<faculty_restrictions>\n"
+        
         for line in contents_faculty_restrict:
             for val in line:
                 if not val=="$":
                     file_contents+=(val+",")
+
             file_contents+=("$\n")
 
         export_file.write(file_contents)
@@ -503,6 +509,11 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
                             for fac in contents_faculty_restrict:
                                 if pair[:4] in fac:
                                     temp+=","+fac[0]
+
+                                    for line in contents_course_restrict:
+                                        if line[0]==pair[:4]:
+                                            temp+=","+line[len(line)-1]
+                                            # print(line[len(line)-1])
 
                             sortedPairings.append(pair)
                             output.append(temp)
