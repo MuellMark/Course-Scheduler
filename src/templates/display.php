@@ -120,7 +120,7 @@
     </select> 
     <input type="submit" value="submit" name="submit"/>
     </form>
-    <form method="post" action="force">
+    <form method="post" action="swap">
     <label for="firstcourse">Swap courses</label>
     <div id="firstcourse"></div>
     <label for="secondcourse">Swap courses</label>
