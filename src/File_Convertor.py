@@ -54,12 +54,15 @@ def split_single_csv_and_run(contents_all_restrict):
     contents_course_restrict = []
     contents_faculty_restrict = []
 
+    courses_found=[]
+
     # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
         if len(contents_all_restrict[i])==2 and forced_bool:
-            
-            forced_courses.append(contents_all_restrict[i])
+            if not contents_all_restrict[i][0] in courses_found:
+                forced_courses.append(contents_all_restrict[i])
+                courses_found.append(contents_all_restrict[i][0])
         elif len(contents_all_restrict[i])==1:
             if"<force" in contents_all_restrict[i][0]:
                 forced_bool=True
