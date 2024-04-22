@@ -54,7 +54,7 @@
         }
     </style>
 
-    <table id="optimalTable">
+    <table id="optimalTable" border="1">
         <th>Time</th>
         <th>Course ID</th>
         <th>Faculty</th>
