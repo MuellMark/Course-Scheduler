@@ -1,3 +1,6 @@
+<forced_courses>
+CS21,m1100
+CS22,m930
 <course_restrict>
 CS21,TRUE,m800,m330,NUA1,CS211,$
 CS22,TRUE,m800,m330,NUA1,CS211,$

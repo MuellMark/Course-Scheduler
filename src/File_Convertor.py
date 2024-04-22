@@ -44,7 +44,7 @@ def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced
 # Method specifically for single file CSVs. It splits the CSV into 2
 # separate lists and then calls PyGLPK_solver
 def split_single_csv_and_run(contents_all_restrict):
-    print(contents_all_restrict)
+    # print(contents_all_restrict)
     # Boolean values to denote whento parse different aspects
     course_bool = False
     faculty_bool = False
@@ -58,8 +58,8 @@ def split_single_csv_and_run(contents_all_restrict):
     # Parses list and puts faculty and course into respective lists
     i=0
     while i < len(contents_all_restrict):
-        print(contents_all_restrict[i])
-        print(len(contents_all_restrict[i]))
+        # print(contents_all_restrict[i])
+        # print(len(contents_all_restrict[i]))
         if len(contents_all_restrict[i])==2 and forced_bool:
             
             forced_courses.append(contents_all_restrict[i])
@@ -80,7 +80,7 @@ def split_single_csv_and_run(contents_all_restrict):
             elif faculty_bool:
                 contents_faculty_restrict.append(contents_all_restrict[i])
         i+=1
-    print(forced_courses)
+    # print(forced_courses)
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
 def expand_sections_from_site(contents_all_restrict):
@@ -163,7 +163,7 @@ def expand_sections_from_site(contents_all_restrict):
 
 #todo comments
 def swap_courses_setup(contents_all_restrict,swap_file):
-    print(swap_file)
+    # print(swap_file)
     if len(swap_file)<2:
         print("error, no file found. Please make sure a file is connected")
     else:
@@ -223,7 +223,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
 
             # print(c1time)
             # print(c2time)
-            print(contents_all_restrict)
+            # print(contents_all_restrict)
             split_single_csv_and_run(contents_all_restrict)
 
 def determine_user_or_site(contents_all_restrict):
