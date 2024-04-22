@@ -51,15 +51,19 @@
 
         th, 
         td {
-            width: calc(100% / 3);
+            width: calc(100% / 9);
         }
     </style>
 
     <table id="optimalTable" border="1">
         <th>Time</th>
-        <th>Course Abbreviation</th>
+        <th>Course Col 1</th>
         <th>Faculty</th>
-        <th>Course Abbreviation</th>
+        <th>Course Col 2</th>
+        <th>Faculty</th>
+        <th>Course Col 3</th>
+        <th>Faculty</th>
+        <th>Course Col 4</th>
         <th>Faculty</th>
         {% for row in csv_data %}
         <tr>
