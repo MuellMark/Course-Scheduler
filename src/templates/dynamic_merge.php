@@ -246,11 +246,6 @@
      * @param row - The row to which the column should be added.
      */
     function addColumn(row) {
-        if(!checkIfFilled(row)){
-            alert("Fill in all fields before adding a conflicting course.");
-            return;
-        }
-        
         var cell = row.insertCell(row.cells.length - 1); // Insert before the last cell
         cell.innerHTML = "<input type='text' name='courses' placeholder='Enter new course'>";
     }
