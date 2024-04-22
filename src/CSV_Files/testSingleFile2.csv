@@ -1,6 +1,8 @@
+<swapped_courses>
+ARI1,NUA1
 <forced_courses>
 CS21,m800
-CS11,m1100
+
 
 <course_restrict>
 CS11,TRUE,CS21,EXP1,ALG1,m330,$
