@@ -58,8 +58,8 @@
         <br>
     <div style="text-align: center">
         <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" style="margin-left: 80px" name="csv_file" accept=".csv"><br><br>
-            <input type="submit" value="Upload">
+            <input class="button-style5" type="file" style="margin-left: 80px" name="csv_file" accept=".csv"><br><br>
+            <input class="button-style5" type="submit" value="Upload">
         </form>
     </div>
 

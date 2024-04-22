@@ -7,6 +7,7 @@
     <script src="{{url_for('static', filename='scripts/createCSV.js')}}"></script>
     <script type="text/javascript" src="scripts/faculty_script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="{{url_for('static', filename='scripts/confetti.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,48 +115,70 @@
     <input type="submit" value="submit" name="submit"/>
     </form>
     <script>
-    // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
-    function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
-      // Get the table element
-      const table = document.getElementById(tableId);
-      
-      // Check if the table exists
-      if (!table) {
-        console.error('Table not found.');
-        return;
-      }
-      
-      // Create the select element
-      const select = document.createElement('select');
-      select.id = selectId;
-      select.name = selectId;
-      
-      // Loop through the rows in the table starting from the second row (index 1)
-      for (let i = 1; i < table.rows.length; i++) {
-        const row = table.rows[i];
-        
-        // Get the cell in the specified column index
-        const cell = row.cells[columnIndex];
-        
-        // Create an option element for the cell value
-        const option = document.createElement('option');
-        option.value = cell.textContent.trim();
-        option.textContent = cell.textContent.trim();
-        
-        // Append the option to the select element
-        select.appendChild(option);
-      }
-      
-      // Append the select element to the specified container
-      const selectContainer = document.getElementById(containerType);
-      selectContainer.appendChild(select);
-      
-      // Return the created select element
-      return select;
-    }
+         const start = () => {
+            setTimeout(function () {
+                confetti.start()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
 
-    // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
-    createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
+        //  for stopping the confetti 
+
+        const stop = () => {
+            setTimeout(function () {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        // after this here we are calling both the function so it works
+        start();
+        stop();
+        function playSound() {
+            const audio = new Audio("{{url_for('static', filename='confetti.mp3')}}"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
+            audio.play();
+        }
+        window.onload = playSound;
+
+        // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
+        function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
+        // Get the table element
+        const table = document.getElementById(tableId);
+        
+        // Check if the table exists
+        if (!table) {
+            console.error('Table not found.');
+            return;
+        }
+        
+        // Create the select element
+        const select = document.createElement('select');
+        select.id = selectId;
+        select.name = selectId;
+        
+        // Loop through the rows in the table starting from the second row (index 1)
+        for (let i = 1; i < table.rows.length; i++) {
+            const row = table.rows[i];
+            
+            // Get the cell in the specified column index
+            const cell = row.cells[columnIndex];
+            
+            // Create an option element for the cell value
+            const option = document.createElement('option');
+            option.value = cell.textContent.trim();
+            option.textContent = cell.textContent.trim();
+            
+            // Append the option to the select element
+            select.appendChild(option);
+        }
+        
+        // Append the select element to the specified container
+        const selectContainer = document.getElementById(containerType);
+        selectContainer.appendChild(select);
+        
+        // Return the created select element
+        return select;
+        }
+
+        // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
+        createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
   </script>
     <!-- <form method="post" action="swap">
     <label for="course">Choose a course to swap:</label>
