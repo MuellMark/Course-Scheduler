@@ -12,11 +12,13 @@ app.config['UPLOAD_FOLDER'] = app.static_folder
 
 @app.route('/')
 def index():
-    name = test.returnName()
-    return render_template('dynamic_merge.php', content=name)
+    return render_template('landing_page.php')
 @app.route('/home')
 def home():
     return render_template('landing_page.php')
+@app.route('/dynamic')
+def dynamic():
+    return render_template('dynamic_merge.php')
 @app.route('/faq')
 def faq():
     return render_template('faq.php')
