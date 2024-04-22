@@ -76,12 +76,6 @@ The goal of the Southwestern University Course Scheduler was to make the course 
    
 <br>
 
-## Installation
-![tumblr_ncgwg5Y3fG1tajjsfo1_400](https://github.com/MuellMark/Course-Scheduler/assets/88158644/a90928c8-0d35-4f42-b3b8-3dc142b57f16)
-
-*TODO* When a useable version is ready detailed instructions will be included
-<br>
-
 ## Contributors
 ![zU-Ct_](https://github.com/MuellMark/Course-Scheduler/assets/88158644/ffad1bbd-0801-4183-b9f1-2946fe2a659e)
 
