@@ -43,44 +43,35 @@ def upload():
         command = "python File_Convertor.py input.csv csv both"
         subprocess.call(command, shell=True)
 
-        csv_file_path = "output.csv"
+        csv_function_data = getCSVData()
 
-        # Initialize an empty list to store the data from the CSV file
-        csv_data = []
-
-        # Open the CSV file and read its contents
-        with open(csv_file_path, newline='') as csvfile:
-            csv_reader = csv.reader(csvfile)
-            # Iterate over each row in the CSV file
-            for row in csv_reader:
-                # Append each row to the csv_data list
-                csv_data.append(row)
-        csv_reader = csv_data
-        csv_data.sort(key=lambda x: x[1])
         # Render HTML template with CSV data
-        # os.remove("static/output") # Remove created file
-        return render_template('display.php', csv_data=csv_reader)
+        return render_template('display.php', csv_data=csv_function_data)
     else:
         return "No file uploaded!"
 
-@app.route("/swap", methods=['GET', 'POST'])
-def swap():
+@app.route("/force", methods=['GET', 'POST'])
+def force():
     f = open('user_output.csv','r')
-    newf = open('swap.csv','w')
+    newf = open('force.csv','w')
     lines = f.readlines() # read old content
     newf.write("<forced_courses>" + "\n" + request.form['course'] + "," + request.form['time'] + "\n") # write new content at the beginning
     for line in lines: # write old content after new
         newf.write(line)
     newf.close()
     f.close()
-    command = "python File_Convertor.py swap.csv csv both"
+    command = "python File_Convertor.py force.csv csv both"
     subprocess.call(command, shell=True)
 
+    csv_function_data = getCSVData()
+
+    return render_template('display.php', csv_data=csv_function_data)
+
+def getCSVData():
     csv_file_path = "output.csv"
 
     # Initialize an empty list to store the data from the CSV file
     csv_data = []
-    # TODO make a method
     # Open the CSV file and read its contents
     with open(csv_file_path, newline='') as csvfile:
         csv_reader = csv.reader(csvfile)
@@ -88,12 +79,8 @@ def swap():
         for row in csv_reader:
             # Append each row to the csv_data list
             csv_data.append(row)
-    csv_reader = csv_data
     csv_data.sort(key=lambda x: x[1])
-
-
-    return render_template('display.php', csv_data=csv_reader)
-
+    return csv_data
 
 
 if __name__ == '__main__':
