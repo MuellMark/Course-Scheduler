@@ -117,7 +117,7 @@ def swap():
     f = open('user_output.csv','r')
     newf = open('swap.csv','w')
     lines = f.readlines() # read old content
-    newf.write("<swapped_courses>" + "\n" + request.form['firstcourse'] + "," + request.form['secondcourse'] + "\n") # write new content at the beginning
+    newf.write("<swapped_courses>" + "\n" + request.form['course1'] + "," + request.form['course2'] + "\n") # write new content at the beginning
     for line in lines: # write old content after new
         newf.write(line)
     newf.close()
