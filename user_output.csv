@@ -1,6 +1,6 @@
 <forced_courses>
-CS21,m930
-DIS1,m1100
+CS21,m1100
+DIS1,m930
 <course_restrict>
 CS11,FALSE,$
 CS21,FALSE,$
