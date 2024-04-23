@@ -191,10 +191,13 @@ def swap_courses_setup(contents_all_restrict,swap_file):
             # added=False
             # bool_forced=False
 
+            print(course1)
+            print(course2)
+
             for line in contents_swap:
                 if line[2]==course1:
+                    print(line)
                     c1time=line[1]
-                    print(course1)
                 if line[2]==course2:
                     c2time=line[1]
 
