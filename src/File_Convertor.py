@@ -191,10 +191,11 @@ def swap_courses_setup(contents_all_restrict,swap_file):
             added=False
             bool_forced=False
             while i < len(contents_all_restrict) and not added:
-                if "<force" in contents_all_restrict[i][0]:
+                
+                if len(contents_all_restrict[i])>0:
+                    if "<force" in contents_all_restrict[i][0]:
                         bool_forced=True
                         i+=1
-                if len(contents_all_restrict[i])>0:
                     if bool_forced:
                         for line in contents_swap:
 
