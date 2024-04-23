@@ -56,7 +56,7 @@ def organizeData():
     with open('output.csv', 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            number, code, label, professor = row
+            number, code, label, professor, money = row
             entries[code].append((number, label, professor))
 
     # Write the merged data to the output CSV file
@@ -89,7 +89,7 @@ def upload():
         test.write_csv_to_file(csv_reader, "input.csv")
         command = "python File_Convertor.py input.csv csv both"
         subprocess.call(command, shell=True)
-        
+
         # Render HTML template with CSV data
         if(notInfeasible()):
             organizeData()
