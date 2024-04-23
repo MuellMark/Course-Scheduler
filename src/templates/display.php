@@ -153,12 +153,6 @@
         // Get the table element
         const table = document.getElementById(tableId);
         
-        // Check if the table exists
-        if (!table) {
-            console.error('Table not found.');
-            return;
-        }
-        
         // Create the select element
         const select = document.createElement('select');
         select.id = selectId;
