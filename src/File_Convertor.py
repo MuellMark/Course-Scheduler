@@ -188,15 +188,8 @@ def swap_courses_setup(contents_all_restrict,swap_file):
             temp_swap = csv.reader(swap_file_open)
             contents_swap = list(temp_swap)
 
-            # added=False
-            # bool_forced=False
-
-            print(course1)
-            print(course2)
-
             for line in contents_swap:
                 if line[2]==course1:
-                    print(line)
                     c1time=line[1]
                 if line[2]==course2:
                     c2time=line[1]
@@ -211,36 +204,6 @@ def swap_courses_setup(contents_all_restrict,swap_file):
             contents_all_restrict.insert(0,["<forced_courses>"])
             contents_all_restrict.insert(1,forced1)
             contents_all_restrict.insert(2,forced2)
-
-            # while i < len(contents_all_restrict) and not added:
-                
-            #     if len(contents_all_restrict[i])>0:
-            #         if "<force" in contents_all_restrict[i][0]:
-            #             bool_forced=True
-            #             i+=1
-            #         if bool_forced:
-            #             for line in contents_swap:
-
-            #                 if line[2]==course1:
-            #                     c1time=line[1]
-            #                     print(course1)
-            #                 if line[2]==course2:
-            #                     c2time=line[1]
-
-            #             forced1=[]
-            #             forced2=[]
-            #             forced1.append(course1)
-            #             forced1.append(c2time)
-            #             forced2.append(course2)
-            #             forced2.append(c1time) # Swapped course times
-
-            #             contents_all_restrict.insert(0,["<forced_courses>"])
-            #             contents_all_restrict.insert(1,forced1)
-            #             contents_all_restrict.insert(2,forced2)
-
-            #             added=True
-
-            #     i+=1
                 
             split_single_csv_and_run(contents_all_restrict)
 
