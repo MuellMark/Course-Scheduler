@@ -53,7 +53,7 @@
     <!-- Container for buttons -->
     <div class="container2">
         <div class="info-box">
-            <button class="button-style2" onclick="window.location.href='{{ url_for('index')}}'"
+            <button class="button-style2" onclick="window.location.href='{{ url_for('dynamic')}}'"
                 style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
             <button class="button-style2" onclick="window.location.href='{{ url_for('importpg')}}'"
                 style="height:50px; width:250px">Import A CSV</button>
