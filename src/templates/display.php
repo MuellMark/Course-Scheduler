@@ -99,9 +99,9 @@
         {% endfor %}
     </table>
     <form method="post" action="force">
-    <label for="course">Choose a course to force:</label>
+    <!-- <label for="course">Choose a course to force:</label> -->
     <!-- <select id="courseMenu" name="courseMenu"> -->
-    <div id="courseMenu"></div>
+    <div id="courseMenu">Choose a course to force: </div>
     
     <label for="time">When will it be taught:</label>
     <!-- <select id="timeMenu" name="timeMenu"> -->
@@ -121,10 +121,11 @@
     <input type="submit" value="submit" name="submit"/>
     </form>
     <form method="post" action="swap">
+    <br>
     <!-- <label for="firstcourse">Swap</label> -->
-    <div id="firstcourse">Swap</div>
+    <div id="firstcourse">Swap </div>
     <!-- <label for="secondcourse">with</label> -->
-    <div id="secondcourse">with</div>
+    <div id="secondcourse">with </div>
     <input type="submit" value="submit" name="submit"/>
     </form>
     <script>
