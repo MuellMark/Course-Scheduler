@@ -3,7 +3,7 @@
 function tableToCSV() {
 
     /*error check to make sure course table is filled before saving, not working right now*/
-    if (!checkIfFilled("course-table")) {
+    if (!checkIfFilled("course-table") || !checkIfFilled("faculty-table")) {
         alert("Please fill in all fields before saving CSV file.");
         return false;
     }
@@ -37,6 +37,7 @@ function tableToCSV() {
                 csv_data.push("<faculty-table>");
             }
         }
+        courseName = ""
         for (let j = 0; j < cols.length; j++) {
             // if(cols[j].id == "newCourse")
             //     csvrow.push("<course-table>");
@@ -46,11 +47,13 @@ function tableToCSV() {
             // of a row and push it to csvrow
             if(cols[j].id != 'newCourse')
                 csvrow.push(cols[j].value);
+            else
+                courseName = "," + cols[j].value
         }
         //csv_data.push('$');
         // Combine each column value with comma
         if(cols.length > 0)
-            csvrow.push("$");
+            csvrow.push("$" + courseName);
         csv_data.push(csvrow.join(","));
     }
 
@@ -75,7 +78,7 @@ function downloadCSVFile(csv_data) {
     let temp_link = document.createElement('a');
 
     // Download csv file
-    temp_link.download = "course.csv";
+    temp_link.download = "upload-this-file-CSS.csv";
     let url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
@@ -89,31 +92,31 @@ function downloadCSVFile(csv_data) {
     document.body.removeChild(temp_link);
 }
 
-    /**
-     * Check if all required fields are filled in table
-     * @param tableId - Get ID of table
-     * @returns boolena - Ture if all required fields are filled
-     */
-    function checkIfFilled(tableId) {
-        var table = document.getElementById(tableId);
-        if(!table) return false; 
-        var rows = table.getElementsByTagName("tr");
-        //Start from row 1, and not the the header row
-        for (var i = 1; i < rows.length; i++) {
-            var inputs = rows[i].querySelectorAll("input[type='text'], input[type='number'], select");
-            for (var j = 0; j < inputs.length; j++) {
-                var input = inputs[j];
-                //Check if Select Course ID is filled
-                //Check if select is not selected
-                if ((input.tagName === "SELECT" && input.value === "empty")
-                    //Check if empty
-                    || (input.type === "text" && input.value.trim() === "")
-                    //Check if the number inputs are empty
-                    || (input.type === "number" && input.value.trim() === "")) {
-                    return false;
-                }
+/**
+ * Check if all required fields are filled in table
+ * @param tableId - Get ID of table
+ * @returns boolena - Ture if all required fields are filled
+ */
+function checkIfFilled(tableId) {
+    var table = document.getElementById(tableId);
+    if(!table) return false; 
+    var rows = table.getElementsByTagName("tr");
+    //Start from row 1, and not the the header row
+    for (var i = 1; i < rows.length; i++) {
+        var inputs = rows[i].querySelectorAll("input[type='text'], input[type='number'], select");
+        for (var j = 0; j < inputs.length; j++) {
+            var input = inputs[j];
+            //Check if Select Course ID is filled
+            //Check if select is not selected
+            if ((input.tagName === "SELECT" && input.value === "empty")
+                //Check if empty
+                || (input.type === "text" && input.value.trim() === "")
+                //Check if the number inputs are empty
+                || (input.type === "number" && input.value.trim() === "")) {
+                return false;
             }
         }
-        //All fields are filled
-        return true;
     }
+    //All fields are filled
+    return true;
+}
