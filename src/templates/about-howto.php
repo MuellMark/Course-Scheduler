@@ -26,7 +26,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -40,14 +40,14 @@
 
     <div class="docs-container">
         <div class="docs-section">
-            <h1> <span>Documentation </span></h1>
+            <h1> <span> Documentation </span></h1>
             <!-- TODO This is broken :( -->
             <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
 
         </div>
         <div class="howTo-section">
 
-            <h1> <span>HowTos </span></h1>
+            <h1> <span> Guides </span></h1>
 
             <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
         </div>
