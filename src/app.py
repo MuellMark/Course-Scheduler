@@ -63,7 +63,7 @@ def organizeData():
     with open("output.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for code, data_list in entries.items():
-            if len(data_list) > 1:  # Only merge if there are multiple entries with the same code
+            if len(data_list) > 2:  # Only merge if there are multiple entries with the same code
                 merged_row = [data_list[0][0], code]
                 data_list = sum(data_list,())
                 expanded_list = []
