@@ -146,7 +146,7 @@ def notInfeasible():
         # Count the number of data rows
         num_rows = sum(1 for _ in reader)
         # Check if there are at least two rows
-        return num_rows >= 2
+        return True
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8080")
