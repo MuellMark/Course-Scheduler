@@ -1,11 +1,11 @@
 <swapped_courses>
 CS21,CS22
 <forced_courses>
-<course_restrict>
+<course_restrict> 
 CS21,TRUE,m800,m330,NUA1,$,CS211
 CS22,TRUE,m800,m330,NUA1,$,CS211
 NUA1,TRUE,m800,CS21,CS22,$,NUA11
 
 <faculty_restrict>
 Faculty 1,TRUE,CS21,NUA1,$
-Faculty 2,FALSE,NUA2,$
+Faculty 2,FALSE,CS22,$

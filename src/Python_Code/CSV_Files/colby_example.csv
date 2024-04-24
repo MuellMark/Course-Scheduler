@@ -1,6 +1,6 @@
 <course_restrict>
-CS2,TRUE,2,m800,m330,NUA,$,CS211
-NUA,TRUE,1,m800,CS2,$,NUA11
+CS2,TRUE,2,m800,m330,NUA,$,Computer Science 2
+NUA,TRUE,1,m800,CS2,$,Numerical Analysis
 
 <faculty_restrict>
 Faculty 1,TRUE,CS2,NUA,$

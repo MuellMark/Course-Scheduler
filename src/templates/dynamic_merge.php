@@ -37,9 +37,9 @@
         </div>
     </header>
 
-    <h5> <span> Create CSV </span> </h5>
+    <h1 style="padding-top: 40px;"> Create CSV </h1>
 
-    <button class="button-style6" style="margin-right: 25px" onclick="window.location.href='{{ url_for('importpg')}}'">Next</button>
+    <button class="button-style6" style="margin-right: 25px" onclick="addToDB()">Next</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
     
     <!---------------------------- Course dynamic table ---------------------------->
@@ -47,7 +47,7 @@
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <div class="divScroll">
         <button class="button-style5" onclick="clearTable('course-table')">Clear Table</button>
-        <button class="button-style5" onclick="addToDB()">Add to Firebase</button>
+        <!-- <button class="button-style5" onclick="addToDB()">Add to Firebase</button> -->
         <button class="button-style5" onclick="addRow()">Add Row</button>
         <select id='addCourseRow' onchange="addRowFromKey(this.value);">
             <option value=''>New Course</option>
@@ -146,7 +146,8 @@
     <h4><span>Faculty Table</span></h4>
     <div class="divScroll">
         <button class="button-style5" onclick="clearTable('faculty-table')">Clear Table</button>
-        <button class="button-style5" onclick="addToDBFac()">Add to Firebase</button>
+        <button class="button-style5" onclick="addRowFac()">Add Row</button>
+        <!-- <button class="button-style5" onclick="addToDBFac()">Add to Firebase</button> -->
     </div>
     <table id="faculty-table">
         <tr>
@@ -322,7 +323,7 @@
     function addToDB() {
 
         if (!checkIfFilled("course-table")) {
-            alert("Please fill in all fields before adding to Firebase.");
+            alert("Please fill in all fields before continuing.");
             return false;
         }
         // Function to handle form submission and send data to Firebase
@@ -331,11 +332,12 @@
         // Skip first title row
         for (var i = 1; i < rows.length; i++) {
             var cells = rows[i].getElementsByTagName("td");
-            var courseID = cells[6].querySelector("input").value;
+            // var courseID = cells[6].querySelector("input").value;
+            var courseID = cells[1].querySelector("input").value;
             // User selected new course
             if (courseID == '')
-                courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
-
+                // courseID = cells[2].querySelector("input").value + cells[4].querySelector("input").value; //Concate abbr and sections
+                courseID = cells[1].querySelector("input").value;
             if (courseID !== '' && courseID !== 'new') {
                 var className = cells[1].querySelector("input").value;
                 var abbreviation = cells[2].querySelector("input").value;
@@ -366,12 +368,16 @@
                     unavailableTimes: unavailableTimesList,
                     extraCourses: coursesList
                 });
-                // TODO remove this or make a better message       
-                alert("Yippee it worked!");
             }
-            else
+            else{
                 alert("Please select a course from the dropdown");
+                return false;
+            }
+
         }
+        addToDBFac();
+        tableToCSV();
+        window.location.href='{{ url_for('importpg')}}'
     }
 
     /**
@@ -379,7 +385,7 @@
      */
     function addToDBFac() {
         if (!checkIfFilled("faculty-table")) {
-            alert("Please fill in all fields before adding to Firebase.");
+            alert("Please fill in all fields before continuing.");
             return false;
         }
         // Function to handle form submission and send data to Firebase
@@ -409,8 +415,6 @@
                     prime_time: primeTime,
                     classes: classList
                 });
-                // TODO remove this or make a better message       
-                alert("Yippee it worked!");
             }
             else
                 alert("Please select a course from the dropdown!");
