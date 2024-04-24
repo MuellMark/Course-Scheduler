@@ -56,7 +56,7 @@ def organizeData():
     with open('output.csv', 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            row[1] = code
+            code = row[1]
             for values in row:
                 entries[code].append(values)
             # number, code, label, professor, buffer = row
