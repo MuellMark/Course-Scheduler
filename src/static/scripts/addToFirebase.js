@@ -33,14 +33,6 @@ function addToDB() {
             var abbreviation = cells[2].querySelector("input").value;
             var contactHours = cells[3].querySelector("select").value;
             var sections = cells[4].querySelector("input").value;
-            // TODO need to fix checkbox
-            // var unavailableTimes: {
-            //     monday = cells[5].querySelector("input[name='monday']").checked,
-            //     tuesday = cells[5].querySelector("input[name='tuesday']").checked,
-            //     wednesday = cells[5].querySelector("input[name='wednesday']").checked,
-            //     thursday = cells[5].querySelector("input[name='thursday']").checked,
-            //     friday = cells[5].querySelector("input[name='friday']").checked
-            // };
 
             // Push data to Firebase and map data to Firebase using CourseID as key
             database.ref('courses/' + courseID).set({
@@ -50,7 +42,6 @@ function addToDB() {
                 sections: sections,
                 //unavailableTimes: unavailableTimes
             });   
-            // TODO remove this make a better message       
             alert("It worked!");
         }
     }
