@@ -16,7 +16,7 @@ def export_both(success,contents_course_restrict,contents_faculty_restrict,force
     site_path="output.csv"
 
     # Change user download path here
-    user_path="output.csv"
+    user_path="user_output.csv"
 
     export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,site_path)
     export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,user_path)

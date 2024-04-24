@@ -92,7 +92,7 @@ def upload():
 
         # Render HTML template with CSV data
         if(notInfeasible()):
-            # organizeData()
+            organizeData()
             csv_function_data = getCSVData()
             return render_template('display.php', csv_data=csv_function_data)
         else:
@@ -113,7 +113,7 @@ def force():
     command = "python File_Convertor.py force.csv csv both"
     subprocess.call(command, shell=True)
     if(notInfeasible()):
-        # organizeData()
+        organizeData()
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
@@ -132,7 +132,7 @@ def swap():
     command = "python File_Convertor.py swap.csv swap both output.csv"
     subprocess.call(command, shell=True)
     if(notInfeasible()):
-        # organizeData()
+        organizeData()
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
