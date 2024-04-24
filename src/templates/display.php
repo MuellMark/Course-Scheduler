@@ -120,13 +120,13 @@
     </select> 
     <input type="submit" value="submit" name="submit"/>
     </form>
-    <form method="post" action="swap">
+    <!-- <form method="post" action="swap">
     <label for="firstcourse">Swap courses</label>
     <div id="firstcourse"></div>
     <label for="secondcourse">Swap courses</label>
     <div id="secondcourse"></div>
     <input type="submit" value="submit" name="submit"/>
-    </form>
+    </form> -->
     <script>
          const start = () => {
             setTimeout(function () {
@@ -185,8 +185,8 @@
         // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
 
-        createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');
-        createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
+        // createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');
+        // createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
     <!-- <form method="post" action="force">
