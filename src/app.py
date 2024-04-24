@@ -59,7 +59,7 @@ def organizeData():
             # TODO need to find a way to make these values optional
             number, code, label, *rest_var = row
             # number, code, label, professor, money = row
-            entries[code].append((number, label, rest_var))
+            entries[code].append((number, label, rest_var[0]))
 
     # Write the merged data to the output CSV file
     with open("output.csv", 'w', newline='') as csvfile:
