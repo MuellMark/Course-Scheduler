@@ -53,29 +53,29 @@ def organizeData():
     entries = defaultdict(list)
 
     # # Read the input CSV file
-    # with open('output.csv', 'r') as csvfile:
-    #     reader = csv.reader(csvfile)
-    #     for row in reader:
-    #         number, code, label, professor = row
-    #         entries[code].append((number, label, professor))
+    with open('output.csv', 'r') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            number, code, label, professor = row
+            entries[code].append((number, label, professor))
 
-    # # Write the merged data to the output CSV file
-    # with open("output.csv", 'w', newline='') as csvfile:
-    #     writer = csv.writer(csvfile)
-    #     for code, data_list in entries.items():
-    #         if len(data_list) > 2:  # Only merge if there are multiple entries with the same code
-    #             merged_row = [data_list[0][0], code]
-    #             data_list = sum(data_list,())
-    #             expanded_list = []
-    #             for item in data_list:
-    #                 if isinstance(item, tuple):
-    #                     expanded_list.extend(item)
-    #                 else:
-    #                     expanded_list.append(item)
-    #             merged_row.extend([entry[0:] for entry in expanded_list])
-    #             writer.writerow(merged_row)
-    #         else:
-    #             writer.writerow([data_list[0][0], code, data_list[0][1], data_list[0][2]])
+    # Write the merged data to the output CSV file
+    with open("output.csv", 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        for code, data_list in entries.items():
+            if len(data_list) > 2:  # Only merge if there are multiple entries with the same code
+                merged_row = [data_list[0][0], code]
+                data_list = sum(data_list,())
+                expanded_list = []
+                for item in data_list:
+                    if isinstance(item, tuple):
+                        expanded_list.extend(item)
+                    else:
+                        expanded_list.append(item)
+                merged_row.extend([entry[0:] for entry in expanded_list])
+                writer.writerow(merged_row)
+            else:
+                writer.writerow([data_list[0][0], code, data_list[0][1], data_list[0][2]])
 
 @app.route('/upload', methods=['POST'])
 def upload():
