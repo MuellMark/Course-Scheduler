@@ -121,10 +121,10 @@
     <input type="submit" value="submit" name="submit"/>
     </form>
     <form method="post" action="swap">
-    <label for="firstcourse">Swap courses</label>
-    <div id="firstcourse"></div>
-    <label for="secondcourse">Swap courses</label>
-    <div id="secondcourse"></div>
+    <label for="firstcourse">Swap</label>
+    <select id="firstcourse"></select>
+    <label for="secondcourse">with</label>
+    <select id="secondcourse"></select>
     <input type="submit" value="submit" name="submit"/>
     </form>
     <script>
