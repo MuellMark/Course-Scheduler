@@ -92,7 +92,7 @@ def upload():
 
         # Render HTML template with CSV data
         if(notInfeasible()):
-            # organizeData()
+            organizeData()
             csv_function_data = getCSVData()
             return render_template('display.php', csv_data=csv_function_data)
         else:
@@ -102,7 +102,7 @@ def upload():
 
 @app.route("/force", methods=['GET', 'POST'])
 def force():
-    f = open('user_output.csv','r')
+    f = open('output.csv','r')
     newf = open('force.csv','w')
     lines = f.readlines() # read old content
     newf.write("<forced_courses>" + "\n" + request.form['course'] + "," + request.form['time'] + "\n") # write new content at the beginning
@@ -113,7 +113,7 @@ def force():
     command = "python File_Convertor.py force.csv csv both"
     subprocess.call(command, shell=True)
     if(notInfeasible()):
-        # organizeData()
+        organizeData()
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
@@ -121,7 +121,7 @@ def force():
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
-    f = open('user_output.csv','r')
+    f = open('output.csv','r')
     newf = open('swap.csv','w')
     lines = f.readlines() # read old content
     newf.write("<swapped_courses>" + "\n" + request.form['course1'] + "," + request.form['course2'] + "\n") # write new content at the beginning
@@ -132,14 +132,14 @@ def swap():
     command = "python File_Convertor.py swap.csv swap both output.csv"
     subprocess.call(command, shell=True)
     if(notInfeasible()):
-        # organizeData()
+        organizeData()
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
         return "Not feasible"
 
 def notInfeasible():
-    with open('user_output.csv', 'r', newline='') as file:
+    with open('output.csv', 'r', newline='') as file:
         reader = csv.reader(file)
         # Skip the header row
         next(reader, None)
