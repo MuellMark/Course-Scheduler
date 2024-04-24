@@ -61,10 +61,10 @@
         <th>Faculty</th>
         <th>Course Col 2</th>
         <th>Faculty</th>
-        <th>Course Col 3</th>
+        <!-- <th>Course Col 3</th>
         <th>Faculty</th>
         <th>Course Col 4</th>
-        <th>Faculty</th>
+        <th>Faculty</th> -->
         {% for row in csv_data %}
         <tr>
             {% for col in row %}
