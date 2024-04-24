@@ -120,7 +120,7 @@
     </select> 
     <input type="submit" value="submit" name="submit"/>
     </form>
-    <form method="post" action="force">
+    <form method="post" action="swap">
     <label for="firstcourse">Swap courses</label>
     <div id="firstcourse"></div>
     <label for="secondcourse">Swap courses</label>
@@ -152,12 +152,6 @@
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
         // Get the table element
         const table = document.getElementById(tableId);
-        
-        // Check if the table exists
-        if (!table) {
-            console.error('Table not found.');
-            return;
-        }
         
         // Create the select element
         const select = document.createElement('select');
