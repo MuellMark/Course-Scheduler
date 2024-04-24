@@ -68,7 +68,7 @@
         {% for row in csv_data %}
         <tr>
             {% for col in row %}
-                {% if col == "1" %}
+                {% if col == "1" && col == "$"  %}
                     
                 {% elif col == "m800" %}
                     <td>MWF at 8:00 AM</td>

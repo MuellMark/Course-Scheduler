@@ -56,8 +56,11 @@ def organizeData():
     with open('output.csv', 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            number, code, label, professor, buffer = row
-            entries[code].append((number, label, professor))
+            row[1] = code
+            for values in row:
+                entries[code].append(values)
+            # number, code, label, professor, buffer = row
+            # entries[code].append((number, label, professor))
 
     # Write the merged data to the output CSV file
     with open("output.csv", 'w', newline='') as csvfile:
