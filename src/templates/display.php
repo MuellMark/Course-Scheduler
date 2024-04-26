@@ -39,7 +39,7 @@
         </div>
     </header>
 <body>
-    <h1><span>Course Schedule</span></h1>
+    <h1><span>Courses Schedule</span></h1>
     <br>
     <br>
 
