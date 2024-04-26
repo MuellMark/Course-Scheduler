@@ -154,9 +154,13 @@ def notInfeasible():
         # Check if there are at least two rows
         return num_rows >= 2
     
-@app.route('/return-files/')
-def return_files_tut():
-	return send_file('user_output.csv', attachment_filename='user_output.csv')
+@app.route('/download_csv', methods=['POST'])
+def download_csv():
+    file_path = 'user_output.csv'  # Update this with the actual path to your CSV file
+    if os.path.exists(file_path):
+        return send_file(file_path, as_attachment=True)
+    else:
+        return "File not found"
 
 
 if __name__ == '__main__':

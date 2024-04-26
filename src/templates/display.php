@@ -190,7 +190,9 @@
         createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
-    <a href="/return-files/" target="blank">Download!</a>
+    <form action="/download_csv" method="post">
+        <button type="submit">Download CSV</button>
+    </form>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
