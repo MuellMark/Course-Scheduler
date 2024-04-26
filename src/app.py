@@ -56,8 +56,13 @@ def organizeData():
     with open('output.csv', 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            number, code, label, professor = row
-            entries[code].append((number, label, professor))
+            number, code, label, *rest_var = row
+            # number, code, label, professor, money = row
+            if len(rest_var) >= 1:
+                faculty = rest_var[0]
+            else:
+                faculty = "Faculty TBD"
+            entries[code].append((number, label, faculty))
 
     # Write the merged data to the output CSV file
     with open("output.csv", 'w', newline='') as csvfile:
@@ -89,7 +94,7 @@ def upload():
         test.write_csv_to_file(csv_reader, "input.csv")
         command = "python File_Convertor.py input.csv csv both"
         subprocess.call(command, shell=True)
-        
+
         # Render HTML template with CSV data
         if(notInfeasible()):
             # organizeData()
@@ -100,6 +105,7 @@ def upload():
     else:
         return "No file uploaded!"
 
+# TODO grab from 2nd column
 @app.route("/force", methods=['GET', 'POST'])
 def force():
     f = open('user_output.csv','r')
