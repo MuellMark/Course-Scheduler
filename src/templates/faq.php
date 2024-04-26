@@ -23,7 +23,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
             </nav>
         </div>
@@ -39,7 +39,7 @@
             <h1> FAQ </h1>
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="question"> What Is Course Scheduler? </button>
+                    <button class="question"> What is Course Scheduler? </button>
                     <div class="answer">
                         <p>
                             The Course Scheduler is a useful tool designed to generate course schedules based on various
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="question"> Who To Contact? </button>
+                    <button class="question"> Who to contact? </button>
                     <div class="answer">
                         <p>
 
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="question"> GitHub Repo </button>
+                    <button class="question"> GitHub repo </button>
                     <div class="answer">
                         <p>
 

@@ -27,7 +27,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
                 </div>
             </nav>
