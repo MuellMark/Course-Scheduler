@@ -39,7 +39,7 @@
             <h1> FAQ </h1>
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="question"> who on earth is Course Scheduler? </button>
+                    <button class="question"> What is Course Scheduler? </button>
                     <div class="answer">
                         <p>
                             The Course Scheduler is a useful tool designed to generate course schedules based on various
