@@ -20,7 +20,7 @@ function tableToCSV() {
     for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
-        let cols = rows[i].querySelectorAll('input[name="newCourse"],input[name="sections"][type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
+        let cols = rows[i].querySelectorAll('input[name="abbreviation"],input[name="newCourse"][type="select"]:not([value="empty"]),input[name="sections"][type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
 
         // Stores each csv row data
         let csvrow = [];
@@ -48,7 +48,6 @@ function tableToCSV() {
             if(cols[j].id != 'newCourse')
                 csvrow.push(cols[j].value);
             else{
-                csvrow.push(cols[j].value);
                 courseName = "," + cols[j].value
             }
         }
