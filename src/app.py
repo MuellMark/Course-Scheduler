@@ -56,7 +56,6 @@ def organizeData():
     with open('output.csv', 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            # TODO need to find a way to make these values optional
             number, code, label, *rest_var = row
             # number, code, label, professor, money = row
             if len(rest_var) >= 1:
@@ -106,6 +105,7 @@ def upload():
     else:
         return "No file uploaded!"
 
+# TODO grab from 2nd column
 @app.route("/force", methods=['GET', 'POST'])
 def force():
     f = open('user_output.csv','r')
