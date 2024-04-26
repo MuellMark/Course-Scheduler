@@ -45,10 +45,12 @@ function tableToCSV() {
             //     csvrow.push("<faculty-table>");
             // Get the text data of each cell
             // of a row and push it to csvrow
-            // if(cols[j].id != 'newCourse')
+            if(cols[j].id != 'newCourse')
                 csvrow.push(cols[j].value);
-            // else
-            //     courseName = "," + cols[j].value
+            else{
+                csvrow.push(cols[j].value);
+                courseName = "," + cols[j].value
+            }
         }
         //csv_data.push('$');
         // Combine each column value with comma
