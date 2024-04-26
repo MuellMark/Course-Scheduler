@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, request, render_template, send_file
 import csv
 import io
 import test
@@ -154,10 +154,9 @@ def notInfeasible():
         # Check if there are at least two rows
         return num_rows >= 2
     
-@app.route('/download', methods=['GET', 'POST'])
-def download():
-    uploads = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-    return send_from_directory(directory=uploads,filename="output.csv", as_attachment=True)
+@app.route('/return-files/')
+def return_files_tut():
+	return send_file('user_output.csv', attachment_filename='user_output.csv')
 
 
 if __name__ == '__main__':

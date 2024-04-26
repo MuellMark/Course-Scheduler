@@ -190,7 +190,9 @@
         createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
-  <a href="{{ url_for('download') }}"> Download file </a>
+<div class="container" align="left">
+		<a href="/return-files/" target="blank"><button class='btn btn-default'>Download!</button></a>
+   </div>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
