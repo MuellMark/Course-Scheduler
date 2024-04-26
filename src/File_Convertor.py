@@ -168,7 +168,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
         print("error, no file found. Please make sure a file is connected")
     else:
         i=0
-        stored=False # tracks if the vourse names are stored
+        stored=False # tracks if the course names are stored
         bool_swapped=False # tracks if there is a swap tag
 
         # Loops through, finds the swap tag, and stores the course names

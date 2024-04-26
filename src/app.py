@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 import csv
 import io
 import test
@@ -97,7 +97,7 @@ def upload():
 
         # Render HTML template with CSV data
         if(notInfeasible()):
-            organizeData()
+            # organizeData()
             csv_function_data = getCSVData()
             return render_template('display.php', csv_data=csv_function_data)
         else:
@@ -119,7 +119,7 @@ def force():
     command = "python File_Convertor.py force.csv csv both"
     subprocess.call(command, shell=True)
     if(notInfeasible()):
-        organizeData()
+        # organizeData()
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
@@ -138,7 +138,7 @@ def swap():
     command = "python File_Convertor.py swap.csv swap both output.csv"
     subprocess.call(command, shell=True)
     if(notInfeasible()):
-        organizeData()
+        # organizeData()
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
@@ -153,6 +153,12 @@ def notInfeasible():
         num_rows = sum(1 for _ in reader)
         # Check if there are at least two rows
         return num_rows >= 2
+    
+@app.route('/download', methods=['GET', 'POST'])
+def download():
+    uploads = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+    return send_from_directory(directory=uploads,filename="output.csv", as_attachment=True)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8080")
