@@ -39,7 +39,7 @@
         </div>
     </header>
 <body>
-    <h1><span>Course Schedule</span></h1>
+    <h1><span>Courses Schedule</span></h1>
     <br>
     <br>
 
@@ -190,7 +190,9 @@
         createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
-  <a href="{{ url_for('download') }}"> Download file </a>
+    <form action="/download_csv" method="post">
+        <button type="submit" class='button-style5'>Download CSV</button>
+    </form>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
