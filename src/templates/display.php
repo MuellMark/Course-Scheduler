@@ -191,7 +191,7 @@
 
   </script>
 <div class="container" align="left">
-		<a href="/return-files/" target="blank"><button class='btn btn-default'>Download!</button></a>
+		<a href="/return-files/" target="blank">Download!</button></a>
    </div>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
