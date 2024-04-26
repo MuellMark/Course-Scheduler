@@ -191,7 +191,7 @@
 
   </script>
     <form action="/download_csv" method="post">
-        <button type="submit">Download CSV</button>
+        <button type="submit" class='button-style5'>Download CSV</button>
     </form>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
