@@ -17,10 +17,10 @@ function tableToCSV() {
 
     // Get each row data
     let rows = document.getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
 
         // Get each column data
-        let cols = rows[i].querySelectorAll('input[name="newCourse"][type="select"]:not([value="empty"]),input[name="sections"][type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
+        let cols = rows[i].querySelectorAll('input[name="newCourse"],input[name="sections"][type="number"],input[type="text"]:not([value=""]),input[type="checkbox"]:checked,[name="meeting_hours"],input[name="facultyName"],input[name="courses"],[name="primetime"]');
 
         // Stores each csv row data
         let csvrow = [];
