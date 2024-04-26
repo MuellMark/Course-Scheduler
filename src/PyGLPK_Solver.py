@@ -487,11 +487,19 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
 def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     
     if not success:
+        export_file = open(export_file_name,'r')
+        read_file = export_file.read()
+        export_file.close()
+
+        export_file = open(export_file_name,'w')
+        export_file.write("infeasible \n")
+        export_file.write(read_file)
+
         # export_file.write("infeasible")
-        with open(export_file_name, 'r+') as f:
-            content = f.read()
-            f.seek(0, 0)
-            f.write("infeasible" '\n' + content)
+        # with open(export_file_name, 'r+') as f:
+        #     content = f.read()
+        #     f.seek(0, 0)
+        #     f.write("infeasible" '\n' + content)
     else: # Only print if a successful schedule was made
         export_file = open(export_file_name,'w')
         file_contents=""
