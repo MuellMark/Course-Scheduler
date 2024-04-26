@@ -1,11 +1,1 @@
-<forced_courses>
-CS21,m200
-CS22,m1100
-NUA1,m930
-<course_restrict>
-CS21,TRUE,m800,m330,NUA1,$
-CS22,TRUE,m800,m330,NUA1,$
-NUA1,TRUE,m800,CS21,CS22,$
-<faculty_restrictions>
-Faculty 1,TRUE,CS21,NUA1,$
-Faculty 2,FALSE,CS22,$
+infeasible

@@ -485,10 +485,16 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
  
 # Exports the file for the website to intercept and displays the schedule
 def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
-    export_file = open(export_file_name,'w')
-    file_contents=""
-    if success: # Only print if a successful schedule was made
-
+    
+    if not success:
+        # export_file.write("infeasible")
+        with open(export_file_name, 'r+') as f:
+            content = f.read()
+            f.seek(0, 0)
+            f.write("infeasible" '\n' + content)
+    else: # Only print if a successful schedule was made
+        export_file = open(export_file_name,'w')
+        file_contents=""
         pairings=[]
         count_courses_simplex=0
         for c in lp.cols:
@@ -522,5 +528,4 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
             file_contents+=pair+"\n"
             
         export_file.write(file_contents)
-    else:
-        export_file.write("infeasible") 
+    
