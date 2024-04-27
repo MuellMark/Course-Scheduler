@@ -39,7 +39,7 @@
         </div>
     </header>
 <body>
-    <h1><span>Course Schedule</span></h1>
+    <h1><span>Courses Schedule</span></h1>
     <br>
     <br>
 
@@ -61,10 +61,10 @@
         <th>Faculty</th>
         <th>Course Col 2</th>
         <th>Faculty</th>
-        <th>Course Col 3</th>
+        <!-- <th>Course Col 3</th>
         <th>Faculty</th>
         <th>Course Col 4</th>
-        <th>Faculty</th>
+        <th>Faculty</th> -->
         {% for row in csv_data %}
         <tr>
             {% for col in row %}
@@ -99,9 +99,9 @@
         {% endfor %}
     </table>
     <form method="post" action="force">
-    <label for="course">Choose a course to force:</label>
+    <!-- <label for="course">Choose a course to force:</label> -->
     <!-- <select id="courseMenu" name="courseMenu"> -->
-    <div id="courseMenu"></div>
+    <div id="courseMenu">Choose a course to force: </div>
     
     <label for="time">When will it be taught:</label>
     <!-- <select id="timeMenu" name="timeMenu"> -->
@@ -121,10 +121,11 @@
     <input type="submit" value="submit" name="submit"/>
     </form>
     <form method="post" action="swap">
-    <label for="firstcourse">Swap courses</label>
-    <div id="firstcourse"></div>
-    <label for="secondcourse">Swap courses</label>
-    <div id="secondcourse"></div>
+    <br>
+    <!-- <label for="firstcourse">Swap</label> -->
+    <div id="firstcourse">Swap </div>
+    <!-- <label for="secondcourse">with</label> -->
+    <div id="secondcourse">with </div>
     <input type="submit" value="submit" name="submit"/>
     </form>
     <script>
@@ -189,6 +190,9 @@
         createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
+    <form action="/download_csv" method="post">
+        <button type="submit" class='button-style5'>Download CSV</button>
+    </form>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
