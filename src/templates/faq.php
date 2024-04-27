@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <!-- Title Of Page -->
     <title>FAQ</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
@@ -145,7 +146,7 @@
         }
 
         //Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs
-        //ELements with the class "question"
+        //Elements with the class "question"
         var faqQuestions = document.getElementsByClassName("question");
         for (var i = 0; i < faqQuestions.length; i++) {
             faqQuestions[i].addEventListener("click", function () {
