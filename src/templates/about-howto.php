@@ -49,7 +49,7 @@
 
             <h1> <span> Guides </span></h1>
 
-            <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
+            <iframe src="{{ url_for('static', filename='docs/Southwestern Course Scheduler.pdf') }}" class="pdf-iframe"></iframe>
         </div>
     </div>
 
