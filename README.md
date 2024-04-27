@@ -18,39 +18,34 @@ While some already use this tool, it is unintuitive and requires some programmin
 
 The goal of the Southwestern University Course Scheduler was to make the course scheduling process as simple as possible. Therefore, the steps to accomplish this task are quite minimal. The user's requirements include creating and uploading the CSV files using Python. The application will run PyGLPK, and the resulting course schedule will be outputted for the user to download. Follow the steps below to do this. 
 
-1. From the Home page, click the Get Started button. This will take you to a page with two options: Create A New CSV or Import A CSV. 
+The goal of the Southwestern University Course Scheduler was to make the course scheduling process as simple as possible. Therefore, the steps to accomplish this task are quite minimal. The requirements of the user include creating the CSV files and uploading them in the Python tool. The application will run PyGLPK and the resulting course schedule will be outputted for the user to download. Follow the steps below to do this. 
 
-![Untitled video - Made with Clipchamp](https://github.com/MuellMark/Course-Scheduler/assets/88158644/b6be537d-a3d6-4e77-a2c4-d1236f0d9019)
+1. From the Home page, click the Get Started button. This will take you to a page that gives two options: Create A New CSV or Import A CSV. 
+   a. The import option is to be chosen if the user has an existing CSV file they would like to make alterations to.
+   
+      i. If so, click Import A CSV
+      ii. Choose the CSV file to upload and click the Upload button and the outputted schedule will be displayed
 
-   a. The import option is to be chosen if the user has an existing CSV file to which they would like to make alterations.
-      
-   i. If so, click Import A CSV
-   ii. Choose the CSV file to upload and click the Upload button
-   iii. TODO: The next step is when the page is implemented
    b. If not, click Create A New CSV.
 
-3. You have now navigated to the Create CSV page. This is where you will define all course and faculty restrictions. 
-
-![Untitled video - Made with Clipchamp (1)](https://github.com/MuellMark/Course-Scheduler/assets/88158644/9a0819fa-feac-4d27-b4ac-87dd580464c0)
+3. You have now been navigated to the Create CSV page. This is where all course and faculty restrictions will be defined.
 
    a. Add all courses
+   
+         i. For each course, enter its name, abbreviation, specify if it is a four contact hour course or not, and the number of sections this course has. Check every time that the course is unable to be taught and then specify the course’s ID.
+         ii. If there are other courses that conflict with this one, click the Add Conflicting Course and write the name of that course. This can be done multiple times. 
 
-   i. For each course, enter its name and abbreviation, specify whether it is a four-contact-hour course and the number of sections it has. Check when the course cannot be taught and then specify the course’s ID.
-   ii. If other courses conflict with this one, click the Add Conflicting Course button and write the name of that course. You can do this multiple times.
-    
    b. Add all faculty
-    
-   i. For each faculty member, enter their name, indicate whether they need to teach during prime time, and check every time the professor cannot teach. 
-   ii. Then specify another course the professor is teaching. If other courses are being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
 
+          i. For each faculty member, enter their name, indicate whether they need to teach in the prime time or no, and check every time that the professor is unable to teach. 
 
-4. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
+         iu. Then specify another course the professor is teaching. If there are other courses being taught, click the Add Course Taught button and write the name of that course. This can be done multiple times. 
 
-5. Now that the CSV files have been created, they can be uploaded to the application to generate the schedule. Click the Next button. This will help you navigate to a page to begin uploading.
+3. Once these tables are filled out, click the Save as CSV button in the top right corner. This will download the CSV files to your machine.
 
-![Untitled video - Made with Clipchamp (2)](https://github.com/MuellMark/Course-Scheduler/assets/88158644/a64c2383-f25f-45ec-8bac-1262f3088762)
+4. Now that the CSV files have been created, they can be uploaded to the application to generate the schedule. Click the Next button. This will navigate to the import page. Import your recently downloaded csv file
 
-![Untitled video - Made with Clipchamp](https://github.com/MuellMark/Course-Scheduler/assets/88158644/0417811c-aa85-46bd-9a35-b0b644cc11b7)
+5. Click Upload and the schedule will be generated
 
 <br>
 

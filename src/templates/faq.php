@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <!-- Title Of Page -->
     <title>FAQ</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
@@ -23,7 +24,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
             </nav>
         </div>
@@ -39,7 +40,7 @@
             <h1> FAQ </h1>
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="question"> What Is Course Scheduler? </button>
+                    <button class="question"> What is Course Scheduler? </button>
                     <div class="answer">
                         <p>
                             The Course Scheduler is a useful tool designed to generate course schedules based on various
@@ -62,25 +63,25 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="question"> Who To Contact? </button>
+                    <button class="question"> Who to contact? </button>
                     <div class="answer">
                         <p>
 
-                            This was previously a capstone project, so if there are any quetsions there, please contact
+                            This was previously a capstone project, so if there are any questions there, please contact
                             Yahya Hamdallah - hamdally@southwestern.edu,
-                            Mark Mueller - muellerm@southwestern.edu,
+                            Mark Mueller - muemark10m@gmail.com,
                             Kate Nguyen - nguyen10@southwestern.edu,
                             Colby Sullivan - sullivanc@southwestern.edu.
 
                             But, if you have questions on how to use the program, or general questions, contact the
-                            Computer Science Department: anthonyb@southwestern.edu.
+                            the faculty sponsor for this project, Dr. Barbara Anthony at: anthonyb@southwestern.edu.
 
                         </p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="question"> GitHub Repo </button>
+                    <button class="question"> GitHub repo </button>
                     <div class="answer">
                         <p>
 
@@ -145,7 +146,7 @@
         }
 
         //Inspiration For Code:https://www.youtube.com/watch?v=IcyXS9aL4bs
-        //ELements with the class "question"
+        //Elements with the class "question"
         var faqQuestions = document.getElementsByClassName("question");
         for (var i = 0; i < faqQuestions.length; i++) {
             faqQuestions[i].addEventListener("click", function () {

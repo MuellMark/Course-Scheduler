@@ -26,7 +26,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -38,15 +38,6 @@
         </div>
     </header>
 
-    <style>
-        #githublink {
-            position: fixed;
-            bottom: 20px;
-            /* Adjust as needed */
-            right: 20px;
-            /* Adjust as needed */
-        }
-    </style>
 
     <br>
     <h1 style="margin-top: 25px"><span>Import A CSV</span></h1>
@@ -61,12 +52,6 @@
             <input class="button-style5" type="file" style="margin-left: 80px" name="csv_file" accept=".csv"><br><br>
             <input class="button-style5" type="submit" value="Upload">
         </form>
-    </div>
-
-    <div id="github-icon">
-        <a href="https://github.com/MuellMark/Course-Scheduler" id="githublink">
-            <img src="{{url_for('static', filename='images/github.png')}}" alt="Link to Github" id="github-icon">
-        </a>
     </div>
 
 </html>

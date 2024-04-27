@@ -2,9 +2,13 @@
 <html>
 
 <head>
+    <!-- Title Of Page -->
     <title>Create CSV</title>
+    <!-- Script for creating CSVs -->
     <script src="{{url_for('static', filename='scripts/createCSV.js')}}"></script>
+    <!-- Script for faculty restrictions -->
     <script type="text/javascript" src="scripts/faculty_script.js"></script>
+    <!-- Firebase library  -->
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
@@ -14,6 +18,7 @@
 <body>
     <header>
         <div id="headerBar">
+            <!-- Hamburger menu  -->
             <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
             <!--Logo Placement-->
             <div id="logo">
@@ -26,7 +31,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -41,14 +46,17 @@
 
     <button class="button-style6" style="margin-right: 25px" onclick="addToDB()">Next</button>
     <button class="button-style6" style="margin-right: 15px" onclick="tableToCSV()">Save as CSV</button>
-    
+
     <!---------------------------- Course dynamic table ---------------------------->
     <h4><span>Course Table</span></h4>
     <!-- https://stackoverflow.com/questions/3487263/how-to-use-onclick-or-onselect-on-option-tag-in-a-jsp-page -->
     <div class="divScroll">
+        <!-- Clear Table Button  -->
         <button class="button-style5" onclick="clearTable('course-table')">Clear Table</button>
         <!-- <button class="button-style5" onclick="addToDB()">Add to Firebase</button> -->
+        <!-- Add Row Button  -->
         <button class="button-style5" onclick="addRow()">Add Row</button>
+        <!-- Dropdown menu to add a new course from previous  -->
         <select id='addCourseRow' onchange="addRowFromKey(this.value);">
             <option value=''>New Course</option>
         </select>
@@ -74,6 +82,10 @@
 
         /**
          * Adds a new row to the course table.
+         * @param fullName Full name of course
+         * @param abbrName Abbreviated name of the course
+         * @param meeting_hours If the course meets for 4 Hours
+         * @param sections NUmber of sections for the course
          */
         function addRow(fullName = "", abbrName = '', meeting_hours = "FALSE", sections = '') {
             var table = document.getElementById("course-table");
@@ -314,6 +326,7 @@
         measurementId: "G-1S979YX5DB"
     };
 
+    //Initilize Firebase
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
 
@@ -321,7 +334,7 @@
      * Function to handle course form submission and send data to Firebase.
      */
     function addToDB() {
-
+        //Check if all required fields are filled
         if (!checkIfFilled("course-table")) {
             alert("Please fill in all fields before continuing.");
             return false;
@@ -369,15 +382,18 @@
                     extraCourses: coursesList
                 });
             }
-            else{
+            else {
                 alert("Please select a course from the dropdown");
                 return false;
             }
 
         }
+        //Submit faculty data to Firebase
         addToDBFac();
+        //Convert the table to a CSV format
         tableToCSV();
-        window.location.href='{{ url_for('importpg')}}'
+        //Redirect to final output
+        window.location.href = '{{ url_for('importpg')}}'
     }
 
     /**
@@ -420,6 +436,7 @@
                 alert("Please select a course from the dropdown!");
         }
     }
+
     /*
         Description:
         This function retrieves courseID values from the Firebase Database and 
@@ -432,6 +449,7 @@
     */
     // https://stackoverflow.com/questions/48152556/how-to-retrieve-data-from-firebase-using-javascript
     // More help: https://firebase.google.com/docs/database/web/read-and-write#web-modular-api
+
     function getDBKeys(cell7) {
         let dbKeys = [];
         const dataTable = document.getElementById('course-table').getElementsByTagName('tbody')[0];

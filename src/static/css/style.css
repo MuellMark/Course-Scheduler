@@ -16,14 +16,13 @@ body {
   font-size: 1rem;
   /*Use the default font size on the users setting*/
   /*https://developer.mozilla.org/en-US/docs/Web/CSS/rem*/
-}
-
-body {
   padding-top: 0;
+  /* No padding at the top of the body */
 }
 
 .content-wrapper.menu-opened {
   padding-top: 200px;
+  /* Add padding at the top when the menu is opened */
 }
 
 /* Text Styling and Formating */
@@ -67,6 +66,7 @@ h4 {
   margin-top: 5px;
   /* Add margin to separate h1 from the elements that are above it*/
   font-size: 35px;
+  /* Font size */
 }
 
 
@@ -317,10 +317,15 @@ header {
 /*https://www.educba.com/scrollbar-in-html-table/*/
 .divScroll {
   display: flex;
+  /* Flex for layout */
   align-items: center;
+  /* Center items vertically */
   gap: 20px;
+  /* Space between children */
   padding: 20px;
+  /* Padding around the scrollbar area */
   background-color: #FFFFFF;
+  /* Background color white */
 }
 
 /*Button Design*/
@@ -463,8 +468,11 @@ header {
 .button-style5,
 .divScroll select {
   margin: 0;
+  /* No margin */
   padding: 0.5em 1em;
+  /* Padding around text */
   cursor: pointer;
+  /* Pointer cursor on hover */
 }
 
 .button-style5:hover,
@@ -697,27 +705,38 @@ header {
   padding: 6em;
   /*Add more padding*/
   display: flex;
+  /* Use flex */
   justify-content: center;
+  /* Center content horizontally */
   flex-direction: column;
-
+  /* Stack content vertically */
 }
 
 .container {
   display: flex;
+  /* Use flex */
   justify-content: center;
+  /* Center content horizontally */
   align-items: center;
+  /* Align items vertically */
   flex-direction: row;
   /*When displaying, stack*/
   width: 100%;
+  /* 100% width */
   max-width: 1200px;
   margin: auto;
+  /* Center the container */
   padding: 2em;
+  /* Padding for internal spacing */
 }
 
 .container2 {
   text-align: center;
+  /* Center text horizontally */
   margin: 0 auto;
+  /* Center the container horizontally */
   width: 100%;
+  /* 100% width */
 }
 
 
@@ -762,119 +781,168 @@ header {
 /*Example Image Home Page*/
 #examplePicture img {
   max-width: 100%;
+  /* 100% width */
   height: auto;
+  /* Maintain aspect ratio */
   margin-top: 1em;
+  /* Margin at the top for spacing */
 }
 
 .image-container {
   flex: 1;
+  /* Flex to take available space */
   display: flex;
+  /* use Flex */
   justify-content: center;
+  /* Center content horizontally */
   align-items: center;
+  /* Align items vertically */
   padding: 1em;
+  /* Padding for spacing */
 }
 
 .text-container {
   flex: 1;
+  /* Flex to take available space */
   padding: 1em;
+  /* Padding for spacing */
   max-width: 600px;
+  /* Maximum width for the container */
   display: flex;
+  /* Use Flex */
   flex-direction: column;
+  /* Stack items vertically */
   justify-content: center;
+  /* Center items vertically */
   align-items: center;
+  /* Align items horizontally */
 }
 
 .image-container img {
   width: 100%;
+  /* Width 100% */
   height: auto;
+  /* Maintain aspect ratio */
 }
 
 /* pdfFormat*/
 iframe {
   display: block;
+  /* Display as a block element */
   margin-left: auto;
+  /* Center align to the left */
   margin-right: auto;
+  /* Center align to the right */
   width: 80%;
+  /* Width 80% */
   height: 600px;
+  /* Fixed Height */
 }
 
 .docs-container {
   display: flex;
+  /* Use flex */
   justify-content: space-around;
+  /* Space around the items evenly */
   padding: 20px;
+  /* Padding for spacing */
 }
 
 .docs-section,
 .howTo-section {
   flex: 1;
+  /* Flex to take available space */
   padding: 0 10px;
+  /* Padding on left and right for spacing */
   text-align: center;
+  /* Center text horizontally */
 }
 
 .pdf-iframe {
   width: 100%;
+  /* Width 100% */
   height: 500px;
+  /* Height of the iframe */
   margin-top: 20px;
+  /* Margin at the top for spacing */
   border: none;
+  /* No border */
 }
 
 /* Table Style */
 
 .day-separator {
   border: 0;
+  /* No border for the separator */
   height: 1px;
+  /* Height of the separator line */
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  /* Gradient effect for the separator */
   margin: 10px 0;
+  /* Vertical margin for spacing */
 }
 
 /*https://www.w3schools.com/html/html_table_borders.asp */
 
 table {
   border-collapse: collapse;
+  /* Collapse borders */
   width: 100%;
+  /* Width 100% */
 }
 
 th,
 td {
   border: 1px solid #ddd;
+  /* Light grey border */
   padding: 5px;
+  /* Padding inside for spacing */
   text-align: center;
+  /* Center text horizontally */
   align-items: center;
+  /* Align text vertically */
 }
 
 th {
   background-color: #f2f2f2;
+  /* Light grey background */
 }
 
-/* Feel free to remove this or change this */
 label {
   display: inline-block;
+  /* Display as inline-block */
+  /* https://www.w3schools.com/css/css_inline-block.asp */
   margin-right: 5px;
+  /* Right margin for spacing */
   font-size: 14px;
+  /* Font size */
   color: #333;
+  /* Dark grey text color */
   cursor: pointer;
-  font-family: 'Comic Sans MS';
+  /* Pointer cursor to indicate clickable */
+  font-family: '' Arial', sans-serif';
 }
 
 #faculty-table th:nth-child(5),
 #faculty-table td:nth-child(5) {
   width: 50%;
+  /* Set width to 50% */
   white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 #course-table th:nth-child(6),
 #course-table td:nth-child(6) {
   width: 50%;
+  /* Set width to 50% */
   white-space: nowrap;
+  /* Prevent text wrapping */
 }
-
-
 
 /*Making Webpage Responsive*/
 @media (max-width: 750px) {
 
   /* When webpage is 750px width or less*/
-
   body {
     font-size: 1.1rem;
     /*Use the default font size on the users setting*/
@@ -950,40 +1018,50 @@ label {
 
   .checkbox-group label {
     font-family: 'Arial', sans-serif;
+    /* Use the font lustria for text, and if it cant, use serif*/
     font-size: 14px;
-    /* Change the font size to your desired size */
-    /* You can add more font properties here as needed */
+    /* Font size */
   }
 
   #github-icon {
     right: 30px;
+    /* Adjust position from the right */
     bottom: 10px;
+    /* Adjust position from the right */
   }
 
   .content-container {
     padding-bottom: 70px;
+    /* Padding at bottom */
   }
 
   #faqPicture {
     display: none;
+    /* Hide FAQ picture on small screens */
   }
 
   #examplePicture img {
     width: 100%;
+    /* Width 100% */
     margin: 0 auto;
+    /* Center image horizontally */
     position: relative;
+    /* Position relative */
     left: auto;
+    /* Auto adjust left positioning */
     bottom: auto;
+    /* Auto adjust bottom positioning */
   }
 
   .container {
     flex-direction: column;
+    /* Stack container items vertically */
   }
 
   .scrollable-cell {
     overflow-x: scroll;
-    /*add scrollbar when content goes over width*/
+    /*Add scrollbar when content goes over width*/
     max-width: 100px;
+    /* Max Width */
   }
-
 }

@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>About/HowTo</title> <!-- Title Of Page -->
+    <!-- Title Of Page -->
+    <title>About/HowTo</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Linking to CSS file -->
     <meta charset="UTF-8">
@@ -26,7 +27,7 @@
                         <li> <a href="{{ url_for('home')}}"> Home</a> </li>
                         <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
                         <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> How To Guides</a> </li>
+                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -40,14 +41,13 @@
 
     <div class="docs-container">
         <div class="docs-section">
-            <h1> <span>Documentation </span></h1>
-            <!-- TODO This is broken :( -->
+            <h1> <span> Documentation </span></h1>
             <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
 
         </div>
         <div class="howTo-section">
 
-            <h1> <span>HowTos </span></h1>
+            <h1> <span> Guides </span></h1>
 
             <iframe src="{{ url_for('static', filename='docs/placeHolder.pdf') }}" class="pdf-iframe"></iframe>
         </div>
@@ -56,17 +56,17 @@
     <!-- JavaScript used to enable hamburger menu -->
     <script>
         window.onload = function () { //When webpage opens, run this code
-            var menu = document.getElementById('menubar');
+            var menu = document.getElementById('menubar'); //Access menu bar
             if (window.innerWidth < 750) { //If the windows width is less than 750 px, then hide the menu
                 menu.style.display = 'none'
             }
         };
 
-        function toggleMenu() {
+        function toggleMenu() { //Toggle the visibility of the menu
             var menu = document.getElementById('menubar');
             var contentWrapper = document.querySelector('.content-wrapper'); //Toggle the display style between block and none
             if (menu.style.display === 'block') { //If the window is resizdd to below 750, then hide the menu
-                menu.style.display = 'none';
+                menu.style.display = 'none'; //Hide the menu
                 contentWrapper.classList.remove('menu-opened');
             } else { //Else, show it
                 menu.style.display = 'block';
