@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>CSV Create Options</title> <!-- Title Of Page -->
+    <!-- Title Of Page -->
+    <title>CSV Create Options</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
