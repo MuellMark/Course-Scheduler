@@ -54,7 +54,7 @@ function tableToCSV() {
         //csv_data.push('$');
         // Combine each column value with comma
         if(cols.length > 0)
-            csvrow.push("$");
+            csvrow.push("$" + courseName);
         csv_data.push(csvrow.join(","));
     }
 
