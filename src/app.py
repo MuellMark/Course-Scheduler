@@ -104,7 +104,7 @@ def upload():
         else:
             return render_template('infeasible_from_import.php')
     else:
-        return "No file uploaded!"
+        return render_template('no_file_page.php')
 
 # TODO grab from 2nd column
 @app.route("/force", methods=['GET', 'POST'])
