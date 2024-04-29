@@ -39,7 +39,7 @@
         </div>
     </header>
 <body>
-    <h1><span>Course Schedule</span></h1>
+    <h1><span>Course Schedule but wrong</span></h1>
     <br>
     <br>
 
@@ -190,9 +190,7 @@
         createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
-    <form action="/download_csv" method="post">
-        <button type="submit" class='button-style5'>Download CSV</button>
-    </form>
+    <a href="/return-files/" target="blank">Download!</a>
     <!-- <form method="post" action="force">
     <label for="course">Choose a course to swap:</label>
     <select id="course" name="course">
