@@ -152,7 +152,7 @@
                 <td>TTH at 2:30 PM</td>
 
                 {% elif col == "Column 1" %}
-                <td><center>Column 1<\center></td>
+                <td align="center" colspan="4">Column 1</td>
                 {% else %}
                 <td>{{ col }}</td>
                 {% endif %}
