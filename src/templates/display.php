@@ -105,6 +105,10 @@
         /* Pointer cursor on hover */
     }
 
+    .colColor {
+        background-color: orangered;
+    }
+
     .submit-button:hover,
     .divScroll select:hover {
         background-color: #FFFFFF;
@@ -152,7 +156,7 @@
                 <td>TTH at 2:30 PM</td>
 
                 {% elif col == "Column 1" %}
-                <td align="center" colspan="4">Column 1</td>
+                <td class="colColor" align="center" colspan="4">Column 1</td>
                 {% else %}
                 <td>{{ col }}</td>
                 {% endif %}
