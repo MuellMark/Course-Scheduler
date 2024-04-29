@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>CSV Create Options</title> <!-- Title Of Page -->
+    <!-- Title Of Page -->
+    <title>CSV Create Options</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,9 +55,9 @@
     <div class="container2">
         <div class="info-box">
             <button class="button-style2" onclick="window.location.href='{{ url_for('dynamic')}}'"
-                style="height:50px; width:250px; margin-right: 10px">Create A New CSV</button>
+                style="height:50px; width:250px; margin-right: 10px">Create a New CSV</button>
             <button class="button-style2" onclick="window.location.href='{{ url_for('importpg')}}'"
-                style="height:50px; width:250px">Import A CSV</button>
+                style="height:50px; width:250px">Import a CSV</button>
         </div>
     </div>
 

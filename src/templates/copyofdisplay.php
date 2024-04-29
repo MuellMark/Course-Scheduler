@@ -1,47 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!-- Title Of Page -->
-    <title> CSV Output </title>
-    <!-- Script for creating CSV -->
-    <script src="{{url_for('static', filename='scripts/createCSV.js')}}"></script>
-    <!-- Script for faculty restrictions -->
-    <script type="text/javascript" src="scripts/faculty_script.js"></script>
-    <!-- Firebase library  -->
-    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <!-- Script for confetti  -->
-    <script src="{{url_for('static', filename='scripts/confetti.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <meta charset="UTF-8">
-    <!-- Responsive design tage  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-    <header>
-        <div id="headerBar">
-            <div class="hamburger" onclick="toggleMenu()"> &#9776;</div>
-            <!--Logo Placement-->
-            <div id="logo">
-                <img src="{{url_for('static', filename='images/Logo.png')}}">
-            </div>
-            <!--Navigation Bar-->
-            <nav>
-                <div id="menubar">
-                    <ul>
-                        <li> <a href="{{ url_for('home')}}"> Home</a> </li>
-                        <li> <a href="{{ url_for('faq')}}"> FAQ</a> </li>
-                        <li> <a href="{{ url_for('option')}}"> Create Schedule</a> </li>
-                        <li> <a href="{{ url_for('howto')}}"> Guides</a> </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <!--Header Pic-->
-        <div id="headerImage">
-            <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
-        </div>
-    </header>
 <body>
 
 <h1 style="text-align: center"><span>Courses Schedule</span></h1>
@@ -49,7 +7,6 @@
 
 <form action="/download_csv" method="post">
 <button type="submit" class='button-style5' style="float: right; margin-right: 10px; margin-bottom: 15px">Download</button>
-</form>
 <br>
 
     <style>
@@ -114,48 +71,95 @@
 
     <table id="optimalTable" border="1">
         <th>Time</th>
-        <th>Course Col</th>
+        <th>Course Col 1</th>
         <th>Faculty</th>
-        <th>Course Name</th>
-        <!-- <th>Course Col 2</th>
-        <th>Faculty</th> -->
-        <!-- <th>Course Col 3</th>
+        <th>Course Col 2</th>
         <th>Faculty</th>
-        <th>Course Col 4</th>
-        <th>Faculty</th> -->
-        {% for row in csv_data %}
-            <tr>
-                <!-- Loop through the columns  -->
-                {% for col in row %}
-                {% if col == "1" %}
 
-                {% elif col == "m800" %}
-                <td>MWF at 8:00 AM</td>
-                {% elif col == "m930" %}
-                <td>MWF at 9:30 AM</td>
-                {% elif col == "m1100" %}
-                <td>MWF at 11:00 AM</td>
-                {% elif col == "m200" %}
-                <td>MWF at 2:00 PM</td>
-                {% elif col == "m330" %}
-                <td>MWF at 3:30 PM</td>
-
-                {% elif col == "t830" %}
-                <td>TTH at 8:30 AM</td>
-                {% elif col == "t1000" %}
-                <td>TTH at 10:00 AM</td>
-                {% elif col == "t1130" %}
-                <td>TTH at 11:30 AM</td>
-                {% elif col == "t100" %}
-                <td>TTH at 1:00 PM</td>
-                {% elif col == "t230" %}
-                <td>TTH at 2:30 PM</td>
-                {% else %}
-                <td>{{ col }}</td>
-                {% endif %}
-                {% endfor %}
-            </tr>
-            {% endfor %}
+        <tr>
+            <td>MWF at 8:00 AM</td>
+            <td>CS11</td>
+            <td>Prof_2</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 9:30 AM</td>
+            <td>DIS1</td>
+            <td>Prof_3</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 11:00 AM</td>
+            <td>ORG1</td>
+            <td>Prof_5</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 2:00 PM</td>
+            <td>CS21</td>
+            <td>Prof_5</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 3:30 PM</td>
+            <td>EXP1</td>
+            <td>Prof_1</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>TTH at 8:30 AM</td>
+            <td>ARI1</td>
+            <td>Prof_5</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>TTH at 10:00 AM</td>
+            <td>PRL1</td>
+            <td>Prof_1</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>TTH at 11:30 AM</td>
+            <td>ALG1</td>
+            <td>Prof_1</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>TTH at 1:00 PM</td>
+            <td>OPR1</td>
+            <td>Prof_1</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>TTH at 2:30 PM</td>
+            <td>TOC1</td>
+            <td>Prof_2</td>
+            <td>$</td>   
+        </tr>
+        <tr>
+            <td>MWF at 8:00 AM</td>
+            <td>DAT1</td>
+            <td>Prof_5</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 9:30 AM</td>
+            <td>SYS1</td>
+            <td>Prof_5</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 11:00 AM</td>
+            <td>CAP1</td>
+            <td>Prof_1</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>MWF at 2:00 PM</td>
+            <td>NUA1</td>
+            <td>Prof_4</td>
+            <td>$</td>
+        </tr>
     </table>
     <br>
 
@@ -322,6 +326,11 @@
         // after this here we are calling both the function so it works
         start();
         stop();
+        function playSound() {
+            const audio = new Audio("/static/confetti.mp3"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
+            audio.play();
+        }
+        window.onload = playSound;
 
         // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
