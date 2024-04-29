@@ -327,20 +327,20 @@
     </div>
 
     <script>
-        //  const start = () => {
-        //     setTimeout(function () {
-        //         confetti.start()
-        //     }, 1000); // After 1 second start the confetti
-        // };
+         const start = () => {
+            setTimeout(function () {
+                confetti.start()
+            }, 1000); // After 1 second start the confetti
+        };
 
-        // const stop = () => {
-        //     setTimeout(function () {
-        //         confetti.stop()
-        //     }, 5000); // After 5 second stop the confetti
-        // };
-        // // after this here we are calling both the function so it works
-        // start();
-        // stop();
+        const stop = () => {
+            setTimeout(function () {
+                confetti.stop()
+            }, 5000); // After 5 second stop the confetti
+        };
+        // after this here we are calling both the function so it works
+        start();
+        stop();
 
         // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
