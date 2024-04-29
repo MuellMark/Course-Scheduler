@@ -83,6 +83,7 @@ def split_single_csv_and_run(contents_all_restrict):
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
+# If from site, expands out number of sections
 def expand_sections_from_site(contents_all_restrict):
     course_dict={}
 
@@ -214,6 +215,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                 
             split_single_csv_and_run(contents_all_restrict)
 
+# Figures out if csv is from site or imported by user
 def determine_user_or_site(contents_all_restrict):
     bool_course=False
     i=0

@@ -1,6 +1,6 @@
 import glpk
 
-#------------Helper Functions and Code----------------------------
+#------------Helper Functions and Set Up Code----------------------------
 
 # Global variable to keep track of the row index for pyGLPK LP
 class Row_Index:
@@ -35,7 +35,7 @@ def createDict(dict,list):
         dict[item]=i
         i+=1
 
-# # All possible meetings times
+# All possible meetings times
 times = ["m800","m930","m1100","m200","m330","t830","t1000","t1130","t100","t230"]
 
 # Initialize LP
@@ -45,7 +45,7 @@ lp.obj.maximize = False #Minimizing, not maximizing
 
 #------------Constraint Methods----------------------------
 
-# writes objective function
+# Writes objective function
 def add_objective_function(all_combos):
     obj_fun = []
     for combo in all_combos:
@@ -99,7 +99,7 @@ def time_overlap_cons(all_combos):
             matrix+=temp_matrix
     global_matrix.append(matrix)
 
-#TODO 
+
 # Each column can only have 10 different courses and a certain amount of any
 # of courses have to be in a given column before the next is considered
 def generalColCons(all_combos):
@@ -117,8 +117,9 @@ def generalColCons(all_combos):
 
     global_matrix.append(matrix)
 
-    # Idea should be that columns fill up before moving onto the next one,
-    # I think these need to be reworked, aside from the current issue
+    # TODO, add in restraints so that 9 courses in col 1 before col 2 and 8 in col 2 before col 3
+    # Objective function handles this mostly, very rare circumstances can cause problems
+    # Would be great to implement at a later date, needs checking
 
     # if(num_cols>1):
     #     col1Matrix=[]
@@ -340,7 +341,6 @@ def generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_c
     courses=[]
     for course in contents_course_restrict:
         courses.append(course[0])
-        # print(course)
 
     # Global creation of dictionaries needed in constraints
     global tI
@@ -453,7 +453,6 @@ def print_readable_format(contents_course_restrict):
 def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     
     if not success:
-        # print("temp")
         export_file = open(export_file_name,'r')
         read_file = export_file.read()
         export_file.close()
@@ -495,8 +494,6 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
             file_contents+=("$\n")
 
         export_file.write(file_contents)
-    # else:
-    #     export_file.write("infeasible")
  
 # Exports the file for the website to intercept and displays the schedule
 def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
@@ -520,7 +517,6 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
                 for pair in pairings:
                     if col_string in pair and time in pair:
                         if pair not in sortedPairings: # Not sure why there a duplicates 
-                            # temp=str(num+1)+","+time+","+pair[:4]
                             temp=str(1)+","+time+","+pair[:4]
                             for fac in contents_faculty_restrict:
                                 if pair[:4] in fac:
@@ -529,7 +525,6 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
                                     for line in contents_course_restrict:
                                         if line[0]==pair[:4]:
                                             temp+=","+line[len(line)-1]
-                                            # print(line[len(line)-1])
 
                             sortedPairings.append(pair)
                             output.append(temp)
@@ -538,4 +533,3 @@ def export_csv_website(success,contents_course_restrict,contents_faculty_restric
             file_contents+=pair+"\n"
             
         export_file.write(file_contents)
-    
