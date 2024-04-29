@@ -130,7 +130,8 @@ def upload():
             csv_function_data = getCSVData()
             return render_template('display.php', csv_data=csv_function_data)
         else:
-            return "Not feasible"
+            csv_function_data = []
+            return render_template('displayInfeasible.php', csv_data=csv_function_data)
     else:
         return "No file uploaded!"
 
@@ -177,7 +178,8 @@ def swap():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not Feasible"
+        csv_function_data = getCSVData()
+        return render_template('displayInfeasible.php', csv_data=csv_function_data)
 
 #Check if the CSV meets specified criteria 
 def notInfeasible():
