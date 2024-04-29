@@ -49,6 +49,7 @@
 
 <form action="/download_csv" method="post">
 <button type="submit" class='button-style5' style="float: right; margin-right: 10px; margin-bottom: 15px">Download</button>
+</form>
 <br>
 
     <style>
@@ -317,11 +318,6 @@
         // after this here we are calling both the function so it works
         start();
         stop();
-        function playSound() {
-            const audio = new Audio("/static/confetti.mp3"); // Replace 'path_to_your_sound_file.mp3' with the actual path to your sound file
-            audio.play();
-        }
-        window.onload = playSound;
 
         // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
