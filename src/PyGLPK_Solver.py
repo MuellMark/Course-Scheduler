@@ -463,12 +463,15 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
         
         for line in contents_course_restrict:
             course_name_found=False
+            temp = ""
             for val in line:
                 if not val=="$" and not course_name_found:
                     file_contents+=(val+",")
                 else:
                     course_name_found=True
-            file_contents+=("$\n")
+                    temp=val
+            file_contents+=("$,"+temp+"\n")
+
 
         file_contents+="<faculty_restrictions>\n"
         
