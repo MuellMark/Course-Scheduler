@@ -47,6 +47,7 @@ def getCSVData():
             # Append each row to the csv_data list
             if "infeasible" not in row:
                 csv_data.append(row)
+    csv_data.append("test")
     return csv_data
 
 def organizeData():
