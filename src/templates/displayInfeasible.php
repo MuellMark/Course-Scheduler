@@ -46,7 +46,9 @@
 
 <h1 style="text-align: center"><span>Courses Schedule</span></h1>
 <br>
-<h2 style="text-align: center"><span>The edit you just tried to make was infeasible, meaning it is not a valid schedule. Because of this, the schedule was not changed. Feel free to continue making edits!</span></h2>
+<h2 style="text-align: center"><span>The edit you just tried to make was infeasible, meaning it is not a valid schedule. Because of this, the schedule was not changed.</span></h2>
+<br>
+<h2 style="text-align: center"><span>Feel free to continue making edits!</span></h2>
 <br>
 
 <form action="/download_csv" method="post">
