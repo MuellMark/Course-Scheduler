@@ -105,6 +105,11 @@
         /* Pointer cursor on hover */
     }
 
+    /* Color for the column distinctions */
+    .colColor {
+        background-color: #ffcb08;
+    }
+
     .submit-button:hover,
     .divScroll select:hover {
         background-color: #FFFFFF;
@@ -150,6 +155,15 @@
                 <td>TTH at 1:00 PM</td>
                 {% elif col == "t230" %}
                 <td>TTH at 2:30 PM</td>
+
+                {% elif col == "Column 1" %}
+                <td class="colColor" align="center" colspan="4">Column 1</td>
+                {% elif col == "Column 2" %}
+                <td class="colColor" align="center" colspan="4">Column 2</td>
+                {% elif col == "Column 3" %}
+                <td class="colColor" align="center" colspan="4">Column 3</td>
+                {% elif col == "Column 4" %}
+                <td class="colColor" align="center" colspan="4">Column 4</td>
                 {% else %}
                 <td>{{ col }}</td>
                 {% endif %}

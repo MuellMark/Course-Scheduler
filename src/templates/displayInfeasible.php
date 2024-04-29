@@ -114,6 +114,11 @@
         background-color: #FFFFFF;
         /*When hovering over button, change color to white*/
     }
+
+        /* Color for the column distinctions */
+        .colColor {
+        background-color: #ffcb08;
+    }
     </style>
 
     <table id="optimalTable" border="1">
@@ -154,6 +159,16 @@
                 <td>TTH at 1:00 PM</td>
                 {% elif col == "t230" %}
                 <td>TTH at 2:30 PM</td>
+
+                {% elif col == "Column 1" %}
+                <td class="colColor" align="center" colspan="4">Column 1</td>
+                {% elif col == "Column 2" %}
+                <td class="colColor" align="center" colspan="4">Column 2</td>
+                {% elif col == "Column 3" %}
+                <td class="colColor" align="center" colspan="4">Column 3</td>
+                {% elif col == "Column 4" %}
+                <td class="colColor" align="center" colspan="4">Column 4</td>
+
                 {% else %}
                 <td>{{ col }}</td>
                 {% endif %}
@@ -312,20 +327,20 @@
     </div>
 
     <script>
-         const start = () => {
-            setTimeout(function () {
-                confetti.start()
-            }, 1000); // After 1 second start the confetti
-        };
+        //  const start = () => {
+        //     setTimeout(function () {
+        //         confetti.start()
+        //     }, 1000); // After 1 second start the confetti
+        // };
 
-        const stop = () => {
-            setTimeout(function () {
-                confetti.stop()
-            }, 5000); // After 5 second stop the confetti
-        };
-        // after this here we are calling both the function so it works
-        start();
-        stop();
+        // const stop = () => {
+        //     setTimeout(function () {
+        //         confetti.stop()
+        //     }, 5000); // After 5 second stop the confetti
+        // };
+        // // after this here we are calling both the function so it works
+        // start();
+        // stop();
 
         // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
@@ -341,16 +356,17 @@
         for (let i = 2; i < table.rows.length; i++) {
             const row = table.rows[i];
             
-            // Get the cell in the specified column index
-            const cell = row.cells[columnIndex];
-            
-            // Create an option element for the cell value
-            const option = document.createElement('option');
-            option.value = cell.textContent.trim();
-            option.textContent = cell.textContent.trim();
-            
-            // Append the option to the select element
-            select.appendChild(option);
+            if(row.cells.length>columnIndex){
+                const cell = row.cells[columnIndex];
+                
+                // Create an option element for the cell value
+                const option = document.createElement('option');
+                option.value = cell.textContent.trim();
+                option.textContent = cell.textContent.trim();
+                
+                // Append the option to the select element
+                select.appendChild(option);
+            }
         }
         
         // Append the select element to the specified container

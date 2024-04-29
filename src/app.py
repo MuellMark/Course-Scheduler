@@ -144,7 +144,8 @@ def swap():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not Feasible"
+        csv_function_data = getCSVData()
+        return render_template('displayInfeasible.php', csv_data=csv_function_data)
 
 def notInfeasible():
     with open('user_output.csv', 'r', newline='') as file:
