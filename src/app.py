@@ -45,9 +45,8 @@ def getCSVData():
         # Iterate over each row in the CSV file
         for row in csv_reader:
             # Append each row to the csv_data list
-            if not "infeasible" == row:
+            if not ["infeasible"] in row:
                 csv_data.append(row)
-        csv_data.append("test")
     return csv_data
 
 def organizeData():
