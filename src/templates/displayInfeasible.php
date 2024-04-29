@@ -160,7 +160,7 @@
         select.name = selectId;
         
         // Loop through the rows in the table starting from the second row (index 1)
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 2; i < table.rows.length; i++) {
             const row = table.rows[i];
             
             // Get the cell in the specified column index
