@@ -187,7 +187,7 @@
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
 
         createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');
-        // createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
+        createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
     <form action="/download_csv" method="post">
