@@ -45,7 +45,7 @@ def getCSVData():
         # Iterate over each row in the CSV file
         for row in csv_reader:
             # Append each row to the csv_data list
-            if not ["infeasible"] in row:
+            if len(row)>2
                 csv_data.append(row)
     return csv_data
 
