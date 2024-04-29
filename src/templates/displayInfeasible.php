@@ -46,6 +46,10 @@
 
 <h1 style="text-align: center"><span>Courses Schedule</span></h1>
 <br>
+<h2 style="text-align: center"><span>The edit you just tried to make was infeasible, meaning it is not a valid schedule. Because of this, the schedule was not changed.</span></h2>
+<br>
+<h2 style="text-align: center"><span>Feel free to continue making edits!</span></h2>
+<br>
 
 <form action="/download_csv" method="post">
 <button type="submit" class='button-style5' style="float: right; margin-right: 10px; margin-bottom: 15px">Download</button>
@@ -105,15 +109,15 @@
         /* Pointer cursor on hover */
     }
 
-    /* Color for the column distinctions */
-    .colColor {
-        background-color: #ffcb08;
-    }
-
     .submit-button:hover,
     .divScroll select:hover {
         background-color: #FFFFFF;
         /*When hovering over button, change color to white*/
+    }
+
+        /* Color for the column distinctions */
+        .colColor {
+        background-color: #ffcb08;
     }
     </style>
 
@@ -159,6 +163,7 @@
                 <td class="colColor" align="center" colspan="4">Column 3</td>
                 {% elif col == "Column 4" %}
                 <td class="colColor" align="center" colspan="4">Column 4</td>
+
                 {% else %}
                 <td>{{ col }}</td>
                 {% endif %}
@@ -317,20 +322,6 @@
     </div>
 
     <script>
-         const start = () => {
-            setTimeout(function () {
-                confetti.start()
-            }, 1000); // After 1 second start the confetti
-        };
-
-        const stop = () => {
-            setTimeout(function () {
-                confetti.stop()
-            }, 5000); // After 5 second stop the confetti
-        };
-        // after this here we are calling both the function so it works
-        start();
-        stop();
 
         // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
@@ -343,10 +334,9 @@
         select.name = selectId;
         
         // Loop through the rows in the table starting from the second row (index 1)
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 2; i < table.rows.length; i++) {
             const row = table.rows[i];
             
-            // Get the cell in the specified column index
             if(row.cells.length>columnIndex){ // Ignores rows that don't have all vals
                 const cell = row.cells[columnIndex];
                 
@@ -358,7 +348,6 @@
                 // Append the option to the select element
                 select.appendChild(option);
             }
-            
         }
         
         // Append the select element to the specified container
@@ -369,6 +358,7 @@
         return select;
         }
 
+        // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
 
         createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');

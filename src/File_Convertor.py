@@ -89,6 +89,7 @@ def split_single_csv_and_run(contents_all_restrict):
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
+# If from site, expands out number of sections
 def expand_sections_from_site(contents_all_restrict):
     course_dict={}
 
@@ -199,10 +200,11 @@ def swap_courses_setup(contents_all_restrict,swap_file):
 
             # Goes thru the output file and finds the times the courses were at
             for line in contents_swap:
-                if line[2]==course1:
-                    c1time=line[1]
-                if line[2]==course2:
-                    c2time=line[1]
+                if len(line)>1:
+                    if line[2]==course1:
+                        c1time=line[1]
+                    if line[2]==course2:
+                        c2time=line[1]
 
             # Creates lists to store the course and time infor
             forced1=[]
@@ -219,6 +221,7 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                 
             split_single_csv_and_run(contents_all_restrict)
 
+# Figures out if csv is from site or imported by user
 def determine_user_or_site(contents_all_restrict):
     bool_course=False
     i=0

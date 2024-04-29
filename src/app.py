@@ -130,9 +130,9 @@ def upload():
             csv_function_data = getCSVData()
             return render_template('display.php', csv_data=csv_function_data)
         else:
-            return "Not feasible"
+            return render_template('infeasible_from_import.php') # Goes to separate page
     else:
-        return "No file uploaded!"
+        return render_template('no_file_page.php') # Goes to separate page
 
 #Handles forced courses
 @app.route("/force", methods=['GET', 'POST'])
@@ -152,7 +152,8 @@ def force():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not feasible"
+        csv_function_data = getCSVData()
+        return render_template('displayInfeasible.php', csv_data=csv_function_data)
 
 #Handles  Swapping courses
 @app.route("/swap", methods=['GET', 'POST'])
@@ -176,19 +177,17 @@ def swap():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not feasible"
+        csv_function_data = getCSVData()
+        return render_template('displayInfeasible.php', csv_data=csv_function_data)
 
 #Check if the CSV meets specified criteria 
 def notInfeasible():
     #open output CSV file
     with open('user_output.csv', 'r', newline='') as file:
-        reader = csv.reader(file)
-        # Skip the header row
-        next(reader, None)
-        # Count the number of data rows
-        num_rows = sum(1 for _ in reader)
-        # Check if there are at least two rows
-        return num_rows >= 2
+        if 'infeasible' in file.read(): # if infeasible is in the file, not feasible
+            return False
+    return True
+
     
 #Handles downloading CSV 
 @app.route('/download_csv', methods=['POST'])
