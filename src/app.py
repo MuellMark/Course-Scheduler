@@ -102,7 +102,7 @@ def upload():
             csv_function_data = getCSVData()
             return render_template('display.php', csv_data=csv_function_data)
         else:
-            return "Not feasible"
+            return render_template('infeasible_from_import.php', csv_data=csv_function_data)
     else:
         return "No file uploaded!"
 
