@@ -47,9 +47,6 @@
 <h1 style="text-align: center"><span>Courses Schedule</span></h1>
 <br>
 
-<form action="/download_csv" method="post">
-<button type="submit" class='button-style5' style="float: right; margin-right: 10px; margin-bottom: 15px">Download</button>
-</form>
 <br>
 
     <style>
