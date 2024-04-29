@@ -193,10 +193,11 @@ def swap_courses_setup(contents_all_restrict,swap_file):
 
             # Goes thru the output file and finds the times the courses were at
             for line in contents_swap:
-                if line[2]==course1:
-                    c1time=line[1]
-                if line[2]==course2:
-                    c2time=line[1]
+                if len(line)>1:
+                    if line[2]==course1:
+                        c1time=line[1]
+                    if line[2]==course2:
+                        c2time=line[1]
 
             # Creates lists to store the course and time infor
             forced1=[]
