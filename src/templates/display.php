@@ -338,15 +338,18 @@
             const row = table.rows[i];
             
             // Get the cell in the specified column index
-            const cell = row.cells[columnIndex];
+            if(row.cells.length>columnIndex){
+                const cell = row.cells[columnIndex];
+                
+                // Create an option element for the cell value
+                const option = document.createElement('option');
+                option.value = cell.textContent.trim();
+                option.textContent = cell.textContent.trim();
+                
+                // Append the option to the select element
+                select.appendChild(option);
+            }
             
-            // Create an option element for the cell value
-            const option = document.createElement('option');
-            option.value = cell.textContent.trim();
-            option.textContent = cell.textContent.trim();
-            
-            // Append the option to the select element
-            select.appendChild(option);
         }
         
         // Append the select element to the specified container
