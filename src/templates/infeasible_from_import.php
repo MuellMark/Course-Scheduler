@@ -40,13 +40,11 @@
 
     <br>
     <div>
-        <h1 style="margin-top: 75px"><span>This is infeasible!!!!! what da heck</span></h1>
+        <h1 style="margin-top: 75px"><span>The file you tried to import is infeasible!</span></h1>
         <br>
         <br>
         <br>
-        <p style="margin-left: auto; margin-right: auto; max-width: 700px"> The first step in course scheduling is
-            creating a CSV file. This is where all of the course and faculty restrictions are specified. Users may
-            either create a new CSV file or import an existing one. </p>
+        <p style="margin-left: auto; margin-right: auto; max-width: 700px">This means no schedule can be created given these parameters. Try and upload a different CSV file, or create a new one below!</p>
     </div>
 
     <br>
