@@ -122,7 +122,12 @@
         <th>Course Col</th>
         <th>Faculty</th>
         <th>Course Name</th>
-
+        <!-- <th>Course Col 2</th>
+        <th>Faculty</th> -->
+        <!-- <th>Course Col 3</th>
+        <th>Faculty</th>
+        <th>Course Col 4</th>
+        <th>Faculty</th> -->
         {% for row in csv_data %}
             <tr>
                 <!-- Loop through the columns  -->
@@ -347,7 +352,7 @@
             const row = table.rows[i];
             
             // Get the cell in the specified column index
-            if(row.cells.length>columnIndex){ // Ignores rows that don't have all vals
+            if(row.cells.length>columnIndex){
                 const cell = row.cells[columnIndex];
                 
                 // Create an option element for the cell value
@@ -369,6 +374,7 @@
         return select;
         }
 
+        // createSelectFromColumn('optimalTable', 0, 'timeMenu','time');
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
 
         createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');
