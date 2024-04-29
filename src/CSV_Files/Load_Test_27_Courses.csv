@@ -1,0 +1,9 @@
+<course-table>
+CS1,FALSE,9,CS11,$,Computer Science 1
+CS2,FALSE,9,CS21,$,Computer Science 2
+CS3,FALSE,9,CS32,$,Computer Science 3
+
+<faculty-table>
+Fac1,FALSE,CS1,CS1,CS1,CS1,CS1,CS1,CS1,CS1,CS1,$
+Fac2,FALSE,CS2,CS2,CS2,CS2,CS2,CS2,CS2,CS2,CS2,$
+Fac3,FALSE,CS3,CS3,CS3,CS3,CS3,CS3,CS3,CS3,CS3,$
