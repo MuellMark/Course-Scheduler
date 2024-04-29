@@ -150,6 +150,9 @@
                 <td>TTH at 1:00 PM</td>
                 {% elif col == "t230" %}
                 <td>TTH at 2:30 PM</td>
+
+                {% elif col == "Column 1" %}
+                <\center><td>Column 1</td><\center>
                 {% else %}
                 <td>{{ col }}</td>
                 {% endif %}
