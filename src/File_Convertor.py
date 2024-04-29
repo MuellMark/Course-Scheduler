@@ -21,6 +21,7 @@ def export_both(success,contents_course_restrict,contents_faculty_restrict,force
     export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,site_path)
     export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,user_path)
 
+
 # Method calls the PyGLPK_Solver to create the LP and run PyGLPK
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
     # Success tracks whether or not the schedule is feasible
@@ -82,7 +83,6 @@ def split_single_csv_and_run(contents_all_restrict):
         i+=1
     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses)
 
-# If called from a website, splits number of sectioins
 def expand_sections_from_site(contents_all_restrict):
     course_dict={}
 
@@ -214,7 +214,6 @@ def swap_courses_setup(contents_all_restrict,swap_file):
                 
             split_single_csv_and_run(contents_all_restrict)
 
-# Figures out if incoming csv is from the site or importing it, and processes accordingly
 def determine_user_or_site(contents_all_restrict):
     bool_course=False
     i=0
@@ -234,21 +233,20 @@ def determine_user_or_site(contents_all_restrict):
 
 #------------Functions based on number of params----------------------------
 
-# Defunkt, no longer needed, commented out for reference if needed in the future
-# def no_csv_param():
-#     # Default test files
-#     course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/csAndMathTemplateCourseRestrictions.csv",'r')
-#     faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/csAndMathTemplateFacultyRestrictions.csv",'r')
+# Default for testing as I redistribute code, will remove once complete
+def no_csv_param():
+    # Default test files
+    course_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/csAndMathTemplateCourseRestrictions.csv",'r')
+    faculty_restrict_file = open("/Users/markymarkscomputer/Desktop/Course-Scheduler/src/Python_Code/CSV_Files/csAndMathTemplateFacultyRestrictions.csv",'r')
 
-#     temp_course_restrict = csv.reader(course_restrict_file)
-#     contents_course_restrict = list(temp_course_restrict)
-#     temp_faculty_restrict = csv.reader(faculty_restrict_file)
-#     contents_faculty_restrict = list(temp_faculty_restrict)
+    temp_course_restrict = csv.reader(course_restrict_file)
+    contents_course_restrict = list(temp_course_restrict)
+    temp_faculty_restrict = csv.reader(faculty_restrict_file)
+    contents_faculty_restrict = list(temp_faculty_restrict)
 
-#     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
 
-
-# Deceptive name, used for calling the given method given command line params
+# TODO fix names For when there is only 1 csv file, has two params to specify the type of csv file
 def one_csv_param(file,file_type,swap_file):
     all_restrict_file = open(file,'r')
 
@@ -257,27 +255,28 @@ def one_csv_param(file,file_type,swap_file):
     if file_type=="csv":
         determine_user_or_site(contents_all_restrict)
     elif file_type=="time":
-        split_single_csv_and_run(contents_all_restrict) 
+        split_single_csv_and_run(contents_all_restrict)
+    # elif file_type=="site":
+    #     expand_sections_from_site(contents_all_restrict)   
     elif file_type=="swap":
         swap_courses_setup(contents_all_restrict,swap_file)
     else:
         print("error")
 
-# Defunct, Original standard, when there are 2 csv files, commented out for reference if needed
-# def two_csv_param(course_file,faculty_file):
-#     course_restrict_file = open(course_file,'r')
-#     faculty_restrict_file = open(faculty_file,'r')
+# Defunct, Original standard, when there are 2 csv files
+def two_csv_param(course_file,faculty_file):
+    course_restrict_file = open(course_file,'r')
+    faculty_restrict_file = open(faculty_file,'r')
 
-#     temp_course_restrict = csv.reader(course_restrict_file)
-#     contents_course_restrict = list(temp_course_restrict)
-#     temp_faculty_restrict = csv.reader(faculty_restrict_file)
-#     contents_faculty_restrict = list(temp_faculty_restrict)
-#     call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
+    temp_course_restrict = csv.reader(course_restrict_file)
+    contents_course_restrict = list(temp_course_restrict)
+    temp_faculty_restrict = csv.reader(faculty_restrict_file)
+    contents_faculty_restrict = list(temp_faculty_restrict)
+    call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,[])
 
 #------------Main--------------------------------------------------
 
-# Will only run if file is called directly TODO refactor names because they are very decpetive
-# Used to take in command line params and call necesaary functions
+# Will only run if file is called directly TODO change no params and the num_args==2 line
 if __name__=="__main__":
     num_args = len(sys.argv)
 
@@ -286,8 +285,10 @@ if __name__=="__main__":
 
         export_type=sys.argv[3]
 
-    elif(num_args==2): # If called from site
-        args=sys.argv[1].split() # Must split because there are 3-4 params
+    if(num_args==1):
+        no_csv_param()
+    elif(num_args==2): #default in case it's called, will remove soon
+        args=sys.argv[1].split()
         if len(args==3): # everything else for colby
             args.append("")
             export_type=args[2]
@@ -298,7 +299,7 @@ if __name__=="__main__":
             one_csv_param(args[0],args[1],args[3],args[4])
     elif(num_args==4):
         one_csv_param(sys.argv[1],sys.argv[2],"")
-
+        # two_csv_param(sys.argv[1],sys.argv[2])
     elif(num_args==5):
         one_csv_param(sys.argv[1],sys.argv[2],sys.argv[4])
     else:
