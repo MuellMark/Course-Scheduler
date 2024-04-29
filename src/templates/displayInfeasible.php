@@ -126,12 +126,7 @@
         <th>Course Col</th>
         <th>Faculty</th>
         <th>Course Name</th>
-        <!-- <th>Course Col 2</th>
-        <th>Faculty</th> -->
-        <!-- <th>Course Col 3</th>
-        <th>Faculty</th>
-        <th>Course Col 4</th>
-        <th>Faculty</th> -->
+
         {% for row in csv_data %}
             <tr>
                 <!-- Loop through the columns  -->
@@ -327,20 +322,6 @@
     </div>
 
     <script>
-        //  const start = () => {
-        //     setTimeout(function () {
-        //         confetti.start()
-        //     }, 1000); // After 1 second start the confetti
-        // };
-
-        // const stop = () => {
-        //     setTimeout(function () {
-        //         confetti.stop()
-        //     }, 5000); // After 5 second stop the confetti
-        // };
-        // // after this here we are calling both the function so it works
-        // start();
-        // stop();
 
         // https://www.geeksforgeeks.org/how-to-access-tr-element-from-table-using-javascript/
         function createSelectFromColumn(tableId, columnIndex,containerType,selectId) {
@@ -356,7 +337,7 @@
         for (let i = 2; i < table.rows.length; i++) {
             const row = table.rows[i];
             
-            if(row.cells.length>columnIndex){
+            if(row.cells.length>columnIndex){ // Ignores rows that don't have all vals
                 const cell = row.cells[columnIndex];
                 
                 // Create an option element for the cell value

@@ -37,7 +37,7 @@
             <img src="{{url_for('static', filename='images/48430_211016_HomecomingDroneSunset-HDR_2 (1).jpg')}}">
         </div>
     </header>
-
+<!-- Landing page for when the user imports a schdule that is infeasible from the start -->
     <br>
     <div>
         <h1 style="margin-top: 75px"><span>The file you tried to import is infeasible!</span></h1>
