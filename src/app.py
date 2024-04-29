@@ -45,7 +45,8 @@ def getCSVData():
         # Iterate over each row in the CSV file
         for row in csv_reader:
             # Append each row to the csv_data list
-            csv_data.append(row)
+            if not "infeasible" == row:
+                csv_data.append(row)
     return csv_data
 
 def organizeData():
@@ -123,7 +124,8 @@ def force():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not feasible"
+        csv_function_data = getCSVData()
+        return render_template('displayInfeasible.php', csv_data=csv_function_data)
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
@@ -142,17 +144,25 @@ def swap():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not feasible"
+        return "Not Feasible"
 
 def notInfeasible():
     with open('user_output.csv', 'r', newline='') as file:
-        reader = csv.reader(file)
-        # Skip the header row
-        next(reader, None)
-        # Count the number of data rows
-        num_rows = sum(1 for _ in reader)
-        # Check if there are at least two rows
-        return num_rows >= 2
+        
+        # reader = csv.reader(file)
+        
+        # # Skip the header row
+        # next(reader, None)
+        # # Count the number of data rows
+        # num_rows = sum(1 for _ in reader)
+        # # Check if there are at least two rows
+        # return num_rows >= 2
+
+        # with open('myfile.txt') as myfile:
+        if 'infeasible' in file.read():
+            return False
+    return True
+
     
 @app.route('/download_csv', methods=['POST'])
 def download_csv():

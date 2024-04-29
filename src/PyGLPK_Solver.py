@@ -451,9 +451,21 @@ def print_readable_format(contents_course_restrict):
 
 # Export method for the user to put it back into the site, NOT for displaying
 def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
-    export_file = open(export_file_name,'w')
-    file_contents=""
-    if success:
+    
+    if not success:
+        # print("temp")
+        export_file = open(export_file_name,'r')
+        read_file = export_file.read()
+        export_file.close()
+
+        if "infeasible" not in read_file:
+            export_file = open(export_file_name,'w')
+            export_file.write("infeasible \n")
+            export_file.write(read_file)
+    
+    else:
+        export_file = open(export_file_name,'w')
+        file_contents=""
         if len(forced_courses)>0:
             file_contents+=("<forced_courses>\n")
             for pairing in forced_courses:
@@ -463,12 +475,15 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
         
         for line in contents_course_restrict:
             course_name_found=False
+            temp = ""
             for val in line:
                 if not val=="$" and not course_name_found:
                     file_contents+=(val+",")
                 else:
                     course_name_found=True
-            file_contents+=("$\n")
+                    temp=val
+            file_contents+=("$,"+temp+"\n")
+
 
         file_contents+="<faculty_restrictions>\n"
         
@@ -480,21 +495,22 @@ def export_csv(success,contents_course_restrict,contents_faculty_restrict,forced
             file_contents+=("$\n")
 
         export_file.write(file_contents)
-    else:
-        export_file.write("infeasible")
+    # else:
+    #     export_file.write("infeasible")
  
 # Exports the file for the website to intercept and displays the schedule
 def export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,export_file_name):
     
     if not success:
-        export_file = open(export_file_name,'r')
-        read_file = export_file.read()
-        export_file.close()
+        print("temp")
+        # export_file = open(export_file_name,'r')
+        # read_file = export_file.read()
+        # export_file.close()
 
-        if "infeasible" not in read_file:
-            export_file = open(export_file_name,'w')
-            export_file.write("infeasible \n")
-            export_file.write(read_file)
+        # if "infeasible" not in read_file:
+        #     export_file = open(export_file_name,'w')
+        #     export_file.write("infeasible \n")
+        #     export_file.write(read_file)
 
     else: # Only print if a successful schedule was made
         export_file = open(export_file_name,'w')

@@ -1,12 +1,3 @@
 infeasible 
-1,m800,CS11,Prof_2,$
-1,m930,CS21,Prof_5,$
-1,m1100,DIS1,Prof_3,$
-1,m200,ORG1,Prof_5,$
-1,m330,PRL1,Prof_1,$
-1,t830,ALG1,Prof_1,$
-1,t1000,SYS1,Prof_5,$
-1,t1130,CAP1,Prof_1,$
-1,t100,ARI1,Prof_5,$
-1,t230,TOC1,Prof_2,$
-1,m800,DAT1,Prof_5,$
+1,m800,CS11,Fac1,Computer Science 1
+1,m930,CS21,Fac1,Computer Science 2

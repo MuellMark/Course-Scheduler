@@ -46,6 +46,10 @@
 
 <h1 style="text-align: center"><span>Courses Schedule</span></h1>
 <br>
+<h2 style="text-align: center"><span>The edit you just tried to make was infeasible, meaning it is not a valid schedule. Because of this, the schedule was not changed.</span></h2>
+<br>
+<h2 style="text-align: center"><span>Feel free to continue making edits!</span></h2>
+<br>
 
 <form action="/download_csv" method="post">
 <button type="submit" class='button-style5' style="float: right; margin-right: 10px; margin-bottom: 15px">Download</button>
@@ -334,7 +338,7 @@
         select.name = selectId;
         
         // Loop through the rows in the table starting from the second row (index 1)
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 2; i < table.rows.length; i++) {
             const row = table.rows[i];
             
             // Get the cell in the specified column index

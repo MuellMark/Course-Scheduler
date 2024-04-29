@@ -1,1 +1,6 @@
-infeasible
+infeasible 
+<course_restrict>
+CS11,TRUE,aaa,$,Computer Science 1
+CS21,FALSE,aaa,$,Computer Science 2
+<faculty_restrictions>
+Fac1,TRUE,CS11,CS21,$
