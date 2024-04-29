@@ -59,8 +59,8 @@
         <th>Time</th>
         <th>Course Col 1</th>
         <th>Faculty</th>
-        <th>Course Col 2</th>
-        <th>Faculty</th>
+        <!-- <th>Course Col 2</th>
+        <th>Faculty</th> -->
         <!-- <th>Course Col 3</th>
         <th>Faculty</th>
         <th>Course Col 4</th>
@@ -187,7 +187,7 @@
         createSelectFromColumn('optimalTable', 1, 'courseMenu','course');
 
         createSelectFromColumn('optimalTable', 1, 'firstcourse','course1');
-        createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
+        // createSelectFromColumn('optimalTable', 1, 'secondcourse','course2');
 
   </script>
     <form action="/download_csv" method="post">
