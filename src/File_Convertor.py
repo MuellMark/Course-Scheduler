@@ -6,8 +6,11 @@ from PyGLPK_Solver import *
 #------------Helper Functions-----------------------------------------------
 
 def copy(l):
+    #Initialize an empty list
     new_list=[]
+    #Iterate over all elements
     for val in l:
+        #Append to list
         new_list.append(val)
     return new_list
 
@@ -18,6 +21,7 @@ def export_both(success,contents_course_restrict,contents_faculty_restrict,force
     # Change user download path here
     user_path="user_output.csv"
 
+    #Export functions for site and user
     export_csv_website(success,contents_course_restrict,contents_faculty_restrict,forced_courses,site_path)
     export_csv(success,contents_course_restrict,contents_faculty_restrict,forced_courses,user_path)
 
@@ -26,12 +30,14 @@ def export_both(success,contents_course_restrict,contents_faculty_restrict,force
 def call_PyCLPK_Solver(contents_course_restrict,contents_faculty_restrict,forced_courses):
     # Success tracks whether or not the schedule is feasible
     success = generate_and_run(contents_course_restrict,contents_faculty_restrict,forced_courses)
+    #If solution is feasible
     if success:
         # print_all_rows_and_columns()
         print_readable_format(contents_course_restrict)
     else:
         print("infeasible")
-        
+
+    #Export Type  
     if export_type=="both":
         export_both(success,contents_course_restrict,contents_faculty_restrict,forced_courses)
     elif export_type=="site":
