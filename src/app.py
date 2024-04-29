@@ -123,7 +123,8 @@ def force():
         csv_function_data = getCSVData()
         return render_template('display.php', csv_data=csv_function_data)
     else:
-        return "Not Feasible"
+        csv_function_data = getCSVData()
+        return render_template('displayInfeasible.php', csv_data=csv_function_data)
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
