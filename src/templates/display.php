@@ -57,8 +57,9 @@
 
     <table id="optimalTable" border="1">
         <th>Time</th>
-        <th>Course Col 1</th>
+        <th>Course Col</th>
         <th>Faculty</th>
+        <th>Course Name</th>
         <!-- <th>Course Col 2</th>
         <th>Faculty</th> -->
         <!-- <th>Course Col 3</th>
