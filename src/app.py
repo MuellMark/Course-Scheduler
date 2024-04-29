@@ -52,7 +52,7 @@ def organizeData():
     # Create a defaultdict to store entries based on the code
     entries = defaultdict(list)
 
-    # Read the input CSV file
+    # # Read the input CSV file
     with open('output.csv', 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
@@ -68,7 +68,7 @@ def organizeData():
     with open("output.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for code, data_list in entries.items():
-            if len(data_list) > 1:  # Only merge if there are multiple entries with the same code
+            if len(data_list) > 2:  # Only merge if there are multiple entries with the same code
                 merged_row = [data_list[0][0], code]
                 data_list = sum(data_list,())
                 expanded_list = []
@@ -108,7 +108,7 @@ def upload():
 # TODO grab from 2nd column
 @app.route("/force", methods=['GET', 'POST'])
 def force():
-    f = open('user_output.csv','r')
+    f = open('output.csv','r')
     newf = open('force.csv','w')
     lines = f.readlines() # read old content
     newf.write("<forced_courses>" + "\n" + request.form['course'] + "," + request.form['time'] + "\n") # write new content at the beginning
@@ -128,7 +128,7 @@ def force():
 
 @app.route("/swap", methods=['GET', 'POST'])
 def swap():
-    f = open('user_output.csv','r')
+    f = open('output.csv','r')
     newf = open('swap.csv','w')
     lines = f.readlines() # read old content
     newf.write("<swapped_courses>" + "\n" + request.form['course1'] + "," + request.form['course2'] + "\n") # write new content at the beginning
