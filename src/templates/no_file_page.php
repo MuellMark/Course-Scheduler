@@ -38,7 +38,7 @@
         </div>
     </header>
 
-
+<!-- Landing page if no file is uploaded -->
     <br>
     <h1 style="margin-top: 25px"><span>No File Uploaded!</span></h1>
     <br>
