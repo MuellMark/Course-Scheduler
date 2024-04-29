@@ -105,8 +105,9 @@
         /* Pointer cursor on hover */
     }
 
+    /* Color for the column distinctions */
     .colColor {
-        background-color: orangered;
+        background-color: #ffcb08;
     }
 
     .submit-button:hover,
