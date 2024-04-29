@@ -148,17 +148,20 @@ def swap():
 def notInfeasible():
     with open('user_output.csv', 'r', newline='') as file:
         
-        reader = csv.reader(file)
-
-        if "infeasible" in reader:
-            return False
+        # reader = csv.reader(file)
+        
         # # Skip the header row
         # next(reader, None)
         # # Count the number of data rows
         # num_rows = sum(1 for _ in reader)
         # # Check if there are at least two rows
-        else:
-            return True
+        # return num_rows >= 2
+
+        # with open('myfile.txt') as myfile:
+        if 'infeasible' in file.read():
+            return False
+    return True
+
     
 @app.route('/download_csv', methods=['POST'])
 def download_csv():
