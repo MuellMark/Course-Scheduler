@@ -302,3 +302,5 @@ if __name__=="__main__":
         # two_csv_param(sys.argv[1],sys.argv[2])
     elif(num_args==5):
         one_csv_param(sys.argv[1],sys.argv[2],sys.argv[4])
+    else:
+        print("error, too many parameters")
